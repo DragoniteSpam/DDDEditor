@@ -7,5 +7,7 @@ with (instance_create(0, 0, EntityTile)){
             tile_x=argument[0];
             break;
     }
+    
+    cobject=c_object_create(Stuff.c_shape_tile, 1, 1);
     return id;
 }

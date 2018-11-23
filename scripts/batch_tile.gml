@@ -33,9 +33,9 @@ var color=tile.tile_color;
 var alpha=tile.tile_alpha;
 
 vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT,zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+Stuff.tile_width, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+Stuff.tile_width, yy+Stuff.tile_height,zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
 
-vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
-vertex_point_complete(buffer, xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+Stuff.tile_width, yy+Stuff.tile_height, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx, yy+Stuff.tile_height, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
 vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);

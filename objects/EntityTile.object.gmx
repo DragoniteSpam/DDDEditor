@@ -45,9 +45,14 @@ tile_alpha=1;
 // all four vertices of the tile but I can't think of any practical
 // use for that
 
+// other properties
+am_solid=false;
+
+// editor properties
+
 batch=batch_tile;
 render=render_tile;
-am_solid=false;
+selector=select_tile;
 </string>
           </argument>
         </arguments>

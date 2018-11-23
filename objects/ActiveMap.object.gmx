@@ -32,8 +32,9 @@ zz=8;
 
 // internal stuff
 batches=ds_list_create();               // vertex buffers
+batch_instances=ds_list_create();       // entities
 batch_in_the_future=ds_list_create();   // entities
-dynamic=ds_list_create();
+dynamic=ds_list_create();               // entities
 
 all_entities=ds_list_create();          // entities
 </string>
@@ -64,10 +65,11 @@ all_entities=ds_list_create();          // entities
 
 ds_list_destroy(batches);
 
+ds_list_destroy(batch_instances);
 ds_list_destroy(batch_in_the_future);
 ds_list_destroy(dynamic);
 
-// batch_in_the_future and dynamic are not guaranteed to have all
+// the last three lists are not guaranteed to have all
 // entities in the map in them. this one is.
 ds_list_destroy_instances(all_entities);
 </string>

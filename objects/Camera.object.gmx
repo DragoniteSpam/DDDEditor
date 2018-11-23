@@ -80,8 +80,14 @@ graphics_create_grid();
 
 under_cursor=noone;
 
-selection_start=selection_empty();
-selection_end=selection_empty();
+selection_start=selection_clear();
+selection_end=selection_clear();
+
+/*
+ * other stuff
+ */
+
+changes=ds_list_create();
 
 /*
  * enumerated constants that i need
@@ -145,11 +151,11 @@ if (keyboard_check(vk_right)||keyboard_check(ord('D'))){
     yspeed=dcos(direction)*mspd*Stuff.dt;
 }
 if (mouse_check_button(mb_middle)){
-    var dx=(MOUSE_X-WW/2)/16;
-    var dy=(MOUSE_Y-HH/2)/16;
+    var dx=(MOUSE_X-CW/2)/16;
+    var dy=(MOUSE_Y-CH/2)/16;
     direction=(360+direction-dx)%360;
     pitch=clamp(pitch+dy, -80, 80);
-    window_mouse_set(WW/2, HH/2);
+    window_mouse_set(CW/2, CH/2);
     xto=x+dcos(direction);
     yto=y-dsin(direction);
     zto=z-dsin(pitch);
@@ -186,7 +192,7 @@ zup=1;
             <kind>1</kind>
             <string>/// Select stuff with the mouse
 
-mouse_vector=update_mouse_vector(x, y, z, xto, yto, zto, xup, yup, zup, fov, W/H);
+mouse_vector=update_mouse_vector(x, y, z, xto, yto, zto, xup, yup, zup, fov, CW/CH);
 
 var xx=mouse_vector[vec3.xx]*MILLION;
 var yy=mouse_vector[vec3.yy]*MILLION;
@@ -213,7 +219,7 @@ if (zz&lt;z){
     
     if (mouse_check_button_pressed(mb_left)){
         // Begin selection
-        if (selection_start[vec3.zz]==-1){
+        if (selection_empty()){
             if (under_cursor==noone){
                 selection_start[vec3.zz]=0;
                 selection_end[vec3.zz]=0;
@@ -227,32 +233,113 @@ if (zz&lt;z){
             selection_end[vec3.yy]=floor_cy;
         // Clear selection
         } else {
-            selection_start=selection_empty();
-            selection_end=selection_empty();
+            selection_start=selection_clear();
+            selection_end=selection_clear();
         }
     }
     if (mouse_check_button(mb_left)){
-        if (selection_start[vec3.zz]&gt;-1){
+        if (!selection_empty()){
             selection_end[vec3.xx]=floor_cx;
             selection_end[vec3.yy]=floor_cy;
         }
     }
     if (mouse_check_button_released(mb_left)){
+        // if the selection is empty and something has been
+        // clicked on, select it instead of nothing
+        if (selection_empty()){
+            if (under_cursor!=noone){
+                script_execute(under_cursor.selector, under_cursor);
+            }
+        }
     }
 }
 
 if (keyboard_check_pressed(vk_space)){
-    if (selection_start[vec3.zz]&gt;-1){
+    if (!selection_empty()){
         var x1=min(selection_start[vec3.xx], selection_end[vec3.xx]);
         var y1=min(selection_start[vec3.yy], selection_end[vec3.yy]);
         var x2=max(selection_start[vec3.xx], selection_end[vec3.xx]);
         var y2=max(selection_start[vec3.yy], selection_end[vec3.yy]);
         for (var i=x1; i&lt;x2; i++){
             for (var j=y1; j&lt;y2; j++){
-                map_add_thing(instance_create_tile(4, 0), i, j, 0);
+                var addition=instance_create_tile(4, 0);
+                map_add_thing(addition, i, j, 0);
+                
+                ds_list_add(changes, addition);
             }
         }
     }
+}
+
+if (keyboard_check_pressed(vk_delete)){
+    if (!selection_empty()){
+        for (var i=0; i&lt;ds_list_size(ActiveMap.all_entities); i++){
+            var thing=ActiveMap.all_entities[| i];
+            if (selected(thing)){
+                thing.modification=Modifications.REMOVE;
+                ds_list_add(changes, thing);
+            }
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="77">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// step cleanup actions
+
+var future=ActiveMap.batch_in_the_future;
+
+for (var i=0; i&lt;ds_list_size(changes); i++){
+    var thing=changes[| i];
+    switch (thing.modification){
+        case Modifications.CREATE:
+            instance_deactivate_object(thing);
+            break;
+        case Modifications.UPDATE:
+            if (thing.batch_index==-1){
+            } else {
+            }
+            break;
+        case Modifications.REMOVE:
+            if (thing.batch_index==-1){
+                ds_list_delete(future, ds_list_find_index(future, thing));
+            } else {
+                var bl=ActiveMap.batch_instances[| thing.batch_index];
+                ds_list_delete(bl, ds_list_find_index(bl, thing));
+                batch_again(thing.batch_index);
+            }
+            ds_list_delete(ActiveMap.all_entities, ds_list_find_index(ActiveMap.all_entities, thing));
+            instance_activate_object(thing);
+            instance_destroy(thing);
+            break;
+    }
+}
+
+ds_list_clear(changes);
+
+// you may add/delete/move stuff in bulk and doing this for each
+// entity that was changed would slow the editor down quite a lot
+if (ds_list_size(ActiveMap.batch_in_the_future)&gt;BATCH_CACHE_SIZE){
+    batch_cache();
 }
 </string>
           </argument>
@@ -278,59 +365,11 @@ if (keyboard_check_pressed(vk_space)){
             <kind>1</kind>
             <string>/// Anything visible in the world
 
-d3d_start();
-d3d_set_culling(true);
-d3d_set_hidden(true);
-
-// todo GMS2 requires smooth shading to be handled by the shader(s) now,
-// so to make porting this to GMS2 as pain-free as possible I'd like to
-// do it that way here at some point in the future too
-
-draw_set_color(c_white);
-
-d3d_set_projection_ext(x, y, z,
-    xto, yto, zto,
-    xup, yup, zup,
-    fov, W/H, 1, 32000);
-
-// anything in the world
-
-// this will need to be dynamic at some point
-var tex=sprite_get_texture(b_tileset_overworld, 0);
-for (var i=0; i&lt;ds_list_size(ActiveMap.batches); i++){
-    vertex_submit(ActiveMap.batches[| i], pr_trianglelist, tex);
+if (view_current==0){
+    draw_editor_3d();
+} else if (view_current==1){
+    draw_editor_hud();
 }
-for (var i=0; i&lt;ds_list_size(ActiveMap.batch_in_the_future); i++){
-    var ent=ActiveMap.batch_in_the_future[| i];
-    script_execute(ent.render, ent);
-}
-for (var i=0; i&lt;ds_list_size(ActiveMap.dynamic); i++){
-    var ent=ActiveMap.dynamic[| i];
-    script_execute(ent.render, ent);
-}
-
-// the grid, which you may want an option to turn this off if it gets annoying
-// also anything else that gets drawn independently of the z buffer
-d3d_set_zwriteenable(false);
-vertex_submit(grid, pr_linelist, -1);
-
-d3d_set_culling(false);
-if (selection_start[vec3.zz]&gt;-1){
-    transform_set(0, 0, selection_start[vec3.zz]*Stuff.tile_depth, 0, 0, 0, 1, 1, 1);
-    
-    var x1=selection_start[vec3.xx]*Stuff.tile_width;
-    var y1=selection_start[vec3.yy]*Stuff.tile_height;
-    var x2=selection_end[vec3.xx]*Stuff.tile_width;
-    var y2=selection_end[vec3.yy]*Stuff.tile_height;
-    var w=12;
-    
-    draw_line_width_colour(x1, y1, x1, y2, w, c_red, c_red);
-    draw_line_width_colour(x1, y1, x2, y1, w, c_red, c_red);
-    draw_line_width_colour(x2, y1, x2, y2, w, c_red, c_red);
-    draw_line_width_colour(x1, y2, x2, y2, w, c_red, c_red);
-    transform_reset();
-}
-d3d_set_zwriteenable(true);
 </string>
           </argument>
         </arguments>

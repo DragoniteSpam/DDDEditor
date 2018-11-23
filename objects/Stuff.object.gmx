@@ -40,6 +40,12 @@ tile_depth=32;
 // to be well-designed
 c_init();
 c_world_create();
+
+c_shape_tile=c_shape_create();
+c_shape_begin_trimesh();
+c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
+c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
+c_shape_end_trimesh(c_shape_tile);
 // at some point there shouldn't necessarily need to be an active
 // map in existence for this to work, but for now there does
 instance_create(0, 0, ActiveMap);

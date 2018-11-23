@@ -98,9 +98,13 @@
         <script>scripts\ds_list_destroy_instances.gml</script>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
+      <script>scripts\is_clamped.gml</script>
     </scripts>
     <scripts name="Selection">
+      <script>scripts\selection_clear.gml</script>
       <script>scripts\selection_empty.gml</script>
+      <script>scripts\select_tile.gml</script>
+      <script>scripts\selected.gml</script>
     </scripts>
     <scripts name="Graphics">
       <script>scripts\graphics_create_grid.gml</script>
@@ -108,10 +112,14 @@
       <script>scripts\vertex_point_line.gml</script>
       <scripts name="batching">
         <script>scripts\batch_tile.gml</script>
+        <script>scripts\batch_cache.gml</script>
+        <script>scripts\batch_again.gml</script>
       </scripts>
       <scripts name="rendering">
         <script>scripts\render_tile.gml</script>
       </scripts>
+      <script>scripts\draw_editor_hud.gml</script>
+      <script>scripts\draw_editor_3d.gml</script>
     </scripts>
     <scripts name="Maps">
       <script>scripts\map_add_thing.gml</script>
@@ -121,6 +129,7 @@
         <script>scripts\instance_create_tile.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\debug.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\Camera</object>
@@ -134,10 +143,11 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="3">
+  <constants number="4">
+    <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="MILLION">1000000</constant>
-    <constant name="W">room_width</constant>
-    <constant name="H">room_height</constant>
+    <constant name="CW">1080</constant>
+    <constant name="CH">900</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

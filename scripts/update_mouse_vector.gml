@@ -1,6 +1,8 @@
 /// void update_mouse_vector(xfrom, yfrom, zfrom, xto, yto, zto, xup, yup, zup, fov, aspect);
-
-var mm,dX,dY,dZ,uX,uY,uZ,vX,vY,vZ,mX,mY,mZ, width, height, tFOV, asp;
+// Pretty suret his is an adapted version of code written by a
+// guy called Yourself on the game maker forums, but i can't
+// find the original thread.
+var mm,dX,dY,dZ,uX,uY,uZ,vX,vY,vZ,mX,mY,mZ,width,height,tFOV,asp;
 asp=argument10;
 
 // normalize TO vector
@@ -43,9 +45,9 @@ vY *= tFOV*asp;
 vZ *= tFOV*asp;
 
 // add UP*MOUSE_Y and X*MOUSE_X vector to TO vector
-mX = dX+uX*(1-2*MOUSE_Y/HH)+vX*(2*MOUSE_X/WW-1);
-mY = dY+uY*(1-2*MOUSE_Y/HH)+vY*(2*MOUSE_X/WW-1);
-mZ = dZ+uZ*(1-2*MOUSE_Y/HH)+vZ*(2*MOUSE_X/WW-1);
+mX = dX+uX*(1-2*MOUSE_Y/CH)+vX*(2*MOUSE_X/CW-1);
+mY = dY+uY*(1-2*MOUSE_Y/CH)+vY*(2*MOUSE_X/CW-1);
+mZ = dZ+uZ*(1-2*MOUSE_Y/CH)+vZ*(2*MOUSE_X/CW-1);
 mm = sqrt(mX*mX+mY*mY+mZ*mZ);
 
 // normalize mouse direction vector

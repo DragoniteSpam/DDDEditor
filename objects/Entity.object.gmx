@@ -37,6 +37,9 @@ batch=null;
 // shaders
 render=null;
 
+// for what happens when you click on the entity
+selector=null;
+
 // you can have scripts that do both, if you want to have a static thing that
 // sparkles or something
 
@@ -53,9 +56,51 @@ previous_zz=zz;
 // things to break unexpectedly
 am_solid=true;
 
-// editor setting; the game will know in advance whether something is to
+// editor settings
+// the game will know in advance whether something is to
 // be batched or not. remember to override this in dynamic entities.
 batchable=true;
+batch_index=-1;
+modification=Modifications.CREATE;
+
+enum Modifications {
+    NONE,
+    CREATE,
+    UPDATE,
+    REMOVE
+}
+
+// whether you're allowed to stick multiple of these (same type of)
+// objects at in the same cell
+coexist=false;
+
+// collision data
+cobject=noone;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (cobject!=noone){
+    c_world_destroy_object(cobject);
+}
 </string>
           </argument>
         </arguments>
