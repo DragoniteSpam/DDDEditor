@@ -99,12 +99,18 @@
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
+      <script>scripts\mouse_within_view.gml</script>
     </scripts>
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
       <script>scripts\selection_empty.gml</script>
       <script>scripts\select_tile.gml</script>
       <script>scripts\selected.gml</script>
+      <scripts name="actions">
+        <script>scripts\sa_delete.gml</script>
+        <script>scripts\sa_fill.gml</script>
+        <script>scripts\sa_invert.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Graphics">
       <script>scripts\graphics_create_grid.gml</script>
@@ -130,7 +136,14 @@
       </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
+    <scripts name="controls">
+      <script>scripts\control_3d.gml</script>
+      <script>scripts\control_hud.gml</script>
+    </scripts>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\FDefault12</font>
+  </fonts>
   <objects name="objects">
     <object>objects\Camera</object>
     <object>objects\Stuff</object>
@@ -143,11 +156,15 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="4">
+  <constants number="8">
+    <constant name="HW">520</constant>
+    <constant name="view_3d">0</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="MILLION">1000000</constant>
     <constant name="CW">1080</constant>
     <constant name="CH">900</constant>
+    <constant name="view_hud">1</constant>
+    <constant name="HH">900</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

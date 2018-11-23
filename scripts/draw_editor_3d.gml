@@ -1,3 +1,7 @@
+if (mouse_within_view(view_3d)){
+    control_3d();
+}
+
 d3d_start();
 d3d_set_culling(true);
 d3d_set_hidden(true);
