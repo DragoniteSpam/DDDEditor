@@ -34,25 +34,13 @@ for (var i=0; i<ds_list_size(ActiveMap.dynamic); i++){
 }
 
 // the grid, which you may want an option to turn this off if it gets annoying
-// also anything else that gets drawn independently of the z buffer
-d3d_set_zwriteenable(false);
+// also anything else that gets drawn over everything else
+d3d_set_depth(1);
 vertex_submit(grid, pr_linelist, -1);
 
 d3d_set_culling(false);
 for (var i=0; i<ds_list_size(selection); i++){
     var sel=selection[| i];
-    transform_set(0, 0, sel.z1*Stuff.tile_depth, 0, 0, 0, 1, 1, 1);
-    
-    var x1=sel.x1*Stuff.tile_width;
-    var y1=sel.y1*Stuff.tile_height;
-    var x2=sel.x2*Stuff.tile_width;
-    var y2=sel.y2*Stuff.tile_height;
-    var w=12;
-    
-    draw_line_width_colour(x1, y1, x1, y2, w, c_red, c_red);
-    draw_line_width_colour(x1, y1, x2, y1, w, c_red, c_red);
-    draw_line_width_colour(x2, y1, x2, y2, w, c_red, c_red);
-    draw_line_width_colour(x1, y2, x2, y2, w, c_red, c_red);
-    transform_reset();
+    script_execute(sel.render, sel);
 }
-d3d_set_zwriteenable(true);
+d3d_set_depth(0);

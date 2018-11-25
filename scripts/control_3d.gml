@@ -40,6 +40,14 @@ if (zz<z){
                 var stype=SelectionCircle;
                 break;
         }
+        
+        if (keyboard_check(vk_f1)){
+            stype=SelectionCircle;
+        }
+        if (keyboard_check(vk_f2)){
+            stype=SelectionSingle;
+        }
+        
         if (under_cursor==noone){
             var tz=0;
         } else {

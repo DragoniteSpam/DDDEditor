@@ -119,10 +119,28 @@
             <script>scripts\safa_delete.gml</script>
           </scripts>
         </scripts>
+        <scripts name="selection forech">
+          <script>scripts\selection_foreach_cell_rectangle.gml</script>
+          <script>scripts\selection_foreach_cell_single.gml</script>
+          <script>scripts\selection_foreach_cell_circle.gml</script>
+        </scripts>
       </scripts>
       <scripts name="mouse events">
         <script>scripts\sme_down_rectangle.gml</script>
+        <script>scripts\sme_down_circle.gml</script>
+        <script>scripts\sme_down_single.gml</script>
         <script>scripts\sme_drag_rectangle.gml</script>
+        <script>scripts\sme_drag_circle.gml</script>
+      </scripts>
+      <scripts name="render">
+        <script>scripts\selection_render_rectangle.gml</script>
+        <script>scripts\selection_render_single.gml</script>
+        <script>scripts\selection_render_circle.gml</script>
+      </scripts>
+      <scripts name="determination">
+        <script>scripts\selected_rectangle.gml</script>
+        <script>scripts\selected_single.gml</script>
+        <script>scripts\selected_circle.gml</script>
       </scripts>
     </scripts>
     <scripts name="Graphics">

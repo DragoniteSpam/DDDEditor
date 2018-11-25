@@ -28,8 +28,14 @@
             <string>onmousedown=null;
 onmousedrag=null;
 
+render=null;
+
 foreach_cell=null;
-foreach_all=null;
+// we don't need this actually, selected_determination basically
+// does what it would have
+//foreach_all=null;
+
+selected_determination=null;
 
 instance_deactivate_object(id);
 </string>
