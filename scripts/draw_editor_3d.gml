@@ -39,13 +39,14 @@ d3d_set_zwriteenable(false);
 vertex_submit(grid, pr_linelist, -1);
 
 d3d_set_culling(false);
-if (!selection_empty()){
-    transform_set(0, 0, selection_start[vec3.zz]*Stuff.tile_depth, 0, 0, 0, 1, 1, 1);
+for (var i=0; i<ds_list_size(selection); i++){
+    var sel=selection[| i];
+    transform_set(0, 0, sel.z1*Stuff.tile_depth, 0, 0, 0, 1, 1, 1);
     
-    var x1=selection_start[vec3.xx]*Stuff.tile_width;
-    var y1=selection_start[vec3.yy]*Stuff.tile_height;
-    var x2=selection_end[vec3.xx]*Stuff.tile_width;
-    var y2=selection_end[vec3.yy]*Stuff.tile_height;
+    var x1=sel.x1*Stuff.tile_width;
+    var y1=sel.y1*Stuff.tile_height;
+    var x2=sel.x2*Stuff.tile_width;
+    var y2=sel.y2*Stuff.tile_height;
     var w=12;
     
     draw_line_width_colour(x1, y1, x1, y2, w, c_red, c_red);

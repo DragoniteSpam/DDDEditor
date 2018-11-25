@@ -100,6 +100,7 @@
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
       <script>scripts\mouse_within_view.gml</script>
+      <script>scripts\cstr.gml</script>
     </scripts>
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
@@ -107,9 +108,21 @@
       <script>scripts\select_tile.gml</script>
       <script>scripts\selected.gml</script>
       <scripts name="actions">
-        <script>scripts\sa_delete.gml</script>
-        <script>scripts\sa_fill.gml</script>
-        <script>scripts\sa_invert.gml</script>
+        <script>scripts\sa_foreach_all.gml</script>
+        <script>scripts\sa_foreach_cell.gml</script>
+        <scripts name="common">
+          <script>scripts\sa_delete.gml</script>
+          <script>scripts\sa_fill.gml</script>
+          <script>scripts\sa_invert.gml</script>
+          <scripts name="foreach">
+            <script>scripts\safc_fill.gml</script>
+            <script>scripts\safa_delete.gml</script>
+          </scripts>
+        </scripts>
+      </scripts>
+      <scripts name="mouse events">
+        <script>scripts\sme_down_rectangle.gml</script>
+        <script>scripts\sme_drag_rectangle.gml</script>
       </scripts>
     </scripts>
     <scripts name="Graphics">
@@ -152,6 +165,12 @@
       <object>objects\EntityTile</object>
     </objects>
     <object>objects\ActiveMap</object>
+    <objects name="Selections">
+      <object>objects\SelectionRectangle</object>
+      <object>objects\SelectionCircle</object>
+      <object>objects\SelectionSingle</object>
+      <object>objects\Selection</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\editor</room>

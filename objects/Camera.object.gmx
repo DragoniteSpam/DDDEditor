@@ -78,8 +78,16 @@ graphics_create_grid();
 
 under_cursor=noone;
 
-selection_start=selection_clear();
-selection_end=selection_clear();
+selection=ds_list_create();
+last_selection=noone;
+
+selection_mode=SelectionModes.RECTANGLE;
+
+/*
+ * inputs; maybe these can be rebound though a menu, but that's not important now
+ */
+
+input_selection_add=vk_control;
 
 /*
  * other stuff
@@ -95,6 +103,12 @@ enum vec3 {
     xx,
     yy,
     zz
+}
+
+enum SelectionModes {
+    SINGLE,
+    RECTANGLE,
+    CIRCLE
 }
 </string>
           </argument>
@@ -204,6 +218,23 @@ for (var i=0; i&lt;ds_list_size(changes); i++){
             }
             break;
         case Modifications.REMOVE:
+            // this is INSANELY slow for large numbers of entities, and I'm
+            // actually not sure how long it would take to carry out if you
+            // did something like select all+delete. long enough that most
+            // people would get frusturated and restart the program.
+            
+            // this is thanks to the ds_list_find_index and NEEDS to be
+            // worked on. a starting point would be to assign each instance
+            // a variable storing the location in the future list or batch
+            // instance list. however, that will also be slow due to the
+            // need to update the stored index of each other entity in the
+            // lists: it would probably be better to zero out the indices
+            // instead of deleteting them first, and then at the end make a
+            // second pass over each of the lists, removing the zeroes and
+            // updating the variables storing the indices for the entities.
+            
+            // this NEEDS to be worked on sooner rather than later because i
+            // imagine Delete All is going to be a somewhat common operation.
             if (thing.batch_index==-1){
                 ds_list_delete(future, ds_list_find_index(future, thing));
             } else {

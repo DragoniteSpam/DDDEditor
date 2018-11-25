@@ -26,48 +26,39 @@ if (zz<z){
     floor_cy=clamp(floor_y div Stuff.tile_height, 0, ActiveMap.yy);
     
     if (mouse_check_button_pressed(mb_left)){
-        // Begin selection
-        if (selection_empty()){
-            if (under_cursor==noone){
-                selection_start[vec3.zz]=0;
-                selection_end[vec3.zz]=0;
-            } else {
-                selection_start[vec3.zz]=under_cursor.zz;
-                selection_end[vec3.zz]=under_cursor.zz;
-            }
-            selection_start[vec3.xx]=floor_cx;
-            selection_start[vec3.yy]=floor_cy;
-            selection_end[vec3.xx]=floor_cx;
-            selection_end[vec3.yy]=floor_cy;
-        // Clear selection
-        } else {
-            selection_start=selection_clear();
-            selection_end=selection_clear();
+        if (!keyboard_check_direct(input_selection_add)){
+            selection_clear();
         }
+        switch (selection_mode){
+            case SelectionModes.SINGLE:
+                var stype=SelectionSingle;
+                break;
+            case SelectionModes.RECTANGLE:
+                var stype=SelectionRectangle;
+                break;
+            case SelectionModes.CIRCLE:
+                var stype=SelectionCircle;
+                break;
+        }
+        if (under_cursor==noone){
+            var tz=0;
+        } else {
+            var tz=under_cursor.zz;
+        }
+        
+        last_selection=instance_create(0, 0, stype);
+        ds_list_add(selection, last_selection);
+        script_execute(last_selection.onmousedown, last_selection, floor_cx, floor_cy, tz);
     }
     if (mouse_check_button(mb_left)){
-        if (!selection_empty()){
-            selection_end[vec3.xx]=floor_cx;
-            selection_end[vec3.yy]=floor_cy;
-        }
-    }
-    if (mouse_check_button_released(mb_left)){
-        // if the selection is empty and something has been
-        // clicked on, select it instead of nothing
-        if (selection_empty()){
-            if (under_cursor!=noone){
-                script_execute(under_cursor.selector, under_cursor);
-            }
+        if (last_selection!=noone){
+            script_execute(last_selection.onmousedrag, last_selection, floor_cx, floor_cy);
         }
     }
 }
 
 if (keyboard_check_pressed(vk_space)){
     sa_fill();
-}
-
-if (keyboard_check_pressed(vk_tab)){
-    sa_invert();
 }
 
 if (keyboard_check_pressed(vk_delete)){
