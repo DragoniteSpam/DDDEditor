@@ -26,7 +26,7 @@ if (zz<z){
     floor_cy=clamp(floor_y div Stuff.tile_height, 0, ActiveMap.yy);
     
     if (mouse_check_button_pressed(mb_left)){
-        if (!keyboard_check_direct(input_selection_add)){
+        if (!keyboard_check_direct(input_selection_add)&&!selection_addition){
             selection_clear();
         }
         switch (selection_mode){
@@ -39,13 +39,6 @@ if (zz<z){
             case SelectionModes.CIRCLE:
                 var stype=SelectionCircle;
                 break;
-        }
-        
-        if (keyboard_check(vk_f1)){
-            stype=SelectionCircle;
-        }
-        if (keyboard_check(vk_f2)){
-            stype=SelectionSingle;
         }
         
         if (under_cursor==noone){

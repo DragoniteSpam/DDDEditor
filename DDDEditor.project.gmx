@@ -30,6 +30,7 @@
     <sprites name="ts">
       <sprite>sprites\b_tileset_overworld</sprite>
     </sprites>
+    <sprite>sprites\spr_check</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -100,6 +101,7 @@
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
       <script>scripts\mouse_within_view.gml</script>
+      <script>scripts\mouse_within_rectangle.gml</script>
       <script>scripts\cstr.gml</script>
     </scripts>
     <scripts name="Selection">
@@ -171,6 +173,38 @@
       <script>scripts\control_3d.gml</script>
       <script>scripts\control_hud.gml</script>
     </scripts>
+    <scripts name="ui stuff">
+      <scripts name="rendering">
+        <script>scripts\ui_render.gml</script>
+        <script>scripts\ui_render_button.gml</script>
+        <script>scripts\ui_render_checkbox.gml</script>
+        <script>scripts\ui_render_main.gml</script>
+        <script>scripts\ui_render_radio_array.gml</script>
+        <script>scripts\ui_render_tab.gml</script>
+        <script>scripts\ui_render_text.gml</script>
+        <script>scripts\ui_render_text_radio.gml</script>
+      </scripts>
+      <script>scripts\ui_button_down.gml</script>
+      <script>scripts\ui_button_down_tab.gml</script>
+      <scripts name="creation">
+        <script>scripts\create_tab.gml</script>
+        <script>scripts\create_radio_array.gml</script>
+        <script>scripts\create_checkbox.gml</script>
+        <scripts name="radio arrays">
+          <script>scripts\create_radio_array_options.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="on value change">
+        <script>scripts\uivc_radio_selection_mode.gml</script>
+        <script>scripts\uivc_check_selection_addition.gml</script>
+      </scripts>
+      <scripts name="math">
+        <script>scripts\ui_get_radio_array_height.gml</script>
+        <script>scripts\ui_get_text_x.gml</script>
+        <script>scripts\ui_legal_height.gml</script>
+        <script>scripts\ui_legal_width.gml</script>
+      </scripts>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
@@ -189,11 +223,22 @@
       <object>objects\SelectionSingle</object>
       <object>objects\Selection</object>
     </objects>
+    <objects name="UI stuff">
+      <object>objects\UIButton</object>
+      <object>objects\UITab</object>
+      <object>objects\UIThing</object>
+      <object>objects\UIMain</object>
+      <object>objects\UIRadioArray</object>
+      <object>objects\UICheckbox</object>
+      <object>objects\UIText</object>
+      <object>objects\UITextRadio</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="8">
+  <constants number="9">
+    <constant name="c_ui">$ebebeb</constant>
     <constant name="HW">520</constant>
     <constant name="view_3d">0</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>

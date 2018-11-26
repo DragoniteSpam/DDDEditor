@@ -1,0 +1,62 @@
+/// void ui_render_main(UIMain);
+
+d3d_set_projection_ortho(CW, 0, HW, HH, 0);
+
+draw_clear(c_white);
+draw_set_color(c_black);
+draw_set_font(FDefault12);
+draw_set_valign(fa_middle);
+
+ui_render(argument0);
+
+var xx=CW+32;
+var yy=96;
+
+var x1=xx;
+var y1=yy;
+var x2=x1+ui_legal_width();
+var y2=y1+ui_legal_height();
+
+var trow=argument0.tabs[| argument0.active_tab.home_row];
+var ww=ui_legal_width()/ds_list_size(trow);
+for (var i=0; i<ds_list_size(trow); i++){
+    var thing=trow[| i];
+    thing.x=xx;
+    thing.y=yy;
+    thing.width=ww;
+    xx=xx+ww;
+}
+
+for (var i=0; i<ds_list_size(argument0.tabs); i++){
+    if (i!=argument0.active_tab.home_row){
+        trow=argument0.tabs[| i];
+        xx=CW+32;
+        yy=yy-argument0.element_height;
+        ww=ui_legal_width()/ds_list_size(trow);
+        for (var j=0; j<ds_list_size(trow); j++){
+            var thing=trow[| j];
+            thing.x=xx;
+            thing.y=yy;
+            thing.width=ww;
+            xx=xx+ww;
+        }
+    }
+}
+
+draw_line(x1, y1, x1, y2);
+draw_line(x2, y1, x2, y2);
+draw_line(x1, y2, x2, y2);
+
+// this is annoying but if you process the tabs in the order
+// that they're laid out you can run into some issues where
+// their position updates before the rest have been drawn if
+// you click on them
+for (var i=0; i<ds_list_size(argument0.tabs); i++){
+    trow=argument0.tabs[| i];
+    for (var j=0; j<ds_list_size(trow); j++){
+        thing=trow[| j];
+        script_execute(thing.render, thing);
+    }
+}
+
+script_execute(argument0.active_tab.render_contents, argument0.active_tab);

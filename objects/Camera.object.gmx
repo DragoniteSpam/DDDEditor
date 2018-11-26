@@ -82,6 +82,7 @@ selection=ds_list_create();
 last_selection=noone;
 
 selection_mode=SelectionModes.RECTANGLE;
+selection_addition=false;
 
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now
@@ -94,6 +95,7 @@ input_selection_add=vk_control;
  */
 
 changes=ds_list_create();
+ui=instance_create(0, 0, UIMain);
 
 /*
  * enumerated constants that i need
