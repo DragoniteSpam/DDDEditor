@@ -81,8 +81,6 @@ ds_list_add(t_general.contents, element);
 enum UITabs {
     GENERAL
 }
-
-instance_deactivate_object(UIThing);
 </string>
           </argument>
         </arguments>

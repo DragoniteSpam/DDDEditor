@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>MenuMenu</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,56 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (DEBUG){
-    show_debug_overlay(true);
-}
+            <string>event_inherited();
 
-// persistent stuff
-dt=0;
-
-// these are constants in DDD.gmx but we're allowed to change them here
-tile_width=32;
-tile_height=32;
-tile_depth=32;
-
-// camera setup may depend on some stuff existing in here, which
-// is bad design, but this is just supposed to work and doesnt have
-// to be well-designed
-c_init();
-c_world_create();
-
-c_shape_tile=c_shape_create();
-c_shape_begin_trimesh();
-c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
-c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
-c_shape_end_trimesh(c_shape_tile);
-// at some point there shouldn't necessarily need to be an active
-// map in existence for this to work, but for now there does
-instance_create(0, 0, ActiveMap);
-instance_create(0, 0, Camera);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>dt=delta_time/MILLION;
+onmouseup=null;
 </string>
           </argument>
         </arguments>

@@ -96,6 +96,9 @@ input_selection_add=vk_control;
 
 changes=ds_list_create();
 ui=instance_create(0, 0, UIMain);
+menu=instance_create(0, 0, MenuMain);
+
+instance_deactivate_object(UIThing);
 
 /*
  * enumerated constants that i need
@@ -282,10 +285,14 @@ if (ds_list_size(ActiveMap.batch_in_the_future)&gt;BATCH_CACHE_SIZE){
             <kind>1</kind>
             <string>/// Anything visible in the world
 
-if (view_current==0){
-    draw_editor_3d();
-} else if (view_current==1){
-    draw_editor_hud();
+switch (view_current){
+    case 0:
+        draw_editor_3d();
+        draw_editor_menu();
+        break;
+    case 1:
+        draw_editor_hud();
+        break;
 }
 </string>
           </argument>

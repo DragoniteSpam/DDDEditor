@@ -158,6 +158,7 @@
         <script>scripts\render_tile.gml</script>
       </scripts>
       <script>scripts\draw_editor_hud.gml</script>
+      <script>scripts\draw_editor_menu.gml</script>
       <script>scripts\draw_editor_3d.gml</script>
     </scripts>
     <scripts name="Maps">
@@ -171,7 +172,6 @@
     <script>scripts\debug.gml</script>
     <scripts name="controls">
       <script>scripts\control_3d.gml</script>
-      <script>scripts\control_hud.gml</script>
     </scripts>
     <scripts name="ui stuff">
       <scripts name="rendering">
@@ -204,6 +204,16 @@
         <script>scripts\ui_legal_height.gml</script>
         <script>scripts\ui_legal_width.gml</script>
       </scripts>
+      <scripts name="menu">
+        <scripts name="render">
+          <script>scripts\menu_render_main.gml</script>
+          <script>scripts\menu_render.gml</script>
+        </scripts>
+        <scripts name="creation">
+          <script>scripts\create_menu.gml</script>
+          <script>scripts\create_menu_element.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">
@@ -232,12 +242,18 @@
       <object>objects\UICheckbox</object>
       <object>objects\UIText</object>
       <object>objects\UITextRadio</object>
+      <objects name="Menu">
+        <object>objects\MenuMenu</object>
+        <object>objects\MenuElement</object>
+        <object>objects\MenuMain</object>
+      </objects>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="9">
+  <constants number="10">
+    <constant name="DEBUG">true</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="HW">520</constant>
     <constant name="view_3d">0</constant>

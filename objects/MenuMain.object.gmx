@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>UIThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,56 +25,42 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (DEBUG){
-    show_debug_overlay(true);
+            <string>event_inherited();
+
+render=menu_render_main;
+root=id;
+
+element_height=16;
+element_width=96;
+
+/*
+ * top-level stuff
+ */
+
+var menu_file=create_menu("File", element_width, element_height);
+var menu_edit=create_menu("Edit", element_width, element_height);
+contents=ds_list_create();
+ds_list_add(contents, menu_file, menu_edit);
+
+/*
+ * File menu
+ */
+
+var m_separator=create_menu_element("----------", null);
+
+var mf_new=create_menu_element("New (Ctrl+N)", null);
+var mf_save=create_menu_element("Save (Ctrl+S)", null);
+var mf_save_as=create_menu_element("Save As (Ctrl+Shift+S)", null);
+var mf_open=create_menu_element("Open (Ctrl+O)", null);
+var mf_exit=create_menu_element("Exit (Alt+F4)", null);
+ds_list_add(menu_file.contents, mf_new, mf_save, mf_save_as, mf_open,
+    m_separator,
+    mf_exit);
+
+enum MenuTabs {
+    FILE,
+    EDIT
 }
-
-// persistent stuff
-dt=0;
-
-// these are constants in DDD.gmx but we're allowed to change them here
-tile_width=32;
-tile_height=32;
-tile_depth=32;
-
-// camera setup may depend on some stuff existing in here, which
-// is bad design, but this is just supposed to work and doesnt have
-// to be well-designed
-c_init();
-c_world_create();
-
-c_shape_tile=c_shape_create();
-c_shape_begin_trimesh();
-c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
-c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
-c_shape_end_trimesh(c_shape_tile);
-// at some point there shouldn't necessarily need to be an active
-// map in existence for this to work, but for now there does
-instance_create(0, 0, ActiveMap);
-instance_create(0, 0, Camera);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="1">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>dt=delta_time/MILLION;
 </string>
           </argument>
         </arguments>
