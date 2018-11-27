@@ -213,6 +213,9 @@
           <script>scripts\create_menu.gml</script>
           <script>scripts\create_menu_element.gml</script>
         </scripts>
+        <scripts name="onmouseup">
+          <script>scripts\momu_exit.gml</script>
+        </scripts>
       </scripts>
     </scripts>
   </scripts>
@@ -248,6 +251,7 @@
         <object>objects\MenuMain</object>
       </objects>
     </objects>
+    <object>objects\Controller</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\editor</room>

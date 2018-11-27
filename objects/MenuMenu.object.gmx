@@ -30,6 +30,8 @@
 render=menu_render;
 active=false;
 
+onmouseup=null;
+
 contents=ds_list_create();
 </string>
           </argument>

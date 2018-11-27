@@ -165,7 +165,7 @@ if (keyboard_check(vk_right)||keyboard_check(ord('D'))){
     xspeed=dsin(direction)*mspd*Stuff.dt;
     yspeed=dcos(direction)*mspd*Stuff.dt;
 }
-if (mouse_check_button(mb_middle)){
+if (Controller.mouse_middle){
     var dx=(MOUSE_X-CW/2)/16;
     var dy=(MOUSE_Y-CH/2)/16;
     direction=(360+direction-dx)%360;

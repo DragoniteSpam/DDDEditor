@@ -23,7 +23,7 @@ if (argument0.parent.index==argument0.index){
 }
 
 if (mouse_within_rectangle(x1, y1, x2, y2)){
-    if (mouse_check_button_released(mb_left)){
+    if (Controller.release_left){
         argument0.parent.index=argument0.index;
         script_execute(argument0.parent.onvaluechange, argument0.index);
     }

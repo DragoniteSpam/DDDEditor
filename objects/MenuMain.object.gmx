@@ -29,6 +29,7 @@
 
 render=menu_render_main;
 root=id;
+active_element=noone;
 
 element_height=16;
 element_width=96;
@@ -37,8 +38,8 @@ element_width=96;
  * top-level stuff
  */
 
-var menu_file=create_menu("File", element_width, element_height);
-var menu_edit=create_menu("Edit", element_width, element_height);
+var menu_file=create_menu("File", element_width, element_height, id);
+var menu_edit=create_menu("Edit", element_width, element_height, id);
 contents=ds_list_create();
 ds_list_add(contents, menu_file, menu_edit);
 
@@ -46,16 +47,25 @@ ds_list_add(contents, menu_file, menu_edit);
  * File menu
  */
 
-var m_separator=create_menu_element("----------", null);
+var m_separator=create_menu_element("----------", null, id);
 
-var mf_new=create_menu_element("New (Ctrl+N)", null);
-var mf_save=create_menu_element("Save (Ctrl+S)", null);
-var mf_save_as=create_menu_element("Save As (Ctrl+Shift+S)", null);
-var mf_open=create_menu_element("Open (Ctrl+O)", null);
-var mf_exit=create_menu_element("Exit (Alt+F4)", null);
+var mf_new=create_menu_element("New (Ctrl+N)", null, id);
+var mf_save=create_menu_element("Save (Ctrl+S)", null, id);
+var mf_save_as=create_menu_element("Save As (Ctrl+Shift+S)", null, id);
+var mf_open=create_menu_element("Open (Ctrl+O)", null, id);
+var mf_exit=create_menu_element("Exit (Alt+F4)", momu_exit, id);
 ds_list_add(menu_file.contents, mf_new, mf_save, mf_save_as, mf_open,
     m_separator,
     mf_exit);
+
+/*
+ * File menu
+ */
+
+var me_copy=create_menu_element("Copy (Ctrl+C)", null, id);
+var me_cut=create_menu_element("Cut (Ctrl+X)", null, id);
+var me_paste=create_menu_element("Paste (Ctrl+V)", null, id);
+ds_list_add(menu_edit.contents, me_copy, me_cut, me_paste);
 
 enum MenuTabs {
     FILE,

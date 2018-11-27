@@ -25,7 +25,7 @@ if (zz<z){
     floor_cx=clamp(floor_x div Stuff.tile_width, 0, ActiveMap.xx);
     floor_cy=clamp(floor_y div Stuff.tile_height, 0, ActiveMap.yy);
     
-    if (mouse_check_button_pressed(mb_left)){
+    if (Controller.press_left){
         if (!keyboard_check_direct(input_selection_add)&&!selection_addition){
             selection_clear();
         }
@@ -51,7 +51,7 @@ if (zz<z){
         ds_list_add(selection, last_selection);
         script_execute(last_selection.onmousedown, last_selection, floor_cx, floor_cy, tz);
     }
-    if (mouse_check_button(mb_left)){
+    if (Controller.mouse_left){
         if (last_selection!=noone){
             script_execute(last_selection.onmousedrag, last_selection, floor_cx, floor_cy);
         }

@@ -25,34 +25,17 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (DEBUG){
-    show_debug_overlay(true);
-}
+            <string>mouse_left=false;
+mouse_right=false;
+mouse_middle=false;
 
-// persistent stuff
-dt=0;
+press_left=false;
+press_right=false;
+press_middle=false;
 
-// these are constants in DDD.gmx but we're allowed to change them here
-tile_width=32;
-tile_height=32;
-tile_depth=32;
-
-// camera setup may depend on some stuff existing in here, which
-// is bad design, but this is just supposed to work and doesnt have
-// to be well-designed
-c_init();
-c_world_create();
-
-c_shape_tile=c_shape_create();
-c_shape_begin_trimesh();
-c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
-c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
-c_shape_end_trimesh(c_shape_tile);
-// at some point there shouldn't necessarily need to be an active
-// map in existence for this to work, but for now there does
-instance_create(0, 0, ActiveMap);
-instance_create(0, 0, Controller);
-instance_create(0, 0, Camera);
+release_left=false;
+release_right=false;
+release_middle=false;
 </string>
           </argument>
         </arguments>
@@ -75,7 +58,17 @@ instance_create(0, 0, Camera);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dt=delta_time/MILLION;
+            <string>mouse_left=mouse_check_button(mb_left);
+mouse_right=mouse_check_button(mb_right);
+mouse_middle=mouse_check_button(mb_middle);
+
+press_left=mouse_check_button_pressed(mb_left);
+press_right=mouse_check_button_pressed(mb_right);
+press_middle=mouse_check_button_pressed(mb_middle);
+
+release_left=mouse_check_button_released(mb_left);
+release_right=mouse_check_button_released(mb_right);
+release_middle=mouse_check_button_released(mb_middle);
 </string>
           </argument>
         </arguments>

@@ -20,7 +20,7 @@ draw_set_color(argument0.color);
 draw_text(tx, ty, argument0.text);
 
 if (mouse_within_rectangle(x1, y1, x2, y2)){
-    if (mouse_check_button_released(mb_left)){
+    if (Controller.release_left){
         script_execute(argument0.onmousedown, argument0);
     }
 }

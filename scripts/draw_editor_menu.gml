@@ -7,3 +7,10 @@ if (DEBUG){
 }
 
 script_execute(menu.render, menu, 0, yy);
+
+if (Controller.release_left){
+    if (menu.active_element!=noone){
+        menu.active_element.active=false;
+        menu.active_element=noone;
+    }
+}
