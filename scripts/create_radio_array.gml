@@ -6,7 +6,7 @@ with (instance_create(argument0, argument1, UIRadioArray)){
     height=argument4;
     
     onvaluechange=argument5;
-    index=argument6;
+    value=argument6;
     
     return id;
 }

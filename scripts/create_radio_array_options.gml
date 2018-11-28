@@ -6,7 +6,7 @@ for (var i=1; i<argument_count; i++){
     option.text=argument[i];
     option.parent=argument[0];
     option.height=argument[0].height;
-    option.index=n;
+    option.value=n;
     
     ds_list_add(argument[0].contents, option);
 }

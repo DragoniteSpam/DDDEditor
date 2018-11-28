@@ -18,13 +18,13 @@ var rinner=4;
 
 draw_circle(argument0.x+16, ty, router, true);
 
-if (argument0.parent.index==argument0.index){
+if (argument0.parent.value==argument0.value){
     draw_circle_colour(argument0.x+16, ty, rinner, c_green, c_green, false);
 }
 
 if (mouse_within_rectangle(x1, y1, x2, y2)){
     if (Controller.release_left){
-        argument0.parent.index=argument0.index;
-        script_execute(argument0.parent.onvaluechange, argument0.index);
+        argument0.parent.value=argument0.value;
+        script_execute(argument0.parent.onvaluechange, argument0);
     }
 }

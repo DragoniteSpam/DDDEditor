@@ -55,6 +55,7 @@ tabs=ds_list_create();
 ds_list_add(tabs, tr_top, tr_bottom);
 
 active_tab=t_general;
+active_element=noone;
 
 var element;
 var spacing=16;
@@ -75,7 +76,7 @@ ds_list_add(t_general.contents, element);
 
 yy=yy+ui_get_radio_array_height(element)+spacing;
 
-element=create_checkbox(legal_x+spacing, yy, "Add to Selection", col_width, element_height, uivc_check_selection_addition, Camera.selection_addition);
+element=create_checkbox(legal_x+spacing, yy, "Add to Selection", col_width, element_height, uivc_check_selection_addition, "", Camera.selection_addition, t_general);
 ds_list_add(t_general.contents, element);
 
 enum UITabs {

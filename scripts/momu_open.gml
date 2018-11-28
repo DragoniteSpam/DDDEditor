@@ -2,4 +2,4 @@
 
 var catch=argument0;
 
-show_message("we haven't implemented this yet. pleaes stand by!");
+show_message("open: we haven't implemented this yet. pleaes stand by!");

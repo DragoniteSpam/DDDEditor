@@ -21,6 +21,6 @@ draw_text(tx, ty, argument0.text);
 
 if (mouse_within_rectangle(x1, y1, x2, y2)){
     if (Controller.release_left){
-        script_execute(argument0.onmousedown, argument0);
+        script_execute(argument0.onmouseup, argument0);
     }
 }

@@ -30,7 +30,7 @@
 render=ui_render_text_radio;
 
 parent=noone;
-index=-1;
+value=-1;
 </string>
           </argument>
         </arguments>

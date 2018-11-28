@@ -29,6 +29,8 @@
 
 text="text";
 render=ui_render_text;
+
+wrap_width=MILLION;
 </string>
           </argument>
         </arguments>

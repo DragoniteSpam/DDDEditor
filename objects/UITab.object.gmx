@@ -29,7 +29,7 @@
 
 alignment=fa_center;
 render=ui_render_tab;
-onmousedown=ui_button_down_tab;
+onmouseup=ui_button_down_tab;
 
 destination=0;
 home_row=0;

@@ -8,7 +8,7 @@ var x2=x1+argument0.width;
 var y2=y1+argument0.height;
 
 var active=dialog_is_active(argument0);
-var kill=false;
+var kill=keyboard_check_released(vk_escape);
 
 draw_rectangle_colour(x1, y1, x2, y2, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);
@@ -75,6 +75,7 @@ for (var i=0; i<ds_list_size(argument0.contents); i++){
     script_execute(thing.render, thing);
 }
 
+// the x button/escape key does not commit changes
 if (kill){
     dialog_destroy();
 }

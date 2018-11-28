@@ -1,3 +1,3 @@
-/// uivc_check_selection_addition(index);
+/// uivc_check_selection_addition(UIThing);
 
-Camera.selection_addition=argument0;
+Camera.selection_addition=argument0.value;

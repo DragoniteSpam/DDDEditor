@@ -29,6 +29,8 @@
 contents=ds_list_create();
 root=noone;
 
+key="key";
+
 text="thing";
 height=24;
 width=128;
