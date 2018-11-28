@@ -1,4 +1,4 @@
-if (mouse_within_view(view_3d)){
+if (mouse_within_view(view_3d)&&!dialog_exists()){
     control_3d();
 }
 

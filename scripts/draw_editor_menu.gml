@@ -8,9 +8,11 @@ if (DEBUG){
 
 script_execute(menu.render, menu, 0, yy);
 
-if (Controller.release_left){
-    if (menu.active_element!=noone){
-        menu.active_element.active=false;
-        menu.active_element=noone;
-    }
+if (Controller.release_left&&!dialog_exists()){
+    menu_activate(noone);
+}
+
+for (var i=0; i<ds_list_size(dialogs); i++){
+    var thing=dialogs[| i];
+    script_execute(thing.render, thing);
 }

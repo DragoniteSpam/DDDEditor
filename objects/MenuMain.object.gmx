@@ -28,7 +28,7 @@
             <string>event_inherited();
 
 render=menu_render_main;
-root=id;
+root=noone;
 active_element=noone;
 
 element_height=16;
@@ -40,8 +40,9 @@ element_width=96;
 
 var menu_file=create_menu("File", element_width, element_height, id);
 var menu_edit=create_menu("Edit", element_width, element_height, id);
+var menu_test=create_menu("Test", element_width, element_height, id);
 contents=ds_list_create();
-ds_list_add(contents, menu_file, menu_edit);
+ds_list_add(contents, menu_file, menu_edit, menu_test);
 
 /*
  * File menu
@@ -49,23 +50,55 @@ ds_list_add(contents, menu_file, menu_edit);
 
 var m_separator=create_menu_element("----------", null, id);
 
-var mf_new=create_menu_element("New (Ctrl+N)", null, id);
-var mf_save=create_menu_element("Save (Ctrl+S)", null, id);
-var mf_save_as=create_menu_element("Save As (Ctrl+Shift+S)", null, id);
-var mf_open=create_menu_element("Open (Ctrl+O)", null, id);
-var mf_exit=create_menu_element("Exit (Alt+F4)", momu_exit, id);
+var mf_new=create_menu_element("New (Ctrl+N)", momu_new, menu_file);
+var mf_save=create_menu_element("Save (Ctrl+S)", momu_save, menu_file);
+var mf_save_as=create_menu_element("Save As (Ctrl+Shift+S)", momu_save_as, menu_file);
+var mf_open=create_menu_element("Open (Ctrl+O)", momu_open, menu_file);
+var mf_settings=create_menu_element("Settings", momu_settings, menu_file);
+var mf_exit=create_menu_element("Exit (Alt+F4)", momu_exit, menu_file);
 ds_list_add(menu_file.contents, mf_new, mf_save, mf_save_as, mf_open,
     m_separator,
-    mf_exit);
+    mf_settings, mf_exit);
 
 /*
  * File menu
  */
 
-var me_copy=create_menu_element("Copy (Ctrl+C)", null, id);
-var me_cut=create_menu_element("Cut (Ctrl+X)", null, id);
-var me_paste=create_menu_element("Paste (Ctrl+V)", null, id);
-ds_list_add(menu_edit.contents, me_copy, me_cut, me_paste);
+var me_undo=create_menu_element("Undo (Ctrl+Z)", momu_undo, menu_edit);
+var me_redo=create_menu_element("Redo (Ctrl+Y)", momu_redo, menu_edit);
+var me_copy=create_menu_element("Copy (Ctrl+C)", momu_copy, menu_edit);
+var me_cut=create_menu_element("Cut (Ctrl+X)", momu_cut, menu_edit);
+var me_paste=create_menu_element("Paste (Ctrl+V)", momu_paste, menu_edit);
+ds_list_add(menu_edit.contents, me_undo, me_redo,
+    m_separator,
+    me_copy, me_cut, me_paste);
+
+/*
+ * Test stuff
+ */
+
+var mt_1=create_menu_element("First", momu_expand, menu_test);
+var mt_2=create_menu_element("Second", momu_expand, menu_test);
+var mt_3=create_menu_element("Third", null, menu_test);
+var mt_4=create_menu_element("Fourth", null, menu_test);
+var mt_5=create_menu_element("Fifth", momu_expand, menu_test);
+var mt_6=create_menu_element("Sixth", null, menu_test);
+var mt_7=create_menu_element("Seventh", momu_expand, menu_test);
+var mt_8=create_menu_element("Eighth", null, menu_test);
+var mt_9=create_menu_element("Ninth", null, menu_test);
+var mt_10=create_menu_element("Tenth", momu_expand, menu_test);
+ds_list_add(menu_test.contents, mt_1, mt_2, mt_3, mt_4, mt_5, mt_6, mt_7, mt_8, mt_9, mt_10);
+
+var mt_11=create_menu_element("Eleventh", momu_expand, mt_1);
+var mt_12=create_menu_element("Twelfth", null, mt_1);
+var mt_13=create_menu_element("Thirteenth", null, mt_1);
+ds_list_add(mt_1.contents, mt_11, mt_12, mt_13);
+
+var mt_14=create_menu_element("Fourteenth", momu_expand, mt_11);
+var mt_15=create_menu_element("Fifteenth", null, mt_11);
+var mt_16=create_menu_element("Sixteenth", null, mt_11);
+var mt_17=create_menu_element("Seventeenth", null, mt_11);
+ds_list_add(mt_11.contents, mt_14, mt_15, mt_16, mt_17);
 
 enum MenuTabs {
     FILE,

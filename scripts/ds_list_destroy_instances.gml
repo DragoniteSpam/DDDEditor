@@ -1,4 +1,4 @@
-/// int ds_list_destroy_instances(queue);
+/// int ds_list_destroy_instances(list);
 // this was implemented some time into the project. there are probably
 // a couple destroy events that could use this but don't.
 

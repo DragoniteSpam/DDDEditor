@@ -65,3 +65,43 @@ if (keyboard_check_pressed(vk_space)){
 if (keyboard_check_pressed(vk_delete)){
     sa_delete();
 }
+
+/*
+ * General keyboard shortcuts
+ */
+if (keyboard_check_direct(vk_control)){
+    /*
+     * file
+     */
+    if (keyboard_check_pressed(ord("N"))){
+        momu_new(noone);
+    }
+    if (keyboard_check_pressed(ord("S"))){
+        if (keyboard_check_direct(vk_shift)){
+            momu_save_as(noone);
+        } else {
+            momu_save(noone);
+        }
+    }
+    if (keyboard_check_pressed(ord("O"))){
+        momu_open(noone);
+    }
+    /*
+     * edit
+     */
+    if (keyboard_check_pressed(ord("X"))){
+        momu_cut(noone);
+    }
+    if (keyboard_check_pressed(ord("C"))){
+        momu_copy(noone);
+    }
+    if (keyboard_check_pressed(ord("V"))){
+        momu_paste(noone);
+    }
+    if (keyboard_check_pressed(ord("Z"))){
+        momu_undo(noone);
+    }
+    if (keyboard_check_pressed(ord("Y"))){
+        momu_redo(noone);
+    }
+}

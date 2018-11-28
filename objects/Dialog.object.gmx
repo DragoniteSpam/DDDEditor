@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>UIThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,41 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>render=ui_render;
-contents=ds_list_create();
-root=noone;
+            <string>event_inherited();
 
-text="thing";
-height=24;
-width=128;
-
-color=c_black;
-alignment=fa_left;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// it's pretty uncommon go destroy a ui element (usually you just hide it) but
-ds_list_destroy_instances(contents);
-ds_list_destroy(contents);
+// for dragging the dialog around with the mouse
+cmx=-1;
+cmy=-1;
 </string>
           </argument>
         </arguments>

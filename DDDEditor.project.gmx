@@ -30,6 +30,7 @@
     <sprites name="ts">
       <sprite>sprites\b_tileset_overworld</sprite>
     </sprites>
+    <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
   </sprites>
   <backgrounds name="background"/>
@@ -97,6 +98,8 @@
       <scripts name="Data Structures">
         <script>scripts\array_compose.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
+        <script>scripts\ds_list_pop.gml</script>
+        <script>scripts\ds_list_top.gml</script>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
@@ -208,14 +211,48 @@
         <scripts name="render">
           <script>scripts\menu_render_main.gml</script>
           <script>scripts\menu_render.gml</script>
+          <script>scripts\menu_render_element.gml</script>
         </scripts>
         <scripts name="creation">
           <script>scripts\create_menu.gml</script>
           <script>scripts\create_menu_element.gml</script>
         </scripts>
         <scripts name="onmouseup">
-          <script>scripts\momu_exit.gml</script>
+          <scripts name="file">
+            <script>scripts\momu_exit.gml</script>
+            <script>scripts\momu_open.gml</script>
+            <script>scripts\momu_settings.gml</script>
+            <script>scripts\momu_save_as.gml</script>
+            <script>scripts\momu_save.gml</script>
+            <script>scripts\momu_new.gml</script>
+          </scripts>
+          <scripts name="edit">
+            <script>scripts\momu_copy.gml</script>
+            <script>scripts\momu_undo.gml</script>
+            <script>scripts\momu_redo.gml</script>
+            <script>scripts\momu_cut.gml</script>
+            <script>scripts\momu_paste.gml</script>
+          </scripts>
+          <script>scripts\momu_expand.gml</script>
         </scripts>
+        <script>scripts\menu_is_ancestor.gml</script>
+        <script>scripts\menu_is_active.gml</script>
+        <script>scripts\menu_activate.gml</script>
+      </scripts>
+      <scripts name="dialogs">
+        <script>scripts\dialog_exists.gml</script>
+        <script>scripts\dialog_create.gml</script>
+        <script>scripts\dialog_destroy.gml</script>
+        <scripts name="render">
+          <script>scripts\dialog_settings.gml</script>
+          <scripts name="dont mess with me">
+            <script>scripts\dr_box.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="creation">
+          <script>scripts\dialog_create_settings.gml</script>
+        </scripts>
+        <script>scripts\dialog_is_active.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -249,6 +286,9 @@
         <object>objects\MenuMenu</object>
         <object>objects\MenuElement</object>
         <object>objects\MenuMain</object>
+      </objects>
+      <objects name="Dialog">
+        <object>objects\Dialog</object>
       </objects>
     </objects>
     <object>objects\Controller</object>

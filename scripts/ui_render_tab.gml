@@ -1,4 +1,4 @@
-/// void ui_render_tab(Button);
+/// void ui_render_tab(UITab);
 
 var x1=argument0.x;
 var y1=argument0.y-argument0.height/2;

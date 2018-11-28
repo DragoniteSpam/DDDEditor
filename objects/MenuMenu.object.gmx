@@ -28,7 +28,6 @@
             <string>event_inherited();
 
 render=menu_render;
-active=false;
 
 onmouseup=null;
 
