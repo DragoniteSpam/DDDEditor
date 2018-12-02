@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>UIThing</parentName>
+  <parentName>Entity</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,61 +27,32 @@
             <kind>1</kind>
             <string>event_inherited();
 
-render=ui_render_main;
-root=id;
+name='Tile';
 
-element_height=24;
+// todo multiple tilesets in a single map will require multiple
+// versions of DataMap.statics (i.e. an array) for each tile
+// it's not a good idea to do this so it should probably result
+// in a warning
+tileset=b_tileset_overworld;
+tile_x=0; // tile ID
+tile_y=0; // tile ID
+tile_color=c_white;
+tile_alpha=1;
+// todo rotated tiles, which will require normal calculations?
+// you're probably better off using a mesh for that though tbh
 
-/*
- * tab system setup
- */
+// if you want to be really fancy you can use different colors for
+// all four vertices of the tile but I can't think of any practical
+// use for that
 
-var t_general=create_tab("General", UITabs.GENERAL, 0, id);
-var t_selection=create_tab("Selection", 1, 0, id);
-var t_2=create_tab("T2", 2, 0, id);
+// other properties
+am_solid=false;
 
-var t_3=create_tab("T3", 3, 1, id);
-var t_4=create_tab("T4", 4, 1, id);
-var t_5=create_tab("T5", 5, 1, id);
-var t_6=create_tab("T6", 6, 1, id);
+// editor properties
 
-// the game will crash if you create a tab row with zero width.
-var tr_top=ds_list_create();
-ds_list_add(tr_top, t_general, t_selection, t_2);
-var tr_bottom=ds_list_create();
-ds_list_add(tr_bottom, t_3, t_4, t_5, t_6);
-
-tabs=ds_list_create();
-ds_list_add(tabs, tr_top, tr_bottom);
-
-active_tab=t_general;
-active_element=noone;
-
-var element;
-var spacing=16;
-var legal_x=CW+32;
-var legal_y=128;
-var legal_width=ui_legal_width();
-var col_width=legal_width/2-spacing/2;
-
-/*
- * general tab setup
- */
-
-var yy=legal_y+spacing;
-
-element=create_radio_array(legal_x+spacing, yy, "Selection mode", col_width, element_height, uivc_radio_selection_mode, Camera.selection_mode);
-create_radio_array_options(element, "Single", "Rectangle", "Circle");
-ds_list_add(t_general.contents, element);
-
-yy=yy+ui_get_radio_array_height(element)+spacing;
-
-element=create_checkbox(legal_x+spacing, yy, "Add to Selection", col_width, element_height, uivc_check_selection_addition, "", Camera.selection_addition, t_general);
-ds_list_add(t_general.contents, element);
-
-enum UITabs {
-    GENERAL
-}
+batch=batch_tile;
+render=render_tile;
+selector=select_tile;
 </string>
           </argument>
         </arguments>

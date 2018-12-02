@@ -37,6 +37,9 @@ tile_width=32;
 tile_height=32;
 tile_depth=32;
 
+// stuff i couldn't do in game maker so i did in c++ instead
+ds_stuff_init();
+
 // camera setup may depend on some stuff existing in here, which
 // is bad design, but this is just supposed to work and doesnt have
 // to be well-designed

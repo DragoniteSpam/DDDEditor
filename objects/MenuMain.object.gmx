@@ -41,8 +41,9 @@ element_width=96;
 var menu_file=create_menu("File", element_width, element_height, id);
 var menu_edit=create_menu("Edit", element_width, element_height, id);
 var menu_test=create_menu("Test", element_width, element_height, id);
+var menu_help=create_menu("Help", element_width, element_height, id);
 contents=ds_list_create();
-ds_list_add(contents, menu_file, menu_edit, menu_test);
+ds_list_add(contents, menu_file, menu_edit, menu_test, menu_help);
 
 /*
  * File menu
@@ -61,7 +62,7 @@ ds_list_add(menu_file.contents, mf_new, mf_save, mf_save_as, mf_open,
     mf_settings, mf_exit);
 
 /*
- * File menu
+ * Edit menu
  */
 
 var me_undo=create_menu_element("Undo (Ctrl+Z)", momu_undo, menu_edit);
@@ -99,6 +100,14 @@ var mt_15=create_menu_element("Fifteenth", null, mt_11);
 var mt_16=create_menu_element("Sixteenth", null, mt_11);
 var mt_17=create_menu_element("Seventeenth", null, mt_11);
 ds_list_add(mt_11.contents, mt_14, mt_15, mt_16, mt_17);
+
+/*
+ * Help stuff
+ */
+
+var mh_help=create_menu_element("Help", momu_help, menu_help);
+var mh_about=create_menu_element("Credits", momu_about, menu_help);
+ds_list_add(menu_help.contents, mh_help, mh_about);
 
 enum MenuTabs {
     FILE,
