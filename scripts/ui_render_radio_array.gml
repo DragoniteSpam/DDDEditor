@@ -1,11 +1,11 @@
-/// void ui_render_radio_array(Button);
+/// void ui_render_radio_array(Button, x, y);
 
-var x1=argument0.x;
-var y1=argument0.y;
+var x1=argument0.x+argument1;
+var y1=argument0.y+argument2;
 var x2=x1+argument0.width;
 var y2=y1+argument0.height*(1+ds_list_size(argument0.contents));
 
-var tx=ui_get_text_x(argument0);
+var tx=ui_get_text_x(argument0, x1, x2);
 var ty=y1+argument0.height/2;
 
 draw_rectangle(x1, y1, x2, y2, true);
@@ -16,5 +16,5 @@ draw_text(tx, ty, argument0.text);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
-    script_execute(thing.render, thing);
+    script_execute(thing.render, thing, x1, y1);
 }

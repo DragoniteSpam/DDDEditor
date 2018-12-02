@@ -16,9 +16,9 @@ var vy2=vy1+eh;
 var b_width=128;
 var b_height=32;
 
-var el_text=create_text(dg.x+dw/2-dw/3, dg.y+dh/3, "Entities which lie outside the new room boundary will be deleted. Would you still like to commit these changes?", 0, 0, fa_center, dw-128, dg);
-var el_no=create_button(dg.x+dw/3-b_width/2, dg.y+dh-32-b_height/2, "Nope", b_width, b_height, fa_center, dmu_dialog_cancel, dg);
-var el_yes=create_button(dg.x+dw*2/3-b_width/2, dg.y+dh-32-b_height/2, "Yes", b_width, b_height, fa_center, dmu_dialog_settings_confirm_world_resize, dg);
+var el_text=create_text(dw/2, dh/3, "Entities which lie outside the new room boundary will be deleted. Would you still like to commit these changes?", 0, 0, fa_center, dw-128, dg);
+var el_no=create_button(dw/3-b_width/2, dh-32-b_height/2, "Nope", b_width, b_height, fa_center, dmu_dialog_cancel, dg);
+var el_yes=create_button(dw*2/3-b_width/2, dh-32-b_height/2, "Yes", b_width, b_height, fa_center, dmu_dialog_settings_confirm_world_resize, dg);
 
 ds_list_add(dg.contents, el_text, el_no, el_yes);
 

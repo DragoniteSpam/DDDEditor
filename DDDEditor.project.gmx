@@ -195,7 +195,7 @@
         <script>scripts\ui_render_radio_array.gml</script>
         <script>scripts\ui_render_tab.gml</script>
         <script>scripts\ui_render_text.gml</script>
-        <script>scripts\ui_render_text_radio.gml</script>
+        <script>scripts\ui_render_radio_option_text.gml</script>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
       <script>scripts\ui_button_down_tab.gml</script>
@@ -283,6 +283,11 @@
       <script>scripts\ui_is_active.gml</script>
       <script>scripts\ui_value_string.gml</script>
       <script>scripts\ui_value_real.gml</script>
+    </scripts>
+    <scripts name="Control">
+      <script>scripts\get_release_left.gml</script>
+      <script>scripts\get_release_middle.gml</script>
+      <script>scripts\get_release_right.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

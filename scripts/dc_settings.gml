@@ -27,6 +27,12 @@ selection_clear();
 
 if (!ds_list_empty(oob)){
     dialog_create_settings_confirm_world_resize(argument0);
+} else {
+    // normally when you do this kind of thing you'd want to destroy the
+    // oob list (or other dynamic resources) first, but this doesn't
+    // actually destroy the dialog, just informs the program that it needs
+    // to be destroyed after everything has been rendered
+    dialog_destroy();
 }
 
 ds_list_destroy(oob);

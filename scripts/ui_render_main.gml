@@ -7,7 +7,10 @@ draw_set_color(c_black);
 draw_set_font(FDefault12);
 draw_set_valign(fa_middle);
 
-ui_render(argument0);
+// in this program there's going to be nothing in here, just
+// tabs that are handled separately, but if you want persistent
+// UI elements throw them in UIMain.contents
+ui_render(argument0, 0, 0);
 
 var xx=CW+32;
 var yy=96;
@@ -55,8 +58,8 @@ for (var i=0; i<ds_list_size(argument0.tabs); i++){
     trow=argument0.tabs[| i];
     for (var j=0; j<ds_list_size(trow); j++){
         thing=trow[| j];
-        script_execute(thing.render, thing);
+        script_execute(thing.render, thing, 0, 0);
     }
 }
 
-script_execute(argument0.active_tab.render_contents, argument0.active_tab);
+script_execute(argument0.active_tab.render_contents, argument0.active_tab, 0, 0);

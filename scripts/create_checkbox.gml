@@ -1,4 +1,4 @@
-/// UIRadioArray create_checkbox(x, y, text, width, height, onvaluechange, key, default, root);
+/// UICheckbox create_checkbox(x, y, text, width, height, onvaluechange, key, default, root);
 
 with (instance_create(argument0, argument1, UICheckbox)){
     text=argument2;

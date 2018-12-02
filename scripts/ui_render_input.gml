@@ -1,11 +1,11 @@
-/// void ui_render_input(Button);
+/// void ui_render_input(Button, x, y);
 
-var x1=argument0.x;
-var y1=argument0.y;
+var x1=argument0.x+argument1;
+var y1=argument0.y+argument2;
 var x2=x1+argument0.width;
 var y2=y1+argument0.height;
 
-var tx=ui_get_text_x(argument0);
+var tx=ui_get_text_x(argument0, x1, x2);
 var ty=mean(y1, y2);
 
 var value=argument0.value;
@@ -41,29 +41,30 @@ if (string_length(value)==0){
 
 draw_rectangle(vx1, vy1, vx2, vy2, true);
 
-if (ui_is_active(argument0)){
-    if (current_second%2==0){
-        var bx=tx+argument0.value_x1+string_width(value)+4;
-        draw_line_width(bx, ty-7, bx, ty+7, 2);
+if (dialog_is_active(argument0.root)){
+    if (ui_is_active(argument0)){
+        if (current_second%2==0){
+            var bx=tx+argument0.value_x1+string_width(value)+4;
+            draw_line_width(bx, ty-7, bx, ty+7, 2);
+        }
+        var v0=value;
+        value=value+keyboard_string;
+        keyboard_string="";
+        if (keyboard_check_pressed(vk_backspace)){
+            value=string_backspace(value);
+        }
+        if (string_length(value)>argument0.value_limit){
+            value=string_copy(value, 1, argument0.value_limit);
+        }
+        if (v0!=value){
+            argument0.value=value;
+            script_execute(argument0.onvaluechange, argument0);
+        }
     }
-    var v0=value;
-    value=value+keyboard_string;
-    keyboard_string="";
-    if (keyboard_check_pressed(vk_backspace)){
-        value=string_backspace(value);
-    }
-    if (string_length(value)>argument0.value_limit){
-        value=string_copy(value, 1, argument0.value_limit);
-    }
-    if (v0!=value){
-        argument0.value=value;
-        script_execute(argument0.onvaluechange, argument0);
-    }
-}
-
-if (mouse_within_rectangle(x1, y1, x2, y2)){
-    if (Controller.release_left){
-        Controller.release_left=false;
-        ui_activate(argument0);
+    
+    if (mouse_within_rectangle(x1, y1, x2, y2)){
+        if (get_release_left()){
+            ui_activate(argument0);
+        }
     }
 }

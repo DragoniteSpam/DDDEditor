@@ -21,30 +21,33 @@ var ty=y1+header_height/2;
 var cbs=sprite_get_width(spr_close)/2;
 var cbx=x2-cbs;
 var cby=ty;
-var cbi=2;
+var cbi=2;  // 0 is is available, 1 is hovering, 2 is unavailable
 
+draw_set_halign(fa_left);
 draw_text(tx, ty, argument0.text);
 
 if (active){
     cbi=0;
     if (mouse_within_rectangle(x1, y1, x2, y1+header_height)){
-        if (Controller.press_left){
-            argument0.cmx=Camera.MOUSE_X;
-            argument0.cmy=Camera.MOUSE_Y;
-        }
-        if (Controller.release_left){
-            argument0.cmx=-1;
-            argument0.cmy=-1;
-        }
+        // close box
         var cbx1=cbx-cbs;
         var cby1=cby-cbs;
         var cbx2=cbx+cbs;
         var cby2=cby+cbs;
         if (mouse_within_rectangle(cbx1, cby1, cbx2, cby2)){
             cbi=1;
-            if (Controller.release_left){
-                Controller.release_left=false;
+            if (get_release_left()){
                 kill=true;
+            }
+        } else {
+            // dragging things around
+            if (Controller.press_left){
+                argument0.cmx=Camera.MOUSE_X;
+                argument0.cmy=Camera.MOUSE_Y;
+            }
+            if (Controller.release_left){
+                argument0.cmx=-1;
+                argument0.cmy=-1;
             }
         }
     }
@@ -56,15 +59,6 @@ if (active){
         argument0.y=argument0.y+dy;
         argument0.cmx=Camera.MOUSE_X;
         argument0.cmy=Camera.MOUSE_Y;
-        // if i wasn't so lazy i'd just make some kind of transform group
-        // thing and not have to manually update the position of the contents
-        // every time the dialog moves, but i didn't think that far ahead
-        // and it's not actually worth updating all that code
-        for (var i=0; i<ds_list_size(argument0.contents); i++){
-            var thing=argument0.contents[| i];
-            thing.x=thing.x+dx;
-            thing.y=thing.y+dy;
-        }
     }
 }
 
@@ -72,7 +66,7 @@ draw_sprite(spr_close, cbi, cbx, cby);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
-    script_execute(thing.render, thing);
+    script_execute(thing.render, thing, argument0.x, argument0.y);
 }
 
 // the x button/escape key does not commit changes

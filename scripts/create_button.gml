@@ -1,4 +1,4 @@
-/// UIRadioArray create_button(x, y, text, width, height, alignment, onmouseup, root);
+/// UIButton create_button(x, y, text, width, height, alignment, onmouseup, root);
 
 with (instance_create(argument0, argument1, UIButton)){
     text=argument2;

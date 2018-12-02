@@ -8,7 +8,7 @@ if (DEBUG){
 
 script_execute(menu.render, menu, 0, yy);
 
-if (Controller.release_left&&!dialog_exists()){
+if (get_release_left(false)&&!dialog_exists()){
     menu_activate(noone);
 }
 

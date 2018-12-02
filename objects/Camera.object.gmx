@@ -99,6 +99,8 @@ ui=instance_create(0, 0, UIMain);
 menu=instance_create(0, 0, MenuMain);
 dialogs=ds_list_create();
 
+stuff_to_destroy=ds_queue_create();
+
 instance_deactivate_object(UIThing);
 
 /*
@@ -211,6 +213,15 @@ if (!dialog_exists()){
           <argument>
             <kind>1</kind>
             <string>/// step cleanup actions
+// dialogs (or other things) to be killed
+
+while (!ds_queue_empty(stuff_to_destroy)){
+    var thing=ds_queue_dequeue(stuff_to_destroy);
+    instance_activate_object(thing);
+    instance_destroy(thing);
+}
+
+// batch updates
 
 var future=ActiveMap.batch_in_the_future;
 

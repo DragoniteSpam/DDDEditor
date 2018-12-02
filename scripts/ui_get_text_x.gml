@@ -1,15 +1,12 @@
-/// double ui_get_text_x(UIText);
+/// double ui_get_text_x(UIText, x1, x2);
 
 var offset=12;
 
 switch (argument0.alignment){
     case fa_left:
-        return argument0.x+offset;
-        break;
+        return argument1+offset;
     case fa_center:
-        return argument0.x+argument0.width/2;
-        break;
+        return mean(argument1, argument2);
     case fa_right:
-        return argument0.x+argument0.width-offset/2;
-        break;
+        return argument2-offset;
 }

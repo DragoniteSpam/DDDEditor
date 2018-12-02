@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-render=ui_render_text_radio;
+render=ui_render_radio_option_text;
 
 parent=noone;
 value=-1;

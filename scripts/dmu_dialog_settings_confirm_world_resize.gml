@@ -17,7 +17,7 @@ if (ds_map_exists(map, "z")){
 
 for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
     var thing=ActiveMap.all_entities[| i];
-    if (thing.xx>=xx||thing.yy>=yy||thing.z>=zz){
+    if (thing.xx>=xx||thing.yy>=yy||thing.zz>=zz){
         safa_delete(thing);
     }
 }

@@ -1,4 +1,4 @@
-/// void ui_render_checkbox(Button, x, y);
+/// void ui_render_radio_option_text(Button, x, y);
 
 var x1=argument0.x+argument1;
 var y1=argument0.y+argument2;
@@ -13,16 +13,18 @@ draw_set_halign(argument0.alignment);
 draw_set_color(argument0.color);
 draw_text(tx+32, ty, argument0.text);
 
-var s2=8;
+var router=8;
+var rinner=4;
 
-draw_rectangle(tx+16-s2, ty-s2, tx+16+s2, ty+s2, true);
+draw_circle(tx+16, ty, router, true);
 
-if (argument0.value){
-    draw_sprite(spr_check, 0, tx+16, ty);
+if (argument0.parent.value==argument0.value){
+    draw_circle_colour(tx+16, ty, rinner, c_green, c_green, false);
 }
 
 if (dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
     if (get_release_left()){
-        script_execute(argument0.onvaluechange, argument0);
+        argument0.parent.value=argument0.value;
+        script_execute(argument0.parent.onvaluechange, argument0);
     }
 }

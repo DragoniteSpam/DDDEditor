@@ -8,14 +8,13 @@ var y2=y1+argument0.height;
 argument0.x=x1;
 argument0.y=y1;
 
-var tx=ui_get_text_x(argument0);
+var tx=ui_get_text_x(argument0, x1, x2);
 var ty=mean(y1, y2);
 
 // click on the header
 if (mouse_within_rectangle(x1, y1, x2, y2)){
     draw_rectangle_colour(x1, y1, x2, y2, c_ui, c_ui, c_ui, c_ui, false);
-    if (Controller.release_left&&!dialog_exists()){
-        Controller.release_left=false;
+    if (get_release_left()&&!dialog_exists()){
         menu_activate(argument0);
     }
 }
