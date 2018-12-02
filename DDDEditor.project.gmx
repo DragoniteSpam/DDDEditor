@@ -269,7 +269,12 @@
         </scripts>
         <script>scripts\dialog_is_active.gml</script>
         <scripts name="commit">
-          <script>scripts\dc_settings.gml</script>
+          <scripts name="execution">
+            <script>scripts\dc_settings_execute.gml</script>
+          </scripts>
+          <scripts name="verification">
+            <script>scripts\dc_settings.gml</script>
+          </scripts>
         </scripts>
         <scripts name="on mouse up">
           <script>scripts\dmu_dialog_commit.gml</script>

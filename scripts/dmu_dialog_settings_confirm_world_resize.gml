@@ -24,3 +24,5 @@ for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
 
 dialog_destroy();
 dialog_destroy();
+
+dc_settings_execute(argument0.root.root);

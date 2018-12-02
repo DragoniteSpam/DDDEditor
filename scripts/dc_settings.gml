@@ -1,4 +1,7 @@
-/// void dc_settings(Dialog);
+/// void dc_settings(Dialog, [force?]);
+// Doesn't actually commit any settings, just a verification to see if there
+// would be any side effects (entities being orphaned by the grid, etc) and
+// if there are, pops up a confirmation asking if you want to (safely) do it anyway.
 
 var map=argument0.data;
 
@@ -12,7 +15,7 @@ if (ds_map_exists(map, "y")){
     yy=map[? "y"];
 }
 if (ds_map_exists(map, "z")){
-    yy=map[? "z"];
+    zz=map[? "z"];
 }
 
 var oob=ds_list_create();
@@ -33,6 +36,7 @@ if (!ds_list_empty(oob)){
     // actually destroy the dialog, just informs the program that it needs
     // to be destroyed after everything has been rendered
     dialog_destroy();
+    dc_settings_execute(argument0);
 }
 
 ds_list_destroy(oob);
