@@ -40,10 +40,10 @@ element_width=96;
 
 var menu_file=create_menu("File", element_width, element_height, id);
 var menu_edit=create_menu("Edit", element_width, element_height, id);
-var menu_test=create_menu("Test", element_width, element_height, id);
+var menu_data=create_menu("Data", element_width, element_height, id);
 var menu_help=create_menu("Help", element_width, element_height, id);
 contents=ds_list_create();
-ds_list_add(contents, menu_file, menu_edit, menu_test, menu_help);
+ds_list_add(contents, menu_file, menu_edit, menu_data, menu_help);
 
 /*
  * File menu
@@ -75,31 +75,13 @@ ds_list_add(menu_edit.contents, me_undo, me_redo,
     me_copy, me_cut, me_paste);
 
 /*
- * Test stuff
+ * Data stuff
  */
 
-var mt_1=create_menu_element("First", momu_expand, menu_test);
-var mt_2=create_menu_element("Second", momu_expand, menu_test);
-var mt_3=create_menu_element("Third", null, menu_test);
-var mt_4=create_menu_element("Fourth", null, menu_test);
-var mt_5=create_menu_element("Fifth", momu_expand, menu_test);
-var mt_6=create_menu_element("Sixth", null, menu_test);
-var mt_7=create_menu_element("Seventh", momu_expand, menu_test);
-var mt_8=create_menu_element("Eighth", null, menu_test);
-var mt_9=create_menu_element("Ninth", null, menu_test);
-var mt_10=create_menu_element("Tenth", momu_expand, menu_test);
-ds_list_add(menu_test.contents, mt_1, mt_2, mt_3, mt_4, mt_5, mt_6, mt_7, mt_8, mt_9, mt_10);
+var md_mesh=create_menu_element("Meshes (vrax)", momu_mesh, menu_data);
+var md_ts=create_menu_element("Tileset", null, menu_data);
+ds_list_add(menu_data.contents, md_mesh, md_ts);
 
-var mt_11=create_menu_element("Eleventh", momu_expand, mt_1);
-var mt_12=create_menu_element("Twelfth", null, mt_1);
-var mt_13=create_menu_element("Thirteenth", null, mt_1);
-ds_list_add(mt_1.contents, mt_11, mt_12, mt_13);
-
-var mt_14=create_menu_element("Fourteenth", momu_expand, mt_11);
-var mt_15=create_menu_element("Fifteenth", null, mt_11);
-var mt_16=create_menu_element("Sixteenth", null, mt_11);
-var mt_17=create_menu_element("Seventeenth", null, mt_11);
-ds_list_add(mt_11.contents, mt_14, mt_15, mt_16, mt_17);
 
 /*
  * Help stuff
