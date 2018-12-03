@@ -111,7 +111,10 @@
           <script>scripts\sa_fill.gml</script>
           <script>scripts\sa_invert.gml</script>
           <scripts name="foreach">
-            <script>scripts\safc_fill.gml</script>
+            <script>scripts\safc_fill_tile.gml</script>
+            <script>scripts\safc_fill_mesh.gml</script>
+            <script>scripts\safc_fill_pawn.gml</script>
+            <script>scripts\safc_fill_event.gml</script>
             <script>scripts\safa_delete.gml</script>
           </scripts>
         </scripts>
@@ -192,10 +195,13 @@
           <script>scripts\create_radio_array_options.gml</script>
         </scripts>
       </scripts>
-      <scripts name="on value change">
+      <scripts name="on value change and general interaction">
         <script>scripts\uivc_radio_selection_mode.gml</script>
+        <script>scripts\uivc_radio_fill_type.gml</script>
         <script>scripts\uivc_check_selection_addition.gml</script>
         <script>scripts\uivc_stash.gml</script>
+        <script>scripts\uimu_selection_fill.gml</script>
+        <script>scripts\uimu_selection_delete.gml</script>
       </scripts>
       <scripts name="math">
         <script>scripts\ui_get_radio_array_height.gml</script>
@@ -352,6 +358,9 @@
         <object>objects\Entity</object>
         <object>objects\EntityTile</object>
         <object>objects\EntityMesh</object>
+        <object>objects\EntityPawn</object>
+        <object>objects\EntityEffect</object>
+        <object>objects\EntityEvent</object>
       </objects>
     </objects>
     <object>objects\ActiveMap</object>

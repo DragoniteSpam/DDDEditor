@@ -84,6 +84,8 @@ last_selection=noone;
 selection_mode=SelectionModes.RECTANGLE;
 selection_addition=false;
 
+selection_fill_type=ETypes.TILE;
+
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now
  */
@@ -118,6 +120,15 @@ enum SelectionModes {
     RECTANGLE,
     CIRCLE
 }
+
+enum ETypes {
+    TILE,
+    MESH,
+    PAWN,
+    EFFECT,
+}
+
+etypes=array_compose(safc_fill_tile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
 </string>
           </argument>
         </arguments>

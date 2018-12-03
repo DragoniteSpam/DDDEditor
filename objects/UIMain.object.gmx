@@ -37,17 +37,17 @@ element_height=24;
  */
 
 var t_general=create_tab("General", UITabs.GENERAL, 0, id);
-var t_selection=create_tab("Selection", 1, 0, id);
-var t_2=create_tab("T2", 2, 0, id);
+var t_properties=create_tab("Properties", 1, 0, id);
+var t_2=create_tab("Tab 2", 2, 0, id);
 
-var t_3=create_tab("T3", 3, 1, id);
-var t_4=create_tab("T4", 4, 1, id);
-var t_5=create_tab("T5", 5, 1, id);
-var t_6=create_tab("T6", 6, 1, id);
+var t_3=create_tab("Tab 3", 3, 1, id);
+var t_4=create_tab("Tab 4", 4, 1, id);
+var t_5=create_tab("Tab 5", 5, 1, id);
+var t_6=create_tab("Tab 6", 6, 1, id);
 
 // the game will crash if you create a tab row with zero width.
 var tr_top=ds_list_create();
-ds_list_add(tr_top, t_general, t_selection, t_2);
+ds_list_add(tr_top, t_general, t_properties, t_2);
 var tr_bottom=ds_list_create();
 ds_list_add(tr_bottom, t_3, t_4, t_5, t_6);
 
@@ -70,14 +70,39 @@ var col_width=legal_width/2-spacing/2;
 
 var yy=legal_y+spacing;
 
-element=create_radio_array(legal_x+spacing, yy, "Selection mode", col_width, element_height, uivc_radio_selection_mode, Camera.selection_mode);
+element=create_radio_array(legal_x+spacing, yy, "Selection mode", col_width, element_height, uivc_radio_selection_mode, Camera.selection_mode, t_general);
 create_radio_array_options(element, "Single", "Rectangle", "Circle");
 ds_list_add(t_general.contents, element);
 
 yy=yy+ui_get_radio_array_height(element)+spacing;
 
-element=create_checkbox(legal_x+spacing, yy, "Add to Selection", col_width, element_height, uivc_check_selection_addition, "", Camera.selection_addition, t_general);
+element=create_checkbox(legal_x+spacing, yy, "Additive Selection", col_width, element_height, uivc_check_selection_addition, "", Camera.selection_addition, t_general);
 ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_radio_array(legal_x+spacing, yy, "Fill Type", col_width, element_height, uivc_radio_fill_type, Camera.selection_fill_type, t_general);
+create_radio_array_options(element, "Tile", "Mesh", "Mob", "Effect");
+ds_list_add(t_general.contents, element);
+
+yy=yy+ui_get_radio_array_height(element)+spacing;
+
+element=create_button(legal_x+spacing, yy, "Fill Selection (Space)", col_width, element_height, fa_center, uimu_selection_fill, t_general);
+ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_button(legal_x+spacing, yy, "Delete Selection (Delete)", col_width, element_height, fa_center, uimu_selection_delete, t_general);
+ds_list_add(t_general.contents, element);
+
+/*
+ * selection tab setup
+ */
+
+yy=legal_y+spacing;
+
+element=create_text(legal_x+spacing, yy, "Properties of selected enties (or common properties of multiple entities) will appear here", legal_width, 128, fa_left, legal_width, t_properties);
+ds_list_add(t_properties.contents, element);
 
 enum UITabs {
     GENERAL

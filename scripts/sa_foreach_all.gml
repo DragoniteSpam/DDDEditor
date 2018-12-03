@@ -1,5 +1,5 @@
 /// void sa_foreach_all(script, params array);
-// processes each selected thing, but not empty cells
+// processes each selected thing, but only if they're selected
 
 for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
     var thing=ActiveMap.all_entities[| i];

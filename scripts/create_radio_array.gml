@@ -1,4 +1,4 @@
-/// UIRadioArray create_radio_array(x, y, text, width, height, onvaluechange, default);
+/// UIRadioArray create_radio_array(x, y, text, width, height, onvaluechange, default, root);
 
 with (instance_create(argument0, argument1, UIRadioArray)){
     text=argument2;
@@ -7,6 +7,8 @@ with (instance_create(argument0, argument1, UIRadioArray)){
     
     onvaluechange=argument5;
     value=argument6;
+    
+    root=argument7;
     
     return id;
 }

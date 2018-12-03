@@ -1,1 +1,1 @@
-sa_foreach_cell(safc_fill, noone);
+sa_foreach_cell(Camera.etypes[Camera.selection_fill_type], noone);
