@@ -84,6 +84,13 @@
         <script>scripts\ds_list_destroy_instances.gml</script>
         <script>scripts\ds_list_pop.gml</script>
         <script>scripts\ds_list_top.gml</script>
+        <script>scripts\buffer_read_string.gml</script>
+        <script>scripts\buffer_point_complete.gml</script>
+        <scripts name="trees">
+          <script>scripts\ds_tree_add.gml</script>
+          <script>scripts\ds_tree_node.gml</script>
+          <script>scripts\ds_tree_list.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
@@ -181,6 +188,10 @@
         <script>scripts\ui_render_tab.gml</script>
         <script>scripts\ui_render_text.gml</script>
         <script>scripts\ui_render_radio_option_text.gml</script>
+        <scripts name="special">
+          <script>scripts\ui_render_text_vrax.gml</script>
+          <script>scripts\ui_render_button_vrax.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
       <script>scripts\ui_button_down_tab.gml</script>
@@ -224,7 +235,6 @@
             <script>scripts\momu_exit.gml</script>
             <script>scripts\momu_open.gml</script>
             <script>scripts\momu_settings.gml</script>
-            <script>scripts\momu_mesh.gml</script>
             <script>scripts\momu_save_as.gml</script>
             <script>scripts\momu_save.gml</script>
             <script>scripts\momu_new.gml</script>
@@ -240,6 +250,10 @@
           <scripts name="help">
             <script>scripts\momu_help.gml</script>
             <script>scripts\momu_about.gml</script>
+          </scripts>
+          <scripts name="data">
+            <script>scripts\momu_mesh.gml</script>
+            <script>scripts\momu_tileset.gml</script>
           </scripts>
         </scripts>
         <script>scripts\menu_is_ancestor.gml</script>
@@ -278,6 +292,9 @@
           <script>scripts\dmu_dialog_cancel.gml</script>
           <scripts name="settings">
             <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
+          </scripts>
+          <scripts name="data">
+            <script>scripts\dmu_dialog_load_vrax.gml</script>
           </scripts>
         </scripts>
       </scripts>
@@ -349,6 +366,11 @@
         <script>scripts\c_world_remove_object.gml</script>
       </scripts>
     </scripts>
+    <scripts name="data">
+      <script>scripts\data_load_vra_actually_thanks.gml</script>
+      <script>scripts\data_load_vra.gml</script>
+      <script>scripts\data_load_vra_next.gml</script>
+    </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
@@ -397,7 +419,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="13">
+  <constants number="14">
+    <constant name="T">buffer_f32</constant>
     <constant name="MAP_X_LIMIT">1024</constant>
     <constant name="DEBUG">true</constant>
     <constant name="c_ui">$ebebeb</constant>

@@ -56,6 +56,10 @@ c_shape_end_trimesh(c_shape_tile);
 instance_create(0, 0, ActiveMap);
 instance_create(0, 0, Controller);
 instance_create(0, 0, Camera);
+
+// data that gets loaded: needs the camera (and vertex formats) to be
+// defined before running
+data_load_vra();
 </string>
           </argument>
         </arguments>
