@@ -34,6 +34,7 @@ width=128;
 height=24;
 
 index=0;
+last_index=-1;
 slots=4;
 
 click_x=-1;

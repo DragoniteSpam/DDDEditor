@@ -52,9 +52,20 @@ var move_direction=0;
 if (argument0.interactive&&active&&mouse_within_rectangle(x1, y2, x2-offset, y3)){
     if (Controller.press_left){
         var mn=((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index;
-        if (!keyboard_check_direct(vk_control)||!argument0.allow_multi_select){
+        if ((!keyboard_check_direct(vk_control)&&!keyboard_check_direct(vk_shift))||!argument0.allow_multi_select){
             ds_map_clear(argument0.selected_entries);
         }
+        if (argument0.allow_multi_select&&keyboard_check_direct(vk_shift)){
+            if (argument0.last_index>-1){
+                var d=clamp(mn-argument0.last_index, -1, 1);
+                for (var i=argument0.last_index; i!=mn; i=i+d){
+                    if (!ds_map_exists(argument0.selected_entries, i)){
+                        ds_map_add(argument0.selected_entries, i, true);
+                    }
+                }
+            }
+        }
+        argument0.last_index=mn;
         ds_map_add(argument0.selected_entries, mn, true);
         script_execute(argument0.onvaluechange, argument0);
     }
@@ -62,6 +73,14 @@ if (argument0.interactive&&active&&mouse_within_rectangle(x1, y2, x2-offset, y3)
         move_direction=-1;
     } else if (mouse_wheel_down()){
         move_direction=1;
+    }
+    
+    if (keyboard_check(vk_control)&&keyboard_check_pressed(ord('A'))){
+        for (var i=0; i<ds_list_size(argument0.entries); i++){
+            if (!ds_map_exists(argument0.selected_entries, i)){
+                ds_map_add(argument0.selected_entries, i, true);
+            }
+        }
     }
 }
 
