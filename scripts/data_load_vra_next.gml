@@ -10,6 +10,9 @@ var data=buffer_create(n*4*10, buffer_fixed, 4);
 vertex_begin(buffer, Camera.vertex_format);
 vertex_begin(buffer_wire, Camera.vertex_format_line);
 
+var cdata=c_shape_create();
+c_shape_begin_trimesh();
+
 var vc=0;
 
 var xx=array_create(3);
@@ -43,6 +46,8 @@ repeat(n){
         
         vertex_point_line(buffer_wire, xx[2], yy[2], zz[2], c_white, 1);
         vertex_point_line(buffer_wire, xx[0], yy[0], zz[0], c_white, 1);
+        
+        c_shape_add_triangle(xx[0], yy[0], zz[0], xx[1], yy[1], zz[1], xx[2], yy[2], zz[2]);
     }
 }
 
@@ -65,6 +70,8 @@ if (argument1>0){
 vertex_end(buffer);
 vertex_end(buffer_wire);
 
+c_shape_end_trimesh(cdata);
+
 // it's really annoying, but you can't convert frozen vertex buffers
 // to normal buffers, and you need to do that to access the information
 // inside the vertex buffer in order to batch static objects together.
@@ -82,11 +89,12 @@ vertex_end(buffer_wire);
 vertex_freeze(buffer);
 vertex_freeze(buffer_wire);
 
-return array_compose(buffer, buffer_wire, data, xmin, ymin, zmin, xmax, ymax, zmax);
+return array_compose(buffer, buffer_wire, cdata, data, xmin, ymin, zmin, xmax, ymax, zmax);
 
 enum MeshArrayData {
     VBUFF,
     VBUFF_WIREFRAME,
+    CDATA,
     DATA,
     XMIN,
     YMIN,

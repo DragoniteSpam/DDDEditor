@@ -75,10 +75,12 @@ if (argument0.interactive&&active&&mouse_within_rectangle(x1, y2, x2-offset, y3)
         move_direction=1;
     }
     
-    if (keyboard_check(vk_control)&&keyboard_check_pressed(ord('A'))){
-        for (var i=0; i<ds_list_size(argument0.entries); i++){
-            if (!ds_map_exists(argument0.selected_entries, i)){
-                ds_map_add(argument0.selected_entries, i, true);
+    if (argument0.allow_multi_select){
+        if (keyboard_check(vk_control)&&keyboard_check_pressed(ord('A'))){
+            for (var i=0; i<ds_list_size(argument0.entries); i++){
+                if (!ds_map_exists(argument0.selected_entries, i)){
+                    ds_map_add(argument0.selected_entries, i, true);
+                }
             }
         }
     }

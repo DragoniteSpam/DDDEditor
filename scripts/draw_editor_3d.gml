@@ -23,6 +23,7 @@ d3d_set_projection_ext(x, y, z,
 var tex=sprite_get_texture(b_tileset_overworld, 0);
 for (var i=0; i<ds_list_size(ActiveMap.batches); i++){
     vertex_submit(ActiveMap.batches[| i], pr_trianglelist, tex);
+    vertex_submit(ActiveMap.batches_wire[| i], pr_linelist, -1);
 }
 for (var i=0; i<ds_list_size(ActiveMap.batch_in_the_future); i++){
     var ent=ActiveMap.batch_in_the_future[| i];

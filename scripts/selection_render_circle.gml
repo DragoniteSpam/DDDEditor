@@ -1,13 +1,13 @@
-transform_set(0, 0, argument0.z*Stuff.tile_depth, 0, 0, 0, 1, 1, 1);
+transform_set(0, 0, argument0.z*TILE_DEPTH, 0, 0, 0, 1, 1, 1);
 
 var precision=24;
 var step=360/precision;
-var cx=argument0.x*Stuff.tile_width;
-var cy=argument0.y*Stuff.tile_height;
-var cz=argument0.z*Stuff.tile_depth;
-var rw=argument0.radius*Stuff.tile_width;
-var rh=argument0.radius*Stuff.tile_height;
-var rd=argument0.radius*Stuff.tile_depth;
+var cx=argument0.x*TILE_WIDTH;
+var cy=argument0.y*TILE_HEIGHT;
+var cz=argument0.z*TILE_DEPTH;
+var rw=argument0.radius*TILE_WIDTH;
+var rh=argument0.radius*TILE_HEIGHT;
+var rd=argument0.radius*TILE_DEPTH;
 var w=12;
 
 for (var i=0; i<precision; i++){

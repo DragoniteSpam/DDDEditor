@@ -1,12 +1,13 @@
-/// void batch_tile(vertex buffer, EntityTile);
+/// void batch_tile(vertex buffer, wireframe buffer, EntityTile);
 
 var buffer=argument0;
-var tile=argument1;
+var wire=argument1;
+var tile=argument2;
 var TEXEL=1/sprite_get_width(tile.tileset);
 
-var xx=tile.xx*Stuff.tile_width;
-var yy=tile.yy*Stuff.tile_height;
-var zz=tile.zz*Stuff.tile_depth;
+var xx=tile.xx*TILE_WIDTH;
+var yy=tile.yy*TILE_HEIGHT;
+var zz=tile.zz*TILE_WIDTH;
 // todo correct normal calculation, and MAYBE normal smoothing, although
 // i'm pretty sure that's going to be really expensive unless you bake it
 // into the likely future map editing tool
@@ -33,9 +34,24 @@ var color=tile.tile_color;
 var alpha=tile.tile_alpha;
 
 vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
-vertex_point_complete(buffer, xx+Stuff.tile_width, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
-vertex_point_complete(buffer, xx+Stuff.tile_width, yy+Stuff.tile_height,zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
 
-vertex_point_complete(buffer, xx+Stuff.tile_width, yy+Stuff.tile_height, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
-vertex_point_complete(buffer, xx, yy+Stuff.tile_height, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+vertex_point_complete(buffer, xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
 vertex_point_complete(buffer, xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
+
+vertex_point_line(wire, xx, yy, zz, c_white, 1);
+vertex_point_line(wire, xx+TILE_WIDTH, yy, zz, c_white, 1);
+
+vertex_point_line(wire, xx+TILE_WIDTH, yy, zz, c_white, 1);
+vertex_point_line(wire, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, c_white, 1);
+
+vertex_point_line(wire, xx, yy, zz, c_white, 1);
+vertex_point_line(wire, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, c_white, 1);
+
+vertex_point_line(wire, xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, c_white, 1);
+vertex_point_line(wire, xx, yy+TILE_HEIGHT, zz, c_white, 1);
+
+vertex_point_line(wire, xx, yy+TILE_HEIGHT, zz, c_white, 1);
+vertex_point_line(wire, xx, yy, zz, c_white, 1);

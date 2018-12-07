@@ -125,16 +125,16 @@ mesh_scale=1;
 mesh_preview_grid=vertex_create_buffer();
 vertex_begin(mesh_preview_grid, vertex_format_line);
 
-var x1=-6*Stuff.tile_width;
-var y1=-6*Stuff.tile_height;
+var x1=-6*TILE_WIDTH;
+var y1=-6*TILE_HEIGHT;
 var x2=-x1;
 var y2=-y1;
 for (var i=0; i&lt;=12; i++){
-    vertex_point_line(mesh_preview_grid, x1+i*Stuff.tile_width, y1, 0, c_white, 1);
-    vertex_point_line(mesh_preview_grid, x1+i*Stuff.tile_width, y2, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x1+i*TILE_WIDTH, y1, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x1+i*TILE_WIDTH, y2, 0, c_white, 1);
     
-    vertex_point_line(mesh_preview_grid, x1, y1+i*Stuff.tile_height, 0, c_white, 1);
-    vertex_point_line(mesh_preview_grid, x2, y1+i*Stuff.tile_height, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x1, y1+i*TILE_HEIGHT, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x2, y1+i*TILE_HEIGHT, 0, c_white, 1);
 }
 
 vertex_end(mesh_preview_grid);

@@ -32,6 +32,8 @@ zz=8;
 
 // internal stuff
 batches=ds_list_create();               // vertex buffers
+batches_wire=ds_list_create();          // vertex buffers
+
 batch_instances=ds_list_create();       // entities
 batch_in_the_future=ds_list_create();   // entities
 dynamic=ds_list_create();               // entities
@@ -61,9 +63,11 @@ all_entities=ds_list_create();          // entities
             <kind>1</kind>
             <string>for (var i=0; i&lt;ds_list_size(batches); i++){
     vertex_delete_buffer(batches[| i]);
+    vertex_delete_buffer(batches_wireframe[| i]);
 }
 
 ds_list_destroy(batches);
+ds_list_destroy(batches_wireframe);
 
 ds_list_destroy(batch_instances);
 ds_list_destroy(batch_in_the_future);

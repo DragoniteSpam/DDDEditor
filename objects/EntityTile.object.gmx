@@ -52,7 +52,7 @@ am_solid=false;
 
 batch=batch_tile;
 render=render_tile;
-selector=select_tile;
+selector=select_single;
 </string>
           </argument>
         </arguments>

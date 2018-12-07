@@ -22,8 +22,8 @@ if (zz<z){
     floor_x=x+xx*f;
     floor_y=y+yy*f;
     
-    floor_cx=clamp(floor_x div Stuff.tile_width, 0, ActiveMap.xx);
-    floor_cy=clamp(floor_y div Stuff.tile_height, 0, ActiveMap.yy);
+    floor_cx=clamp(floor_x div TILE_WIDTH, 0, ActiveMap.xx);
+    floor_cy=clamp(floor_y div TILE_HEIGHT, 0, ActiveMap.yy);
     
     if (Controller.press_left){
         if (!keyboard_check_direct(input_selection_add)&&!selection_addition){

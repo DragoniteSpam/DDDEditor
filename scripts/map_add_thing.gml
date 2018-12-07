@@ -16,6 +16,6 @@ ds_list_add(ActiveMap.all_entities, argument0);
 
 c_world_add_object(argument0.cobject);
 c_object_set_userid(argument0.cobject, argument0);
-c_transform_position(argument0.xx*Stuff.tile_width, argument0.yy*Stuff.tile_height, argument0.zz*Stuff.tile_depth);
+c_transform_position(argument0.xx*TILE_WIDTH, argument0.yy*TILE_HEIGHT, argument0.zz*TILE_DEPTH);
 c_object_apply_transform(argument0.cobject);
 c_transform_identity();

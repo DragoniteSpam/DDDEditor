@@ -109,7 +109,7 @@
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
       <script>scripts\selection_empty.gml</script>
-      <script>scripts\select_tile.gml</script>
+      <script>scripts\select_single.gml</script>
       <script>scripts\selected.gml</script>
       <scripts name="actions">
         <script>scripts\sa_foreach_all.gml</script>
@@ -156,11 +156,13 @@
       <script>scripts\vertex_point_line.gml</script>
       <scripts name="batching">
         <script>scripts\batch_tile.gml</script>
+        <script>scripts\batch_mesh.gml</script>
         <script>scripts\batch_cache.gml</script>
         <script>scripts\batch_again.gml</script>
       </scripts>
       <scripts name="rendering">
         <script>scripts\render_tile.gml</script>
+        <script>scripts\render_mesh.gml</script>
       </scripts>
       <scripts name="views">
         <script>scripts\draw_editor_3d.gml</script>
@@ -176,6 +178,7 @@
     <scripts name="Game data">
       <scripts name="creation">
         <script>scripts\instance_create_tile.gml</script>
+        <script>scripts\instance_create_mesh.gml</script>
       </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
@@ -290,6 +293,7 @@
           <script>scripts\dialog_create_settings.gml</script>
           <script>scripts\dialog_create_data_mesh.gml</script>
           <script>scripts\dialog_create_about.gml</script>
+          <script>scripts\dialog_create_notice.gml</script>
           <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
         </scripts>
         <script>scripts\dialog_is_active.gml</script>
@@ -308,6 +312,7 @@
           <script>scripts\dmu_dialog_cancel.gml</script>
           <scripts name="settings">
             <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
+            <script>scripts\dmu_close_no_questions_asked.gml</script>
           </scripts>
           <scripts name="data">
             <script>scripts\dmu_dialog_preview_mesh.gml</script>
@@ -439,7 +444,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="16">
+  <constants number="19">
+    <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
@@ -456,6 +462,8 @@
     <constant name="view_3d_preview">2</constant>
     <constant name="view_3d">0</constant>
     <constant name="view_hud">1</constant>
+    <constant name="TILE_HEIGHT">Stuff.tile_height</constant>
+    <constant name="TILE_DEPTH">Stuff.tile_depth</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

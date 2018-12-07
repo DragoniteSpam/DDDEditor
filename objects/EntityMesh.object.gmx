@@ -50,9 +50,9 @@ am_solid=false;
 
 // editor properties
 
-batch=batch_tile;
-render=render_tile;
-selector=select_tile;
+batch=batch_mesh;
+render=render_mesh;
+selector=select_single;
 </string>
           </argument>
         </arguments>
