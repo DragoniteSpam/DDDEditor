@@ -101,7 +101,7 @@ ds_list_add(t_general.contents, element);
 
 yy=legal_y+spacing;
 
-element=create_text(legal_x+spacing, yy, "Properties of selected enties (or common properties of multiple entities) will appear here", legal_width, 128, fa_left, legal_width, t_properties);
+element=create_text(legal_x+spacing, yy, "Properties of selected enties (or common properties of multiple entities) will appear here", legal_width, 64, fa_left, legal_width, t_properties);
 ds_list_add(t_properties.contents, element);
 
 enum UITabs {

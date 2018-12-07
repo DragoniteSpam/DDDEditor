@@ -9,7 +9,7 @@ argument0.x=x1;
 argument0.y=y1;
 
 var tx=ui_get_text_x(argument0, x1, x2);
-var ty=mean(y1, y2);
+var ty=ui_get_text_y(argument0, y1, y2);
 
 // click on the header
 if (mouse_within_rectangle(x1, y1, x2, y2)){
@@ -20,6 +20,7 @@ if (mouse_within_rectangle(x1, y1, x2, y2)){
 }
 
 draw_set_halign(argument0.alignment);
+draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);
 draw_text(tx, ty, argument0.text);
 

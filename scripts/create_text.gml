@@ -1,4 +1,4 @@
-/// UIText create_text(x, y, text, width, height, alignment, wrap width, root);
+/// UIText create_text(x, y, text, width, height, halignment, wrap width, root);
 
 with (instance_create(argument0, argument1, UIText)){
     text=argument2;

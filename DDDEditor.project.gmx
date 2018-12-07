@@ -68,6 +68,7 @@
     </sprites>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
+    <sprite>sprites\spr_scroll_arrow</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -161,9 +162,13 @@
       <scripts name="rendering">
         <script>scripts\render_tile.gml</script>
       </scripts>
-      <script>scripts\draw_editor_hud.gml</script>
-      <script>scripts\draw_editor_menu.gml</script>
-      <script>scripts\draw_editor_3d.gml</script>
+      <scripts name="views">
+        <script>scripts\draw_editor_3d.gml</script>
+        <script>scripts\draw_editor_hud.gml</script>
+        <script>scripts\draw_editor_menu.gml</script>
+        <script>scripts\draw_preview_3d.gml</script>
+        <script>scripts\draw_preview_3d_overlay.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Maps">
       <script>scripts\map_add_thing.gml</script>
@@ -176,6 +181,10 @@
     <script>scripts\debug.gml</script>
     <scripts name="controls">
       <script>scripts\control_3d.gml</script>
+      <script>scripts\control_3d_preview.gml</script>
+      <script>scripts\control_duration_left.gml</script>
+      <script>scripts\control_duration_right.gml</script>
+      <script>scripts\control_duration_middle.gml</script>
     </scripts>
     <scripts name="ui stuff">
       <scripts name="rendering">
@@ -185,6 +194,7 @@
         <script>scripts\ui_render_input.gml</script>
         <script>scripts\ui_render_main.gml</script>
         <script>scripts\ui_render_radio_array.gml</script>
+        <script>scripts\ui_render_list.gml</script>
         <script>scripts\ui_render_tab.gml</script>
         <script>scripts\ui_render_text.gml</script>
         <script>scripts\ui_render_radio_option_text.gml</script>
@@ -198,12 +208,15 @@
       <scripts name="creation">
         <script>scripts\create_tab.gml</script>
         <script>scripts\create_radio_array.gml</script>
+        <script>scripts\create_list.gml</script>
         <script>scripts\create_checkbox.gml</script>
         <script>scripts\create_text.gml</script>
         <script>scripts\create_button.gml</script>
         <script>scripts\create_input.gml</script>
-        <scripts name="radio arrays">
+        <scripts name="create elements">
           <script>scripts\create_radio_array_options.gml</script>
+          <script>scripts\create_list_entries.gml</script>
+          <script>scripts\clear_list_entries.gml</script>
         </scripts>
       </scripts>
       <scripts name="on value change and general interaction">
@@ -213,10 +226,12 @@
         <script>scripts\uivc_stash.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
+        <script>scripts\uivc_list_view_mesh.gml</script>
       </scripts>
       <scripts name="math">
         <script>scripts\ui_get_radio_array_height.gml</script>
         <script>scripts\ui_get_text_x.gml</script>
+        <script>scripts\ui_get_text_y.gml</script>
         <script>scripts\ui_legal_height.gml</script>
         <script>scripts\ui_legal_width.gml</script>
       </scripts>
@@ -294,6 +309,7 @@
             <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
           </scripts>
           <scripts name="data">
+            <script>scripts\dmu_dialog_preview_mesh.gml</script>
             <script>scripts\dmu_dialog_load_vrax.gml</script>
           </scripts>
         </scripts>
@@ -307,6 +323,7 @@
       <script>scripts\get_release_left.gml</script>
       <script>scripts\get_release_middle.gml</script>
       <script>scripts\get_release_right.gml</script>
+      <script>scripts\get_release_escape.gml</script>
     </scripts>
     <scripts name="dll stuff">
       <scripts name="stuff">
@@ -374,6 +391,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
+    <font>fonts\FDefault12Bold</font>
   </fonts>
   <objects name="objects">
     <object>objects\Camera</object>
@@ -401,6 +419,7 @@
       <object>objects\UIThing</object>
       <object>objects\UIMain</object>
       <object>objects\UIRadioArray</object>
+      <object>objects\UIList</object>
       <object>objects\UICheckbox</object>
       <object>objects\UIInput</object>
       <object>objects\UIText</object>
@@ -419,21 +438,23 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="14">
-    <constant name="T">buffer_f32</constant>
-    <constant name="MAP_X_LIMIT">1024</constant>
-    <constant name="DEBUG">true</constant>
-    <constant name="c_ui">$ebebeb</constant>
-    <constant name="HW">520</constant>
-    <constant name="view_3d">0</constant>
+  <constants number="16">
     <constant name="BATCH_CACHE_SIZE">160</constant>
-    <constant name="MILLION">1000000</constant>
-    <constant name="CW">1080</constant>
+    <constant name="c_ui_select">$ffb8ac</constant>
+    <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>
-    <constant name="view_hud">1</constant>
+    <constant name="CW">1080</constant>
+    <constant name="DEBUG">true</constant>
     <constant name="HH">900</constant>
+    <constant name="HW">520</constant>
+    <constant name="MAP_X_LIMIT">1024</constant>
     <constant name="MAP_Y_LIMIT">1024</constant>
     <constant name="MAP_Z_LIMIT">512</constant>
+    <constant name="MILLION">1000000</constant>
+    <constant name="T">buffer_f32</constant>
+    <constant name="view_3d_preview">2</constant>
+    <constant name="view_3d">0</constant>
+    <constant name="view_hud">1</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

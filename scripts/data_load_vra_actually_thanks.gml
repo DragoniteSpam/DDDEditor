@@ -2,6 +2,8 @@
 
 vra_name=filename_name(argument0);
 
+var alphabetizer=ds_priority_create();
+
 var buffer=buffer_load(argument[0]);
 
 var data=ds_map_create();
@@ -40,20 +42,18 @@ repeat(n){
         buffer_delete(stuff[@ MeshArrayData.DATA]);
     } else {
         vra_data[? model_name]=stuff;
+        ds_priority_add(alphabetizer, model_name, model_name);
     }
 }
 
 buffer_delete(buffer);
 
-// the vra program can alphabetize the names (badly), so
-// to be safe we randomize them by sticking them in the map
-// before adding them to the tree to increase the chances
-// of it being balanced
+// alphabetize it
 
-if (ds_map_size(vra_data)>0){
-    var key=ds_map_find_first(vra_data);
-    while (key!=ds_map_find_last(vra_data)){
-        ds_tree_add(all_mesh_tree, key);
-        key=ds_map_find_next(vra_data, key);
-    }
+ds_list_clear(all_mesh_names);
+
+while (!ds_priority_empty(alphabetizer)){
+    ds_list_add(all_mesh_names, ds_priority_delete_min(alphabetizer));
 }
+
+ds_priority_destroy(alphabetizer);

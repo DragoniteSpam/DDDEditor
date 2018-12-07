@@ -8,7 +8,7 @@ var x2=x1+argument0.width;
 var y2=y1+argument0.height;
 
 var active=dialog_is_active(argument0);
-var kill=keyboard_check_released(vk_escape);
+var kill=active&&get_release_escape();
 
 draw_rectangle_colour(x1, y1, x2, y2, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);

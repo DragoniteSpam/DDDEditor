@@ -57,6 +57,8 @@ mouse_vector=array_compose(1, 1, 1);
  * Vertex formats
  */
 
+draw_set_alpha_test(true);
+
 vertex_format_begin();
 vertex_format_add_position_3d();
 vertex_format_add_normal();
@@ -104,6 +106,37 @@ dialogs=ds_list_create();
 stuff_to_destroy=ds_queue_create();
 
 instance_deactivate_object(UIThing);
+
+/*
+ * preview stuff
+ */
+
+mesh_preview=noone;
+mesh_x=0;
+mesh_y=0;
+mesh_z=0;
+mesh_xrot=0;
+mesh_yrot=0;
+mesh_zrot=0;
+mesh_scale=1;
+
+mesh_preview_grid=vertex_create_buffer();
+vertex_begin(mesh_preview_grid, vertex_format_line);
+
+var x1=-6*Stuff.tile_width;
+var y1=-6*Stuff.tile_height;
+var x2=-x1;
+var y2=-y1;
+for (var i=0; i&lt;=12; i++){
+    vertex_point_line(mesh_preview_grid, x1+i*Stuff.tile_width, y1, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x1+i*Stuff.tile_width, y2, 0, c_white, 1);
+    
+    vertex_point_line(mesh_preview_grid, x1, y1+i*Stuff.tile_height, 0, c_white, 1);
+    vertex_point_line(mesh_preview_grid, x2, y1+i*Stuff.tile_height, 0, c_white, 1);
+}
+
+vertex_end(mesh_preview_grid);
+vertex_freeze(mesh_preview_grid);
 
 /*
  * enumerated constants that i need
@@ -317,6 +350,10 @@ switch (view_current){
         break;
     case 1:
         draw_editor_hud();
+        break;
+    case 2:
+        draw_preview_3d();
+        draw_preview_3d_overlay();
         break;
 }
 </string>

@@ -16,9 +16,10 @@ if (argument0.root.active_tab!=argument0){
 }
 
 var tx=ui_get_text_x(argument0, x1, x2);
-var ty=mean(y1, y2);
+var ty=ui_get_text_y(argument0, y1, y2);
 
 draw_set_halign(argument0.alignment);
+draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);
 draw_text(tx, ty, argument0.text);
 

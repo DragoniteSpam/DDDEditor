@@ -8,7 +8,6 @@ if (!directory_exists(vra_path)){
 
 vra_data=ds_map_create();
 vra_name="";
-all_mesh_tree=ds_tree_node("", false);
 all_mesh_names=ds_list_create();
 
 if (file_exists(".\data.ini")){
