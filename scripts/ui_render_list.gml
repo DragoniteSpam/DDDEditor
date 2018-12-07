@@ -30,7 +30,12 @@ if (n==0){
         var yb=ya+argument0.height;
         var tya=mean(ya, yb);
         if (ds_map_exists(argument0.selected_entries, index)){
-            draw_rectangle_colour(x1, ya, x2, yb, c_ui_select, c_ui_select, c_ui_select, c_ui_select, false);
+            if (argument0.interactive){
+                var c=c_ui_select;
+            } else {
+                var c=c_ltgray;
+            }
+            draw_rectangle_colour(x1, ya, x2, yb, c, c, c, c, false);
         }
         draw_text(tx, tya, argument0.entries[| index]);
     }
@@ -44,7 +49,7 @@ if (n>argument0.slots){
 
 var move_direction=0;
 
-if (active&&mouse_within_rectangle(x1, y2, x2-offset, y3)){
+if (argument0.interactive&&active&&mouse_within_rectangle(x1, y2, x2-offset, y3)){
     if (Controller.press_left){
         var mn=((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index;
         if (!keyboard_check_direct(vk_control)||!argument0.allow_multi_select){
@@ -75,7 +80,7 @@ if (n>argument0.slots){
     
     var sby1=sy-shalf;
     var sby2=sy+shalf;
-    if (active){
+    if (argument0.interactive&&active){
         if (mouse_within_rectangle(x2-sw, sby1, x2, sby2)){
             draw_rectangle_colour(x2-sw+1, sby1+1, x2-1, sby2-1, c_ui, c_ui, c_ui, c_ui, false);
             if (Controller.press_left){

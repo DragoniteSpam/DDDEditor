@@ -40,9 +40,12 @@ if (string_length(value)==0){
     draw_text_colour(vtx, vty, argument0.value_default, c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 }
 
+if (!argument0.interactive){
+    draw_rectangle_colour(vx1, vy1, vx2, vy2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, true);
+}
 draw_rectangle(vx1, vy1, vx2, vy2, true);
 
-if (dialog_is_active(argument0.root)){
+if (argument0.interactive&&dialog_is_active(argument0.root)){
     if (ui_is_active(argument0)){
         if (current_second%2==0){
             var bx=tx+argument0.value_x1+string_width(value)+4;

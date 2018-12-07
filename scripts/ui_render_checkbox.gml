@@ -16,13 +16,21 @@ draw_text(tx+32, ty, argument0.text);
 
 var s2=8;
 
+if (!argument0.interactive){
+    draw_rectangle_colour(tx+16-s2, ty-s2, tx+16+s2, ty+s2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, true);
+}
 draw_rectangle(tx+16-s2, ty-s2, tx+16+s2, ty+s2, true);
 
 if (argument0.value){
-    draw_sprite(spr_check, 0, tx+16, ty);
+    if (argument0.interactive){
+        var a=1;
+    } else {
+        var a=0.5;
+    }
+    draw_sprite_ext(spr_check, 0, tx+16, ty, 1, 1, 0, c_white, a);
 }
 
-if (dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
+if (argument0.interactive&&dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
     if (get_release_left()){
         script_execute(argument0.onvaluechange, argument0);
     }
