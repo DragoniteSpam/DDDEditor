@@ -221,6 +221,7 @@
       </scripts>
       <scripts name="on value change and general interaction">
         <script>scripts\uivc_radio_selection_mode.gml</script>
+        <script>scripts\uivc_list_selection_mesh.gml</script>
         <script>scripts\uivc_radio_fill_type.gml</script>
         <script>scripts\uivc_check_selection_addition.gml</script>
         <script>scripts\uivc_stash.gml</script>

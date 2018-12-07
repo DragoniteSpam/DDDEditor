@@ -24,7 +24,7 @@ if (n==0){
     ty=mean(y2, y2+argument0.height);
     draw_text(tx, ty, argument0.text_vacant);
 } else {
-    for (var i=0; i<argument0.slots; i++){
+    for (var i=0; i<min(n, argument0.slots); i++){
         var index=i+argument0.index;
         var ya=y2+argument0.height*i;
         var yb=ya+argument0.height;
@@ -51,7 +51,7 @@ var move_direction=0;
 
 if (argument0.interactive&&active&&mouse_within_rectangle(x1, y2, x2-offset, y3)){
     if (Controller.press_left){
-        var mn=((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index;
+        var mn=min(((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index, n);
         if ((!keyboard_check_direct(vk_control)&&!keyboard_check_direct(vk_shift))||!argument0.allow_multi_select){
             ds_map_clear(argument0.selected_entries);
         }

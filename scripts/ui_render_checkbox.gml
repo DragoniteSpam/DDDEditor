@@ -32,6 +32,7 @@ if (argument0.value){
 
 if (argument0.interactive&&dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
     if (get_release_left()){
+        argument0.value=!argument0.value;
         script_execute(argument0.onvaluechange, argument0);
     }
 }

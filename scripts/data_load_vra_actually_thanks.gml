@@ -1,4 +1,6 @@
 /// void data_load_vra_actually_thanks(filename);
+// this must be run inside of object Stuff. if you call it anywhere else
+// in the code, use with (Stuff), otherwise bad things will happen.
 
 vra_name=filename_name(argument0);
 
@@ -57,3 +59,13 @@ while (!ds_priority_empty(alphabetizer)){
 }
 
 ds_priority_destroy(alphabetizer);
+
+// update ui mesh list
+
+var n=ds_list_size(all_mesh_names);
+var ui_list=Camera.ui.element_mesh_list;
+clear_list_entries(ui_list);
+ui_list.text="Available meshes: "+string(n);
+for (var i=0; i<n; i++){
+    create_list_entries(ui_list, all_mesh_names[| i]);
+}

@@ -88,6 +88,8 @@ selection_addition=false;
 
 selection_fill_type=ETypes.TILE;
 
+selection_fill_mesh=0;
+
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now
  */
