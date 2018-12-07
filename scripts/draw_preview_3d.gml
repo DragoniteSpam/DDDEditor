@@ -1,7 +1,7 @@
 control_3d_preview();
 
 d3d_start();
-d3d_set_culling(true);
+d3d_set_culling(!view_backface);
 d3d_set_hidden(true);
 draw_set_color(c_white);
 

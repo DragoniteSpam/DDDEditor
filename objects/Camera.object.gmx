@@ -90,6 +90,10 @@ selection_fill_type=ETypes.TILE;
 
 selection_fill_mesh=0;
 
+view_wireframe=false;
+view_grid=true;
+view_backface=false;
+
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now
  */

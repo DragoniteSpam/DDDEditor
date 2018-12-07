@@ -227,6 +227,9 @@
         <script>scripts\uivc_list_selection_mesh.gml</script>
         <script>scripts\uivc_radio_fill_type.gml</script>
         <script>scripts\uivc_check_selection_addition.gml</script>
+        <script>scripts\uivc_check_view_wireframe.gml</script>
+        <script>scripts\uivc_check_view_grids.gml</script>
+        <script>scripts\uivc_check_view_backface.gml</script>
         <script>scripts\uivc_stash.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>

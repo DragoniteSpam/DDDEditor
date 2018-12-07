@@ -43,21 +43,23 @@ d3d_vertex_normal_texture_colour(xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL,
 
 d3d_primitive_end();
 
-d3d_primitive_begin_texture(pr_linelist, -1);
-
-d3d_vertex(xx, yy, zz);
-d3d_vertex(xx+TILE_WIDTH, yy, zz);
-
-d3d_vertex(xx+TILE_WIDTH, yy, zz);
-d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
-
-d3d_vertex(xx, yy, zz);
-d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
-
-d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
-d3d_vertex(xx, yy+TILE_HEIGHT, zz);
-
-d3d_vertex(xx, yy+TILE_HEIGHT, zz);
-d3d_vertex(xx, yy, zz);
-
-d3d_primitive_end();
+if (Camera.view_wireframe){
+    d3d_primitive_begin_texture(pr_linelist, -1);
+    
+    d3d_vertex(xx, yy, zz);
+    d3d_vertex(xx+TILE_WIDTH, yy, zz);
+    
+    d3d_vertex(xx+TILE_WIDTH, yy, zz);
+    d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
+    
+    d3d_vertex(xx, yy, zz);
+    d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
+    
+    d3d_vertex(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz);
+    d3d_vertex(xx, yy+TILE_HEIGHT, zz);
+    
+    d3d_vertex(xx, yy+TILE_HEIGHT, zz);
+    d3d_vertex(xx, yy, zz);
+    
+    d3d_primitive_end();
+}

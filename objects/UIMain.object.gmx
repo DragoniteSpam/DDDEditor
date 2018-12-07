@@ -98,6 +98,21 @@ yy=yy+element.height+spacing;
 element=create_button(legal_x+spacing, yy, "Delete Selection (Delete)", col_width, element_height, fa_center, uimu_selection_delete, t_general);
 ds_list_add(t_general.contents, element);
 
+yy=yy+element.height+spacing;
+
+element=create_checkbox(legal_x+spacing, yy, "View Wireframes", col_width, element_height, uivc_check_view_wireframe, "", Camera.view_wireframe, t_general);
+ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_checkbox(legal_x+spacing, yy, "View Grid and Markers", col_width, element_height, uivc_check_view_grids, "", Camera.view_grid, t_general);
+ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_checkbox(legal_x+spacing, yy, "Backface Culling", col_width, element_height, uivc_check_view_backface, "", Camera.view_backface, t_general);
+ds_list_add(t_general.contents, element);
+
 // second column
 
 yy=legal_y+spacing;
