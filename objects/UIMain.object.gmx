@@ -37,19 +37,20 @@ element_height=24;
  */
 
 var t_general=create_tab("General", UITabs.GENERAL, 0, id);
-var t_properties=create_tab("Properties", 1, 0, id);
+var t_1=create_tab("Eh?", 1, 0, id);
 var t_2=create_tab("Tab 2", 2, 0, id);
 
-var t_3=create_tab("Tab 3", 3, 1, id);
-var t_4=create_tab("Tab 4", 4, 1, id);
-var t_5=create_tab("Tab 5", 5, 1, id);
-var t_6=create_tab("Tab 6", 6, 1, id);
+var t_p_entity=create_tab("Entity", 3, 1, id);
+var t_p_tile=create_tab("Tile", 4, 1, id);
+var t_p_mesh=create_tab("Mesh", 5, 1, id);
+var t_p_mob=create_tab("Mob", 6, 1, id);
+var t_p_effect=create_tab("Effect", 7, 1, id);
 
 // the game will crash if you create a tab row with zero width.
 var tr_top=ds_list_create();
-ds_list_add(tr_top, t_general, t_properties, t_2);
+ds_list_add(tr_top, t_general, t_1, t_2);
 var tr_bottom=ds_list_create();
-ds_list_add(tr_bottom, t_3, t_4, t_5, t_6);
+ds_list_add(tr_bottom, t_p_entity, t_p_tile, t_p_mesh, t_p_mob, t_p_effect);
 
 tabs=ds_list_create();
 ds_list_add(tabs, tr_top, tr_bottom);
@@ -113,22 +114,33 @@ yy=yy+element.height+spacing;
 element=create_checkbox(legal_x+spacing, yy, "Backface Culling", col_width, element_height, uivc_check_view_backface, "", Camera.view_backface, t_general);
 ds_list_add(t_general.contents, element);
 
-// second column
-
-yy=legal_y+spacing;
-
-element_mesh_list=create_list(col2_x, yy, "Available meshes", "&lt;no meshes&gt;", col_width, element_height, 20, uivc_list_selection_mesh, false, t_general);
-// this gets populated once the meshes are loaded in
-ds_list_add(t_general.contents, element_mesh_list);
-
 /*
- * selection tab setup
+ * entity tab
  */
 
 yy=legal_y+spacing;
 
-element=create_text(legal_x+spacing, yy, "Properties of selected enties (or common properties of multiple entities) will appear here", legal_width, 64, fa_left, legal_width, t_properties);
-ds_list_add(t_properties.contents, element);
+element=create_text(legal_x+spacing, yy, "Common entity properties will show up here, hopefully", col_width, element_height*2, fa_left, col_width, t_p_entity);
+ds_list_add(t_p_entity.contents, element);
+
+/*
+ * tile tab
+ */
+
+yy=legal_y+spacing;
+
+/*
+ * mesh tab
+ */
+
+yy=legal_y+spacing;
+
+element_mesh_list=create_list(legal_x+spacing, yy, "Available meshes", "&lt;no meshes&gt;", col_width, element_height, 28, uivc_list_selection_mesh, false, t_general);
+ds_map_add(element_mesh_list.selected_entries, 0, true);
+// this gets populated once the meshes are loaded in
+ds_list_add(t_p_mesh.contents, element_mesh_list);
+
+// this should probably take up the entire column
 
 enum UITabs {
     GENERAL

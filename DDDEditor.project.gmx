@@ -105,6 +105,7 @@
         <script>scripts\validate_double.gml</script>
         <script>scripts\regex.gml</script>
       </scripts>
+      <script>scripts\instanceof.gml</script>
     </scripts>
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
@@ -174,11 +175,15 @@
     </scripts>
     <scripts name="Maps">
       <script>scripts\map_add_thing.gml</script>
+      <script>scripts\map_transform_thing.gml</script>
     </scripts>
     <scripts name="Game data">
       <scripts name="creation">
         <script>scripts\instance_create_tile.gml</script>
         <script>scripts\instance_create_mesh.gml</script>
+      </scripts>
+      <scripts name="data set">
+        <script>scripts\entity_mesh_set_mesh.gml</script>
       </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
@@ -394,8 +399,10 @@
     </scripts>
     <scripts name="data">
       <script>scripts\data_load_vra_actually_thanks.gml</script>
+      <script>scripts\data_load_vra_names_only.gml</script>
       <script>scripts\data_load_vra.gml</script>
       <script>scripts\data_load_vra_next.gml</script>
+      <script>scripts\data_load_vra_skip.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">

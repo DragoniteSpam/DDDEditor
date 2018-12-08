@@ -2,8 +2,8 @@
 
 if (ds_map_exists(Stuff.vra_data, argument[0])){
     with (instance_create(0, 0, EntityMesh)){
-        mesh_name=argument[0];
-        mesh_data=Stuff.vra_data[? mesh_name];
+        name=argument[0];
+        mesh_data=Stuff.vra_data[? argument[0]];
 
         switch (argument_count){
             case 1:

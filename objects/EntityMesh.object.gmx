@@ -27,23 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name='Tile';
-
-// todo multiple tilesets in a single map will require multiple
-// versions of DataMap.statics (i.e. an array) for each tile
-// it's not a good idea to do this so it should probably result
-// in a warning
-tileset=b_tileset_overworld;
-tile_x=0; // tile ID
-tile_y=0; // tile ID
-tile_color=c_white;
-tile_alpha=1;
-// todo rotated tiles, which will require normal calculations?
-// you're probably better off using a mesh for that though tbh
-
-// if you want to be really fancy you can use different colors for
-// all four vertices of the tile but I can't think of any practical
-// use for that
+name='Mesh';
+mesh_data=noone;
 
 // other properties
 am_solid=false;
