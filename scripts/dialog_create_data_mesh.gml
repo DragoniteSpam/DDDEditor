@@ -51,3 +51,5 @@ ds_list_add(dg.contents, el_vrax, el_load, dg.el_list, el_bounds, dg.el_bounds_x
     dg.el_bounds_zmin, dg.el_bounds_xmax, dg.el_bounds_ymax, dg.el_bounds_zmax, dg.el_preview, el_confirm);
 
 keyboard_string="";
+
+return dg;

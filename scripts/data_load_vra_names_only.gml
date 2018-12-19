@@ -1,7 +1,7 @@
 /// list data_load_vra_names_only(filename);
 
 var buffer=buffer_load(argument[0]);
-var names=ds_list_create();
+var names=ds_map_create();
 
 var data=ds_map_create();
 ds_map_read(data, buffer_read_string(buffer));
@@ -18,7 +18,7 @@ ds_map_destroy(data);
 var n=buffer_read(buffer, T);
 
 repeat(n){
-    ds_list_add(names, buffer_read_string(buffer));
+    ds_map_add(names, buffer_read_string(buffer), true);
     data_load_vra_skip(buffer, grid_size);
 }
 

@@ -28,6 +28,7 @@
             <string>event_inherited();
 
 name='Mesh';
+name_mesh='';
 mesh_data=noone;
 
 // other properties

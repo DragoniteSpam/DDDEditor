@@ -25,3 +25,5 @@ var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Commit", b_width
 ds_list_add(dg.contents, el_width, el_height, el_depth, el_dummy, el_confirm);
 
 keyboard_string="";
+
+return dg;

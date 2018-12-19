@@ -2,6 +2,7 @@
 
 if (ds_map_exists(Stuff.vra_data, argument[1])){
     argument[0].name=argument[1];
+    argument[0].name_mesh=argument[1];
     argument[0].mesh_data=Stuff.vra_data[? argument[1]];
     
     if (argument[0].cobject!=noone){

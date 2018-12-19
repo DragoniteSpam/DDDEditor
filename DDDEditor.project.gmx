@@ -303,11 +303,13 @@
           <script>scripts\dialog_create_about.gml</script>
           <script>scripts\dialog_create_notice.gml</script>
           <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
+          <script>scripts\dialog_create_yes_or_no.gml</script>
         </scripts>
         <script>scripts\dialog_is_active.gml</script>
         <scripts name="commit">
           <scripts name="execution">
             <script>scripts\dc_settings_execute.gml</script>
+            <script>scripts\dc_vrax.gml</script>
           </scripts>
           <scripts name="verification">
             <script>scripts\dc_settings.gml</script>
@@ -325,6 +327,9 @@
           <scripts name="data">
             <script>scripts\dmu_dialog_preview_mesh.gml</script>
             <script>scripts\dmu_dialog_load_vrax.gml</script>
+          </scripts>
+          <scripts name="cancel destroy">
+            <script>scripts\dmu_dialog_cancel_destroy_data.gml</script>
           </scripts>
         </scripts>
       </scripts>
@@ -403,6 +408,9 @@
       <script>scripts\data_load_vra.gml</script>
       <script>scripts\data_load_vra_next.gml</script>
       <script>scripts\data_load_vra_skip.gml</script>
+      <scripts name="on the fly">
+        <script>scripts\data_load_vra_on_the_fly.gml</script>
+      </scripts>
     </scripts>
   </scripts>
   <fonts name="fonts">

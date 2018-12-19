@@ -25,3 +25,5 @@ ds_list_add(dg.contents, el_text, el_no, el_yes);
 ds_map_copy(dg.data, argument0.data);
 
 keyboard_string="";
+
+return dg;

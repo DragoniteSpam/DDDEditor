@@ -27,3 +27,5 @@ var b_height=32;
 var el_close=create_button(dw/2-b_width/2, dh-32-b_height/2, "Thanks I guess", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
 ds_list_add(dg.contents, el_text, el_author, el_author_1, el_author_2, el_author_3, el_ex, el_ex_venomous, el_ex_regex, el_close);
+
+return dg;
