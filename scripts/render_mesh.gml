@@ -7,7 +7,15 @@ var zz=mesh.zz;
 
 transform_set(xx*TILE_WIDTH, yy*TILE_HEIGHT, zz*TILE_DEPTH, 0, 0, 0, 1, 1, 1);
 
-vertex_submit(mesh.mesh_data[@ MeshArrayData.VBUFF], pr_trianglelist, sprite_get_texture(b_tileset_overworld, 0));
+if (Camera.view_entities){
+    if (Camera.view_texture){
+        var tex=sprite_get_texture(b_tileset_overworld, 0);
+    } else {
+        var tex=sprite_get_texture(b_tileset_textureless, 0)
+    }
+    
+    vertex_submit(mesh.mesh_data[@ MeshArrayData.VBUFF], pr_trianglelist, tex);
+}
 
 if (Camera.view_wireframe){
     vertex_submit(mesh.mesh_data[@ MeshArrayData.VBUFF_WIREFRAME], pr_linelist, -1);

@@ -31,17 +31,25 @@ var ytex=tile.tile_y*texture_width;
 var color=tile.tile_color;
 var alpha=tile.tile_alpha;
 
-d3d_primitive_begin_texture(pr_trianglelist, sprite_get_texture(tile.tileset, 0));
-
-d3d_vertex_normal_texture_colour(xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
-d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
-d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
-
-d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
-d3d_vertex_normal_texture_colour(xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
-d3d_vertex_normal_texture_colour(xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
-
-d3d_primitive_end();
+if (Camera.view_entities){
+    if (Camera.view_texture){
+        var tex=sprite_get_texture(tile.tileset, 0);
+    } else {
+        var tex=sprite_get_texture(b_tileset_textureless, 0)
+    }
+    
+    d3d_primitive_begin_texture(pr_trianglelist, tex);
+    
+    d3d_vertex_normal_texture_colour(xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
+    d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+TEXEL, color, alpha);
+    d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+    
+    d3d_vertex_normal_texture_colour(xx+TILE_WIDTH, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+texture_width-TEXEL, ytex+texture_height-TEXEL, color, alpha);
+    d3d_vertex_normal_texture_colour(xx, yy+TILE_HEIGHT, zz, nx, ny, nz, xtex+TEXEL, ytex+texture_height-TEXEL, color, alpha);
+    d3d_vertex_normal_texture_colour(xx, yy, zz, nx, ny, nz, xtex+TEXEL, ytex+TEXEL, color, alpha);
+    
+    d3d_primitive_end();
+}
 
 if (Camera.view_wireframe){
     d3d_primitive_begin_texture(pr_linelist, -1);

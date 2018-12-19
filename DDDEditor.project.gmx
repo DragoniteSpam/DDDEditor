@@ -65,6 +65,7 @@
   <sprites name="sprites">
     <sprites name="ts">
       <sprite>sprites\b_tileset_overworld</sprite>
+      <sprite>sprites\b_tileset_textureless</sprite>
     </sprites>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
@@ -234,6 +235,8 @@
         <script>scripts\uivc_check_selection_addition.gml</script>
         <script>scripts\uivc_check_view_wireframe.gml</script>
         <script>scripts\uivc_check_view_grids.gml</script>
+        <script>scripts\uivc_check_view_texture.gml</script>
+        <script>scripts\uivc_check_view_entities.gml</script>
         <script>scripts\uivc_check_view_backface.gml</script>
         <script>scripts\uivc_stash.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>

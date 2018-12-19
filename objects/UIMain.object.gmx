@@ -111,6 +111,16 @@ ds_list_add(t_general.contents, element);
 
 yy=yy+element.height+spacing;
 
+element=create_checkbox(legal_x+spacing, yy, "View Texture", col_width, element_height, uivc_check_view_texture, "", Camera.view_texture, t_general);
+ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_checkbox(legal_x+spacing, yy, "View Entities", col_width, element_height, uivc_check_view_entities, "", Camera.view_entities, t_general);
+ds_list_add(t_general.contents, element);
+
+yy=yy+element.height+spacing;
+
 element=create_checkbox(legal_x+spacing, yy, "Backface Culling", col_width, element_height, uivc_check_view_backface, "", Camera.view_backface, t_general);
 ds_list_add(t_general.contents, element);
 

@@ -93,6 +93,8 @@ selection_fill_mesh=0;
 view_wireframe=false;
 view_grid=true;
 view_backface=false;
+view_texture=true;
+view_entities=true; /* this sounds dumb */
 
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now

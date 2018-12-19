@@ -25,9 +25,15 @@ if (view_grid){
 }
 
 // this will need to be dynamic at some point
-var tex=sprite_get_texture(b_tileset_overworld, 0);
+if (view_texture){
+    var tex=sprite_get_texture(b_tileset_overworld, 0);
+} else {
+    var tex=sprite_get_texture(b_tileset_textureless, 0);
+}
 for (var i=0; i<ds_list_size(ActiveMap.batches); i++){
-    vertex_submit(ActiveMap.batches[| i], pr_trianglelist, tex);
+    if (view_entities){
+        vertex_submit(ActiveMap.batches[| i], pr_trianglelist, tex);
+    }
     if (view_wireframe){
         vertex_submit(ActiveMap.batches_wire[| i], pr_linelist, -1);
     }
