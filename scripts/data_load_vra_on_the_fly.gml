@@ -1,6 +1,6 @@
 /// void data_load_vra_on_the_fly(UIThing, vra path, filename);
 
-var nn=filename_name(argument0);
+var nn=filename_name(argument2);
 file_copy(argument2, argument1+nn);
 with (Stuff){
     data_load_vra_actually_thanks(argument1+nn);
