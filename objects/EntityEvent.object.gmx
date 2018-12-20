@@ -32,6 +32,8 @@ name='Event';
 // other properties
 am_solid=false;
 
+slot=MapCellContents.EVENT;
+
 // editor properties
 
 batch=null;

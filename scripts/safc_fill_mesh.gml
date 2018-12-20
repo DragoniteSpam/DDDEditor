@@ -8,6 +8,5 @@ if (!ds_list_empty(Stuff.all_mesh_names)){
     // there's no reason this should fail but just in case
     if (addition!=noone){
         map_add_thing(addition, argument0, argument1, argument2);
-        ds_list_add(changes, addition);
     }
 }

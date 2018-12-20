@@ -48,6 +48,8 @@ tile_alpha=1;
 // other properties
 am_solid=false;
 
+slot=MapCellContents.TILE;
+
 // editor properties
 
 batch=batch_tile;

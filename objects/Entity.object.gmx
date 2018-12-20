@@ -63,6 +63,9 @@ batchable=true;
 batch_index=-1;
 modification=Modifications.CREATE;
 
+slot=MapCellContents.TILE;
+listed=false; // sigh
+
 enum Modifications {
     NONE,
     CREATE,

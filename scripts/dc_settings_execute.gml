@@ -15,3 +15,8 @@ if (ds_map_exists(map, "z")){
 }
 
 graphics_create_grid();
+
+// don't destroy and recreate, because you don't want to lose the
+// information in it that's still useful
+ds_grid_resize(ActiveMap.map_grid, ActiveMap.xx, ActiveMap.yy);
+map_fill_grid(ActiveMap.map_grid, ActiveMap.zz);

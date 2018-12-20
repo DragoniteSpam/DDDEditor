@@ -306,14 +306,22 @@ for (var i=0; i&lt;ds_list_size(changes); i++){
             
             // this NEEDS to be worked on sooner rather than later because i
             // imagine Delete All is going to be a somewhat common operation.
-            if (thing.batch_index==-1){
-                ds_list_delete(future, ds_list_find_index(future, thing));
-            } else {
-                var bl=ActiveMap.batch_instances[| thing.batch_index];
-                ds_list_delete(bl, ds_list_find_index(bl, thing));
-                batch_again(thing.batch_index);
+            if (thing.listed){
+                if (thing.batch_index==-1){
+                    ds_list_delete(future, ds_list_find_index(future, thing));
+                } else {
+                    var bl=ActiveMap.batch_instances[| thing.batch_index];
+                    ds_list_delete(bl, ds_list_find_index(bl, thing));
+                    batch_again(thing.batch_index);
+                }
+                ds_list_delete(ActiveMap.all_entities, ds_list_find_index(ActiveMap.all_entities, thing));
             }
-            ds_list_delete(ActiveMap.all_entities, ds_list_find_index(ActiveMap.all_entities, thing));
+            
+            var cell=map_get_grid_cell(thing.xx, thing.yy, thing.zz);
+            if (cell[@ thing.slot]==thing){
+                cell[@ thing.slot]=noone;
+            }
+            
             instance_activate_object(thing);
             instance_destroy(thing);
             break;

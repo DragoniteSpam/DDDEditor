@@ -177,6 +177,9 @@
     <scripts name="Maps">
       <script>scripts\map_add_thing.gml</script>
       <script>scripts\map_transform_thing.gml</script>
+      <script>scripts\map_create_grid.gml</script>
+      <script>scripts\map_fill_grid.gml</script>
+      <script>scripts\map_get_grid_cell.gml</script>
     </scripts>
     <scripts name="Game data">
       <scripts name="creation">
