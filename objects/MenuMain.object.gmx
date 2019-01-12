@@ -70,9 +70,13 @@ var me_redo=create_menu_element("Redo (Ctrl+Y)", momu_redo, menu_edit);
 var me_copy=create_menu_element("Copy (Ctrl+C)", momu_copy, menu_edit);
 var me_cut=create_menu_element("Cut (Ctrl+X)", momu_cut, menu_edit);
 var me_paste=create_menu_element("Paste (Ctrl+V)", momu_paste, menu_edit);
+var me_select_all=create_menu_element("Select All (Ctrl+A)", momu_select_all, menu_edit);
+var me_deselect=create_menu_element("Deselect (Ctrl+D)", momu_deselect, menu_edit);
 ds_list_add(menu_edit.contents, me_undo, me_redo,
     m_separator,
-    me_copy, me_cut, me_paste);
+    me_copy, me_cut, me_paste,
+    m_separator,
+    me_select_all, me_deselect);
 
 /*
  * Data stuff

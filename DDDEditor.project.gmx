@@ -277,6 +277,8 @@
             <script>scripts\momu_undo.gml</script>
             <script>scripts\momu_redo.gml</script>
             <script>scripts\momu_cut.gml</script>
+            <script>scripts\momu_select_all.gml</script>
+            <script>scripts\momu_deselect.gml</script>
             <script>scripts\momu_paste.gml</script>
           </scripts>
           <script>scripts\momu_expand.gml</script>
@@ -419,6 +421,9 @@
       </scripts>
     </scripts>
   </scripts>
+  <shaders name="shaders">
+    <shader type="GLSLES">shaders\shd_default.shader</shader>
+  </shaders>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
     <font>fonts\FDefault12Bold</font>

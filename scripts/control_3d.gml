@@ -58,6 +58,8 @@ if (zz<z){
     }
 }
 
+var move_allowed=true;
+
 if (keyboard_check_pressed(vk_space)){
     sa_fill();
 }
@@ -70,6 +72,7 @@ if (keyboard_check_pressed(vk_delete)){
  * General keyboard shortcuts
  */
 if (keyboard_check_direct(vk_control)){
+    move_allowed=false;
     /*
      * file
      */
@@ -89,6 +92,12 @@ if (keyboard_check_direct(vk_control)){
     /*
      * edit
      */
+    if (keyboard_check_pressed(ord("A"))){
+        momu_select_all(noone);
+    }
+    if (keyboard_check_pressed(ord("D"))){
+        momu_deselect(noone);
+    }
     if (keyboard_check_pressed(ord("X"))){
         momu_cut(noone);
     }
@@ -104,4 +113,52 @@ if (keyboard_check_direct(vk_control)){
     if (keyboard_check_pressed(ord("Y"))){
         momu_redo(noone);
     }
+}
+
+// move the camera
+
+if (move_allowed){
+    var mspd=(min(log10(max(abs(z), 1))*4, 320)+1)/Stuff.dt;
+    var xspeed=0;
+    var yspeed=0;
+    var zspeed=0;
+    
+    if (keyboard_check(vk_up)||keyboard_check(ord('W'))){
+        xspeed=dcos(direction)*mspd*Stuff.dt;
+        yspeed=-dsin(direction)*mspd*Stuff.dt;
+        zspeed=-dsin(pitch)*mspd*Stuff.dt;
+    }
+    if (keyboard_check(vk_down)||keyboard_check(ord('S'))){
+        xspeed=-dcos(direction)*mspd*Stuff.dt;
+        yspeed=dsin(direction)*mspd*Stuff.dt;
+        zspeed=dsin(pitch)*mspd*Stuff.dt;
+    }
+    if (keyboard_check(vk_left)||keyboard_check(ord('A'))){
+        xspeed=-dsin(direction)*mspd*Stuff.dt;
+        yspeed=-dcos(direction)*mspd*Stuff.dt;
+    }
+    if (keyboard_check(vk_right)||keyboard_check(ord('D'))){
+        xspeed=dsin(direction)*mspd*Stuff.dt;
+        yspeed=dcos(direction)*mspd*Stuff.dt;
+    }
+    if (Controller.mouse_middle){
+        var dx=(MOUSE_X-CW/2)/16;
+        var dy=(MOUSE_Y-CH/2)/16;
+        direction=(360+direction-dx)%360;
+        pitch=clamp(pitch+dy, -80, 80);
+        window_mouse_set(CW/2, CH/2);
+        xto=x+dcos(direction);
+        yto=y-dsin(direction);
+        zto=z-dsin(pitch);
+    }
+    
+    x+=xspeed;
+    y+=yspeed;
+    z+=zspeed;
+    xto+=xspeed;
+    yto+=yspeed;
+    zto+=zspeed;
+    xup=0;
+    yup=0;
+    zup=1;
 }

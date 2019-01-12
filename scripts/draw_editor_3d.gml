@@ -19,6 +19,8 @@ d3d_set_projection_ext(x, y, z,
 
 // anything in the world
 
+shader_reset();
+
 // the grid, which you may want an option to turn this off if it gets annoying
 if (view_grid){
     vertex_submit(grid, pr_linelist, -1);
@@ -47,6 +49,8 @@ for (var i=0; i<ds_list_size(ActiveMap.dynamic); i++){
     script_execute(ent.render, ent);
 }
 
+shader_set(shd_default);
+
 // also anything else that gets drawn over everything else
 d3d_set_depth(1);
 
@@ -56,3 +60,5 @@ for (var i=0; i<ds_list_size(selection); i++){
     script_execute(sel.render, sel);
 }
 d3d_set_depth(0);
+
+shader_reset();
