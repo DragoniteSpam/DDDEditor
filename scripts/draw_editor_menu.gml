@@ -16,3 +16,9 @@ for (var i=0; i<ds_list_size(dialogs); i++){
     var thing=dialogs[| i];
     script_execute(thing.render, thing);
 }
+
+// these are going to be uncommon and short-lived, so don't
+// bother deactivating them.
+with (UINotification){
+    script_execute(render);
+}

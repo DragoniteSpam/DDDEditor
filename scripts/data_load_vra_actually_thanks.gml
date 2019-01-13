@@ -8,6 +8,9 @@ var alphabetizer=ds_priority_create();
 
 var buffer=buffer_load(argument[0]);
 
+var conflicts_output=file_text_open_write("conflicts.txt");
+var conflicts_identified=false;
+
 var data=ds_map_create();
 ds_map_read(data, buffer_read_string(buffer));
 
@@ -42,6 +45,9 @@ repeat(n){
     if (ds_map_exists(vra_data, model_name)){
         vertex_delete_buffer(stuff[@ MeshArrayData.VBUFF]);
         buffer_delete(stuff[@ MeshArrayData.DATA]);
+        file_text_write_string(conflicts_output, model_name);
+        file_text_writeln(conflicts_output);
+        conflicts_identified=true;
     } else {
         vra_data[? model_name]=stuff;
         ds_priority_add(alphabetizer, model_name, model_name);
@@ -68,4 +74,10 @@ clear_list_entries(ui_list);
 ui_list.text="Available meshes: "+string(n);
 for (var i=0; i<n; i++){
     create_list_entries(ui_list, all_mesh_names[| i]);
+}
+
+file_text_close(conflicts_output);
+
+if (conflicts_identified){
+    create_notification(vra_name+" contained naming conflicts. Go to Data > View Mesh Conflicts to see the list.");
 }

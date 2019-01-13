@@ -322,6 +322,7 @@ switch (view_current){
         draw_editor_hud();
         break;
     case 2:
+        // the pop-out window that isn't really a pop-out window
         draw_preview_3d();
         draw_preview_3d_overlay();
         break;

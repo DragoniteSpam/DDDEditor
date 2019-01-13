@@ -289,6 +289,7 @@
           <scripts name="data">
             <script>scripts\momu_mesh.gml</script>
             <script>scripts\momu_tileset.gml</script>
+            <script>scripts\momu_conflicts.gml</script>
           </scripts>
         </scripts>
         <script>scripts\menu_is_ancestor.gml</script>
@@ -345,6 +346,10 @@
       <script>scripts\ui_is_active.gml</script>
       <script>scripts\ui_value_string.gml</script>
       <script>scripts\ui_value_real.gml</script>
+      <scripts name="notifications">
+        <script>scripts\notification_render.gml</script>
+        <script>scripts\create_notification.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Control">
       <script>scripts\get_release_left.gml</script>
@@ -356,6 +361,7 @@
       <scripts name="stuff">
         <script>scripts\ds_stuff_init.gml</script>
         <script>scripts\ds_stuff_open.gml</script>
+        <script>scripts\ds_stuff_open_local.gml</script>
       </scripts>
       <scripts name="Collisions">
         <script>scripts\c_hit_fraction.gml</script>
@@ -452,6 +458,7 @@
       <object>objects\UIButton</object>
       <object>objects\UITab</object>
       <object>objects\UIThing</object>
+      <object>objects\UINotification</object>
       <object>objects\UIMain</object>
       <object>objects\UIRadioArray</object>
       <object>objects\UIList</object>

@@ -1,12 +1,14 @@
 /// double ds_stuff_open(file);
 
 /*
+ * This is ONLY for stuff that can be found in the game's file bundle.
+ * For stuff in local storage use ds_stuff_open_local.
  * I'm not actually sure what the exact return value is, but
  * anything over 32 is "success" and not very useful to game maker.
  * these were obtained from 
  * https://docs.microsoft.com/en-us/windows/desktop/api/shellapi/nf-shellapi-shellexecutea
  *
- * Return code             	Description
+ * Return code             Description
  * 0                       The operating system is out of memory or resources.
  * ERROR_FILE_NOT_FOUND    The specified file was not found.
  * ERROR_PATH_NOT_FOUND    The specified path was not found.
