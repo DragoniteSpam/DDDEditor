@@ -66,6 +66,7 @@
     <sprites name="ts">
       <sprite>sprites\b_tileset_overworld</sprite>
       <sprite>sprites\b_tileset_textureless</sprite>
+      <sprite>sprites\b_tileset_checkers</sprite>
     </sprites>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
@@ -203,6 +204,7 @@
         <script>scripts\ui_render.gml</script>
         <script>scripts\ui_render_button.gml</script>
         <script>scripts\ui_render_checkbox.gml</script>
+        <script>scripts\ui_render_tile_selector.gml</script>
         <script>scripts\ui_render_input.gml</script>
         <script>scripts\ui_render_main.gml</script>
         <script>scripts\ui_render_radio_array.gml</script>
@@ -223,6 +225,7 @@
         <script>scripts\create_list.gml</script>
         <script>scripts\create_checkbox.gml</script>
         <script>scripts\create_text.gml</script>
+        <script>scripts\create_tile_selector.gml</script>
         <script>scripts\create_button.gml</script>
         <script>scripts\create_input.gml</script>
         <scripts name="create elements">
@@ -426,6 +429,9 @@
         <script>scripts\data_load_vra_on_the_fly.gml</script>
       </scripts>
     </scripts>
+    <scripts name="misc graphics">
+      <script>scripts\draw_checkerbox.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_default.shader</shader>
@@ -463,6 +469,7 @@
       <object>objects\UIRadioArray</object>
       <object>objects\UIList</object>
       <object>objects\UICheckbox</object>
+      <object>objects\UITileSelector</object>
       <object>objects\UIInput</object>
       <object>objects\UIText</object>
       <object>objects\UITextRadio</object>

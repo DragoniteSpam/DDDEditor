@@ -37,6 +37,9 @@ tile_width=32;
 tile_height=32;
 tile_depth=32;
 
+// uv size, not 3D size
+tile_size=32;
+
 // stuff i couldn't do in game maker so i did in c++ instead
 ds_stuff_init();
 

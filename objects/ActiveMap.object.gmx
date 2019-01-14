@@ -41,6 +41,8 @@ dynamic=ds_list_create();               // entities
 all_entities=ds_list_create();          // entities
 
 map_grid=map_create_grid(xx, yy, zz);
+
+tileset=b_tileset_overworld;
 </string>
           </argument>
         </arguments>

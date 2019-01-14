@@ -115,6 +115,8 @@ stuff_to_destroy=ds_queue_create();
 
 instance_deactivate_object(UIThing);
 
+texture_set_repeat(true);
+
 /*
  * preview stuff
  */

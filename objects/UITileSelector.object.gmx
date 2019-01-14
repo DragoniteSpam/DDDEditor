@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>Entity</parentName>
+  <parentName>UIThing</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,29 +27,16 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name='Tile';
+tile_view_x=0;
+tile_view_y=0;
+width=256;
+height=256;
+// not doing zoom for now because i dont feel like doing all that math
+// (it's not actually that much math i'm just lazy)
+//zoom=1;
 
-tile_x=0; // tile ID
-tile_y=0; // tile ID
-tile_color=c_white;
-tile_alpha=1;
-// todo rotated tiles, which will require normal calculations?
-// you're probably better off using a mesh for that though tbh
-
-// if you want to be really fancy you can use different colors for
-// all four vertices of the tile but I can't think of any practical
-// use for that
-
-// other properties
-am_solid=false;
-
-slot=MapCellContents.TILE;
-
-// editor properties
-
-batch=batch_tile;
-render=render_tile;
-selector=select_single;
+onvaluechange=null;
+render=ui_render_tile_selector;
 </string>
           </argument>
         </arguments>

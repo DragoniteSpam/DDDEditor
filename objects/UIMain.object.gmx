@@ -139,6 +139,14 @@ ds_list_add(t_p_entity.contents, element);
 
 yy=legal_y+spacing;
 
+element=create_text(legal_x+spacing, yy, "Select a tile to place down!", col_width, element_height, fa_left, col_width, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, legal_width, null, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+
 /*
  * mesh tab
  */
