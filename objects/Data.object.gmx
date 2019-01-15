@@ -25,64 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// properties of the active map
-xx=64;
-yy=64;
-zz=8;
-
-// internal stuff
-batches=ds_list_create();               // vertex buffers
-batches_wire=ds_list_create();          // vertex buffers
-
-batch_instances=ds_list_create();       // entities
-batch_in_the_future=ds_list_create();   // entities
-dynamic=ds_list_create();               // entities
-
-all_entities=ds_list_create();          // entities
-
-map_grid=map_create_grid(xx, yy, zz);
-
-tileset=tileset_create(b_tileset_overworld);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="1" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>for (var i=0; i&lt;ds_list_size(batches); i++){
-    vertex_delete_buffer(batches[| i]);
-    vertex_delete_buffer(batches_wireframe[| i]);
-}
-
-ds_list_destroy(batches);
-ds_list_destroy(batches_wireframe);
-
-ds_list_destroy(batch_instances);
-ds_list_destroy(batch_in_the_future);
-ds_list_destroy(dynamic);
-
-// the last three lists are not guaranteed to have all
-// entities in the map in them. this one is.
-ds_list_destroy_instances(all_entities);
-
-// 
-ds_grid_destroy(map_grid);
+            <string>name="data";
+flags=0;
 </string>
           </argument>
         </arguments>

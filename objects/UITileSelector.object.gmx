@@ -40,6 +40,16 @@ height=256;
 offset_x=-1;
 offset_y=-1;
 
+// display modes
+mode=TileSelectorDisplayMode.PASSAGE;
+
+enum TileSelectorDisplayMode {
+    PASSAGE,
+    PRIORITY,
+    FLAGS,
+    TAGS,
+}
+
 onvaluechange=null;
 render=ui_render_tile_selector;
 </string>

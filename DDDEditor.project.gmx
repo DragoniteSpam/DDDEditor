@@ -190,6 +190,8 @@
       <scripts name="data set">
         <script>scripts\entity_mesh_set_mesh.gml</script>
       </scripts>
+      <script>scripts\tileset_create.gml</script>
+      <script>scripts\tileset_create_grid.gml</script>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -452,6 +454,10 @@
         <object>objects\EntityEffect</object>
         <object>objects\EntityEvent</object>
       </objects>
+      <objects name="More Data">
+        <object>objects\Data</object>
+        <object>objects\DataTileset</object>
+      </objects>
     </objects>
     <object>objects\ActiveMap</object>
     <objects name="Selections">
@@ -487,7 +493,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="19">
+  <constants number="20">
+    <constant name="TILE_PASSABLE">TilePassability.UP|TilePassability.DOWN|TilePassability.LEFT|TilePassability.RIGHT</constant>
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="c_ui_select">$ffb8ac</constant>

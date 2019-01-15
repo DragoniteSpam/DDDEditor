@@ -4,13 +4,13 @@ var x1=argument0.x;
 var y1=argument0.y;
 var x2=argument0.x+argument0.width;
 var y2=argument0.y+argument0.height;
-var tex_width=sprite_get_width(ActiveMap.tileset);
-var tex_height=sprite_get_height(ActiveMap.tileset);
+var tex_width=sprite_get_width(ActiveMap.tileset.picture);
+var tex_height=sprite_get_height(ActiveMap.tileset.picture);
 
 draw_set_color(c_white);
 draw_checkerbox(argument0.x, argument0.y, argument0.width, argument0.height);
 
-draw_sprite_part(ActiveMap.tileset, 0, argument0.tile_view_x, argument0.tile_view_y,
+draw_sprite_part(ActiveMap.tileset.picture, 0, argument0.tile_view_x, argument0.tile_view_y,
     argument0.width, argument0.height, argument0.x, argument0.y);
 
 for (var i=argument0.tile_view_x; i<argument0.tile_view_x+argument0.width; i=(i div Stuff.tile_size)*Stuff.tile_size+Stuff.tile_size){
@@ -37,6 +37,53 @@ draw_rectangle_colour(clamp(selx1-1, x1, x2), clamp(sely1-1, y1, y2), clamp(selx
 
 draw_rectangle_colour(x1, y1, x2-1, y2-1, c_black, c_black, c_black, c_black, true);
 
+// drawing the data on the tile is also a pain
+
+draw_set_font(FDefault12Bold);
+draw_set_halign(fa_center);
+// the current valign is middle already
+
+var dx1=argument0.tile_view_x div Stuff.tile_size;
+var dy1=argument0.tile_view_y div Stuff.tile_size;
+var dx2=((argument0.tile_view_x+argument0.width) div Stuff.tile_size)+1;
+var dy2=((argument0.tile_view_y+argument0.height) div Stuff.tile_size)+1;
+var da=0.75;
+
+for (var i=dx1; i<dx2; i++){
+    for (var j=dy1; j<dy2; j++){
+        var textx=x1+i*Stuff.tile_size-argument0.tile_view_x+Stuff.tile_size/2;
+        var texty=y1+j*Stuff.tile_size-argument0.tile_view_y+Stuff.tile_size/2;
+        if ((textx-8)>=x1&&(textx+8)<=x2&&(texty-8)>=y1&&(texty+8)<=y2){
+            // could make this outside of the for loop except it displays something different
+            // for the passage data than the numbers, since the numbers are meaningless
+            switch (argument0.mode){
+                case TileSelectorDisplayMode.PASSAGE:
+                    var value=ActiveMap.tileset.passage[# i, j];
+                    if (value==0){
+                        draw_text_colour(textx, texty, "X", c_black, c_black, c_black, c_black, da);
+                    } else if (value==TILE_PASSABLE){
+                        draw_text_colour(textx, texty, "O", c_black, c_black, c_black, c_black, da);
+                    } else {
+                        draw_text_colour(textx, texty, "*", c_black, c_black, c_black, c_black, da);
+                    }
+                    break;
+                case TileSelectorDisplayMode.PRIORITY:
+                    draw_text_colour(textx, texty, ActiveMap.tileset.priority[# i, j], c_black, c_black, c_black, c_black, da);
+                    break;
+                case TileSelectorDisplayMode.FLAGS:
+                    draw_text_colour(textx, texty, ActiveMap.tileset.flags[# i, j], c_black, c_black, c_black, c_black, da);
+                    break;
+                case TileSelectorDisplayMode.TAGS:
+                    draw_text_colour(textx, texty, ActiveMap.tileset.tags[# i, j], c_black, c_black, c_black, c_black, da);
+                    break;
+            }
+        }
+    }
+}
+
+draw_set_halign(fa_left);
+draw_set_font(FDefault12);
+
 // select a tile
 if (Controller.press_left){
     if (mouse_within_rectangle(x1, y1, x2-1, y2-1)){
@@ -60,7 +107,7 @@ if (Controller.mouse_right){
     argument0.offset_y=-1;
 }
 
-// do the manual scroll bars (horizontal and vertical) next
+// @todo do the manual scroll bars (horizontal and vertical) next
 // this will require an increase to the maximum clamped values on lines 51 and 52 if you want the scroll
 // bars to not overlap the bottom-most/rightmost row on the tileset
 

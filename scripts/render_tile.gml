@@ -1,7 +1,7 @@
 /// void render_tile(EntityTile);
 
 var tile=argument0;
-var TEXEL=1/sprite_get_width(ActiveMap.tileset);
+var TEXEL=1/sprite_get_width(ActiveMap.tileset.picture);
 
 var xx=tile.xx*TILE_WIDTH;
 var yy=tile.yy*TILE_HEIGHT;
@@ -13,8 +13,8 @@ var nx=0;
 var ny=0;
 var nz=1;
 
-var tile_horizontal_count=sprite_get_width(ActiveMap.tileset)/Stuff.tile_size;
-var tile_vertical_count=sprite_get_height(ActiveMap.tileset)/Stuff.tile_size;
+var tile_horizontal_count=sprite_get_width(ActiveMap.tileset.picture)/Stuff.tile_size;
+var tile_vertical_count=sprite_get_height(ActiveMap.tileset.picture)/Stuff.tile_size;
 
 // texture coordinates go from 0...1, not 0...n, where n is the dimension
 // of the image in pixels
@@ -29,7 +29,7 @@ var alpha=tile.tile_alpha;
 
 if (Camera.view_entities){
     if (Camera.view_texture){
-        var tex=sprite_get_texture(ActiveMap.tileset, 0);
+        var tex=sprite_get_texture(ActiveMap.tileset.picture, 0);
     } else {
         var tex=sprite_get_texture(b_tileset_textureless, 0)
     }
