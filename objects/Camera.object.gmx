@@ -89,6 +89,8 @@ selection_addition=false;
 selection_fill_type=ETypes.TILE;
 
 selection_fill_mesh=0;
+selection_fill_tile_x=4;
+selection_fill_tile_y=0;
 
 view_wireframe=false;
 view_grid=true;
