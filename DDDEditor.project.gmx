@@ -71,6 +71,7 @@
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
+    <sprite>sprites\spr_direction</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -210,13 +211,25 @@
         <script>scripts\ui_render_input.gml</script>
         <script>scripts\ui_render_main.gml</script>
         <script>scripts\ui_render_radio_array.gml</script>
+        <script>scripts\ui_render_bitfield.gml</script>
         <script>scripts\ui_render_list.gml</script>
         <script>scripts\ui_render_tab.gml</script>
         <script>scripts\ui_render_text.gml</script>
+        <script>scripts\ui_render_text_tile_label.gml</script>
         <script>scripts\ui_render_radio_option_text.gml</script>
+        <script>scripts\ui_render_bitfield_option.gml</script>
         <scripts name="special">
           <script>scripts\ui_render_text_vrax.gml</script>
           <script>scripts\ui_render_button_vrax.gml</script>
+          <script>scripts\ui_render_bitfield_option_picture.gml</script>
+          <script>scripts\ui_render_bitfield_option_text.gml</script>
+          <scripts name="bitfields passability">
+            <script>scripts\ui_render_bitfield_option_picture_passability.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_passability.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_passability_passable.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_flag.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_passability_solid.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
@@ -224,6 +237,7 @@
       <scripts name="creation">
         <script>scripts\create_tab.gml</script>
         <script>scripts\create_radio_array.gml</script>
+        <script>scripts\create_bitfield.gml</script>
         <script>scripts\create_list.gml</script>
         <script>scripts\create_checkbox.gml</script>
         <script>scripts\create_text.gml</script>
@@ -232,8 +246,10 @@
         <script>scripts\create_input.gml</script>
         <scripts name="create elements">
           <script>scripts\create_radio_array_options.gml</script>
+          <script>scripts\create_bitfield_options.gml</script>
           <script>scripts\create_list_entries.gml</script>
           <script>scripts\clear_list_entries.gml</script>
+          <script>scripts\create_bitfield_option_data.gml</script>
         </scripts>
       </scripts>
       <scripts name="on value change and general interaction">
@@ -242,7 +258,10 @@
         <script>scripts\uivc_radio_fill_type.gml</script>
         <script>scripts\uivc_check_selection_addition.gml</script>
         <script>scripts\uivc_check_view_wireframe.gml</script>
+        <script>scripts\uivc_select_tile.gml</script>
         <script>scripts\uivc_check_view_grids.gml</script>
+        <script>scripts\uivc_tile_set_data_view.gml</script>
+        <script>scripts\uivc_tile_set_on_click.gml</script>
         <script>scripts\uivc_check_view_texture.gml</script>
         <script>scripts\uivc_check_view_entities.gml</script>
         <script>scripts\uivc_check_view_backface.gml</script>
@@ -250,6 +269,13 @@
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
         <script>scripts\uivc_list_view_mesh.gml</script>
+        <scripts name="tiles">
+          <script>scripts\uivc_input_tile_priority.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability.gml</script>
+          <script>scripts\uivc_bitfield_tile_flag.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
+        </scripts>
       </scripts>
       <scripts name="math">
         <script>scripts\ui_get_radio_array_height.gml</script>
@@ -443,6 +469,7 @@
     <font>fonts\FDefault12Bold</font>
   </fonts>
   <objects name="objects">
+    <object>objects\ObjectError</object>
     <object>objects\Camera</object>
     <object>objects\Stuff</object>
     <objects name="Game Data">
@@ -457,6 +484,7 @@
       <objects name="More Data">
         <object>objects\Data</object>
         <object>objects\DataTileset</object>
+        <object>objects\DataObject</object>
       </objects>
     </objects>
     <object>objects\ActiveMap</object>
@@ -475,10 +503,12 @@
       <object>objects\UIRadioArray</object>
       <object>objects\UIList</object>
       <object>objects\UICheckbox</object>
+      <object>objects\UIBitField</object>
       <object>objects\UITileSelector</object>
       <object>objects\UIInput</object>
       <object>objects\UIText</object>
       <object>objects\UITextRadio</object>
+      <object>objects\UIBitFieldOption</object>
       <objects name="Menu">
         <object>objects\MenuMenu</object>
         <object>objects\MenuElement</object>
@@ -493,7 +523,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="20">
+  <constants number="21">
+    <constant name="TILE_MAX_PRIORITY">256</constant>
     <constant name="TILE_PASSABLE">TilePassability.UP|TilePassability.DOWN|TilePassability.LEFT|TilePassability.RIGHT</constant>
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>

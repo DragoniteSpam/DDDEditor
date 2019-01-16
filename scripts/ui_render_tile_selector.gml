@@ -53,10 +53,11 @@ for (var i=dx1; i<dx2; i++){
     for (var j=dy1; j<dy2; j++){
         var textx=x1+i*Stuff.tile_size-argument0.tile_view_x+Stuff.tile_size/2;
         var texty=y1+j*Stuff.tile_size-argument0.tile_view_y+Stuff.tile_size/2;
+        // the 8s here are magic numbers, do not touch anything or everything will explode violently
         if ((textx-8)>=x1&&(textx+8)<=x2&&(texty-8)>=y1&&(texty+8)<=y2){
             // could make this outside of the for loop except it displays something different
             // for the passage data than the numbers, since the numbers are meaningless
-            switch (argument0.mode){
+            switch (Camera.tile_data_view){
                 case TileSelectorDisplayMode.PASSAGE:
                     var value=ActiveMap.tileset.passage[# i, j];
                     if (value==0){
@@ -87,8 +88,10 @@ draw_set_font(FDefault12);
 // select a tile
 if (Controller.press_left){
     if (mouse_within_rectangle(x1, y1, x2-1, y2-1)){
-        Camera.selection_fill_tile_x=(Camera.MOUSE_X-x1+argument0.tile_view_x) div Stuff.tile_size;
-        Camera.selection_fill_tile_y=(Camera.MOUSE_Y-y1+argument0.tile_view_y) div Stuff.tile_size;
+        // this is kinda dumb because realistically you're not going to be doing anything besides this with the
+        // tileset picker, but for now make it look the same as the other value change code
+        script_execute(argument0.onvaluechange, argument0, (Camera.MOUSE_X-x1+argument0.tile_view_x) div Stuff.tile_size,
+            (Camera.MOUSE_Y-y1+argument0.tile_view_y) div Stuff.tile_size);
     }
 }
     

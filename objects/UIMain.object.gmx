@@ -36,15 +36,17 @@ element_height=24;
  * tab system setup
  */
 
-var t_general=create_tab("General", UITabs.GENERAL, 0, id);
-var t_1=create_tab("Eh?", 1, 0, id);
-var t_2=create_tab("Tab 2", 2, 0, id);
+// it would be best if you don't ask to access these later but if you need to these are just
+// object variables so you can look them up
+t_general=create_tab("General", UITabs.GENERAL, 0, id);
+t_1=create_tab("Eh?", 1, 0, id);
+t_2=create_tab("Tab 2", 2, 0, id);
 
-var t_p_entity=create_tab("Entity", 3, 1, id);
-var t_p_tile=create_tab("Tile", 4, 1, id);
-var t_p_mesh=create_tab("Mesh", 5, 1, id);
-var t_p_mob=create_tab("Mob", 6, 1, id);
-var t_p_effect=create_tab("Effect", 7, 1, id);
+t_p_entity=create_tab("Entity", 3, 1, id);
+t_p_tile=create_tab("Tile", 4, 1, id);
+t_p_mesh=create_tab("Mesh", 5, 1, id);
+t_p_mob=create_tab("Mob", 6, 1, id);
+t_p_effect=create_tab("Effect", 7, 1, id);
 
 // the game will crash if you create a tab row with zero width.
 var tr_top=ds_list_create();
@@ -144,7 +146,58 @@ ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;
 
-element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, legal_width, null, t_p_tile);
+element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, (legal_width div Stuff.tile_width)*Stuff.tile_width, uivc_select_tile, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+var yy_aftergrid=yy;
+
+element=create_radio_array(legal_x+spacing, yy, "Data to View", col_width, element_height, uivc_tile_set_data_view, Camera.tile_data_view, t_p_tile);
+create_radio_array_options(element, "Passage", "Priority", "Flags", "Tags");
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+ui_get_radio_array_height(element)+spacing;
+
+element=create_radio_array(legal_x+spacing, yy, "On Click", col_width, element_height, uivc_tile_set_on_click, Camera.tile_on_click, t_p_tile);
+create_radio_array_options(element, "Select", "Modify");
+ds_list_add(t_p_tile.contents, element);
+
+// second column
+
+yy=yy_aftergrid;
+
+element=create_text(col2_x, yy, "Tile Properties: x, y", col_width, element_height, fa_left, col_width, t_p_tile);
+element.render=ui_render_text_tile_label;
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+
+var s=10;
+
+element=create_bitfield(col2_x, yy, "Passage:", 84, element_height, null, TILE_PASSABLE, t_p_tile);
+create_bitfield_options(element, create_bitfield_option_data(TilePassability.UP, ui_render_bitfield_option_picture_passability, uivc_bitfield_tile_passability, "", spr_direction, 0, s, s),
+    create_bitfield_option_data(TilePassability.DOWN, ui_render_bitfield_option_picture_passability, uivc_bitfield_tile_passability, "", spr_direction, 1, s, s),
+    create_bitfield_option_data(TilePassability.LEFT, ui_render_bitfield_option_picture_passability, uivc_bitfield_tile_passability, "", spr_direction, 2, s, s),
+    create_bitfield_option_data(TilePassability.RIGHT, ui_render_bitfield_option_picture_passability, uivc_bitfield_tile_passability, "", spr_direction, 3, s, s),
+    create_bitfield_option_data(TILE_PASSABLE, ui_render_bitfield_option_text_passability_passable, uivc_bitfield_tile_passability_passable, "O", spr_direction, 0, s, s),
+    create_bitfield_option_data(0, ui_render_bitfield_option_text_passability_solid, uivc_bitfield_tile_passability_solid, "X", spr_direction, 0, s, s));
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_input(col2_x, yy, "Priority:", col_width, element_height, uivc_input_tile_priority, "", 0, 0, validate_int, ui_value_real, 0, TILE_MAX_PRIORITY-1, 3, 84, 0, 84+64, element_height, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_bitfield(col2_x, yy, "Flags:", 84, element_height, fa_left, col_width, t_p_tile);
+create_bitfield_options(element, create_bitfield_option_data(TileFlags.BUSH, ui_render_bitfield_option_text_flag, uivc_bitfield_tile_flag, "B", -1, 0, s, s),
+    create_bitfield_option_data(TileFlags.COUNTER, ui_render_bitfield_option_text_flag, uivc_bitfield_tile_flag, "C", -1, 0, s, s));
+ds_list_add(t_p_tile.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_text(col2_x, yy, "Tag Placeholder", col_width, element_height, fa_left, col_width, t_p_tile);
 ds_list_add(t_p_tile.contents, element);
 
 /*

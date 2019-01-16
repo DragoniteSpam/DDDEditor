@@ -98,6 +98,21 @@ view_backface=false;
 view_texture=true;
 view_entities=true; /* this sounds dumb */
 
+tile_data_view=TileSelectorDisplayMode.PASSAGE;
+tile_on_click=TileSelectorOnClick.SELECT;
+
+enum TileSelectorDisplayMode {
+    PASSAGE,
+    PRIORITY,
+    FLAGS,
+    TAGS,
+}
+
+enum TileSelectorOnClick {
+    SELECT,
+    MODIFY,
+}
+
 /*
  * inputs; maybe these can be rebound though a menu, but that's not important now
  */

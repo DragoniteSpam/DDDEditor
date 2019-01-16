@@ -46,20 +46,23 @@ enum TileFlags {
 }
 
 enum TileTerrainTags {
-    NONE,
-    LEDGE,
-    SAND,
-    GRASS,
-    DEEPWATER,
-    STILLWATER,
-    WATER,
-    WATERFALL,
-    WATERFALLCREST,
-    TALLGRASS,
-    UNDERWATERGRASS,
-    ICE,
-    NEUTRAL,
-    BRIDGE,
+    NONE,               /*00*/
+    LEDGE,              /*01*/
+    GRASS,              /*02*/
+    SAND,               /*03*/
+    ROCK,               /*04*/
+    DEEPWATER,          /*05*/
+    STILLWATER,         /*06*/
+    WATER,              /*07*/
+    WATERFALL,          /*08*/
+    WATERFALLCREST,     /*09*/
+    TALLGRASS,          /*10*/
+    UNDERWATERGRASS,    /*11*/
+    ICE,                /*12*/
+    NEUTRAL,            /*13*/
+    SOOTGRASS,          /*14*/
+    BRIDGE,             /*15*/
+    FINAL       // this is not for anything just modulo division
 }
 </string>
           </argument>
