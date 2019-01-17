@@ -6,6 +6,8 @@ switch (Camera.tile_on_click){
     case TileSelectorOnClick.SELECT:
         Camera.selection_fill_tile_x=argument1;
         Camera.selection_fill_tile_y=argument2;
+        // refresh values that don't like to do it on their own
+        Camera.ui.t_p_tile.element_priority.value=string(ActiveMap.tileset.priority[# argument1, argument2]);
         break;
     case TileSelectorOnClick.MODIFY:
         switch (Camera.tile_data_view){
