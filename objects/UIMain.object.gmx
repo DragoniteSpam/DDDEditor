@@ -146,7 +146,7 @@ ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;
 
-element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, (legal_width div Stuff.tile_width)*Stuff.tile_width, uivc_select_tile, t_p_tile);
+element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, (legal_width div Stuff.tile_width)*Stuff.tile_width-element_height, uivc_select_tile, t_p_tile);
 ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;
@@ -200,7 +200,14 @@ ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;
 
-element=create_text(col2_x, yy, "Tag Placeholder", col_width, element_height, fa_left, col_width, t_p_tile);
+element=create_input(col2_x, yy, "Tag:", col_width, element_height, uivc_input_tile_tag, "", 0, 0, validate_int, ui_value_real, 0, TileTerrainTags.FINAL-1, 2, 84, 0, 84+64, element_height, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+
+t_p_tile.element_tag=element;
+
+yy=yy+element.height+spacing;
+
+element=create_text(col2_x, yy, "buttons and a text label", col_width, element_height, fa_left, col_width, t_p_tile);
 ds_list_add(t_p_tile.contents, element);
 
 /*

@@ -230,6 +230,7 @@
             <script>scripts\ui_render_bitfield_option_text_flag.gml</script>
             <script>scripts\ui_render_bitfield_option_text_passability_solid.gml</script>
           </scripts>
+          <script>scripts\uivc_input_tile_tag.gml</script>
         </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
