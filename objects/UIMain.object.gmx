@@ -207,7 +207,12 @@ t_p_tile.element_tag=element;
 
 yy=yy+element.height+spacing;
 
-element=create_text(col2_x, yy, "buttons and a text label", col_width, element_height, fa_left, col_width, t_p_tile);
+element=create_button(col2_x+16, yy, "-", element_height, element_height, fa_center, uimu_tile_tag_down, t_p_tile);
+ds_list_add(t_p_tile.contents, element);
+element=create_text(col2_x+48, yy, "tag name", col_width, element_height, fa_left, 128, t_p_tile);
+element.render=ui_render_text_tile_tag;
+ds_list_add(t_p_tile.contents, element);
+element=create_button(col2_x+176, yy, "+", element_height, element_height, fa_center, uimu_tile_tag_up, t_p_tile);
 ds_list_add(t_p_tile.contents, element);
 
 /*

@@ -64,6 +64,28 @@ enum TileTerrainTags {
     BRIDGE,             /*15*/
     FINAL       // this is not for anything just modulo division
 }
+
+// this technically will get redefined every time you create a new tileset
+// which is a total waste of time but hopefully that doesn't happen too
+// often, so i won't bother to put it somewhere more logical
+globalvar all_tile_terrain_tag_names;
+
+all_tile_terrain_tag_names=array_compose("None",
+    "Ledge",
+    "Grass",
+    "Sand",
+    "Rock",
+    "Deep Water",
+    "StilL Water",
+    "Water",
+    "Waterfall",
+    "Waterfall Crest",
+    "Tall Grass",
+    "Underwater Grass",
+    "Ice",
+    "Neutral",
+    "Soot Grass",
+    "Bridge");
 </string>
           </argument>
         </arguments>

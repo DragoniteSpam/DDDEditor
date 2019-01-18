@@ -220,6 +220,7 @@
         <script>scripts\ui_render_bitfield_option.gml</script>
         <scripts name="special">
           <script>scripts\ui_render_text_vrax.gml</script>
+          <script>scripts\ui_render_text_tile_tag.gml</script>
           <script>scripts\ui_render_button_vrax.gml</script>
           <script>scripts\ui_render_bitfield_option_picture.gml</script>
           <script>scripts\ui_render_bitfield_option_text.gml</script>
@@ -272,6 +273,8 @@
         <script>scripts\uivc_list_view_mesh.gml</script>
         <scripts name="tiles">
           <script>scripts\uivc_input_tile_priority.gml</script>
+          <script>scripts\uimu_tile_tag_up.gml</script>
+          <script>scripts\uimu_tile_tag_down.gml</script>
           <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
           <script>scripts\uivc_bitfield_tile_passability.gml</script>
           <script>scripts\uivc_bitfield_tile_flag.gml</script>
