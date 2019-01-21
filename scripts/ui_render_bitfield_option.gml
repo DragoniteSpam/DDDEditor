@@ -13,8 +13,12 @@ if (state){
 // without worrying about whether the edges are off by a pixel or not. whatever.
 draw_rectangle_colour(x1+1, y1+1, x2-1, y2-1, c_black, c_black, c_black, c_black, true);
 
-if (argument0.interactive&&dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
-    if (get_release_left()){
-        script_execute(argument0.onvaluechange, argument0);
+if (argument0.interactive&&dialog_is_active(argument0.root)){
+    if (mouse_within_rectangle(x1, y1, x2, y2)){
+        if (get_release_left()){
+            script_execute(argument0.onvaluechange, argument0);
+        } else if (Controller.press_help){
+            //ds_stuff_help_auto(argument0);
+        }
     }
 }

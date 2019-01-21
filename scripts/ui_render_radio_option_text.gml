@@ -30,9 +30,13 @@ if (argument0.parent.value==argument0.value){
     draw_set_alpha(1);
 }
 
-if (argument0.interactive&&dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
-    if (get_release_left()){
-        argument0.parent.value=argument0.value;
-        script_execute(argument0.parent.onvaluechange, argument0);
+if (argument0.interactive&&dialog_is_active(argument0.root)){
+    if (mouse_within_rectangle(x1, y1, x2, y2)){
+        if (get_release_left()){
+            argument0.parent.value=argument0.value;
+            script_execute(argument0.parent.onvaluechange, argument0);
+        } else if (Controller.press_help){
+            //ds_stuff_help_auto(argument0);
+        }
     }
 }

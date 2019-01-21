@@ -1,11 +1,17 @@
-/// UITileSelector create_tile_selector(x, y, width, height, onvaluechange, root);
+/// UITileSelector create_tile_selector(x, y, width, height, onvaluechange, root, [help]);
 
-with (instance_create(argument0, argument1, UITileSelector)){
-    width=argument2;
-    height=argument3;
+with (instance_create(argument[0], argument[1], UITileSelector)){
+    width=argument[2];
+    height=argument[3];
     
-    onvaluechange=argument4;
-    root=argument5;
-
+    onvaluechange=argument[4];
+    root=argument[5];
+    
+    switch (argument_count){
+        case 7:
+            help=argument[6];
+            break;
+    }
+    
     return id;
 }

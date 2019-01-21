@@ -1,16 +1,22 @@
-/// UIRadioArray create_list(x, y, text, vacant text, width, height, content slots, onvaluechange, allow multi select?, root);
+/// UIRadioArray create_list(x, y, text, vacant text, width, height, content slots, onvaluechange, allow multi select?, root, [help]);
 
-with (instance_create(argument0, argument1, UIList)){
-    text=argument2;
-    text_vacant=argument3;
-    width=argument4;
-    height=argument5;
+with (instance_create(argument[0], argument[1], UIList)){
+    text=argument[2];
+    text_vacant=argument[3];
+    width=argument[4];
+    height=argument[5];
     
-    slots=argument6;
-    onvaluechange=argument7;
-    allow_multi_select=argument8;
+    slots=argument[6];
+    onvaluechange=argument[7];
+    allow_multi_select=argument[8];
     
-    root=argument9;
+    root=argument[9];
+    
+    switch (argument_count){
+        case 11:
+            help=argument[10];
+            break;
+    }
     
     return id;
 }

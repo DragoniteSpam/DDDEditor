@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="3" name="datafiles">
-    <datafiles number="3" name="data">
+  <datafiles number="4" name="datafiles">
+    <datafiles number="4" name="data">
       <datafile>
         <name>Collisions.dll</name>
         <exists>-1</exists>
@@ -21,6 +21,23 @@
           </Config>
         </ConfigOptions>
         <filename>Collisions.dll</filename>
+      </datafile>
+      <datafile>
+        <name>halp.chm</name>
+        <exists>-1</exists>
+        <size>17362</size>
+        <exportAction>2</exportAction>
+        <exportDir></exportDir>
+        <overwrite>0</overwrite>
+        <freeData>-1</freeData>
+        <removeEnd>0</removeEnd>
+        <store>0</store>
+        <ConfigOptions>
+          <Config name="Default">
+            <CopyToMask>9223372036854775807</CopyToMask>
+          </Config>
+        </ConfigOptions>
+        <filename>halp.chm</filename>
       </datafile>
       <datafile>
         <name>stuff.dll</name>
@@ -215,7 +232,6 @@
         <script>scripts\ui_render_list.gml</script>
         <script>scripts\ui_render_tab.gml</script>
         <script>scripts\ui_render_text.gml</script>
-        <script>scripts\ui_render_text_tile_label.gml</script>
         <script>scripts\ui_render_radio_option_text.gml</script>
         <script>scripts\ui_render_bitfield_option.gml</script>
         <scripts name="special">
@@ -232,6 +248,7 @@
             <script>scripts\ui_render_bitfield_option_text_passability_solid.gml</script>
           </scripts>
           <script>scripts\uivc_input_tile_tag.gml</script>
+          <script>scripts\ui_render_text_tile_label.gml</script>
         </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
@@ -396,6 +413,8 @@
       <scripts name="stuff">
         <script>scripts\ds_stuff_init.gml</script>
         <script>scripts\ds_stuff_open.gml</script>
+        <script>scripts\ds_stuff_help.gml</script>
+        <script>scripts\ds_stuff_help_auto.gml</script>
         <script>scripts\ds_stuff_open_local.gml</script>
       </scripts>
       <scripts name="Collisions">

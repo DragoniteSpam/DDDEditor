@@ -69,6 +69,10 @@ for (var i=0; i<ds_list_size(argument0.contents); i++){
     script_execute(thing.render, thing, argument0.x, argument0.y);
 }
 
+if (Controller.press_help){
+    ds_stuff_help_auto(argument0);
+}
+
 // the x button/escape key does not commit changes
 if (kill){
     dialog_destroy();

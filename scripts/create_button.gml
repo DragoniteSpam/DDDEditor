@@ -1,13 +1,19 @@
-/// UIButton create_button(x, y, text, width, height, alignment, onmouseup, root);
+/// UIButton create_button(x, y, text, width, height, alignment, onmouseup, root, [help]);
 
-with (instance_create(argument0, argument1, UIButton)){
-    text=argument2;
-    width=argument3;
-    height=argument4;
+with (instance_create(argument[0], argument[1], UIButton)){
+    text=argument[2];
+    width=argument[3];
+    height=argument[4];
 
-    alignment=argument5;    
-    onmouseup=argument6;
-    root=argument7;
+    alignment=argument[5];
+    onmouseup=argument[6];
+    root=argument[7];
+    
+    switch (argument_count){
+        case 9:
+            help=argument[8];
+            break;
+    }
     
     return id;
 }

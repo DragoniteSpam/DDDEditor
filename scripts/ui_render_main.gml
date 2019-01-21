@@ -63,3 +63,9 @@ for (var i=0; i<ds_list_size(argument0.tabs); i++){
 }
 
 script_execute(argument0.active_tab.render_contents, argument0.active_tab, 0, 0);
+
+if (mouse_within_view(view_current)){
+    if (Controller.press_help){
+        ds_stuff_help_auto(argument0.active_tab);
+    }
+}

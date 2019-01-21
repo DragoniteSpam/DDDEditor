@@ -15,6 +15,7 @@ draw_set_halign(argument0.alignment);
 draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);
 draw_text(tx, ty, argument0.text);
+
 if (script_execute(argument0.validation, value)){
     var c=c_black;
     if (argument0.validation!=validate_string){
@@ -69,6 +70,8 @@ if (argument0.interactive&&dialog_is_active(argument0.root)){
     if (mouse_within_rectangle(x1, y1, x2, y2)){
         if (get_release_left()){
             ui_activate(argument0);
+        } else if (Controller.press_help){
+            //ds_stuff_help_auto(argument0);
         }
     }
 }

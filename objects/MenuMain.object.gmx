@@ -93,7 +93,7 @@ ds_list_add(menu_data.contents, md_mesh, md_ts,
  * Help stuff
  */
 
-var mh_help=create_menu_element("Help", momu_help, menu_help);
+var mh_help=create_menu_element("Contents", momu_help, menu_help);
 var mh_about=create_menu_element("Credits", momu_about, menu_help);
 ds_list_add(menu_help.contents, mh_help, mh_about);
 

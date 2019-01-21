@@ -1,4 +1,4 @@
-/// UIInput create_input(x, y, text, width, height, onvaluechange, key, value, default value, validation, value conversion, lower bound, upper bound, value character limit, value x1, value y1, value x2, value y2, root);
+/// UIInput create_input(x, y, text, width, height, onvaluechange, key, value, default value, validation, value conversion, lower bound, upper bound, value character limit, value x1, value y1, value x2, value y2, root, [help]);
 
 with (instance_create(argument[0], argument[1], UIInput)){
     text=argument[2];
@@ -22,6 +22,12 @@ with (instance_create(argument[0], argument[1], UIInput)){
     value_y2=argument[17];
     
     root=argument[18];
+    
+    switch (argument_count){
+        case 20:
+            help=argument[19];
+            break;
+    }
     
     return id;
 }

@@ -85,13 +85,17 @@ for (var i=dx1; i<dx2; i++){
 draw_set_halign(fa_left);
 draw_set_font(FDefault12);
 
-// select a tile
-if (Controller.press_left){
-    if (mouse_within_rectangle(x1, y1, x2-1, y2-1)){
+// theoretically you should check to see if dialog is active but please just never
+// put one of these in a dialog box, that would be awful
+if (mouse_within_rectangle(x1, y1, x2-1, y2-1)){
+    // select a tile
+    if (Controller.press_left){
         // this is kinda dumb because realistically you're not going to be doing anything besides this with the
         // tileset picker, but for now make it look the same as the other value change code
         script_execute(argument0.onvaluechange, argument0, (Camera.MOUSE_X-x1+argument0.tile_view_x) div Stuff.tile_size,
             (Camera.MOUSE_Y-y1+argument0.tile_view_y) div Stuff.tile_size);
+    } else if (Controller.press_help){
+        //ds_stuff_help_auto(argument0);
     }
 }
     

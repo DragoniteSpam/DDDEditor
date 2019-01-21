@@ -27,8 +27,12 @@ draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);
 draw_text(tx, ty, argument0.text);
 
-if (argument0.interactive&&dialog_is_active(argument0.root)&&mouse_within_rectangle(x1, y1, x2, y2)){
-    if (get_release_left()){
-        script_execute(argument0.onmouseup, argument0);
+if (argument0.interactive&&dialog_is_active(argument0.root)){
+    if (mouse_within_rectangle(x1, y1, x2, y2)){
+        if (get_release_left()){
+            script_execute(argument0.onmouseup, argument0);
+        } else if (Controller.press_help){
+            //ds_stuff_help_auto(argument0);
+        }
     }
 }

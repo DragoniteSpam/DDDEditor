@@ -1,4 +1,4 @@
-/// double ds_stuff_open(file);
+/// double ds_stuff_open_local(file);
 
 /*
  * Used for opening files in the game's local storage. For stuff in the
