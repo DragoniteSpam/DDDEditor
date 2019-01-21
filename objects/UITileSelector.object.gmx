@@ -41,6 +41,7 @@ offset_x=-1;
 offset_y=-1;
 
 onvaluechange=null;
+onvaluechangebackwards=null;
 render=ui_render_tile_selector;
 </string>
           </argument>

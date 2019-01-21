@@ -146,7 +146,7 @@ ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;
 
-element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, (legal_width div Stuff.tile_width)*Stuff.tile_width-element_height, uivc_select_tile, t_p_tile);
+element=create_tile_selector(legal_x+spacing, yy, legal_width-spacing*2, (legal_width div Stuff.tile_width)*Stuff.tile_width-element_height, uivc_select_tile, uivc_select_tile_backwards, t_p_tile);
 ds_list_add(t_p_tile.contents, element);
 
 yy=yy+element.height+spacing;

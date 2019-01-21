@@ -89,11 +89,14 @@ draw_set_font(FDefault12);
 // put one of these in a dialog box, that would be awful
 if (mouse_within_rectangle(x1, y1, x2-1, y2-1)){
     // select a tile
+    var tx=(Camera.MOUSE_X-x1+argument0.tile_view_x) div Stuff.tile_size;
+    var ty=(Camera.MOUSE_Y-y1+argument0.tile_view_y) div Stuff.tile_size;
     if (Controller.press_left){
         // this is kinda dumb because realistically you're not going to be doing anything besides this with the
         // tileset picker, but for now make it look the same as the other value change code
-        script_execute(argument0.onvaluechange, argument0, (Camera.MOUSE_X-x1+argument0.tile_view_x) div Stuff.tile_size,
-            (Camera.MOUSE_Y-y1+argument0.tile_view_y) div Stuff.tile_size);
+        script_execute(argument0.onvaluechange, argument0, tx, ty);
+    } else if (Controller.press_right){
+        script_execute(argument0.onvaluechangebackwards, argument0, tx, ty);
     } else if (Controller.press_help){
         //ds_stuff_help_auto(argument0);
     }
