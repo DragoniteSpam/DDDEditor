@@ -40,6 +40,8 @@ tile_depth=32;
 // uv size, not 3D size
 tile_size=32;
 
+dimensions=Dimensions.THREED;
+
 // stuff i couldn't do in game maker so i did in c++ instead
 ds_stuff_init();
 
@@ -62,6 +64,9 @@ instance_create(0, 0, Camera);
 
 // data that gets loaded: needs the camera (and vertex formats) to be
 // defined before running
+vra_data=ds_map_create();
+vra_name="";
+all_mesh_names=ds_list_create();
 data_load_vra();
 
 // help contents
@@ -74,6 +79,11 @@ enum HelpPages {
 help_pages=array_compose("overview", "whatsnew", "gettingstarted", "systemrequirements",
     "editorcomponents", "tabs", "menus",
     "general", "entity", "tile", "mesh", "mob", "effect");
+
+enum Dimensions {
+    TWOD,
+    THREED
+}
 </string>
           </argument>
         </arguments>

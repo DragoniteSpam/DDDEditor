@@ -6,10 +6,6 @@ if (!directory_exists(vra_path)){
     directory_create(vra_path);
 }
 
-vra_data=ds_map_create();
-vra_name="";
-all_mesh_names=ds_list_create();
-
 if (file_exists(".\data.ini")){
     ini_open(".\data.ini");
     vra_name=ini_read_string("important", "vrax", "");
