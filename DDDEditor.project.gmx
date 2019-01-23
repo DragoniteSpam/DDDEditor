@@ -84,6 +84,9 @@
       <sprite>sprites\b_tileset_overworld</sprite>
       <sprite>sprites\b_tileset_textureless</sprite>
       <sprite>sprites\b_tileset_checkers</sprite>
+      <sprites name="autotiles">
+        <sprite>sprites\b_at_grass</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_check</sprite>
@@ -102,6 +105,7 @@
       </scripts>
       <scripts name="Data Structures">
         <script>scripts\array_compose.gml</script>
+        <script>scripts\array_clear.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
         <script>scripts\ds_list_pop.gml</script>
         <script>scripts\ds_list_top.gml</script>
@@ -209,6 +213,7 @@
         <script>scripts\entity_mesh_set_mesh.gml</script>
       </scripts>
       <script>scripts\tileset_create.gml</script>
+      <script>scripts\tileset_create_composite.gml</script>
       <script>scripts\tileset_create_grid.gml</script>
     </scripts>
     <script>scripts\debug.gml</script>
@@ -562,7 +567,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="21">
+  <constants number="22">
+    <constant name="TEXTURE_SIZE">4096</constant>
     <constant name="TILE_MAX_PRIORITY">256</constant>
     <constant name="TILE_PASSABLE">TilePassability.UP|TilePassability.DOWN|TilePassability.LEFT|TilePassability.RIGHT</constant>
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>

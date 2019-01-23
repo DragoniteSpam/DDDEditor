@@ -28,10 +28,20 @@
             <string>event_inherited();
 
 picture=b_tileset_overworld;
+autotiles=array_create(16);
+
+// the main picture and all of the autotiles are stored on here
+composite=noone;
+
 passage=noone;
 priority=noone;
 flags=noone;
 tags=noone;
+
+at_passage=noone;
+at_priority=noone;
+at_flags=noone;
+at_tags=noone;
 
 enum TilePassability {
     UP=1&lt;&lt;0,

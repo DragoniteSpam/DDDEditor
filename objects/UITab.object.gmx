@@ -31,7 +31,6 @@ alignment=fa_center;
 render=ui_render_tab;
 onmouseup=ui_button_down_tab;
 
-destination=0;
 home_row=0;
 render_contents=ui_render;
 </string>

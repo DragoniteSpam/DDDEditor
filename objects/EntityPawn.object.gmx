@@ -29,11 +29,6 @@
 
 name='Pawn';
 
-// todo multiple tilesets in a single map will require multiple
-// versions of DataMap.statics (i.e. an array) for each tile
-// it's not a good idea to do this so it should probably result
-// in a warning
-tileset=b_tileset_overworld;
 tile_x=0; // tile ID
 tile_y=0; // tile ID
 tile_color=c_white;

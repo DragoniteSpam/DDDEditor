@@ -72,13 +72,16 @@ data_load_vra();
 // help contents
 
 enum HelpPages {
-    OVERVIEW, WHATSNEW, GETTINGSTARTED, SYSTEMREQUIREMENTS, EDITORCOMPONENTS, TABS, MENUS,
-    TAB_GENERAL, TAB_ENTITY, TAB_TILE, TAB_MESH, TAB_MOB, TAB_EFFECT,
+    OVERVIEW, WHATSNEW, GETTINGSTARTED, SYSTEMREQUIREMENTS,
+    EDITORCOMPONENTS, TABS, MENUS,
+    TAB_GENERAL, TAB_ENTITY, TAB_TILE, TAB_MESH, TAB_MOB, TAB_EFFECT, TAB_EVENT,
+    TAB_MESH_EDITOR, TAB_TILE_EDITOR, TAB_AUTOTILE_EDITOR,
 }
 
 help_pages=array_compose("overview", "whatsnew", "gettingstarted", "systemrequirements",
     "editorcomponents", "tabs", "menus",
-    "general", "entity", "tile", "mesh", "mob", "effect");
+    "general", "entityinstances", "tileinstances", "meshinstances", "mobinstances", "effectinstances", "eventinstances",
+    "mesheditor", "tileeditor", "autotileeditor");
 
 enum Dimensions {
     TWOD,

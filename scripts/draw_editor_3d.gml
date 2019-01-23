@@ -28,7 +28,7 @@ if (view_grid){
 
 // this will need to be dynamic at some point
 if (view_texture){
-    var tex=sprite_get_texture(b_tileset_overworld, 0);
+    var tex=sprite_get_texture(ActiveMap.tileset.picture, 0);
 } else {
     var tex=sprite_get_texture(b_tileset_textureless, 0);
 }
