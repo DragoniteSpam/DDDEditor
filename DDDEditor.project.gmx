@@ -255,13 +255,21 @@
           <script>scripts\ui_render_bitfield_option_picture.gml</script>
           <script>scripts\ui_render_bitfield_option_text.gml</script>
           <script>scripts\ui_render_button_vrax.gml</script>
-          <script>scripts\ui_render_text_tile_label.gml</script>
-          <script>scripts\ui_render_text_mesh_label.gml</script>
-          <script>scripts\ui_render_text_tile_tag.gml</script>
-          <script>scripts\ui_render_text_mesh_tag.gml</script>
           <script>scripts\ui_render_text_vrax.gml</script>
-          <script>scripts\uivc_input_tile_tag.gml</script>
-          <script>scripts\uivc_input_mesh_tag.gml</script>
+          <scripts name="tile editor">
+            <script>scripts\ui_render_text_tile_label.gml</script>
+            <script>scripts\ui_render_text_tile_tag.gml</script>
+          </scripts>
+          <scripts name="mesh editor">
+            <script>scripts\ui_render_text_mesh_label.gml</script>
+            <script>scripts\ui_render_text_mesh_tag.gml</script>
+            <script>scripts\ui_render_text_mesh_xmax.gml</script>
+            <script>scripts\ui_render_text_mesh_xmin.gml</script>
+            <script>scripts\ui_render_text_mesh_ymax.gml</script>
+            <script>scripts\ui_render_text_mesh_ymin.gml</script>
+            <script>scripts\ui_render_text_mesh_zmin.gml</script>
+            <script>scripts\ui_render_text_mesh_zmax.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
@@ -303,9 +311,10 @@
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
         <script>scripts\uivc_list_view_mesh.gml</script>
-        <scripts name="tiles">
+        <scripts name="tile and mesh editor">
           <script>scripts\uivc_input_tile_priority.gml</script>
           <script>scripts\uimu_tile_tag_up.gml</script>
+          <script>scripts\uivc_input_mesh_tag.gml</script>
           <script>scripts\uimu_tile_tag_down.gml</script>
           <script>scripts\uimu_mesh_tag_up.gml</script>
           <script>scripts\uimu_mesh_tag_down.gml</script>
@@ -317,6 +326,7 @@
           <script>scripts\uivc_bitfield_mesh_flag.gml</script>
           <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
           <script>scripts\uivc_bitfield_mesh_passability_passable.gml</script>
+          <script>scripts\uivc_input_tile_tag.gml</script>
         </scripts>
       </scripts>
       <scripts name="math">

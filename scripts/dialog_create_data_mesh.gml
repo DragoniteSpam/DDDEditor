@@ -30,7 +30,7 @@ for (var i=0; i<n; i++){
 }
 
 var bounds_x=dw/2+16;
-var el_bounds=create_text(bounds_x, 128, "Bounds", b_width, b_height, fa_left, b_width, dg);
+var el_bounds=create_text(bounds_x, 128, "Bounds:", b_width, b_height, fa_left, b_width, dg);
 
 dg.el_bounds_xmin=create_text(bounds_x, 128+32, "", b_width, b_height, fa_left, b_width, dg);
 dg.el_bounds_ymin=create_text(bounds_x, 128+2*32, "", b_width, b_height, fa_left, b_width, dg);

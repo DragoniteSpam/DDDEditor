@@ -280,6 +280,44 @@ element.render=ui_render_text_mesh_tag;
 ds_list_add(t_p_mesh_editor.contents, element);
 element=create_button(col2_x+176, yy, "+", element_height, element_height, fa_center, uimu_mesh_tag_up, t_p_mesh_editor);
 ds_list_add(t_p_mesh_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+var bounds_x=col2_x;
+var bounds_x_2=bounds_x+col_width/2;
+
+element=create_text(bounds_x, yy, "Bounds:", col_width, element_height, fa_left, col_width, t_p_mesh_editor);
+ds_list_add(t_p_mesh_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_text(bounds_x, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_xmin;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+element=create_text(bounds_x_2, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_xmax;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_text(bounds_x, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_ymin;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+element=create_text(bounds_x_2, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_ymax;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_text(bounds_x, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_zmin;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+element=create_text(bounds_x_2, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
+element.render=ui_render_text_mesh_zmax;
+ds_list_add(t_p_mesh_editor.contents, element);
 </string>
           </argument>
         </arguments>
