@@ -24,7 +24,7 @@ with (instance_create(0, 0, DataTileset)){
     array_clear(at_flags, 0);
     array_clear(at_tags, TileTerrainTags.NONE);
     
-    composite=tileset_create_composite(id);
+    master=tileset_create_master(id);
 
     instance_deactivate_object(id);
     return id;

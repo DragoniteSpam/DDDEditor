@@ -27,11 +27,44 @@
             <kind>1</kind>
             <string>event_inherited();
 
+/*
+ * * * * * * * * * * * * * * * * * *
+ *                 * AT0    AT8    *
+ *                 * AT1    AT9    *
+ *       Map       * AT2    AT10   *
+ *      Tiles      * AT3    AT11   *
+ *                 * AT4    AT12   *
+ *                 * AT5    AT13   *
+ *                 * AT6    AT14   *
+ * * * * * * * * * * AT7    AT15   *
+ *                                 *
+ *                                 *
+ *                                 *
+ *                                 *
+ *                                 *
+ *                                 *
+ *                                 *
+ * * * * * * * * * * * * * * * * * *
+ */
+
+// this should only be instantiated in tileset_create so don't worry
+// about populating the values right now
 picture=b_tileset_default_overworld;
-autotiles=array_create(16);
+autotiles=array_create(AUTOTILE_MAX);
+
+picture_position=vector2(0, 0);
+picture_tile_size=vector2(32/TEXTURE_SIZE, 32/TEXTURE_SIZE);
+picture_dimensions=vector2(sprite_get_width(b_tileset_default_overworld)/TEXTURE_SIZE, sprite_get_height(b_tileset_default_overworld)/TEXTURE_SIZE);
+
+autotile_positions=array_create(AUTOTILE_MAX);
+autotile_sizes=array_create(AUTOTILE_MAX);
+for (var i=0; i&lt;AUTOTILE_MAX; i++){
+    autotile_positions[i]=vector2(0.5+(i div (AUTOTILE_MAX/2))*0.25, (i mod (AUTOTILE_MAX/2))/16);
+    autotile_sizes[i]=vector2(32/TEXTURE_SIZE, 32/TEXTURE_SIZE);
+}
 
 // the main picture and all of the autotiles are stored on here
-composite=noone;
+master=noone;
 
 passage=noone;
 priority=noone;

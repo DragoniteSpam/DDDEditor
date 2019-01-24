@@ -169,12 +169,6 @@ vertex_freeze(mesh_preview_grid);
  * enumerated constants that i need
  */
 
-enum vec3 {
-    xx,
-    yy,
-    zz
-}
-
 enum SelectionModes {
     SINGLE,
     RECTANGLE,

@@ -14,7 +14,7 @@ d3d_set_projection_ext(0, s, s/2, 0, 0, 0, 0, 0, 1,
 vertex_submit(mesh_preview_grid, pr_linelist, -1);
 
 // draw the mesh
-var tex=sprite_get_texture(ActiveMap.tileset.picture, 0);
+var tex=sprite_get_texture(ActiveMap.tileset.master, 0);
 matrix_set(matrix_world, matrix_build(mesh_x, mesh_y, mesh_z, mesh_xrot, mesh_yrot, mesh_zrot, mesh_scale, mesh_scale, mesh_scale));
 vertex_submit(mesh_preview[MeshArrayData.VBUFF], pr_trianglelist, tex);
 
