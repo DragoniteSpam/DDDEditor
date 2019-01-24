@@ -52,7 +52,9 @@ var move_direction=0;
 if (argument0.interactive&&active){
     if (mouse_within_rectangle(x1, y2, x2-offset, y3)){
         if (Controller.press_left){
-            var mn=min(((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index, n);
+            // if this ends up having a bounds problem it's probably because the list is empty and
+            // it's trying to access n-1 from the next line
+            var mn=min(((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index, n-1);
             if ((!keyboard_check_direct(vk_control)&&!keyboard_check_direct(vk_shift))||!argument0.allow_multi_select){
                 ds_map_clear(argument0.selected_entries);
             }
