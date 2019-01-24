@@ -8,7 +8,11 @@ surface_set_target(surface);
  * draw stuff
  */
 
-draw_sprite(argument0.picture, 0, argument0.picture_position[vec2.xx]*TEXTURE_SIZE, argument0.picture_position[vec2.yy]*TEXTURE_SIZE);
+// this is not stretched. if it's smaller than 2048x2048 things may not line up properly.
+// if it's larger than 2048x2048 you may end up overlapping the autotiles, and also things may not
+// line up properly. please try to use 2048x2048.
+draw_sprite(argument0.picture, 0, 0, 0);
+
 for (var i=0; i<AUTOTILE_MAX; i++){
     if (argument0.autotiles[i]!=noone){
         var atp=argument0.autotile_positions[i];

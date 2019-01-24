@@ -27,8 +27,8 @@ repeat(n){
     nx=buffer_read(argument0, T);
     ny=buffer_read(argument0, T);
     nz=buffer_read(argument0, T);
-    xtex=buffer_read(argument0, T);
-    ytex=buffer_read(argument0, T);
+    xtex=buffer_read(argument0, T)*TILESET_TEXTURE_WIDTH;
+    ytex=buffer_read(argument0, T)*TILESET_TEXTURE_HEIGHT;
     color=buffer_read(argument0, T);
     alpha=buffer_read(argument0, T);
     
