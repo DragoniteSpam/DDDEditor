@@ -2,7 +2,7 @@
 // at this point, the list already knows what's been selected,
 // it just behaves accordingly.
 
-if (ds_map_size(argument0.selected_entries)==1){
+if (data_vra_exists()&&ds_map_size(argument0.selected_entries)==1){
     var data=Stuff.vra_data[? Stuff.all_mesh_names[| ds_map_find_first(argument0.selected_entries)]];
     argument0.root.el_bounds_xmin.text="  xmin: "+string(data[MeshArrayData.XMIN]);
     argument0.root.el_bounds_ymin.text="  ymin: "+string(data[MeshArrayData.YMIN]);

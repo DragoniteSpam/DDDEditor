@@ -5,7 +5,7 @@ var y1=argument0.y+argument2;
 var x2=x1+argument0.width;
 var y2=y1+argument0.height;
 
-if (state){
+if (argument0.state){
     draw_rectangle_colour(x1, y1, x2, y2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
 }
 
