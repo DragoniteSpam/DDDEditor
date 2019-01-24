@@ -326,13 +326,14 @@ ds_list_add(t_p_mesh_editor.contents, element);
 
 yy=legal_y+spacing;
 
-// this is an object variable
-element_autotile_list=create_list(legal_x+spacing, yy, "Defined Autotiles: ", "&lt;something is wrong&gt;", col_width, element_height, 28, uivc_list_selection_autotile, false, t_p_autotile_editor);
-ds_map_add(element_autotile_list.selected_entries, 0, true);
+element=create_list(legal_x+spacing, yy, "Defined Autotiles: ", "&lt;something is wrong&gt;", col_width, element_height, 28, uivc_list_selection_autotile, false, t_p_autotile_editor);
+ds_map_add(element.selected_entries, 0, true);
 for (var i=0; i&lt;AUTOTILE_MAX; i++){
-    create_list_entries(element_autotile_list, string(i)+". &lt;none selected&gt;");
+    create_list_entries(element, string(i)+". &lt;none selected&gt;");
 }
-ds_list_add(t_p_autotile_editor.contents, element_autotile_list);
+ds_list_add(t_p_autotile_editor.contents, element);
+
+t_p_autotile_editor.element_list=element;
 
 element=create_text(col2_x, yy, "Autotile Properties:", col_width, element_height, fa_left, col_width, t_p_autotile_editor);
 ds_list_add(t_p_autotile_editor.contents, element);

@@ -5,6 +5,8 @@ with (instance_create(0, 0, DataTileset)){
     picture=argument[0];
     array_clear(autotiles, noone);
     
+    // these should be indices in Stuff.available_autotiles, not the
+    // sprite asset itself!
     for (var i=1; i<min(argument_count, AUTOTILE_MAX); i=i+1){
         autotiles[i-1]=argument[i];
     }
@@ -25,6 +27,8 @@ with (instance_create(0, 0, DataTileset)){
     array_clear(at_tags, TileTerrainTags.NONE);
     
     master=tileset_create_master(id);
+    
+    // don't do uivc_select_autotile_refresh here, the UI hasn't been created yet
 
     instance_deactivate_object(id);
     return id;
