@@ -42,7 +42,7 @@ all_entities=ds_list_create();          // entities
 
 map_grid=map_create_grid(xx, yy, zz);
 
-tileset=tileset_create(b_tileset_overworld, b_at_grass);
+tileset=tileset_create(b_tileset_default_overworld, b_at_default_grass);
 </string>
           </argument>
         </arguments>

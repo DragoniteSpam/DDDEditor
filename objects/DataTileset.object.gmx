@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-picture=b_tileset_overworld;
+picture=b_tileset_default_overworld;
 autotiles=array_create(16);
 
 // the main picture and all of the autotiles are stored on here

@@ -81,11 +81,11 @@
   <sounds name="sound"/>
   <sprites name="sprites">
     <sprites name="ts">
-      <sprite>sprites\b_tileset_overworld</sprite>
+      <sprite>sprites\b_tileset_default_overworld</sprite>
       <sprite>sprites\b_tileset_textureless</sprite>
       <sprite>sprites\b_tileset_checkers</sprite>
       <sprites name="autotiles">
-        <sprite>sprites\b_at_grass</sprite>
+        <sprite>sprites\b_at_default_grass</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_close</sprite>
