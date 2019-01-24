@@ -5,7 +5,7 @@ with (instance_create(0, 0, DataTileset)){
     picture=argument[0];
     array_clear(autotiles, noone);
     
-    for (var i=1; i<min(argument_count, 16); i=i+1){
+    for (var i=1; i<min(argument_count, AUTOTILE_MAX); i=i+1){
         autotiles[i-1]=argument[i];
     }
     

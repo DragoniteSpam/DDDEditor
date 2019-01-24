@@ -19,7 +19,7 @@
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>other</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -42,9 +42,10 @@ t_general=create_tab("General", 0, id, HelpPages.TAB_GENERAL);
 t_1=create_tab("filling", 0, id);
 t_2=create_tab("space", 0, id);
 
-t_p_tile_editor=create_tab("Tile Editor", 1, id, HelpPages.TAB_TILE_EDITOR);
-t_p_autotile_editor=create_tab("Autotile Editor", 1, id, HelpPages.TAB_AUTOTILE_EDITOR);
-t_p_mesh_editor=create_tab("Mesh Editor", 1, id, HelpPages.TAB_MESH_EDITOR);
+t_p_tile_editor=create_tab("TileEd.", 1, id, HelpPages.TAB_TILE_EDITOR);
+t_p_autotile_editor=create_tab("AutotileEd.", 1, id, HelpPages.TAB_AUTOTILE_EDITOR);
+t_p_mesh_editor=create_tab("MeshEd.", 1, id, HelpPages.TAB_MESH_EDITOR);
+t_p_other_editor=create_tab("OtherEd.", 1, id);
 
 t_p_entity=create_tab("Entity", 2, id, HelpPages.TAB_ENTITY);
 t_p_tile=create_tab("Tile", 2, id, HelpPages.TAB_TILE);
@@ -57,7 +58,7 @@ t_p_event=create_tab("Event", 2, id, HelpPages.TAB_EVENT);
 var tr_general=ds_list_create();
 ds_list_add(tr_general, t_general, t_1, t_2);
 var tr_editor=ds_list_create();
-ds_list_add(tr_editor, t_p_tile_editor, t_p_autotile_editor, t_p_mesh_editor);
+ds_list_add(tr_editor, t_p_tile_editor, t_p_autotile_editor, t_p_mesh_editor, t_p_other_editor);
 var tr_world=ds_list_create();
 ds_list_add(tr_world, t_p_entity, t_p_tile, t_p_mesh, t_p_mob, t_p_effect, t_p_event);
 
@@ -318,6 +319,80 @@ ds_list_add(t_p_mesh_editor.contents, element);
 element=create_text(bounds_x_2, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
 element.render=ui_render_text_mesh_zmax;
 ds_list_add(t_p_mesh_editor.contents, element);
+
+/*
+ * autotile tab
+ */
+
+yy=legal_y+spacing;
+
+// this is an object variable
+element_autotile_list=create_list(legal_x+spacing, yy, "Defined Autotiles: ", "&lt;something is wrong&gt;", col_width, element_height, 28, uivc_list_selection_autotile, false, t_p_autotile_editor);
+ds_map_add(element_autotile_list.selected_entries, 0, true);
+for (var i=0; i&lt;AUTOTILE_MAX; i++){
+    create_list_entries(element_autotile_list, string(i)+". &lt;none selected&gt;");
+}
+ds_list_add(t_p_autotile_editor.contents, element_autotile_list);
+
+element=create_text(col2_x, yy, "Autotile Properties:", col_width, element_height, fa_left, col_width, t_p_autotile_editor);
+ds_list_add(t_p_autotile_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+var s=10;
+
+element=create_bitfield(col2_x, yy, "Passage:", 84, element_height, null, TILE_PASSABLE, t_p_autotile_editor);
+create_bitfield_options(element, create_bitfield_option_data(TilePassability.UP, ui_render_bitfield_option_picture_autotile_passability, uivc_bitfield_autotile_passability, "", spr_direction, 0, s, s),
+    create_bitfield_option_data(TilePassability.DOWN, ui_render_bitfield_option_picture_autotile_passability, uivc_bitfield_autotile_passability, "", spr_direction, 1, s, s),
+    create_bitfield_option_data(TilePassability.LEFT, ui_render_bitfield_option_picture_autotile_passability, uivc_bitfield_autotile_passability, "", spr_direction, 2, s, s),
+    create_bitfield_option_data(TilePassability.RIGHT, ui_render_bitfield_option_picture_autotile_passability, uivc_bitfield_autotile_passability, "", spr_direction, 3, s, s),
+    create_bitfield_option_data(TILE_PASSABLE, ui_render_bitfield_option_text_passability_autotile_passable, uivc_bitfield_autotile_passability_passable, "O", spr_direction, 0, s, s),
+    create_bitfield_option_data(0, ui_render_bitfield_option_text_passability_autotile_solid, uivc_bitfield_autotile_passability_solid, "X", spr_direction, 0, s, s));
+ds_list_add(t_p_autotile_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_input(col2_x, yy, "Priority:", col_width, element_height, uivc_input_autotile_priority, "", 0, 0, validate_int, ui_value_real, 0, TILE_MAX_PRIORITY-1, 3, 84, 0, 84+64, element_height, t_p_autotile_editor);
+element.render=ui_render_input_tile_priority;
+ds_list_add(t_p_autotile_editor.contents, element);
+
+// this is totally cheating but game maker allows me to do it so shut up
+t_p_autotile_editor.element_priority=element;
+
+yy=yy+element.height+spacing;
+
+element=create_bitfield(col2_x, yy, "Flags:", 84, element_height, fa_left, col_width, t_p_autotile_editor);
+create_bitfield_options(element, create_bitfield_option_data(TileFlags.BUSH, ui_render_bitfield_option_autotext_tile_flag, uivc_bitfield_autotile_flag, "B", -1, 0, s, s),
+    create_bitfield_option_data(TileFlags.COUNTER, ui_render_bitfield_option_text_autotile_flag, uivc_bitfield_autotile_flag, "C", -1, 0, s, s));
+ds_list_add(t_p_autotile_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_input(col2_x, yy, "Tag:", col_width, element_height, uivc_input_autotile_tag, "", 0, 0, validate_int, ui_value_real, 0, TileTerrainTags.FINAL-1, 2, 84, 0, 84+64, element_height, t_p_autotile_editor);
+ds_list_add(t_p_autotile_editor.contents, element);
+
+t_p_autotile_editor.element_tag=element;
+
+yy=yy+element.height+spacing;
+
+element=create_button(col2_x+16, yy, "-", element_height, element_height, fa_center, uimu_autotile_tag_down, t_p_autotile_editor);
+ds_list_add(t_p_autotile_editor.contents, element);
+element=create_text(col2_x+48, yy, "tag name", col_width, element_height, fa_left, 128, t_p_autotile_editor);
+element.render=ui_render_text_autotile_tag;
+ds_list_add(t_p_autotile_editor.contents, element);
+element=create_button(col2_x+176, yy, "+", element_height, element_height, fa_center, uimu_autotile_tag_up, t_p_autotile_editor);
+ds_list_add(t_p_autotile_editor.contents, element);
+
+/*
+ * other tab
+ */
+
+yy=legal_y+spacing;
+
+element=create_text(legal_x+spacing, yy, "We also need to be able to manage particle (image), npc (image), follower (image), ui (image), se (audio), bgm (audio), and possibly some other asset types but there's not enough space here; those might just be done with other items in the Data menu",
+    legal_width-spacing*2, element_height, fa_left, legal_width-spacing*2, t_p_other_editor);
+element.valignment=fa_top;
+ds_list_add(t_p_other_editor.contents, element);
 </string>
           </argument>
         </arguments>

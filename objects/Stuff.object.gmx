@@ -69,6 +69,15 @@ vra_name="";
 all_mesh_names=ds_list_create();
 data_load_vra();
 
+// this sounds like a reasonable limit, it's not based on anything though
+available_autotiles=array_create(100);
+array_clear(available_autotiles, noone);
+available_autotiles[0]=array_compose(b_at_default_grass, "&lt;default&gt;", false);
+
+enum AvailableAutotileProperties {
+    picture, name, deleteable
+}
+
 // help contents
 
 enum HelpPages {
