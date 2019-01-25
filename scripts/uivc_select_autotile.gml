@@ -21,7 +21,7 @@ for (var i=0; i<AUTOTILE_MAX; i++){
         // this can happen if an autotile graphic is removed while it's still being referenced by the game
         // todo some way to inform the user that this has happened
         if (is_array(data)){
-            list[| i]=string(i)+"."+data[AvailableAutotileProperties.name];
+            list[| i]=string(i)+"."+data[AvailableAutotileProperties.NAME];
         }
     }
 }

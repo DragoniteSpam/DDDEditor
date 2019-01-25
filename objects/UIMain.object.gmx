@@ -384,6 +384,12 @@ ds_list_add(t_p_autotile_editor.contents, element);
 element=create_button(col2_x+176, yy, "+", element_height, element_height, fa_center, uimu_autotile_tag_up, t_p_autotile_editor);
 ds_list_add(t_p_autotile_editor.contents, element);
 
+yy=yy+element.height+spacing;
+
+element=create_image_button(col2_x, yy, "(Click for autotile)", noone, col_width, col_width, fa_center, null, t_p_autotile_editor);
+element.render=ui_render_image_button_autotile;
+ds_list_add(t_p_autotile_editor.contents, element);
+
 /*
  * other tab
  */

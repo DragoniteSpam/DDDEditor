@@ -250,6 +250,7 @@
       <scripts name="rendering">
         <script>scripts\ui_render.gml</script>
         <script>scripts\ui_render_button.gml</script>
+        <script>scripts\ui_render_image_button.gml</script>
         <script>scripts\ui_render_checkbox.gml</script>
         <script>scripts\ui_render_tile_selector.gml</script>
         <script>scripts\ui_render_input.gml</script>
@@ -301,6 +302,7 @@
             <script>scripts\ui_render_text_mesh_zmin.gml</script>
             <script>scripts\ui_render_text_mesh_zmax.gml</script>
           </scripts>
+          <script>scripts\ui_render_image_button_autotile.gml</script>
         </scripts>
       </scripts>
       <script>scripts\ui_button_down.gml</script>
@@ -314,6 +316,7 @@
         <script>scripts\create_text.gml</script>
         <script>scripts\create_tile_selector.gml</script>
         <script>scripts\create_button.gml</script>
+        <script>scripts\create_image_button.gml</script>
         <script>scripts\create_input.gml</script>
         <scripts name="create elements">
           <script>scripts\create_radio_array_options.gml</script>
@@ -561,6 +564,7 @@
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_default.shader</shader>
+    <shader type="HLSL9">shaders\shader1.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
@@ -604,6 +608,7 @@
       <object>objects\UIBitField</object>
       <object>objects\UIBitFieldOption</object>
       <object>objects\UIButton</object>
+      <object>objects\UIImageButton</object>
       <object>objects\UICheckbox</object>
       <object>objects\UIInput</object>
       <object>objects\UIList</object>

@@ -73,6 +73,9 @@ Things: resources
 0x00000003 (3)		Map		Tileset - metadata
 0x00000004 (4)		Map		Tileset - base texture only - surface to buffer
 0x00000005 (5)		Map		Tileset - autotiles only - surface to buffer
+						when you save these, you need to remember to embed the actual image in
+						the map, the internal structure that directs the game to the correct
+						autotile image is rather spaghetti
 0x00000006 (6)		Map		Tileset - everything - surface to buffer
 						probably more efficient if you have a dense graphics set and don't want
 						the game to re-compute the map texture every time it loads up
@@ -118,3 +121,81 @@ finish up their properties and editor's UI for accessing those properties
 modifications like move as group, group edit
 
 add the create-by-painting effect: an orthographic camera would be really useful for this
+
+old notes
+-----------------------------
+
+Doing stuff with the selection:
+ - edit properties of everything in the selection
+	 - if you have just one thing in the selection it's easy
+	 - if you have multiple things of the same type selected and they all have identitical properties it's easy
+	 - if you have multiple things of the same type selected and they have different properties, they should be listed as "(multiple)" or something, but changing one will set the properties of the entire selection
+	 - if you have multiple things of different types selected, only shared (inherited) properties should be editable following the above rules, i.e. 3D position and the basic data for multiple classes of NPC
+ - copy contents
+ - cut contents (copy and delete originals)
+ - paste contents
+
+Properties: Map
+ - width, height, depth
+ - tileset used
+
+Properties: Entity
+ - x, y, z position, color?
+ - is static or dynamic?
+ - is solid?
+ - name
+
+Properties: Entity\Tile
+ - u, v texture coordinates
+
+Properties: Entity\Mesh
+ - mesh (name, id, or something else)
+
+Now:
+ - every mesh entity should store the name string of its mesh and not its
+	index or id or something, because when they're loaded into the
+	game itself they're supposed to be random-access and should only
+	need to be looked up on map load or entity change
+ - in the editor, names should be sorted into an alphabetized list
+	(tree) to make it easy to display in the editor's ui, but
+	there should probably also be a hash map of the names the
+	same way the game has?
+ - if you remove a vrax or close the editor, modify a required one and
+	reopen the editor, mesh entities that use meshes that can no
+	longer be identified should have some kind of warning symbol at
+	their position in 3D space (probably for their origin plus any
+	cells which they occupy as "solid"), and there should be a nice
+	warning dialog immediately as the program starts
+ - when adding a new vrax there should be a notice that if you modify
+	the original vrax the changes won't be known to the editor until
+	you re-load it, since it's going to have to be copied to the
+	appdata folder in order to comply with the game maker sandbox;
+	it may be nice to have a "do not show this warning again" option,
+	and by extension a "reset warnings" button somewhere
+
+ - when you change selection from mesh to something that is not mesh,
+hide the mesh selector and swap in the appropriate options (tile picker
+for tiles, mob type probably, effect type probably)
+ - selecting an entitymesh should show the whole bounding box, not just
+the footprint; mobs and particles should probably be similar
+ - probably some other stuff
+ - talk to relic people?
+
+ - better deleting mechanism (instead of ds_list_delete-ing constantly, it
+would probably be faster to re-create the list)
+
+ - control+a for select all (this will be more complicated than it sounds
+owing to the different entity types), and likely other keyboard shortcuts
+	 - detection of the control key should override detection of wasd
+	for moving around
+
+commit notes
+
+tomorrow
+
+implement autotiles and the ability to draw (click and drag to fill) with all entity types, and make
+	autotiles respond correctly when you do that; also remember to give them the usual tile properties
+	for things like passability, etc (there are variables for this but nothing does anything yet)
+
+maybe the undo/redo stack is a bit unnecessary for the moment but at least being able to copy/paste tile
+	data and possibly set large swaths at once (all types of path, for example) would be pretty helpful

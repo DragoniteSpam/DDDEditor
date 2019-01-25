@@ -1,4 +1,4 @@
-/// DataTileset tileset_create(picture, [autotile0, autotile1, .. autotile15]);
+/// DataTileset tileset_create(picture, [autotileID0, autotileID1, .. autotileID15]);
 
 // don't instantiate these outside of this script
 with (instance_create(0, 0, DataTileset)){
