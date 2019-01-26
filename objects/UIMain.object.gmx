@@ -78,6 +78,8 @@ var legal_width=ui_legal_width();
 var col_width=legal_width/2-spacing*1.5;
 var col2_x=legal_x+col_width+spacing*2;
 
+var button_width=128;
+
 /*
  * general tab setup
  */
@@ -150,6 +152,9 @@ ds_list_add(t_p_entity.contents, element);
 yy=legal_y+spacing;
 
 element=create_text(legal_x+spacing, yy, "Select a tile to place down!", col_width, element_height, fa_left, col_width, t_p_tile_editor);
+ds_list_add(t_p_tile_editor.contents, element);
+
+element=create_button(col2_x+col_width/2, yy, "Tileset Data", button_width, element_height, fa_center, omu_manager_tileset, t_p_tile_editor, HelpPages.TAB_TILE_EDITOR, fa_middle, fa_top);
 ds_list_add(t_p_tile_editor.contents, element);
 
 yy=yy+element.height+spacing;
@@ -322,7 +327,7 @@ ds_list_add(t_p_mesh_editor.contents, element);
 
 yy=yy+element.height+spacing;
 
-element=create_button(col2_x, yy, "Mesh Data", col_width, element_height, fa_center, omu_manager_mesh, t_p_mesh_editor, fa_left, fa_top);
+element=create_button(col2_x+col_width/2, yy, "Mesh Data", button_width, element_height, fa_center, omu_manager_mesh, t_p_mesh_editor, HelpPages.TAB_MESH_EDITOR, fa_middle, fa_top);
 ds_list_add(t_p_mesh_editor.contents, element);
 
 /*

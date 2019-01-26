@@ -1,7 +1,5 @@
-/// void momu_tileset(MenuElement);
+/// void omu_manager_tileset(UIThing);
 
 var catch=argument0;
-
-menu_activate(noone);
 
 dialog_create_manager_tileset(noone);
