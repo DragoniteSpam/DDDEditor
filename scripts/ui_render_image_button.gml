@@ -33,7 +33,7 @@ if (argument0.image==noone){
     draw_set_halign(argument0.alignment);
     draw_set_valign(argument0.valignment);
     draw_set_color(argument0.color);
-    draw_text(tx, ty, argument0.text);
+    draw_text_ext(tx, ty, argument0.text, -1, argument0.width);
 } else {
     draw_sprite_general(argument0.image, 0, 0, 0, min(argument0.width, sprite_get_width(argument0.image)),
         min(argument0.height, sprite_get_height(argument0.image)), x1, y1, 1, 1, 0, color, color, color, color, 1);

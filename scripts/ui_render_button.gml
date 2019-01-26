@@ -30,4 +30,4 @@ if (argument0.interactive&&dialog_is_active(argument0.root)){
 draw_set_halign(argument0.alignment);
 draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);
-draw_text(tx, ty, argument0.text);
+draw_text_ext(tx, ty, argument0.text, -1, argument0.width);

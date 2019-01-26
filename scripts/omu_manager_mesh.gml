@@ -1,7 +1,5 @@
-/// void momu_mesh(MenuElement);
+/// void omu_manager_mesh(UIThing);
 
 var catch=argument0;
-
-menu_activate(noone);
 
 dialog_create_manager_mesh(noone);

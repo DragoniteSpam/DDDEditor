@@ -11,7 +11,7 @@ with (instance_create(argument[0], argument[1], UIButton)){
     
     switch (argument_count){
         case 11:
-            switch (argument[12]){
+            switch (argument[10]){
                 case fa_top:
                     break;
                 case fa_middle:

@@ -3,7 +3,7 @@
 // it just behaves accordingly.
 
 if (data_vra_exists()&&ds_map_size(argument0.selected_entries)==1){
-    var data=Stuff.vra_data[? Stuff.all_mesh_names[| ds_map_find_first(argument0.selected_entries)]];
+    var data=Stuff.vra_data[? Stuff.all_mesh_names[| ui_list_selection(argument0)]];
     argument0.root.el_bounds_xmin.text="  xmin: "+string(data[MeshArrayData.XMIN]);
     argument0.root.el_bounds_ymin.text="  ymin: "+string(data[MeshArrayData.YMIN]);
     argument0.root.el_bounds_zmin.text="  zmin: "+string(data[MeshArrayData.ZMIN]);

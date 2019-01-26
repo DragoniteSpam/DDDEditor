@@ -247,6 +247,181 @@
       <script>scripts\control_duration_middle.gml</script>
     </scripts>
     <scripts name="ui stuff">
+      <scripts name="creation">
+        <script>scripts\create_tab.gml</script>
+        <script>scripts\create_radio_array.gml</script>
+        <script>scripts\create_bitfield.gml</script>
+        <script>scripts\create_list.gml</script>
+        <script>scripts\create_checkbox.gml</script>
+        <script>scripts\create_text.gml</script>
+        <script>scripts\create_tile_selector.gml</script>
+        <script>scripts\create_button.gml</script>
+        <script>scripts\create_image_button.gml</script>
+        <script>scripts\create_input.gml</script>
+        <scripts name="create elements">
+          <script>scripts\create_radio_array_options.gml</script>
+          <script>scripts\create_bitfield_options.gml</script>
+          <script>scripts\create_list_entries.gml</script>
+          <script>scripts\clear_list_entries.gml</script>
+          <script>scripts\create_bitfield_option_data.gml</script>
+        </scripts>
+      </scripts>
+      <scripts name="dialogs">
+        <script>scripts\dialog_exists.gml</script>
+        <script>scripts\dialog_create.gml</script>
+        <script>scripts\dialog_destroy.gml</script>
+        <scripts name="render">
+          <script>scripts\dialog_default.gml</script>
+          <scripts name="dont mess with me">
+            <script>scripts\dr_box.gml</script>
+          </scripts>
+        </scripts>
+        <scripts name="creation">
+          <script>scripts\dialog_create_settings.gml</script>
+          <script>scripts\dialog_create_manager_mesh.gml</script>
+          <script>scripts\dialog_create_manager_autotile.gml</script>
+          <script>scripts\dialog_create_autotile_selector.gml</script>
+          <script>scripts\dialog_create_about.gml</script>
+          <script>scripts\dialog_create_notice.gml</script>
+          <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
+          <script>scripts\dialog_create_yes_or_no.gml</script>
+        </scripts>
+        <script>scripts\dialog_is_active.gml</script>
+        <scripts name="commit">
+          <scripts name="execution">
+            <script>scripts\dc_settings_execute.gml</script>
+            <script>scripts\dc_vrax.gml</script>
+          </scripts>
+          <scripts name="verification">
+            <script>scripts\dc_settings.gml</script>
+            <script>scripts\dc_manager_mesh.gml</script>
+          </scripts>
+          <script>scripts\dc_close_no_questions_asked.gml</script>
+        </scripts>
+        <scripts name="on mouse up">
+          <script>scripts\dmu_dialog_commit.gml</script>
+          <script>scripts\dmu_dialog_cancel.gml</script>
+          <scripts name="settings">
+            <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
+            <script>scripts\dmu_close_no_questions_asked.gml</script>
+          </scripts>
+          <scripts name="data">
+            <script>scripts\dmu_dialog_preview_mesh.gml</script>
+            <script>scripts\dmu_dialog_load_vrax.gml</script>
+          </scripts>
+          <scripts name="cancel destroy">
+            <script>scripts\dmu_dialog_cancel_destroy_data.gml</script>
+          </scripts>
+        </scripts>
+      </scripts>
+      <scripts name="math">
+        <script>scripts\ui_get_radio_array_height.gml</script>
+        <script>scripts\ui_get_text_x.gml</script>
+        <script>scripts\ui_get_text_y.gml</script>
+        <script>scripts\ui_legal_height.gml</script>
+        <script>scripts\ui_legal_width.gml</script>
+      </scripts>
+      <scripts name="menu">
+        <scripts name="render">
+          <script>scripts\menu_render_main.gml</script>
+          <script>scripts\menu_render.gml</script>
+          <script>scripts\menu_render_element.gml</script>
+        </scripts>
+        <scripts name="creation">
+          <script>scripts\create_menu.gml</script>
+          <script>scripts\create_menu_element.gml</script>
+        </scripts>
+        <scripts name="onmouseup">
+          <scripts name="file">
+            <script>scripts\momu_exit.gml</script>
+            <script>scripts\momu_open.gml</script>
+            <script>scripts\momu_settings.gml</script>
+            <script>scripts\momu_save_as.gml</script>
+            <script>scripts\momu_save.gml</script>
+            <script>scripts\momu_new.gml</script>
+          </scripts>
+          <scripts name="edit">
+            <script>scripts\momu_copy.gml</script>
+            <script>scripts\momu_undo.gml</script>
+            <script>scripts\momu_redo.gml</script>
+            <script>scripts\momu_cut.gml</script>
+            <script>scripts\momu_select_all.gml</script>
+            <script>scripts\momu_deselect.gml</script>
+            <script>scripts\momu_paste.gml</script>
+          </scripts>
+          <script>scripts\momu_expand.gml</script>
+          <scripts name="help">
+            <script>scripts\momu_help.gml</script>
+            <script>scripts\momu_about.gml</script>
+          </scripts>
+          <scripts name="data">
+            <script>scripts\momu_mesh.gml</script>
+            <script>scripts\momu_tileset.gml</script>
+            <script>scripts\momu_conflicts.gml</script>
+          </scripts>
+        </scripts>
+        <script>scripts\menu_is_ancestor.gml</script>
+        <script>scripts\menu_is_active.gml</script>
+        <script>scripts\menu_activate.gml</script>
+      </scripts>
+      <scripts name="notifications">
+        <script>scripts\notification_render.gml</script>
+        <script>scripts\create_notification.gml</script>
+      </scripts>
+      <scripts name="on value change and general interaction">
+        <script>scripts\uivc_radio_selection_mode.gml</script>
+        <script>scripts\uivc_list_selection_mesh.gml</script>
+        <script>scripts\uivc_list_selection_autotile.gml</script>
+        <script>scripts\uivc_radio_fill_type.gml</script>
+        <script>scripts\uivc_check_selection_addition.gml</script>
+        <script>scripts\uivc_check_view_wireframe.gml</script>
+        <script>scripts\uivc_select_tile.gml</script>
+        <script>scripts\uivc_select_autotile.gml</script>
+        <script>scripts\uivc_select_mesh_refresh.gml</script>
+        <script>scripts\uivc_select_tile_backwards.gml</script>
+        <script>scripts\uivc_check_view_grids.gml</script>
+        <script>scripts\uivc_tile_set_data_view.gml</script>
+        <script>scripts\uivc_tile_set_on_click.gml</script>
+        <script>scripts\uivc_check_view_texture.gml</script>
+        <script>scripts\uivc_check_view_entities.gml</script>
+        <script>scripts\uivc_check_view_backface.gml</script>
+        <script>scripts\uivc_stash.gml</script>
+        <script>scripts\uimu_selection_fill.gml</script>
+        <script>scripts\uimu_selection_delete.gml</script>
+        <script>scripts\uivc_list_view_mesh.gml</script>
+        <scripts name="tile and mesh editor">
+          <script>scripts\uivc_input_tile_priority.gml</script>
+          <script>scripts\uimu_tile_tag_up.gml</script>
+          <script>scripts\uivc_input_mesh_tag.gml</script>
+          <script>scripts\uimu_tile_tag_down.gml</script>
+          <script>scripts\uimu_mesh_tag_up.gml</script>
+          <script>scripts\uimu_mesh_tag_down.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability_solid.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability.gml</script>
+          <script>scripts\uivc_bitfield_tile_flag.gml</script>
+          <script>scripts\uivc_bitfield_mesh_flag.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability_passable.gml</script>
+          <script>scripts\uivc_input_tile_tag.gml</script>
+          <scripts name="autotile">
+            <script>scripts\uimu_autotile_tag_down.gml</script>
+            <script>scripts\uimu_autotile_tag_up.gml</script>
+            <script>scripts\uivc_input_autotile_tag.gml</script>
+            <script>scripts\uivc_bitfield_autotile_passability.gml</script>
+            <script>scripts\uivc_bitfield_autotile_passability_solid.gml</script>
+            <script>scripts\uivc_bitfield_autotile_passability_passable.gml</script>
+            <script>scripts\uivc_input_autotile_priority.gml</script>
+            <script>scripts\uivc_bitfield_autotile_flag.gml</script>
+          </scripts>
+        </scripts>
+      </scripts>
+      <scripts name="onmouseup">
+        <script>scripts\omu_autotile_selector.gml</script>
+        <script>scripts\omu_manager_mesh.gml</script>
+        <script>scripts\omu_manager_autotile.gml</script>
+      </scripts>
       <scripts name="rendering">
         <script>scripts\ui_render.gml</script>
         <script>scripts\ui_render_button.gml</script>
@@ -303,185 +478,17 @@
             <script>scripts\ui_render_text_mesh_zmax.gml</script>
           </scripts>
           <script>scripts\ui_render_image_button_autotile.gml</script>
-        </scripts>
-      </scripts>
-      <script>scripts\ui_button_down.gml</script>
-      <script>scripts\ui_button_down_tab.gml</script>
-      <scripts name="creation">
-        <script>scripts\create_tab.gml</script>
-        <script>scripts\create_radio_array.gml</script>
-        <script>scripts\create_bitfield.gml</script>
-        <script>scripts\create_list.gml</script>
-        <script>scripts\create_checkbox.gml</script>
-        <script>scripts\create_text.gml</script>
-        <script>scripts\create_tile_selector.gml</script>
-        <script>scripts\create_button.gml</script>
-        <script>scripts\create_image_button.gml</script>
-        <script>scripts\create_input.gml</script>
-        <scripts name="create elements">
-          <script>scripts\create_radio_array_options.gml</script>
-          <script>scripts\create_bitfield_options.gml</script>
-          <script>scripts\create_list_entries.gml</script>
-          <script>scripts\clear_list_entries.gml</script>
-          <script>scripts\create_bitfield_option_data.gml</script>
-        </scripts>
-      </scripts>
-      <scripts name="on value change and general interaction">
-        <script>scripts\uivc_radio_selection_mode.gml</script>
-        <script>scripts\uivc_list_selection_mesh.gml</script>
-        <script>scripts\uivc_list_selection_autotile.gml</script>
-        <script>scripts\uivc_radio_fill_type.gml</script>
-        <script>scripts\uivc_check_selection_addition.gml</script>
-        <script>scripts\uivc_check_view_wireframe.gml</script>
-        <script>scripts\uivc_select_tile.gml</script>
-        <script>scripts\uivc_select_autotile.gml</script>
-        <script>scripts\uivc_select_mesh_refresh.gml</script>
-        <script>scripts\uivc_select_tile_backwards.gml</script>
-        <script>scripts\uivc_check_view_grids.gml</script>
-        <script>scripts\uivc_tile_set_data_view.gml</script>
-        <script>scripts\uivc_tile_set_on_click.gml</script>
-        <script>scripts\uivc_check_view_texture.gml</script>
-        <script>scripts\uivc_check_view_entities.gml</script>
-        <script>scripts\uivc_check_view_backface.gml</script>
-        <script>scripts\uivc_stash.gml</script>
-        <script>scripts\uimu_selection_fill.gml</script>
-        <script>scripts\uimu_selection_delete.gml</script>
-        <script>scripts\uivc_list_view_mesh.gml</script>
-        <scripts name="tile and mesh editor">
-          <script>scripts\uivc_input_tile_priority.gml</script>
-          <script>scripts\uimu_tile_tag_up.gml</script>
-          <script>scripts\uivc_input_mesh_tag.gml</script>
-          <script>scripts\uimu_tile_tag_down.gml</script>
-          <script>scripts\uimu_mesh_tag_up.gml</script>
-          <script>scripts\uimu_mesh_tag_down.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability_solid.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability.gml</script>
-          <script>scripts\uivc_bitfield_tile_flag.gml</script>
-          <script>scripts\uivc_bitfield_mesh_flag.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability_passable.gml</script>
-          <script>scripts\uivc_input_tile_tag.gml</script>
-          <scripts name="autotile">
-            <script>scripts\uimu_autotile_tag_down.gml</script>
-            <script>scripts\uimu_autotile_tag_up.gml</script>
-            <script>scripts\uivc_input_autotile_tag.gml</script>
-            <script>scripts\uivc_bitfield_autotile_passability.gml</script>
-            <script>scripts\uivc_bitfield_autotile_passability_solid.gml</script>
-            <script>scripts\uivc_bitfield_autotile_passability_passable.gml</script>
-            <script>scripts\uivc_input_autotile_priority.gml</script>
-            <script>scripts\uivc_bitfield_autotile_flag.gml</script>
-          </scripts>
-        </scripts>
-      </scripts>
-      <scripts name="math">
-        <script>scripts\ui_get_radio_array_height.gml</script>
-        <script>scripts\ui_get_text_x.gml</script>
-        <script>scripts\ui_get_text_y.gml</script>
-        <script>scripts\ui_legal_height.gml</script>
-        <script>scripts\ui_legal_width.gml</script>
-      </scripts>
-      <scripts name="menu">
-        <scripts name="render">
-          <script>scripts\menu_render_main.gml</script>
-          <script>scripts\menu_render.gml</script>
-          <script>scripts\menu_render_element.gml</script>
-        </scripts>
-        <scripts name="creation">
-          <script>scripts\create_menu.gml</script>
-          <script>scripts\create_menu_element.gml</script>
-        </scripts>
-        <scripts name="onmouseup">
-          <scripts name="file">
-            <script>scripts\momu_exit.gml</script>
-            <script>scripts\momu_open.gml</script>
-            <script>scripts\momu_settings.gml</script>
-            <script>scripts\momu_save_as.gml</script>
-            <script>scripts\momu_save.gml</script>
-            <script>scripts\momu_new.gml</script>
-          </scripts>
-          <scripts name="edit">
-            <script>scripts\momu_copy.gml</script>
-            <script>scripts\momu_undo.gml</script>
-            <script>scripts\momu_redo.gml</script>
-            <script>scripts\momu_cut.gml</script>
-            <script>scripts\momu_select_all.gml</script>
-            <script>scripts\momu_deselect.gml</script>
-            <script>scripts\momu_paste.gml</script>
-          </scripts>
-          <script>scripts\momu_expand.gml</script>
-          <scripts name="help">
-            <script>scripts\momu_help.gml</script>
-            <script>scripts\momu_about.gml</script>
-          </scripts>
-          <scripts name="data">
-            <script>scripts\momu_mesh.gml</script>
-            <script>scripts\momu_tileset.gml</script>
-            <script>scripts\momu_conflicts.gml</script>
-          </scripts>
-        </scripts>
-        <script>scripts\menu_is_ancestor.gml</script>
-        <script>scripts\menu_is_active.gml</script>
-        <script>scripts\menu_activate.gml</script>
-      </scripts>
-      <scripts name="dialogs">
-        <script>scripts\dialog_exists.gml</script>
-        <script>scripts\dialog_create.gml</script>
-        <script>scripts\dialog_destroy.gml</script>
-        <scripts name="render">
-          <script>scripts\dialog_default.gml</script>
-          <scripts name="dont mess with me">
-            <script>scripts\dr_box.gml</script>
-          </scripts>
-        </scripts>
-        <scripts name="creation">
-          <script>scripts\dialog_create_settings.gml</script>
-          <script>scripts\dialog_create_data_mesh.gml</script>
-          <script>scripts\dialog_create_autotile_selector.gml</script>
-          <script>scripts\dialog_create_about.gml</script>
-          <script>scripts\dialog_create_notice.gml</script>
-          <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
-          <script>scripts\dialog_create_yes_or_no.gml</script>
-        </scripts>
-        <script>scripts\dialog_is_active.gml</script>
-        <scripts name="commit">
-          <scripts name="execution">
-            <script>scripts\dc_settings_execute.gml</script>
-            <script>scripts\dc_vrax.gml</script>
-          </scripts>
-          <scripts name="verification">
-            <script>scripts\dc_settings.gml</script>
-            <script>scripts\dc_data_mesh.gml</script>
-          </scripts>
-          <script>scripts\dc_close_no_questions_asked.gml</script>
-        </scripts>
-        <scripts name="on mouse up">
-          <script>scripts\dmu_dialog_commit.gml</script>
-          <script>scripts\dmu_dialog_cancel.gml</script>
-          <scripts name="settings">
-            <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
-            <script>scripts\dmu_close_no_questions_asked.gml</script>
-          </scripts>
-          <scripts name="data">
-            <script>scripts\dmu_dialog_preview_mesh.gml</script>
-            <script>scripts\dmu_dialog_load_vrax.gml</script>
-          </scripts>
-          <scripts name="cancel destroy">
-            <script>scripts\dmu_dialog_cancel_destroy_data.gml</script>
-          </scripts>
+          <script>scripts\ui_render_image_button_autotile_preview.gml</script>
         </scripts>
       </scripts>
       <script>scripts\ui_activate.gml</script>
+      <script>scripts\ui_button_down.gml</script>
+      <script>scripts\ui_button_down_tab.gml</script>
       <script>scripts\ui_is_active.gml</script>
-      <script>scripts\ui_value_string.gml</script>
       <script>scripts\ui_value_real.gml</script>
-      <scripts name="notifications">
-        <script>scripts\notification_render.gml</script>
-        <script>scripts\create_notification.gml</script>
-      </scripts>
-      <scripts name="onmouseup">
-        <script>scripts\omu_autotile_selector.gml</script>
+      <script>scripts\ui_value_string.gml</script>
+      <scripts name="help">
+        <script>scripts\ui_list_selection.gml</script>
       </scripts>
     </scripts>
     <scripts name="Control">
@@ -630,7 +637,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="25">
+  <constants number="26">
+    <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="c_ui_select">$ffb8ac</constant>

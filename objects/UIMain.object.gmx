@@ -42,10 +42,10 @@ t_general=create_tab("General", 0, id, HelpPages.TAB_GENERAL);
 t_1=create_tab("filling", 0, id);
 t_2=create_tab("space", 0, id);
 
-t_p_tile_editor=create_tab("TileEd.", 1, id, HelpPages.TAB_TILE_EDITOR);
-t_p_autotile_editor=create_tab("AutotileEd.", 1, id, HelpPages.TAB_AUTOTILE_EDITOR);
-t_p_mesh_editor=create_tab("MeshEd.", 1, id, HelpPages.TAB_MESH_EDITOR);
-t_p_other_editor=create_tab("OtherEd.", 1, id);
+t_p_tile_editor=create_tab("Tile Ed.", 1, id, HelpPages.TAB_TILE_EDITOR);
+t_p_autotile_editor=create_tab("Autotile Ed.", 1, id, HelpPages.TAB_AUTOTILE_EDITOR);
+t_p_mesh_editor=create_tab("Mesh Ed.", 1, id, HelpPages.TAB_MESH_EDITOR);
+t_p_other_editor=create_tab("Other Ed.", 1, id);
 
 t_p_entity=create_tab("Entity", 2, id, HelpPages.TAB_ENTITY);
 t_p_tile=create_tab("Tile", 2, id, HelpPages.TAB_TILE);
@@ -318,6 +318,11 @@ ds_list_add(t_p_mesh_editor.contents, element);
 
 element=create_text(bounds_x_2, yy, "", col_width/2, element_height, fa_left, col_width/2, t_p_mesh_editor);
 element.render=ui_render_text_mesh_zmax;
+ds_list_add(t_p_mesh_editor.contents, element);
+
+yy=yy+element.height+spacing;
+
+element=create_button(col2_x, yy, "Mesh Data", col_width, element_height, fa_center, omu_manager_mesh, t_p_mesh_editor, fa_left, fa_top);
 ds_list_add(t_p_mesh_editor.contents, element);
 
 /*

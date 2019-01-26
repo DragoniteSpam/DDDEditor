@@ -1,9 +1,9 @@
-/// void dialog_create_data_mesh(Dialog);
+/// void dialog_create_manager_mesh(Dialog);
 
 var dw=512;
 var dh=400;
 
-var dg=dialog_create(dw, dh, "Data: Availalbe Meshes", dialog_default, dc_data_mesh, argument0);
+var dg=dialog_create(dw, dh, "Data: Availalbe Meshes", dialog_default, dc_manager_mesh, argument0);
 
 var ew=(dw-64)/2;
 var eh=24;
