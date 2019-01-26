@@ -3,7 +3,7 @@
 var dw=512;
 var dh=544;
 
-var dg=dialog_create(dw, dh, "Data: Availalbe Meshes", dialog_default, null, argument0);
+var dg=dialog_create(dw, dh, "Data: Availalbe Meshes", dialog_default, dc_autotile_selector, argument0);
 
 var ew=(dw-64)/2;
 var eh=24;
@@ -19,7 +19,9 @@ var b_height=32;
 var yy=64;
 
 var n=AUTOTILE_AVAILABLE_MAX;
-dg.el_list=create_list(16, yy, "Available autotiles: "+string(n), "", dw/2-16, b_height, 12, null, false, dg);
+dg.el_list=create_list(16, yy, "Available autotiles: "+string(n), "", dw/2-16, b_height, 12, uivc_stash_list, false, dg);
+dg.el_list.key="list";
+create_list_entries(dg.el_list, "<none>");
 for (var i=0; i<AUTOTILE_AVAILABLE_MAX; i++){
     var at_data=Stuff.available_autotiles[i];
     if (is_array(at_data)){

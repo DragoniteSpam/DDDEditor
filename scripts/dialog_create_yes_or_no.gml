@@ -1,4 +1,6 @@
 /// void dialog_create_yes_or_no(root Dialog, message, confirm action, [caption message], [confirm message], [cancel action], [cancel message]);
+// if the order of these parameters seems a little weird, it's because all of
+// the required ones have to go at the beginning and the optional ones at the end
 
 var message=argument[1];
 var caption_message="Important!";

@@ -1,6 +1,12 @@
 Autotiles
 
-start with hard-coded sprites, and then
+currently part of the way through writing the autotile selector; specifically, the part where it checks
+all of the existing EntityAutoTile to see if they're in use if the autotile slot is set to <none>,
+and should show a warning with the option to cancel or force-delete all of the conflicting things
+
+and some other things
+
+im tired now finish this later
 
 Loading Assets
 

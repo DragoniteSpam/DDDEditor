@@ -160,6 +160,7 @@
       <script>scripts\selected.gml</script>
       <scripts name="actions">
         <script>scripts\sa_foreach_all.gml</script>
+        <script>scripts\sa_foreach_global.gml</script>
         <script>scripts\sa_foreach_cell.gml</script>
         <scripts name="common">
           <script>scripts\sa_delete.gml</script>
@@ -296,6 +297,7 @@
           <scripts name="verification">
             <script>scripts\dc_settings.gml</script>
             <script>scripts\dc_manager_mesh.gml</script>
+            <script>scripts\dc_autotile_selector.gml</script>
           </scripts>
           <script>scripts\dc_close_no_questions_asked.gml</script>
         </scripts>
@@ -387,6 +389,7 @@
         <script>scripts\uivc_check_view_entities.gml</script>
         <script>scripts\uivc_check_view_backface.gml</script>
         <script>scripts\uivc_stash.gml</script>
+        <script>scripts\uivc_stash_list.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
         <script>scripts\uivc_list_view_mesh.gml</script>
@@ -591,6 +594,7 @@
       <objects name="3D stuff">
         <object>objects\Entity</object>
         <object>objects\EntityTile</object>
+        <object>objects\EntityAutoTile</object>
         <object>objects\EntityMesh</object>
         <object>objects\EntityPawn</object>
         <object>objects\EntityEffect</object>
