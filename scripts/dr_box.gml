@@ -13,6 +13,13 @@ var kill=active&&get_release_escape();
 draw_rectangle_colour(x1, y1, x2, y2, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);
 
+if (active){
+    var hc=Stuff.setting_color;
+} else {
+    var hc=merge_colour(Stuff.setting_color, c_white, 0.75);
+}
+
+draw_rectangle_colour(x1, y1, x2, y1+header_height, hc, hc, hc, hc, false);
 draw_line_colour(x1, y1+header_height, x2, y1+header_height, c_black, c_black);
 
 var tx=x1+32;

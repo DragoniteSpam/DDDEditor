@@ -25,7 +25,9 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (DEBUG){
+            <string>/// this is basically World/Settings
+
+if (DEBUG){
     show_debug_overlay(true);
 }
 
@@ -87,17 +89,23 @@ enum HelpPages {
     EDITORCOMPONENTS, TABS, MENUS,
     TAB_GENERAL, TAB_ENTITY, TAB_TILE, TAB_MESH, TAB_MOB, TAB_EFFECT, TAB_EVENT,
     TAB_MESH_EDITOR, TAB_TILE_EDITOR, TAB_AUTOTILE_EDITOR,
+    AUTOTILES,
 }
 
 help_pages=array_compose("overview", "whatsnew", "gettingstarted", "systemrequirements",
     "editorcomponents", "tabs", "menus",
     "general", "entityinstances", "tileinstances", "meshinstances", "mobinstances", "effectinstances", "eventinstances",
-    "mesheditor", "tileeditor", "autotileeditor");
+    "mesheditor", "tileeditor", "autotileeditor",
+    "autotiles",);
 
 enum Dimensions {
     TWOD,
     THREED
 }
+
+// user settings
+
+setting_color=c_green;
 </string>
           </argument>
         </arguments>

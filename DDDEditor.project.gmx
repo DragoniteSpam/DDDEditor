@@ -438,6 +438,7 @@
         <scripts name="creation">
           <script>scripts\dialog_create_settings.gml</script>
           <script>scripts\dialog_create_data_mesh.gml</script>
+          <script>scripts\dialog_create_autotile_selector.gml</script>
           <script>scripts\dialog_create_about.gml</script>
           <script>scripts\dialog_create_notice.gml</script>
           <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
@@ -478,6 +479,9 @@
       <scripts name="notifications">
         <script>scripts\notification_render.gml</script>
         <script>scripts\create_notification.gml</script>
+      </scripts>
+      <scripts name="onmouseup">
+        <script>scripts\omu_autotile_selector.gml</script>
       </scripts>
     </scripts>
     <scripts name="Control">

@@ -328,14 +328,14 @@ if (ds_list_size(ActiveMap.batch_in_the_future)&gt;BATCH_CACHE_SIZE){
             <string>/// Anything visible in the world
 
 switch (view_current){
-    case 0:
+    case view_3d:
         draw_editor_3d();
         draw_editor_menu();
         break;
-    case 1:
+    case view_hud:
         draw_editor_hud();
         break;
-    case 2:
+    case view_3d_preview:
         // the pop-out window that isn't really a pop-out window
         draw_preview_3d();
         draw_preview_3d_overlay();

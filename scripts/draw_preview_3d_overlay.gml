@@ -12,10 +12,10 @@ draw_set_alpha(1);
 d3d_set_culling(false)
 draw_set_color(c_white);
 
-draw_line_width(0, 0, w, 0, lw);
-draw_line_width(0, 0, 0, h, lw);
-draw_line_width(w-1, 0, w-1, h, lw);
-draw_line_width(0, h-1, w, h-1, lw);
+draw_line_width_colour(0, 0, w, 0, lw, Stuff.setting_color, Stuff.setting_color);
+draw_line_width_colour(0, 0, 0, h, lw, Stuff.setting_color, Stuff.setting_color);
+draw_line_width_colour(w-1, 0, w-1, h, lw, Stuff.setting_color, Stuff.setting_color);
+draw_line_width_colour(0, h-1, w, h-1, lw, Stuff.setting_color, Stuff.setting_color);
 
 draw_set_font(FDefault12Bold);
 draw_set_halign(fa_left);
