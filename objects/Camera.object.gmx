@@ -167,6 +167,13 @@ vertex_end(mesh_preview_grid);
 vertex_freeze(mesh_preview_grid);
 
 /*
+ * end of step actions
+ */
+
+schedule_rebuild_master_texture=false;
+schedule_view_master_texture=false;
+
+/*
  * enumerated constants that i need
  */
 
@@ -302,6 +309,24 @@ ds_list_clear(changes);
 // entity that was changed would slow the editor down quite a lot
 if (ds_list_size(ActiveMap.batch_in_the_future)&gt;BATCH_CACHE_SIZE){
     batch_cache();
+}
+
+if (schedule_rebuild_master_texture){
+    // this is important, but gets turned back on when the 3D stuff gets dealt
+    // with in the next frame
+    d3d_end();
+    d3d_set_hidden(false);
+    if (ActiveMap.tileset.master!=noone){
+        sprite_delete(ActiveMap.tileset.master);
+    }
+    ActiveMap.tileset.master=tileset_create_master(ActiveMap.tileset);
+    schedule_rebuild_master_texture=false;
+}
+
+if (schedule_view_master_texture){
+    sprite_save_fixed(ActiveMap.tileset.master, 0, "master-preview.png");
+    ds_stuff_open_local("master-preview.png");
+    schedule_view_master_texture=false;
 }
 </string>
           </argument>

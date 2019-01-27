@@ -19,7 +19,7 @@ var b_height=32;
 var yy=64;
 
 var n=AUTOTILE_AVAILABLE_MAX;
-dg.el_list=create_list(16, yy, "Available autotiles: "+string(n), "", dw/2-16, b_height, 12, uivc_stash_list, false, dg);
+dg.el_list=create_list(16, yy, "Available autotiles: "+string(n), "", dw/2-16, b_height, 12, uivc_list_autotile_selector, false, dg);
 dg.el_list.key="list";
 create_list_entries(dg.el_list, "<none>");
 for (var i=0; i<AUTOTILE_AVAILABLE_MAX; i++){
@@ -27,7 +27,7 @@ for (var i=0; i<AUTOTILE_AVAILABLE_MAX; i++){
     if (is_array(at_data)){
         create_list_entries(dg.el_list, string(i)+". "+at_data[AvailableAutotileProperties.NAME]);
     } else {
-        create_list_entries(dg.el_list, string(i)+". <none loaded>");
+        create_list_entries(dg.el_list, string(i)+". <none set>");
     }
 }
 

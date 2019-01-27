@@ -6,8 +6,7 @@
  * codes and stuff.)
  *
  * When opening stuff with this script, don't pass it the leading dot
- * ("\\file.txt" isntead of ".\\file.txt"). I'm pretty sure it'll work
- * correctly in either case but don't just to make things simpler.
+ * or the double backslash ("file.txt" isntead of ".\\file.txt").
  */
 
-return ds_stuff_open(environment_get_variable("localappdata")+"\\DDDEditor"+argument0);
+return ds_stuff_open(environment_get_variable("localappdata")+"\\DDDEditor\\"+argument0);

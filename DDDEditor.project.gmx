@@ -390,8 +390,10 @@
         <script>scripts\uivc_check_view_backface.gml</script>
         <script>scripts\uivc_stash.gml</script>
         <script>scripts\uivc_stash_list.gml</script>
+        <script>scripts\uivc_list_autotile_selector.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
+        <script>scripts\uimu_view_master_texture.gml</script>
         <script>scripts\uivc_list_view_mesh.gml</script>
         <scripts name="tile and mesh editor">
           <script>scripts\uivc_input_tile_priority.gml</script>
@@ -576,6 +578,9 @@
     </scripts>
     <scripts name="misc graphics">
       <script>scripts\draw_checkerbox.gml</script>
+    </scripts>
+    <scripts name="misc code">
+      <script>scripts\sprite_save_fixed.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">

@@ -51,6 +51,7 @@
 // about populating the values right now
 picture=b_tileset_default_overworld;
 autotiles=array_create(AUTOTILE_MAX);
+array_clear(autotiles, noone);
 
 autotile_positions=array_create(AUTOTILE_MAX);
 autotile_sizes=array_create(AUTOTILE_MAX);

@@ -1,10 +1,20 @@
 /// void dc_autotile_selector(Dialog);
-// Doesn't actually commit any settings, just a verification to see if there
-// would be any side effects (entities being orphaned by the grid, etc) and
-// if there are, pops up a confirmation asking if you want to (safely) do it anyway.
 
 var map=argument0.data;
 
+// I really, really really don't feel like doing the commit changes thing here too
+
+dialog_destroy();
+
+// however, you do need to rebuild the master texture when you do this because
+// i definitely do not want to do that every time you select something new
+
+// later though because in the middle of the step while the 3D camera is on things
+// tend to get flipped upside-down sometimes
+
+Camera.schedule_rebuild_master_texture=true;
+
+/*
 var index=noone;
 
 if (ds_map_exists(map, "list")){
@@ -29,11 +39,9 @@ if (index==noone){
         var dg=dialog_create_yes_or_no(argument0, "So it looks like you want to reset this autotile. There are still some autotile Entities in the map that point to it, so if you proceed, they will just be deleted. Is this all right with you?",
             dmu_dialog_commit, "Hey!", "sure", dmu_dialog_cancel, "no stop");
         dg.commit=dc_vrax;
-        ds_map_add(dg.data, "vra_path", vra_path);
+/*        ds_map_add(dg.data, "vra_path", vra_path);
         ds_map_add(dg.data, "fn", fn);
     }
-    
-    something memory leak
     
     ds_list_destroy(missing);
     /*
@@ -45,7 +53,7 @@ if (index==noone){
         ds_map_add(dg.data, "fn", fn);
     } else {
         data_load_vra_on_the_fly(argument0, vra_path, fn);
-    }*/
+    }
 }
 
 // -----------------------------

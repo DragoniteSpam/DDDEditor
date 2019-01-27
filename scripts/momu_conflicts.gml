@@ -2,4 +2,4 @@
 
 var catch=argument0;
 
-ds_stuff_open_local("\\conflicts.txt");
+ds_stuff_open_local("conflicts.txt");
