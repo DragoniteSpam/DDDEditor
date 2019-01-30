@@ -1,6 +1,15 @@
 Autotiles
 
-and some other things
+make them actually autotile; first don't batch them and have them calculate the autotile version with
+math (pretty sure there's old code somewhere that does that) and manually draw with regular old
+render_tile; after you know it can choose the correct tile pictures use a shader to set the texture
+uvs based on the autotile index/its surroundings so that they can be batched and still work in real
+time.
+
+also remember they should be animated.
+
+when they get exported they should stay as autotiles. they don't need to be able to reconfigure
+themselves during runtime but some of them may need to be animated.
 
 Loading Assets
 
@@ -9,15 +18,16 @@ Loading meshes/images/audio should stay in the Data menu to make them harder to 
 Loadable Assets
 
  - Meshes (global)
- - Tilesets (per map)
- - autotiles (per map)
- - particle graphics (global)
+ - Tilesets (per map) - texture 0
+ - autotiles (per map) - texture 0
+ - particle graphics (global) - texture 1
  - audio (global)
- - npc images (global)
- - monster images (global)
+ - npc images (global) - texture 2
+ - monster images (global) - texture 3
 
 Game Maker texture pages can go up to 8192x8192, although i'd rather not because those will decompress
-	to up to 250 mb each (the 4192x4192 texture pages will only be 67 mb, 
+	to up to 250 mb each (the 4192x4192 texture pages will only be 67 mb, much better) - all four
+	of the main texture pages combined will be about 250 mb instead
 
 Map Texture (1) - local
 
@@ -97,6 +107,10 @@ Things: resources
 						might as well try
 0x00000013 (19)		Game		Audio - BGM - references
 						These are going to be huge, don't bother trying to embed
+0x00000014 (20)		Map		Terrain - one or more big old 3D models, more or less stored the same way as
+						the normal meshes, except these are obviously local to maps so we don't
+						need to have them all on hand at the same time, and shouldn't since they
+						will probably be pretty big
 
 Things: game data
 

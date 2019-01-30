@@ -185,12 +185,13 @@ enum SelectionModes {
 
 enum ETypes {
     TILE,
+    AUTOTILE,
     MESH,
     PAWN,
     EFFECT,
 }
 
-etypes=array_compose(safc_fill_tile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
+etypes=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
 </string>
           </argument>
         </arguments>

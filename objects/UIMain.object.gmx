@@ -98,7 +98,7 @@ ds_list_add(t_general.contents, element);
 yy=yy+element.height+spacing;
 
 element=create_radio_array(legal_x+spacing, yy, "Fill Type", col_width, element_height, uivc_radio_fill_type, Camera.selection_fill_type, t_general);
-create_radio_array_options(element, "Tile", "Mesh", "Mob", "Effect");
+create_radio_array_options(element, "Tile", "Autotile", "Mesh", "Mob", "Effect");
 ds_list_add(t_general.contents, element);
 
 yy=yy+ui_get_radio_array_height(element)+spacing;
@@ -364,7 +364,7 @@ yy=legal_y+spacing;
 element=create_list(legal_x+spacing, yy, "Defined Autotiles: ", "&lt;something is wrong&gt;", col_width, element_height, 28, uivc_list_selection_autotile, false, t_p_autotile_editor);
 ds_map_add(element.selected_entries, 0, true);
 for (var i=0; i&lt;AUTOTILE_MAX; i++){
-    create_list_entries(element, string(i)+". &lt;none selected&gt;");
+    create_list_entries(element, string(i)+". &lt;none set&gt;");
 }
 ds_list_add(t_p_autotile_editor.contents, element);
 
