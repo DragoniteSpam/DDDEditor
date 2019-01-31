@@ -211,6 +211,7 @@
       </scripts>
       <scripts name="rendering">
         <script>scripts\render_tile.gml</script>
+        <script>scripts\render_autotile.gml</script>
         <script>scripts\render_mesh.gml</script>
       </scripts>
       <scripts name="views">

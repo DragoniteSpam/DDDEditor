@@ -3,7 +3,7 @@
 var buffer=argument0;
 var wire=argument1;
 var tile=argument2;
-var TEXEL=1/sprite_get_width(ActiveMap.tileset.master);
+var TEXEL=1/TEXTURE_SIZE;
 
 var xx=tile.xx*TILE_WIDTH;
 var yy=tile.yy*TILE_HEIGHT;
@@ -15,8 +15,8 @@ var nx=0;
 var ny=0;
 var nz=1;
 
-//var tile_horizontal_count=sprite_get_width(ActiveMap.tileset.master)/Stuff.tile_size;
-//var tile_vertical_count=sprite_get_height(ActiveMap.tileset.master)/Stuff.tile_size;
+//var tile_horizontal_count=TEXTURE_SIZE/Stuff.tile_size;
+//var tile_vertical_count=TEXTURE_SIZE/Stuff.tile_size;
 var tile_horizontal_count=TEXTURE_SIZE/Stuff.tile_size;
 var tile_vertical_count=TEXTURE_SIZE/Stuff.tile_size;
 

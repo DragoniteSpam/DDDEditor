@@ -1,4 +1,4 @@
-/// void render_tile(EntityTile);
+/// void render_autotile(EntityAutoTile);
 
 var tile=argument0;
 var TEXEL=1/TEXTURE_SIZE;
@@ -21,8 +21,12 @@ var tile_vertical_count=TEXTURE_SIZE/Stuff.tile_size;
 var texture_width=1/tile_horizontal_count;
 var texture_height=1/tile_vertical_count;
 
-var xtex=tile.tile_x*texture_width;
-var ytex=tile.tile_y*texture_height;
+var ati=argument0.autotile_id;
+var at_data=Stuff.available_autotiles[ati];
+var at_position=ActiveMap.tileset.autotile_positions[ati];
+// DO NOT TOUCH
+var xtex=at_position[vec2.xx]+(argument0.segment_id mod at_data[AvailableAutotileProperties.WIDTH])*Stuff.tile_size/TEXTURE_SIZE;
+var ytex=at_position[vec2.yy]+(argument0.segment_id div at_data[AvailableAutotileProperties.WIDTH])*Stuff.tile_size/TEXTURE_SIZE;
 
 var color=tile.tile_color;
 var alpha=tile.tile_alpha;

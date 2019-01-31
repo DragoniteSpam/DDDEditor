@@ -62,7 +62,7 @@ c_shape_end_trimesh(c_shape_tile);
 // this sounds like a reasonable limit, it's not based on anything though
 available_autotiles=array_create(AUTOTILE_AVAILABLE_MAX);
 array_clear(available_autotiles, noone);
-available_autotiles[0]=array_compose(b_at_default_grass, "&lt;default&gt;", false, "");
+available_autotiles[0]=array_compose(b_at_default_grass, "&lt;default&gt;", false, "", 1, 3);
 
 // at some point there shouldn't necessarily need to be an active
 // map in existence for this to work, but for now there does
@@ -83,7 +83,8 @@ data_load_vra();
 uivc_select_autotile_refresh(Camera.selection_fill_autotile);
 
 enum AvailableAutotileProperties {
-    PICTURE, NAME, DELETEABLE, FILENAME
+    PICTURE, NAME, DELETEABLE, FILENAME, FRAMES, WIDTH
+    // sprite index, display name, true for built-in graphics and false otherwise, filename, animation frames, horizontal segments
 }
 
 // help contents

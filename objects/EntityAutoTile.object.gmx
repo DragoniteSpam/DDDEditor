@@ -30,13 +30,15 @@
 name='AutoTile';
 
 autotile_id=0;  // ActiveMap.tileset.autotiles[]
+segment_id=AutotileSegments.CENTER;
+frame=0;
 
 // possibly some animation properties
 
 // editor properties: these need to be specialized
 
-batch=batch_tile;
-render=render_tile;
+batch=null;
+render=render_autotile;
 selector=select_single;
 </string>
           </argument>
