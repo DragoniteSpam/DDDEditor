@@ -79,6 +79,10 @@ coexist=false;
 
 // collision data
 cobject=noone;
+
+on_create=null;
+on_update=null;
+on_destroy=null;
 </string>
           </argument>
         </arguments>

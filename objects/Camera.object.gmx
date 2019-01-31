@@ -253,16 +253,27 @@ while (!ds_queue_empty(stuff_to_destroy)){
 
 var future=ActiveMap.batch_in_the_future;
 
-for (var i=0; i&lt;ds_list_size(changes); i++){
-    var thing=changes[| i];
+var cindex=0;
+
+// the list may still be appended to while it's being looped over - which is a
+// TERRIBLE idea, but i don't have the time to come up with something that will
+// appease the stackoverflow gods so too bad for them
+
+//for (var i=0; i&lt;ds_list_size(changes); i++){
+while (cindex&lt;ds_list_size(changes)){
+    var thing=changes[| cindex++];
     switch (thing.modification){
         case Modifications.CREATE:
             instance_deactivate_object(thing);
+            script_execute(thing.on_create, thing);
+            thing.modification=Modifications.NONE;
             break;
         case Modifications.UPDATE:
             if (thing.batch_index==-1){
             } else {
             }
+            script_execute(thing.on_update, thing);
+            thing.modification=Modifications.NONE;
             break;
         case Modifications.REMOVE:
             // this is INSANELY slow for large numbers of entities, and I'm
@@ -282,6 +293,7 @@ for (var i=0; i&lt;ds_list_size(changes); i++){
             
             // this NEEDS to be worked on sooner rather than later because i
             // imagine Delete All is going to be a somewhat common operation.
+            debug(thing)
             if (thing.listed){
                 if (thing.batch_index==-1){
                     ds_list_delete(future, ds_list_find_index(future, thing));
@@ -300,8 +312,11 @@ for (var i=0; i&lt;ds_list_size(changes); i++){
             
             instance_activate_object(thing);
             instance_destroy(thing);
+            // no point changing thing.modification now
             break;
     }
+    // it turns out you can't put any mode code involving thing here because if it
+    // was deleted it'll break things
 }
 
 ds_list_clear(changes);

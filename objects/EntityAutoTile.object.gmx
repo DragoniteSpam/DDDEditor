@@ -31,7 +31,12 @@ name='AutoTile';
 
 autotile_id=0;  // ActiveMap.tileset.autotiles[]
 segment_id=AutotileSegments.CENTER;
+// this will probably be tied to Stuff.time_int but just in case there are
+// situations where you want this to be separate
 frame=0;
+
+neighbors=array_create(8);
+array_clear(neighbors, noone);
 
 // possibly some animation properties
 
@@ -40,6 +45,9 @@ frame=0;
 batch=null;
 render=render_autotile;
 selector=select_single;
+
+on_create=create_autotile;
+on_update=update_autotile;
 </string>
           </argument>
         </arguments>

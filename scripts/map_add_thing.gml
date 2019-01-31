@@ -25,8 +25,6 @@ if (cell[@ argument0.slot]==noone){
     argument0.listed=true;
     
     ds_list_add(Camera.changes, argument0);
-    
-//    debug("added "+argument0.name+" ["+string(argument0)+"] at "+string(argument1)+", "+string(argument2)+", "+string(argument3))
 } else {
     safa_delete(argument0);
 }

@@ -241,6 +241,10 @@
       <script>scripts\tileset_create.gml</script>
       <script>scripts\tileset_create_master.gml</script>
       <script>scripts\tileset_create_grid.gml</script>
+      <scripts name="create and modify">
+        <script>scripts\update_autotile.gml</script>
+        <script>scripts\create_autotile.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">

@@ -33,6 +33,8 @@ if (DEBUG){
 
 // persistent stuff
 dt=0;
+time=0;
+time_int=0;
 
 // these are constants in DDD.gmx but we're allowed to change them here
 tile_width=32;
@@ -63,6 +65,20 @@ c_shape_end_trimesh(c_shape_tile);
 available_autotiles=array_create(AUTOTILE_AVAILABLE_MAX);
 array_clear(available_autotiles, noone);
 available_autotiles[0]=array_compose(b_at_default_grass, "&lt;default&gt;", false, "", 1, 3);
+
+autotile_hashes=array_create(256);
+array_clear(autotile_hashes, AutotileSegments.CENTER);
+autotile_hashes[11]=AutotileSegments.LOWER_RIGHT;
+autotile_hashes[22]=AutotileSegments.LOWER_LEFT;
+autotile_hashes[31]=AutotileSegments.LOWER;
+autotile_hashes[104]=AutotileSegments.UPPER_RIGHT;
+autotile_hashes[107]=AutotileSegments.RIGHT;
+autotile_hashes[165]=AutotileSegments.INVERSE;
+autotile_hashes[208]=AutotileSegments.UPPER_LEFT;
+autotile_hashes[214]=AutotileSegments.LEFT;
+autotile_hashes[248]=AutotileSegments.UPPER;
+// this one's the default but
+//autotile_hashes[255]=AutotileSegments.CENTER;
 
 // at some point there shouldn't necessarily need to be an active
 // map in existence for this to work, but for now there does
@@ -133,7 +149,12 @@ setting_color=c_green;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dt=delta_time/MILLION;
+            <string>// delta time
+dt=delta_time/MILLION;
+// seconds elapsed since the game started
+time=get_timer()/MILLION;
+// seconds as an integer
+time_int=time div 1;
 </string>
           </argument>
         </arguments>
