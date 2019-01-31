@@ -42,7 +42,7 @@ array_clear(neighbors, noone);
 
 // editor properties: these need to be specialized
 
-batch=null;
+batch=batch_autotile;
 render=render_autotile;
 selector=select_single;
 

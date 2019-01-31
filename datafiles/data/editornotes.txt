@@ -1,10 +1,11 @@
 Autotiles
 
-make them actually autotile; first don't batch them and have them calculate the autotile version with
-math (pretty sure there's old code somewhere that does that) and manually draw with regular old
-render_tile; after you know it can choose the correct tile pictures use a shader to set the texture
-uvs based on the autotile index/its surroundings so that they can be batched and still work in real
-time.
+the reconfigure code doesn't work properly in all cases. pretty sure the math to calculate the
+surroundings is correct but (1) not all of the Stuff.autotile_hash values have been added, and (2)
+the program does not correctly loop through all of the adjacent autotiles to recalculate their
+surroundings value, and (3) it's not efficient. bulk selections (rectangle and circle) can get away
+with setting the values of all of the internal tiles to CENTER, since we already know they will be
+surrounded on all four sides with the same autotiles
 
 also remember they should be animated.
 

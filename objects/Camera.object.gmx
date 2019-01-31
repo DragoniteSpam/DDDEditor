@@ -64,6 +64,7 @@ vertex_format_add_position_3d();
 vertex_format_add_normal();
 vertex_format_add_textcoord();
 vertex_format_add_colour();
+vertex_format_add_custom(vertex_type_float1, vertex_usage_textcoord);
 vertex_format=vertex_format_end();
 
 vertex_format_begin();
@@ -192,6 +193,13 @@ enum ETypes {
 }
 
 etypes=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
+
+/*
+ * the autotile shader
+ */
+
+shd_uniform_at_tex_offset=shader_get_uniform(shd_default_autotile, "texoffset");
+shd_value_at_tex_offset=array_create(2);
 </string>
           </argument>
         </arguments>

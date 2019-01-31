@@ -1,3 +1,5 @@
+// I don't remember who wrote this or where it came from?
+
 struct VertexShaderInput {
     float4 Position : POSITION;
     float3 Normal : NORMAL;
