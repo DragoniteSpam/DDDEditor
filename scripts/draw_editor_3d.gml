@@ -19,14 +19,13 @@ d3d_set_projection_ext(x, y, z,
 
 // anything in the world
 
-//shader_reset();
-shader_set(shd_default_autotile);
-shader_set_uniform_f_array(shd_uniform_at_tex_offset, shd_value_at_tex_offset);
-
 // the grid, which you may want an option to turn this off if it gets annoying
 if (view_grid){
     vertex_submit(grid, pr_linelist, -1);
 }
+
+shader_set(shd_default_autotile);
+shader_set_uniform_f_array(shd_uniform_at_tex_offset, shd_value_at_tex_offset);
 
 // this will need to be dynamic at some point
 if (view_texture){

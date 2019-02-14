@@ -12,4 +12,5 @@ vertex_position_3d(argument[0], argument[1], argument[2], argument[3]);
 vertex_normal(argument[0], argument[4], argument[5], argument[6]);
 vertex_texcoord(argument[0], argument[7], argument[8]);
 vertex_colour(argument[0], argument[9], argument[10]);
-vertex_float1(argument[0], atid);
+//vertex_colour(argument[0], make_colour_rgb(atid/MAX_AUTOTILE_SHADER_POSITIONS, 0, 0), 1);
+vertex_colour(argument[0], make_colour_rgb(0, 0, 0), 1);
