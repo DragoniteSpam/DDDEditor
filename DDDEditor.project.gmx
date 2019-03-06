@@ -106,6 +106,7 @@
       </sprites>
     </sprites>
     <sprite>sprites\spr_close</sprite>
+    <sprite>sprites\spr_scroll</sprite>
     <sprite>sprites\spr_check</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
     <sprite>sprites\spr_direction</sprite>
@@ -218,6 +219,7 @@
       <scripts name="views">
         <script>scripts\draw_editor_3d.gml</script>
         <script>scripts\draw_editor_hud.gml</script>
+        <script>scripts\draw_editor_event.gml</script>
         <script>scripts\draw_editor_menu.gml</script>
         <script>scripts\draw_preview_3d.gml</script>
         <script>scripts\draw_preview_3d_overlay.gml</script>
@@ -368,6 +370,8 @@
           <scripts name="data">
             <script>scripts\momu_mesh.gml</script>
             <script>scripts\momu_tileset.gml</script>
+            <script>scripts\momu_editor_event.gml</script>
+            <script>scripts\momu_editor_3d.gml</script>
             <script>scripts\momu_conflicts.gml</script>
           </scripts>
         </scripts>
@@ -507,10 +511,12 @@
       </scripts>
     </scripts>
     <scripts name="Control">
+      <script>scripts\get_press_left.gml</script>
+      <script>scripts\get_press_right.gml</script>
+      <script>scripts\get_release_escape.gml</script>
       <script>scripts\get_release_left.gml</script>
       <script>scripts\get_release_middle.gml</script>
       <script>scripts\get_release_right.gml</script>
-      <script>scripts\get_release_escape.gml</script>
     </scripts>
     <scripts name="dll stuff">
       <scripts name="stuff">
@@ -594,7 +600,6 @@
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_default.shader</shader>
     <shader type="GLSLES">shaders\shd_default_autotile.shader</shader>
-    <shader type="HLSL9">shaders\shader1.shader</shader>
   </shaders>
   <fonts name="fonts">
     <font>fonts\FDefault12</font>
@@ -657,21 +662,21 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="27">
-    <constant name="MAX_AUTOTILE_SHADER_POSITIONS">12*16*8*2</constant>
+  <constants number="29">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>
-    <constant name="CW">1080</constant>
+    <constant name="CW">1080 /*these aren't meant to be used for view coordinates but window coordinates, otherwise i'd make them relative*/</constant>
     <constant name="DEBUG">true</constant>
     <constant name="HH">900</constant>
     <constant name="HW">520</constant>
     <constant name="MAP_X_LIMIT">1024</constant>
     <constant name="MAP_Y_LIMIT">1024</constant>
     <constant name="MAP_Z_LIMIT">512</constant>
+    <constant name="MAX_AUTOTILE_SHADER_POSITIONS">12*16*8*2</constant>
     <constant name="MILLION">1000000</constant>
     <constant name="T">buffer_f32</constant>
     <constant name="TEXTURE_SIZE">4096</constant>
@@ -682,9 +687,11 @@
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="TILESET_TEXTURE_HEIGHT">0.5</constant>
     <constant name="TILESET_TEXTURE_WIDTH">0.5</constant>
-    <constant name="view_3d_preview">2</constant>
-    <constant name="view_3d">0</constant>
-    <constant name="view_hud">1</constant>
+    <constant name="view_3d_preview">4</constant>
+    <constant name="view_3d">1</constant>
+    <constant name="view_fullscreen">0</constant>
+    <constant name="view_hud">3</constant>
+    <constant name="view_ribbon">2</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

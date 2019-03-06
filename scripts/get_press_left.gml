@@ -1,4 +1,4 @@
-/// boolean get_release_right([clear?];
+/// boolean get_press_left([clear?]);
 
 var clear=true;
 switch (argument_count){
@@ -6,8 +6,8 @@ switch (argument_count){
         clear=argument[0];
 }
 
-var s=Controller.release_right;
+var s=Controller.press_left;
 if (clear){
-    Controller.release_right=false;
+    Controller.press_left=false;
 }
 return s;

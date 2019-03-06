@@ -45,6 +45,17 @@ fov=50;
 pitch=0;
 
 /*
+ * Editor modes
+ */
+
+mode=EditorModes.EDITOR_3D;
+
+enum EditorModes {
+    EDITOR_3D,
+    EDITOR_EVENT,
+}
+
+/*
  * Raycasting stuff
  */
 
@@ -202,6 +213,18 @@ etypes=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fi
 shd_uniform_at_tex_offset=shader_get_uniform(shd_default_autotile, "texoffset");
 shd_value_at_tex_offset=array_create(MAX_AUTOTILE_SHADER_POSITIONS);
 //array_clear(shd_value_at_tex_offset, 2/(Stuff.tile_size/TEXTURE_SIZE))
+
+/*
+ * Event editor
+ */
+
+event_canvas_x=0;
+event_canvas_y=0;
+
+event_canvas_select_x_start=0;
+event_canvas_select_y_start=0;
+event_canvas_select_x_end=0;
+event_canvas_select_y_end=0;
 </string>
           </argument>
         </arguments>
@@ -354,6 +377,11 @@ if (schedule_view_master_texture){
     ds_stuff_open_local("master-preview.png");
     schedule_view_master_texture=false;
 }
+
+// controller is invisible so
+
+Controller.mouse_x_previous=mouse_x;
+Controller.mouse_y_previous=mouse_y;
 </string>
           </argument>
         </arguments>
@@ -378,20 +406,53 @@ if (schedule_view_master_texture){
             <kind>1</kind>
             <string>/// Anything visible in the world
 
-switch (view_current){
-    case view_3d:
-        draw_editor_3d();
-        draw_editor_menu();
+switch (mode){
+    case EditorModes.EDITOR_3D:
+        switch (view_current){
+            // view_fullscreen is ignored in 3D mode
+            case view_3d:
+                draw_clear(c_black);
+                draw_editor_3d();
+                break;
+            case view_ribbon:
+                draw_editor_menu();
+                break;
+            case view_hud:
+                draw_editor_hud();
+                break;
+            case view_3d_preview:
+                // the pop-out window that isn't really a pop-out window
+                draw_clear(c_black);
+                draw_preview_3d();
+                draw_preview_3d_overlay();
+                break;
+        }
         break;
-    case view_hud:
-        draw_editor_hud();
-        break;
-    case view_3d_preview:
-        // the pop-out window that isn't really a pop-out window
-        draw_preview_3d();
-        draw_preview_3d_overlay();
+    case EditorModes.EDITOR_EVENT:
+        switch (view_current){
+            case view_fullscreen:
+                draw_editor_event();
+                break;
+            case view_ribbon:
+                draw_editor_menu();
+                break;
+            // everything that isn't view_fullscreen or view_ribbon is ignored in event mode
+        }
         break;
 }
+
+/*
+ * please don't touch these settings, or any of the other settings relating to the room/views,
+ * unless you know what you're doing and are prepared for pain
+ *
+ * Views:
+ *
+ * 0. fullscreen
+ * 1. 3D
+ * 2. Ribbon
+ * 3. HUD (side)
+ * 4. 3D Preview
+ */
 </string>
           </argument>
         </arguments>

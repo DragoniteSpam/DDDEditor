@@ -6,6 +6,8 @@ if (DEBUG){
     var yy=0;
 }
 
+d3d_set_projection_ortho(0, 0, room_width, room_height, 0);
+
 script_execute(menu.render, menu, 0, yy);
 
 if (get_release_left(false)&&!dialog_exists()){

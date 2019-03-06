@@ -52,6 +52,10 @@ release_help=false;
 
 // hotkeys
 key_help=vk_f1;
+
+// mouse delta
+mouse_x_previous=mouse_x;
+mouse_y_previous=mouse_y;
 </string>
           </argument>
         </arguments>
