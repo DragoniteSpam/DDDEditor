@@ -7,12 +7,14 @@
 
 var x1=event_canvas_x+argument0.x;
 var y1=event_canvas_y+argument0.y;
+/*var x1=argument0.x-event_canvas_x;
+var y1=argument0.y-event_canvas_x;*/
 var x2=x1;
 var y2=y1;
 
 switch (argument0.type){
     case EventNodeTypes.ENTRYPOINT:
-        x2=x1+32+string_width(argument0.name);
+        x2=x1+EVENT_NODE_CONTACT_WIDTH;
         y2=y1+16+string_height(argument0.name);
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_init));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_init, c_ev_init, false);
@@ -20,14 +22,14 @@ switch (argument0.type){
         draw_text(x1+16, y1+16, argument0.name);
         break;
     case EventNodeTypes.TEXT:
-        x2=x1+288;
-        y2=y1+24+string_height(argument0.name)+string_height_ext(argument0.data[| 0], -1, 256);
+        x2=x1+EVENT_NODE_CONTACT_WIDTH;
+        y2=y1+24+string_height(argument0.name)+string_height_ext(argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
         draw_roundrect(x1, y1, x2, y2, true);
         draw_sprite(spr_event_outbound, 2, x1, y1+16);
         draw_text(x1+16, y1+16, argument0.name);
-        draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, 256);
+        draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         
         draw_sprite(spr_event_delete, 0, x2, y1+16);
         break;
@@ -60,6 +62,10 @@ if (event_canvas_active_node==argument0){
     if (Controller.release_left){
         event_canvas_active_node=noone;
         event_canvas_active_node_index=0;
+        var contacted_node=event_seek_node();
+        if (contacted_node!=noone){
+            event_connect_node(argument0, contacted_node);
+        }
         // if the mouse is contacting another entrypoint, connect it
     }
     draw_bezier(bx1, by1, mouse_x, mouse_y);

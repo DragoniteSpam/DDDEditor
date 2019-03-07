@@ -631,6 +631,7 @@
       <script>scripts\event_create.gml</script>
       <script>scripts\event_create_node.gml</script>
       <script>scripts\event_connect_node.gml</script>
+      <script>scripts\event_seek_node.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -700,7 +701,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="31">
+  <constants number="33">
+    <constant name="EVENT_NODE_CONTACT_WIDTH">256</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
@@ -732,6 +734,7 @@
     <constant name="view_fullscreen">0</constant>
     <constant name="view_hud">3</constant>
     <constant name="view_ribbon">2</constant>
+    <constant name="EVENT_NODE_CONTACT_HEIGHT">64</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

@@ -30,10 +30,10 @@
 entrypoint=event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64);
 entrypoint.name="Entrypoint";
 
-var n2=event_create_node(id, EventNodeTypes.TEXT, 320, 192);
+var n2=event_create_node(id, EventNodeTypes.TEXT, 480, 192);
 n2.name="Text";
 
-var n3=event_create_node(id, EventNodeTypes.TEXT, 720, 128);
+var n3=event_create_node(id, EventNodeTypes.TEXT, 960, 128);
 n3.name="More text";
 n3.data[| 0]="The pretty decent kingdom#"+
     "Split the crown between the heirs,#"+
@@ -43,7 +43,7 @@ n3.data[| 0]="The pretty decent kingdom#"+
     "And the pretty decent kingdom#"+
     "Was doomed to be no more!";
 
-var n4=event_create_node(id, EventNodeTypes.TEXT, 720, 480);
+var n4=event_create_node(id, EventNodeTypes.TEXT, 960, 480);
 
 event_connect_node(entrypoint, n2);
 event_connect_node(n2, n3);
