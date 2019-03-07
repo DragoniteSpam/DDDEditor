@@ -623,6 +623,7 @@
         <object>objects\Data</object>
         <object>objects\DataTileset</object>
         <object>objects\DataObject</object>
+        <object>objects\DataEvent</object>
       </objects>
     </objects>
     <object>objects\ActiveMap</object>
