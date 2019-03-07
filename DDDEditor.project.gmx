@@ -250,6 +250,7 @@
           <script>scripts\draw_event_node.gml</script>
           <script>scripts\draw_event_drag_handle.gml</script>
           <script>scripts\draw_event_node_outbound.gml</script>
+          <script>scripts\draw_event_node_delete.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -626,6 +627,7 @@
     </scripts>
     <scripts name="misc code">
       <script>scripts\sprite_save_fixed.gml</script>
+      <script>scripts\instance_destroy_later.gml</script>
     </scripts>
     <scripts name="event stuff">
       <script>scripts\event_create.gml</script>

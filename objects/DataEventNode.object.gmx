@@ -73,9 +73,24 @@ enum EventNodeTypes {
 ds_list_destroy(data);
 
 var event_index=ds_list_find_index(event.nodes, id);
+
 if (event_index&gt;-1){
     ds_list_delete(event.nodes, event_index);
 }
+
+if (parent!=noone){
+    var parent_index=ds_list_find_index(parent.outbound, id);
+    parent.outbound[| parent_index]=noone;
+}
+
+/*
+ * steps to reproduce crash:
+ * 1. delete event in the middle (the quick brown fox)
+ * 2. attempt to connect the entry node to something else
+ *
+ * something's link variable is not being cleared properly and game maker
+ * is trying to reference an object that no longer exists
+ */
 </string>
           </argument>
         </arguments>

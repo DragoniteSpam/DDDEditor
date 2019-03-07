@@ -5,4 +5,6 @@ node.event=argument0;
 node.type=argument1;
 instance_deactivate_object(node);
 
+ds_list_add(argument0.nodes, node);
+
 return node;

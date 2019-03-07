@@ -4,5 +4,5 @@
 // Draw event which still reference it.
 
 if (dialog_exists()){
-    ds_queue_enqueue(Camera.stuff_to_destroy, ds_list_pop(Camera.dialogs));
+    instance_destroy_later(ds_list_pop(Camera.dialogs));
 }

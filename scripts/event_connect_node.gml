@@ -15,4 +15,7 @@ if (argument[1].parent!=noone){
 }
 
 argument[1].parent=argument[0];
+if (instance_exists(argument[0].outbound[| index])){
+    argument[0].outbound[| index].parent=noone;
+}
 argument[0].outbound[| index]=argument[1];

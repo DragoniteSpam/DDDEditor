@@ -31,7 +31,7 @@ switch (argument0.type){
         draw_text(x1+16, y1+16, argument0.name);
         draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         
-        draw_sprite(spr_event_delete, 0, x2, y1+16);
+        draw_event_node_delete(x2, y1+16, argument0);
         break;
 }
 

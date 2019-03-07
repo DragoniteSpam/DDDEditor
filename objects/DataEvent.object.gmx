@@ -27,6 +27,8 @@
             <kind>1</kind>
             <string>event_inherited();
 
+nodes=ds_list_create();
+
 entrypoint=event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64);
 entrypoint.name="Entrypoint";
 
@@ -47,9 +49,6 @@ var n4=event_create_node(id, EventNodeTypes.TEXT, 960, 480);
 
 event_connect_node(entrypoint, n2);
 event_connect_node(n2, n3);
-
-nodes=ds_list_create();
-ds_list_add(nodes, entrypoint, n2, n3, n4);
 </string>
           </argument>
         </arguments>
