@@ -27,24 +27,52 @@
             <kind>1</kind>
             <string>event_inherited();
 
-entrypoint=event_create_node(EventNodeTypes.ENTRYPOINT, 64, 64);
+entrypoint=event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64);
 entrypoint.name="Entrypoint";
 
-var n2=event_create_node(EventNodeTypes.TEXT, 320, 192);
+var n2=event_create_node(id, EventNodeTypes.TEXT, 320, 192);
 n2.name="Text";
 
-var n3=event_create_node(EventNodeTypes.TEXT, 720, 128);
+var n3=event_create_node(id, EventNodeTypes.TEXT, 720, 128);
 n3.name="More text";
 n3.data[| 0]="The pretty decent kingdom#"+
     "Split the crown between the heirs,#"+
-    "Down dropped his head,#"+
-    "And they started throwing chairs!#"+
+    "Down dropped his head, and#"+
+    "They started throwing chairs!#"+
     "Succesion crises lead to civil war,#"+
     "And the pretty decent kingdom#"+
     "Was doomed to be no more!";
 
+var n4=event_create_node(id, EventNodeTypes.TEXT, 720, 480);
+
 event_connect_node(entrypoint, n2);
 event_connect_node(n2, n3);
+
+nodes=ds_list_create();
+ds_list_add(nodes, entrypoint, n2, n3, n4);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy_instances(nodes);
 </string>
           </argument>
         </arguments>

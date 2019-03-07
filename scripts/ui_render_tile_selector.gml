@@ -111,8 +111,13 @@ if (Controller.mouse_right){
     if (argument0.offset_x>-1||mouse_within_rectangle(x1, y1, x2-1, y2-1)){
         argument0.offset_x=Camera.MOUSE_X;
         argument0.offset_y=Camera.MOUSE_Y;
+        draw_scroll();
+        window_set_cursor(cr_none);
     }
 } else {
-    argument0.offset_x=-1;
-    argument0.offset_y=-1;
+    if (argument0.offset_x!=-1){
+        window_set_cursor(cr_default);
+        argument0.offset_x=-1;
+        argument0.offset_y=-1;
+    }
 }

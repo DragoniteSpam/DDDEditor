@@ -27,7 +27,12 @@
             <kind>1</kind>
             <string>event_inherited();
 
+event=noone;
+
 type=EventNodeTypes.ENTRYPOINT;
+
+offset_x=-1;
+offset_y=-1;
 
 parent=noone;
 
@@ -66,6 +71,11 @@ enum EventNodeTypes {
             <kind>1</kind>
             <string>ds_list_destroy(outbound);
 ds_list_destroy(data);
+
+var event_index=ds_list_find_index(event.nodes, id);
+if (event_index&gt;-1){
+    ds_list_delete(event.nodes, event_index);
+}
 </string>
           </argument>
         </arguments>

@@ -126,7 +126,8 @@
     <sprite>sprites\spr_scroll</sprite>
     <sprite>sprites\spr_check</sprite>
     <sprite>sprites\spr_event_outbound</sprite>
-    <sprite>sprites\spr_dot</sprite>
+    <sprite>sprites\spr_event_delete</sprite>
+    <sprite>sprites\spr_event_dot</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
     <sprite>sprites\spr_direction</sprite>
   </sprites>
@@ -163,6 +164,7 @@
       <script>scripts\is_clamped.gml</script>
       <script>scripts\mouse_within_view.gml</script>
       <script>scripts\mouse_within_rectangle.gml</script>
+      <script>scripts\mouse_within_rectangle_abs.gml</script>
       <script>scripts\cstr.gml</script>
       <script>scripts\string_backspace.gml</script>
       <scripts name="input validation">
@@ -246,6 +248,8 @@
         <scripts name="event stuff">
           <script>scripts\draw_active_event.gml</script>
           <script>scripts\draw_event_node.gml</script>
+          <script>scripts\draw_event_drag_handle.gml</script>
+          <script>scripts\draw_event_node_outbound.gml</script>
         </scripts>
       </scripts>
     </scripts>
@@ -617,6 +621,8 @@
     <scripts name="misc graphics">
       <script>scripts\draw_checkerbox.gml</script>
       <script>scripts\draw_bezier.gml</script>
+      <script>scripts\draw_scroll.gml</script>
+      <script>scripts\colour_mute.gml</script>
     </scripts>
     <scripts name="misc code">
       <script>scripts\sprite_save_fixed.gml</script>
@@ -699,7 +705,7 @@
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="c_ev_basic">$99ffcc</constant>
-    <constant name="c_ev_init">c_aqua</constant>
+    <constant name="c_ev_init">$ffcc99</constant>
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>

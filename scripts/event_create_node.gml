@@ -1,7 +1,8 @@
-/// DataEventNode event_create_node(EventNodeType, x, y);
+/// DataEventNode event_create_node(Event, EventNodeType, x, y);
 
-var node=instance_create(argument1, argument2, DataEventNode);
-node.type=argument0;
+var node=instance_create(argument2, argument3, DataEventNode);
+node.event=argument0;
+node.type=argument1;
 instance_deactivate_object(node);
 
 return node;

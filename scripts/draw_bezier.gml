@@ -1,5 +1,5 @@
 /// void draw_bezier(x1, y1, x2, y2);
-// assumes the anchor point is the midpoint
+// assumes the anchor points are in the middle: (meanx, y1) and (meanx, y2)
 
 var p1=array_compose(argument0, argument1);
 var p2=p1;

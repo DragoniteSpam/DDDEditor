@@ -7,6 +7,7 @@
  * credit: andev on Game Maker forums:
  * https://forum.yoyogames.com/index.php?threads/a-free-simple-quadratic-bezier-curve-script-in-gml.42161/
  */
+
 var t   = argument0;
 var p0x = argument1;
 var p0y = argument2;
