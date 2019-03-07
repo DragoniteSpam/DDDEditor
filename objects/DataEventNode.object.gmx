@@ -27,24 +27,45 @@
             <kind>1</kind>
             <string>event_inherited();
 
-entrypoint=event_create_node(EventNodeTypes.ENTRYPOINT, 64, 64);
-entrypoint.name="Entrypoint";
+type=EventNodeTypes.ENTRYPOINT;
 
-var n2=event_create_node(EventNodeTypes.TEXT, 320, 192);
-n2.name="Text";
+parent=noone;
 
-var n3=event_create_node(EventNodeTypes.TEXT, 720, 128);
-n3.name="More text";
-n3.data[| 0]="The pretty decent kingdom#"+
-    "Split the crown between the heirs,#"+
-    "Down dropped his head,#"+
-    "And they started throwing chairs!#"+
-    "Succesion crises lead to civil war,#"+
-    "And the pretty decent kingdom#"+
-    "Was doomed to be no more!";
+data=ds_list_create();
+ds_list_add(data, "The quick brown fox jumped over the lazy dog");
 
-event_connect_node(entrypoint, n2);
-event_connect_node(n2, n3);
+outbound=ds_list_create();
+ds_list_add(outbound, noone);
+
+// could subclass this but i need to get this done in a hurry
+enum EventNodeTypes {
+    ENTRYPOINT,
+    TEXT
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_list_destroy(outbound);
+ds_list_destroy(data);
 </string>
           </argument>
         </arguments>

@@ -46,6 +46,8 @@ if (Controller.mouse_left){
     draw_set_alpha(1);
 }
 
+draw_active_event();
+
 draw_rectangle_colour(0, room_height-16, room_width, room_height, c_white, c_white, c_white, c_white, false);
 draw_text_colour(16, room_height-8, "("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+")",
     c_black, c_black, c_black, c_black, 1);

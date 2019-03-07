@@ -103,6 +103,12 @@ enum AvailableAutotileProperties {
     // sprite index, display name, true for built-in graphics and false otherwise, filename, animation frames, horizontal segments
 }
 
+// event things
+
+all_events=ds_list_create();
+active_event=event_create("DefaultEvent");
+ds_list_add(all_events, active_event);
+
 // help contents
 
 enum HelpPages {
