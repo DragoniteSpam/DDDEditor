@@ -133,6 +133,7 @@ enum Dimensions {
 // user settings
 
 setting_color=c_green;
+setting_bezier_precision=6; // preferably keep this between like 4 and 16ish?
 </string>
           </argument>
         </arguments>

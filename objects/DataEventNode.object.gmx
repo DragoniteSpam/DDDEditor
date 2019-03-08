@@ -36,6 +36,9 @@ offset_y=-1;
 
 parent=noone;
 
+HEY! parent needs to be a list, since multiple nodes can link to the
+same one in the case of a conversation path that converges, etc
+
 data=ds_list_create();
 ds_list_add(data, "The quick brown fox jumped over the lazy dog");
 
