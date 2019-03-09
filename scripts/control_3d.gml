@@ -81,9 +81,9 @@ if (keyboard_check_direct(vk_control)){
     }
     if (keyboard_check_pressed(ord("S"))){
         if (keyboard_check_direct(vk_shift)){
-            momu_save_as(noone);
+            momu_save_data(noone);
         } else {
-            momu_save(noone);
+            momu_save_map(noone);
         }
     }
     if (keyboard_check_pressed(ord("O"))){

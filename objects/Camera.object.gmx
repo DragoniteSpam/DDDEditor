@@ -138,7 +138,8 @@ input_selection_add=vk_control;
  */
 
 changes=ds_list_create();
-ui=instance_create(0, 0, UIMain);
+ui=ui_init_main();
+ui_event=ui_init_event();
 menu=instance_create(0, 0, MenuMain);
 dialogs=ds_list_create();
 

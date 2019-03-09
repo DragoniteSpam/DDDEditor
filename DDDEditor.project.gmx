@@ -175,6 +175,7 @@
       </scripts>
       <script>scripts\instanceof.gml</script>
       <script>scripts\bezier_point.gml</script>
+      <script>scripts\game_auto_title.gml</script>
     </scripts>
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
@@ -379,8 +380,8 @@
             <script>scripts\momu_exit.gml</script>
             <script>scripts\momu_open.gml</script>
             <script>scripts\momu_settings.gml</script>
-            <script>scripts\momu_save_as.gml</script>
-            <script>scripts\momu_save.gml</script>
+            <script>scripts\momu_save_data.gml</script>
+            <script>scripts\momu_save_map.gml</script>
             <script>scripts\momu_new.gml</script>
           </scripts>
           <scripts name="edit">
@@ -542,6 +543,8 @@
       <scripts name="help">
         <script>scripts\ui_list_selection.gml</script>
       </scripts>
+      <script>scripts\ui_init_main.gml</script>
+      <script>scripts\ui_init_event.gml</script>
     </scripts>
     <scripts name="Control">
       <script>scripts\get_press_left.gml</script>
@@ -639,6 +642,10 @@
       <script>scripts\event_connect_node.gml</script>
       <script>scripts\event_seek_node.gml</script>
     </scripts>
+    <scripts name="serialization">
+      <script>scripts\serialize_save_data.gml</script>
+      <script>scripts\serialize_save_map.gml</script>
+    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_default.shader</shader>
@@ -707,7 +714,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="33">
+  <constants number="38">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
@@ -720,6 +727,8 @@
     <constant name="DEBUG">true</constant>
     <constant name="EVENT_NODE_CONTACT_HEIGHT">32</constant>
     <constant name="EVENT_NODE_CONTACT_WIDTH">256</constant>
+    <constant name="EXPORT_EXTENSION_MAP">".dddm"</constant>
+    <constant name="EXPORT_EXTENSION_DATA">".dddd"</constant>
     <constant name="HH">900</constant>
     <constant name="HW">520</constant>
     <constant name="MAP_X_LIMIT">1024</constant>
@@ -727,6 +736,8 @@
     <constant name="MAP_Z_LIMIT">512</constant>
     <constant name="MAX_AUTOTILE_SHADER_POSITIONS">12*16*8*2</constant>
     <constant name="MILLION">1000000</constant>
+    <constant name="SERIALIZE_DATA">1</constant>
+    <constant name="SERIALIZE_MAP">0</constant>
     <constant name="T">buffer_f32</constant>
     <constant name="TEXTURE_SIZE">4096</constant>
     <constant name="TILE_DEPTH">Stuff.tile_depth</constant>
@@ -736,6 +747,7 @@
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="TILESET_TEXTURE_HEIGHT">0.5</constant>
     <constant name="TILESET_TEXTURE_WIDTH">0.5</constant>
+    <constant name="VERSION_NUMBER">0</constant>
     <constant name="view_3d_preview">4</constant>
     <constant name="view_3d">1</constant>
     <constant name="view_fullscreen">0</constant>

@@ -1,6 +1,6 @@
 /// void ui_render_main(UIMain);
 
-d3d_set_projection_ortho(CW, 0, HW, HH, 0);
+d3d_set_projection_ortho(argument0.ui_x, argument0.ui_y, argument0.ui_width, argument0.ui_height, 0);
 
 draw_clear(c_white);
 draw_set_color(c_black);
@@ -12,7 +12,7 @@ draw_set_valign(fa_middle);
 // UI elements throw them in UIMain.contents
 ui_render(argument0, 0, 0);
 
-var xx=CW+32;
+var xx=argument0.ui_x+32;
 var yy=96;
 
 var x1=xx;
@@ -33,7 +33,7 @@ for (var i=0; i<ds_list_size(trow); i++){
 for (var i=0; i<ds_list_size(argument0.tabs); i++){
     if (i!=argument0.active_tab.home_row){
         trow=argument0.tabs[| i];
-        xx=CW+32;
+        xx=argument0.ui_x+32;
         yy=yy-argument0.element_height;
         ww=ui_legal_width()/ds_list_size(trow);
         for (var j=0; j<ds_list_size(trow); j++){
@@ -69,3 +69,6 @@ if (mouse_within_view(view_current)){
         ds_stuff_help_auto(argument0.active_tab);
     }
 }
+
+// either this script needs to be generic-ized for the ui_event tab, or the ui_event tab needs to
+// be changed so that it also uses the view system (and things will still need to be generic-ized)

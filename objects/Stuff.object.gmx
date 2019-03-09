@@ -130,10 +130,70 @@ enum Dimensions {
     THREED
 }
 
+// save settings
+
+save_name_map="";
+save_name_data="";
+
 // user settings
 
 setting_color=c_green;
 setting_bezier_precision=6; // preferably keep this between like 4 and 16ish?
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// enums that i need to put somewhere
+
+enum SerializeThings {
+    ERROR                   =$00000000,
+    // basic stuff
+    MESHES_META             =$00000001,
+    MESHES_REF              =$00000002,
+    MESHES                  =$00000003,
+    TILESET_META            =$00000004,
+    TILESET_BASE            =$00000005,
+    TILESET_AUTO            =$00000006,
+    TILESET_ALL             =$00000007,
+    PARTICLES               =$00000008,
+    NPCS                    =$00000009,
+    NPCS_FULL               =$0000000A,
+    FOLLOWERS               =$0000000B,
+    FOLLOWERS_FULL          =$0000000C,
+    MISC_GRAPHICS           =$0000000D,
+    MISC_GRAPHICS_FULL      =$0000000E,
+    UI_GRAPHICS             =$0000000F,
+    UI_GRAPHICS_FULL        =$00000010,
+    GLOBAL_GRAPHICS         =$00000011,
+    AUDIO_SE                =$00000012,
+    AUDIO_SE_FULL           =$00000013,
+    AUDIO_BGM               =$00000014,
+    MAP_STATIC              =$00000015,
+    MAP_NON_STATIC          =$00000016,
+    // game data - items, monsters, classes, etc
+    DATA_ERROR              =$00000100,
+    // misc
+    MISC_ERROR              =$00001000,
+    MISC_MAP_META           =$00001001,
+    MISC_GLOBAL             =$00001002,
+    MISC_UI                 =$00001003
+}
 </string>
           </argument>
         </arguments>

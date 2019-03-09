@@ -71,47 +71,50 @@ size	contents	purpose
 
 3	0x44 * 3	"DDD," so you know what it is more or less
 4	uint		version number
+4*n	ubyte		type of thing (SERIALIZE_MAP or SERIALIZE_DATA)
 4	uint		number of things
-4*n	uint		type of thing
 
 Things: resources
 
 0x00000000 (0)		Game/Map	Error, probably? basically null
-0x00000001 (1)		Game		Meshes - reference - in case you want to have the vra in included files
+0x00000001 (1)		Game		Meshes - metadata - not sure if needed?
+0x00000002 (2)		Game		Meshes - reference - in case you want to have the vra in included files
 						add a global option for this
-0x00000002 (2)		Game		Meshes - self-contained - in case you want to embed the meshes in the data file
+0x00000003 (3)		Game		Meshes - self-contained - in case you want to embed the meshes in the data file
 						and possibly exclude some information that's only useful to the editor?
-0x00000003 (3)		Map		Tileset - metadata
-0x00000004 (4)		Map		Tileset - base texture only - surface to buffer
-0x00000005 (5)		Map		Tileset - autotiles only - surface to buffer
+0x00000004 (4)		Map		Tileset - metadata
+0x00000005 (5)		Map		Tileset - base texture only - surface to buffer
+0x00000006 (6)		Map		Tileset - autotiles only - surface to buffer
 						when you save these, you need to remember to embed the actual image in
 						the map, the internal structure that directs the game to the correct
 						autotile image is rather spaghetti
-0x00000006 (6)		Map		Tileset - everything - surface to buffer
+0x00000007 (7)		Map		Tileset - everything - surface to buffer
 						probably more efficient if you have a dense graphics set and don't want
 						the game to re-compute the map texture every time it loads up
-0x00000007 (7)		Game		Particles - individual images only
-0x00000008 (8)		Game		Global full texture
+0x00000008 (8)		Game		Particles - individual images only
 0x00000009 (9)		Game		NPCs - individual images only
-0x0000000A (10)		Game		NPC full texture
+0x0000000A (10)		Game		[NPC full texture - there will most likley be a lot of wasted space]
 0x0000000B (11)		Game		Followers - individual images only
-0x0000000C (12)		Game		Followers full texture
+0x0000000C (12)		Game		[Followers full texture - same reason as NPCs]
 0x0000000D (13)		Game		Misc graphics - individual
 						you MAY need more than one page of these, depending, so make sure you
 						can add more than one to the game without breaking everything
 0x0000000E (14)		Game		Misc graphics full texture
 0x0000000F (15)		Game		UI graphics - individual
 0x00000010 (16)		Game		UI graphics full texture
-0x00000011 (17)		Game		Audio - SE - references
-0x00000012 (18)		Game		Audio - SE - buffers
+0x00000011 (17)		Game		Global full texture
+0x00000012 (18)		Game		Audio - SE - references
+0x00000013 (19)		Game		Audio - SE - buffers
 						Not sure if embedding the uncompressed sounds as buffers will work but
 						might as well try
-0x00000013 (19)		Game		Audio - BGM - references
+0x00000014 (20)		Game		Audio - BGM - references
 						These are going to be huge, don't bother trying to embed
-0x00000014 (20)		Map		Terrain - one or more big old 3D models, more or less stored the same way as
+0x00000015 (21)		Map		Static terrain - one or more big old 3D models, more or less stored the same way as
 						the normal meshes, except these are obviously local to maps so we don't
 						need to have them all on hand at the same time, and shouldn't since they
 						will probably be pretty big
+0x00000016 (22)		Map		Non-static map entities, and everything else
+0x00000017 (23)		Game		Events - no idea how to serialize these yet
 
 Things: game data
 
@@ -125,9 +128,8 @@ Things: misc
 0x00001001 (4097)	Game		Map metadata - individual maps won't be stored because of size concerns (GMS1 is
 						32-bit) and, in any case, I wrote the editor so that it can only keep track
 						of one at a time
-0x00001002 (4098)	Map		The contents of the maps - this will probably be most of the map files
-0x00001003 (4099)	Game		Global game data, probably stuff like the title screen and credits screen and stuff
-0x00001004 (4100)	Game		UI and menus and stuff, will probably refer a lot to the asset sections
+0x00001002 (4098)	Game		Global game data, probably stuff like the title screen and credits screen and stuff
+0x00001003 (4099)	Game		UI and menus and stuff, will probably refer a lot to the asset sections
 
 Entities
 
