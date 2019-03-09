@@ -223,6 +223,8 @@ event_canvas_y=0;
 
 event_canvas_active_node=noone;
 event_canvas_active_node_index=0;
+
+event_controls_surface=surface_create(320, room_height);
 </string>
           </argument>
         </arguments>
