@@ -1,5 +1,5 @@
-var w=view_wview[view_current];
-var h=view_hview[view_current];
+var w=view_wview[view_3d_preview];
+var h=view_hview[view_3d_preview];
 var lw=4;
 
 d3d_set_projection_ortho(0, 0, w, h, 0);

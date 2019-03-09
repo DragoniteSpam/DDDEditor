@@ -1,16 +1,12 @@
 /// void ui_init_event();
 
 with (instance_create(0, 0, UIMain)){
-    ui_x=0;
-    ui_y=0;
-    ui_width=320;
-    ui_height=room_height;
     /*
      * tab system setup
      */
     
     t_list=create_tab("Node List", 0, id);
-    t_data=create_tab("Data", 0, id);
+    t_data=create_tab("Node Data", 0, id);
     
     var tr=ds_list_create();
     ds_list_add(tr, t_list, t_data);
@@ -19,25 +15,34 @@ with (instance_create(0, 0, UIMain)){
     
     active_tab=t_list;
     
+    // there is only enough space for one column
+    
+    var element;
+    var spacing=16;
+    var legal_x=room_width-view_hud_width_event+32;
+    var legal_y=128;
+    var element_width=view_hud_width_event-96;
+    
     /*
-    draw_text(16, 48, "All Nodes");
-// make this a scrolling list later
-for (var i=0; i<min(ds_list_size(Stuff.active_event.nodes), 20); i++){
-    var xx=16;
-    var yy=80+i*16;
-    var node=Stuff.active_event.nodes[| i];
-    if (point_in_rectangle(mouse_x-room_width+320, mouse_y, xx, yy-8, xx+320-32, yy+7)){
-        draw_rectangle_colour(xx, yy-8, xx+320-32, yy+8, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
-        
-        if (get_release_left()){
-            // Not sure why this is the negative of what I would have expected but okay
-            event_canvas_x=-node.x+320;
-            event_canvas_y=-node.y+room_height/2;
-        }
-    }
-    draw_text(xx+16, yy, node.name);
-}
-draw_rectangle(16, 64, 320-16, 64+20*16, true);
-*/
+     * Node list
+     */
+    
+    var yy=legal_y+spacing;
+    
+    element=create_list(legal_x+spacing, yy, "Event Nodes", "No nodes available!", element_width, spacing, 32, uivc_list_selection_event_node, false, t_list);
+    element.entries_are_instances=true;
+    element.render=ui_render_list_event_node;
+    ds_list_add(t_list.contents, element);
+    
+    /*
+     * Node data
+     */
+    
+    yy=legal_y+spacing;
+    
+    element=create_text(legal_x+spacing, yy, "I'm not actually sure what's going to go here, but I'm reserving it in case I run out of space in the first tab.",
+        element_width, element_height, fa_left, element_width, t_data);
+    ds_list_add(t_data.contents, element);
+    
     return id;
 }

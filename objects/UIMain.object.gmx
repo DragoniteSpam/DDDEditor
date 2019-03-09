@@ -27,11 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-ui_x=CW;
-ui_y=0;
-ui_width=HW;
-ui_height=HH;
-
 render=ui_render_main;
 root=id;
 

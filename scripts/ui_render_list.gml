@@ -37,7 +37,11 @@ if (n==0){
             }
             draw_rectangle_colour(x1, ya, x2, yb, c, c, c, c, false);
         }
-        draw_text(tx, tya, argument0.entries[| index]);
+        if (argument0.entries_are_instances){
+            draw_text(tx, tya, argument0.entries[| index].name);
+        } else {
+            draw_text(tx, tya, argument0.entries[| index]);
+        }
     }
 }
 

@@ -8,7 +8,7 @@ draw_set_color(c_white);
 var s=128;
 
 d3d_set_projection_ext(0, s, s/2, 0, 0, 0, 0, 0, 1,
-    fov, view_wview[view_current]/view_hview[view_current], 1, s*s);
+    fov, view_wview[view_3d_preview]/view_hview[view_3d_preview], 1, s*s);
 
 // draw the grid, and any other reference points
 vertex_submit(mesh_preview_grid, pr_linelist, -1);

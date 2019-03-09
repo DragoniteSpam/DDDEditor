@@ -242,6 +242,7 @@
       <scripts name="views">
         <script>scripts\draw_editor_3d.gml</script>
         <script>scripts\draw_editor_event.gml</script>
+        <script>scripts\draw_editor_event_hud.gml</script>
         <script>scripts\draw_editor_hud.gml</script>
         <script>scripts\draw_editor_menu.gml</script>
         <script>scripts\draw_preview_3d.gml</script>
@@ -415,29 +416,12 @@
         <script>scripts\create_notification.gml</script>
       </scripts>
       <scripts name="on value change and general interaction">
-        <script>scripts\uivc_radio_selection_mode.gml</script>
-        <script>scripts\uivc_list_selection_mesh.gml</script>
-        <script>scripts\uivc_list_selection_autotile.gml</script>
-        <script>scripts\uivc_radio_fill_type.gml</script>
-        <script>scripts\uivc_check_selection_addition.gml</script>
-        <script>scripts\uivc_check_view_wireframe.gml</script>
-        <script>scripts\uivc_select_tile.gml</script>
-        <script>scripts\uivc_select_autotile.gml</script>
-        <script>scripts\uivc_select_mesh_refresh.gml</script>
-        <script>scripts\uivc_select_tile_backwards.gml</script>
-        <script>scripts\uivc_check_view_grids.gml</script>
-        <script>scripts\uivc_tile_set_data_view.gml</script>
-        <script>scripts\uivc_tile_set_on_click.gml</script>
-        <script>scripts\uivc_check_view_texture.gml</script>
-        <script>scripts\uivc_check_view_entities.gml</script>
-        <script>scripts\uivc_check_view_backface.gml</script>
-        <script>scripts\uivc_stash.gml</script>
-        <script>scripts\uivc_stash_list.gml</script>
-        <script>scripts\uivc_list_autotile_selector.gml</script>
-        <script>scripts\uimu_selection_fill.gml</script>
-        <script>scripts\uimu_selection_delete.gml</script>
-        <script>scripts\uimu_view_master_texture.gml</script>
-        <script>scripts\uivc_list_view_mesh.gml</script>
+        <scripts name="events">
+          <script>scripts\uivc_list_selection_event_node.gml</script>
+        </scripts>
+        <scripts name="settings">
+          <script>scripts\uivc_bezier_precision.gml</script>
+        </scripts>
         <scripts name="tile and mesh editor">
           <script>scripts\uivc_input_tile_priority.gml</script>
           <script>scripts\uimu_tile_tag_up.gml</script>
@@ -465,9 +449,29 @@
             <script>scripts\uivc_bitfield_autotile_flag.gml</script>
           </scripts>
         </scripts>
-        <scripts name="settings">
-          <script>scripts\uivc_bezier_precision.gml</script>
-        </scripts>
+        <script>scripts\uimu_selection_delete.gml</script>
+        <script>scripts\uimu_selection_fill.gml</script>
+        <script>scripts\uimu_view_master_texture.gml</script>
+        <script>scripts\uivc_check_selection_addition.gml</script>
+        <script>scripts\uivc_check_view_backface.gml</script>
+        <script>scripts\uivc_check_view_entities.gml</script>
+        <script>scripts\uivc_check_view_grids.gml</script>
+        <script>scripts\uivc_check_view_texture.gml</script>
+        <script>scripts\uivc_check_view_wireframe.gml</script>
+        <script>scripts\uivc_list_autotile_selector.gml</script>
+        <script>scripts\uivc_list_selection_autotile.gml</script>
+        <script>scripts\uivc_list_selection_mesh.gml</script>
+        <script>scripts\uivc_list_view_mesh.gml</script>
+        <script>scripts\uivc_radio_fill_type.gml</script>
+        <script>scripts\uivc_radio_selection_mode.gml</script>
+        <script>scripts\uivc_select_autotile.gml</script>
+        <script>scripts\uivc_select_mesh_refresh.gml</script>
+        <script>scripts\uivc_select_tile.gml</script>
+        <script>scripts\uivc_select_tile_backwards.gml</script>
+        <script>scripts\uivc_stash.gml</script>
+        <script>scripts\uivc_stash_list.gml</script>
+        <script>scripts\uivc_tile_set_data_view.gml</script>
+        <script>scripts\uivc_tile_set_on_click.gml</script>
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
@@ -532,6 +536,7 @@
           </scripts>
           <script>scripts\ui_render_image_button_autotile.gml</script>
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
+          <script>scripts\ui_render_list_event_node.gml</script>
         </scripts>
       </scripts>
       <script>scripts\ui_activate.gml</script>
@@ -641,6 +646,7 @@
       <script>scripts\event_create_node.gml</script>
       <script>scripts\event_connect_node.gml</script>
       <script>scripts\event_seek_node.gml</script>
+      <script>scripts\event_view_node.gml</script>
     </scripts>
     <scripts name="serialization">
       <script>scripts\serialize_save_data.gml</script>
@@ -714,7 +720,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="38">
+  <constants number="40">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
@@ -752,7 +758,9 @@
     <constant name="view_3d">1</constant>
     <constant name="view_fullscreen">0</constant>
     <constant name="view_hud">3</constant>
+    <constant name="view_hud_width_3d">520</constant>
     <constant name="view_ribbon">2</constant>
+    <constant name="view_hud_width_event">320</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

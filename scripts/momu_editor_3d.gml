@@ -10,4 +10,9 @@ view_visible[view_ribbon]=true;
 view_visible[view_hud]=true;
 view_visible[view_3d_preview]=false;
 
+view_xview[view_hud]=room_width-view_hud_width_3d;
+view_wview[view_hud]=view_hud_width_3d;
+view_xport[view_hud]=room_width-view_hud_width_3d;
+view_wport[view_hud]=view_hud_width_3d;
+
 menu_activate(noone);

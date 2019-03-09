@@ -1,3 +1,3 @@
 /// double ui_legal_height();
 
-return room_height-128;
+return view_hview[view_hud]-128;

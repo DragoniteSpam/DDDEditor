@@ -224,8 +224,6 @@ event_canvas_y=0;
 
 event_canvas_active_node=noone;
 event_canvas_active_node_index=0;
-
-event_controls_surface=surface_create(320, room_height);
 </string>
           </argument>
         </arguments>
@@ -410,7 +408,6 @@ Controller.mouse_y_previous=mouse_y;
 switch (mode){
     case EditorModes.EDITOR_3D:
         switch (view_current){
-            // view_fullscreen is ignored in 3D mode
             case view_3d:
                 draw_clear(c_black);
                 draw_editor_3d();
@@ -437,14 +434,16 @@ switch (mode){
             case view_ribbon:
                 draw_editor_menu();
                 break;
-            // everything that isn't view_fullscreen or view_ribbon is ignored in event mode
+            case view_hud:
+                draw_editor_event_hud();
+                break;
         }
         break;
 }
 
 /*
- * please don't touch these settings, or any of the other settings relating to the room/views,
- * unless you know what you're doing and are prepared for pain
+ * please don't touch these settings, or any of the other settings relating to
+ * the room/views, unless you know what you're doing and are prepared for pain
  *
  * Views:
  *

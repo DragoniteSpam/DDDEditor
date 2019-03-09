@@ -1,23 +1,33 @@
-// the surface needs to be drawn after the events, but processed before them
-if (!surface_exists(event_controls_surface)){
-    event_controls_surface=surface_create(320, room_height);
+var controller_left=Controller.mouse_left;
+var controller_right=Controller.mouse_right;
+var controller_middle=Controller.mouse_middle;
+
+var controller_press_left=Controller.press_left;
+var controller_press_right=Controller.press_right;
+var controller_press_middle=Controller.press_middle;
+
+var controller_release_left=Controller.release_left;
+var controller_release_right=Controller.release_right;
+var controller_release_middle=Controller.release_middle;
+
+// There are other ways to do this, but disable controller (mouse) input if
+// the mouse isn't in the view
+
+if (!mouse_within_view(view_fullscreen)){
+    Controller.mouse_left=false;
+    Controller.mouse_right=false;
+    Controller.mouse_middle=false;
+    
+    Controller.press_left=false;
+    Controller.press_right=false;
+    Controller.press_middle=false;
+    
+    Controller.release_left=false;
+    Controller.release_right=false;
+    Controller.release_middle=false;
 }
 
-surface_set_target(event_controls_surface);
-
-// DO NOT TOUCH THIS THANKS
-d3d_set_projection_ortho(0, 0, 320, room_height, 0);
-
-draw_clear(c_white);
-draw_line(0, 0, 0, room_height);
-
-script_execute(ui_event.render, ui_event);
-
-surface_reset_target();
-
-// we need to reset the d3d projection anyway when we're done with the surface because
-// surfaces suck
-d3d_set_projection_ortho(0, 0, room_width, room_height, 0);
+d3d_set_projection_ortho(0, 0, view_wview[view_fullscreen], view_hview[view_fullscreen], 0);
 
 draw_set_color(c_white);
 draw_set_font(FDefault12);
@@ -43,9 +53,23 @@ if (Controller.mouse_right){
     window_set_cursor(cr_default);
 }
 
-draw_surface(event_controls_surface, room_width-320, 0);
-
 draw_rectangle_colour(0, room_height-16, room_width, room_height, c_white, c_white, c_white, c_white, false);
 draw_text_colour(16, room_height-8, "Canvas at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+
     "); mouse at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+")",
     c_black, c_black, c_black, c_black, 1);
+
+// Reset controller input
+
+if (!mouse_within_view(view_fullscreen)){
+    Controller.mouse_left=controller_left;
+    Controller.mouse_right=controller_right;
+    Controller.mouse_middle=controller_middle;
+    
+    Controller.press_left=controller_press_left;
+    Controller.press_right=controller_press_right;
+    Controller.press_middle=controller_press_middle;
+    
+    Controller.release_left=controller_release_left;
+    Controller.release_right=controller_release_right;
+    Controller.release_middle=controller_release_middle;
+}

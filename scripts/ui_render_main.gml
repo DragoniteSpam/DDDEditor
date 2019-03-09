@@ -1,6 +1,11 @@
 /// void ui_render_main(UIMain);
 
-d3d_set_projection_ortho(argument0.ui_x, argument0.ui_y, argument0.ui_width, argument0.ui_height, 0);
+var ui_x=view_xview[view_hud];
+var ui_y=view_yview[view_hud];
+var ui_width=view_wview[view_hud];
+var ui_height=view_hview[view_hud];
+
+d3d_set_projection_ortho(ui_x, ui_y, ui_width, ui_height, 0);
 
 draw_clear(c_white);
 draw_set_color(c_black);
@@ -12,7 +17,7 @@ draw_set_valign(fa_middle);
 // UI elements throw them in UIMain.contents
 ui_render(argument0, 0, 0);
 
-var xx=argument0.ui_x+32;
+var xx=ui_x+32;
 var yy=96;
 
 var x1=xx;
@@ -33,7 +38,7 @@ for (var i=0; i<ds_list_size(trow); i++){
 for (var i=0; i<ds_list_size(argument0.tabs); i++){
     if (i!=argument0.active_tab.home_row){
         trow=argument0.tabs[| i];
-        xx=argument0.ui_x+32;
+        xx=ui_x+32;
         yy=yy-argument0.element_height;
         ww=ui_legal_width()/ds_list_size(trow);
         for (var j=0; j<ds_list_size(trow); j++){
@@ -64,7 +69,7 @@ for (var i=0; i<ds_list_size(argument0.tabs); i++){
 
 script_execute(argument0.active_tab.render_contents, argument0.active_tab, 0, 0);
 
-if (mouse_within_view(view_current)){
+if (mouse_within_view(view_hud)){
     if (Controller.press_help){
         ds_stuff_help_auto(argument0.active_tab);
     }

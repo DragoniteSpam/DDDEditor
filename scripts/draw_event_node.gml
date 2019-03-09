@@ -68,3 +68,22 @@ if (event_canvas_active_node==argument0){
     }
     draw_bezier(bx1, by1, mouse_x, mouse_y);
 }
+
+/*
+___________________________________________
+############################################################################################
+FATAL ERROR in
+action number 1
+of Draw Event
+for object Camera:
+
+Unable to find any instance for object index '100148' name '<undefined>'
+ at gml_Script_draw_event_node (line 45) -         var bx2=event_canvas_x+outbound.x;
+############################################################################################
+--------------------------------------------------------------------------------------------
+stack frame is
+gml_Script_draw_event_node (line 45)
+called from - gml_Script_draw_active_event (line 10) -         draw_event_node(Stuff.active_event.nodes[| i]);
+called from - gml_Script_draw_editor_event (line 44) - draw_active_event();
+called from - gml_Object_Camera_DrawEvent_1 (line 27) -                 draw_editor_event();
+*/
