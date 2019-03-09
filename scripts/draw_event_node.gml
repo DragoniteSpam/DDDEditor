@@ -7,8 +7,6 @@
 
 var x1=event_canvas_x+argument0.x;
 var y1=event_canvas_y+argument0.y;
-/*var x1=argument0.x-event_canvas_x;
-var y1=argument0.y-event_canvas_x;*/
 var x2=x1;
 var y2=y1;
 

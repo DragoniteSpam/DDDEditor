@@ -36,11 +36,6 @@ type=EventNodeTypes.ENTRYPOINT;
 offset_x=-1;
 offset_y=-1;
 
-parent=noone;
-
-/*HEY! parent needs to be a list, since multiple nodes can link to the
-same one in the case of a conversation path that converges, etc*/
-
 data=ds_list_create();
 ds_list_add(data, "The quick brown fox jumped over the lazy dog");
 
@@ -74,21 +69,10 @@ enum EventNodeTypes {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// outbound nodes will point to this node as (one of their) parents
-for (var i=0; i&lt;ds_list_size(outbound); i++){
-    outbound[| i].parent=noone;
-}
-
-// remove from event's master list of nodes
+            <string>// remove from event's master list of nodes
 var event_index=ds_list_find_index(event.nodes, id);
 if (event_index&gt;-1){
     ds_list_delete(event.nodes, event_index);
-}
-
-// if there are any parents, remove their links to this
-if (parent!=noone){
-    var parent_index=ds_list_find_index(parent.outbound, id);
-    parent.outbound[| parent_index]=noone;
 }
 
 // data structures
