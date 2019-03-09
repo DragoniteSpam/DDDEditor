@@ -464,6 +464,9 @@
             <script>scripts\uivc_bitfield_autotile_flag.gml</script>
           </scripts>
         </scripts>
+        <scripts name="settings">
+          <script>scripts\uivc_bezier_precision.gml</script>
+        </scripts>
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>

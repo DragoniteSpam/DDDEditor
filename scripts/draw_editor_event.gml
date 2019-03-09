@@ -61,5 +61,6 @@ if (Controller.mouse_right){
 draw_surface(event_controls_surface, room_width-320, 0);
 
 draw_rectangle_colour(0, room_height-16, room_width, room_height, c_white, c_white, c_white, c_white, false);
-draw_text_colour(16, room_height-8, "("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+")",
+draw_text_colour(16, room_height-8, "Canvas at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+
+    "); mouse at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+")",
     c_black, c_black, c_black, c_black, 1);
