@@ -27,8 +27,6 @@
             <kind>1</kind>
             <string>event_inherited();
 
-is_root=false;
-
 event=noone;
 
 type=EventNodeTypes.ENTRYPOINT;
@@ -74,26 +72,28 @@ enum EventNodeTypes {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// outbound nodes will point to this node as (one of their) parents
-for (var i=0; i&lt;ds_list_size(outbound); i++){
-    outbound[| i].parent=noone;
-}
+            <string>ds_list_destroy(outbound);
+ds_list_destroy(data);
 
-// remove from event's master list of nodes
 var event_index=ds_list_find_index(event.nodes, id);
+
 if (event_index&gt;-1){
     ds_list_delete(event.nodes, event_index);
 }
 
-// if there are any parents, remove their links to this
 if (parent!=noone){
     var parent_index=ds_list_find_index(parent.outbound, id);
     parent.outbound[| parent_index]=noone;
 }
 
-// data structures
-ds_list_destroy(outbound);
-ds_list_destroy(data);
+/*
+ * steps to reproduce crash:
+ * 1. delete event in the middle (the quick brown fox)
+ * 2. attempt to connect the entry node to something else
+ *
+ * something's link variable is not being cleared properly and game maker
+ * is trying to reference an object that no longer exists
+ */
 </string>
           </argument>
         </arguments>

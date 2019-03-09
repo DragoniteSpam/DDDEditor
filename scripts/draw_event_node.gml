@@ -19,7 +19,7 @@ switch (argument0.type){
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_init));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_init, c_ev_init, false);
         draw_roundrect(x1, y1, x2, y2, true);
-        draw_text(x1+16, y1+16, argument0.name);
+        draw_text(x1+16, mean(y1, y2), argument0.name);
         break;
     case EventNodeTypes.TEXT:
         x2=x1+EVENT_NODE_CONTACT_WIDTH;
@@ -28,7 +28,7 @@ switch (argument0.type){
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
         draw_roundrect(x1, y1, x2, y2, true);
         draw_sprite(spr_event_outbound, 2, x1, y1+16);
-        draw_text(x1+16, y1+16, argument0.name);
+        draw_event_node_title(argument0);
         draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         
         draw_event_node_delete(x2, y1+16, argument0);

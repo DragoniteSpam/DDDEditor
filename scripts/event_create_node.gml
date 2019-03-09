@@ -3,6 +3,9 @@
 var node=instance_create(argument2, argument3, DataEventNode);
 node.event=argument0;
 node.type=argument1;
+
+node.is_root=(argument1==EventNodeTypes.ENTRYPOINT);
+
 instance_deactivate_object(node);
 
 ds_list_add(argument0.nodes, node);
