@@ -8,11 +8,13 @@ buffer_write(argument0, buffer_u32, n_events);
 for (var i=0; i<n_events; i++){
     var event=Stuff.all_events[| i];
     var n_nodes=ds_list_size(event.nodes);
+    buffer_write(argument0, buffer_string, event.name);
     buffer_write(argument0, buffer_u32, n_nodes);
     
     for (var j=0; j<n_nodes; j++){
         var node=event.nodes[| j];
         buffer_write(argument0, buffer_string, node.name);
+        buffer_write(argument0, buffer_u16, node.type);
         buffer_write(argument0, buffer_u32, floor(node.x));
         buffer_write(argument0, buffer_u32, floor(node.y));
         

@@ -655,12 +655,17 @@
       <script>scripts\event_connect_node.gml</script>
       <script>scripts\event_seek_node.gml</script>
       <script>scripts\event_view_node.gml</script>
+      <script>scripts\event_get_node.gml</script>
     </scripts>
     <scripts name="serialization">
       <script>scripts\serialize_save_data.gml</script>
+      <script>scripts\serialize_load_data.gml</script>
       <script>scripts\serialize_save_map.gml</script>
       <scripts name="save">
         <script>scripts\serialize_save_events.gml</script>
+      </scripts>
+      <scripts name="load">
+        <script>scripts\serialize_load_events.gml</script>
       </scripts>
     </scripts>
   </scripts>
@@ -731,7 +736,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="47">
+  <constants number="46">
     <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
@@ -768,7 +773,6 @@
     <constant name="TILE_WIDTH">Stuff.tile_width</constant>
     <constant name="TILESET_TEXTURE_HEIGHT">0.5</constant>
     <constant name="TILESET_TEXTURE_WIDTH">0.5</constant>
-    <constant name="VERSION_NUMBER">0</constant>
     <constant name="view_3d_preview">4</constant>
     <constant name="view_3d">1</constant>
     <constant name="view_fullscreen">0</constant>

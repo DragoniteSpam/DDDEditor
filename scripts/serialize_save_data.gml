@@ -16,7 +16,7 @@ if (string_length(fn)>0){
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
-    buffer_write(buffer, buffer_u32, VERSION_NUMBER);
+    buffer_write(buffer, buffer_u32, DataVersions.INITIAL);
     buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
     buffer_write(buffer, buffer_u32, things);
     
@@ -32,4 +32,8 @@ if (string_length(fn)>0){
     
     buffer_save_ext(buffer, fn, 0, buffer_tell(buffer));
     buffer_delete(buffer);
+}
+
+enum DataVersions {
+    INITIAL                     =0,
 }
