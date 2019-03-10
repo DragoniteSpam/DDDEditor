@@ -5,8 +5,8 @@
 // if you change any of these in this script, you need to change them
 // back when youre done
 
-var x1=event_canvas_x+argument0.x;
-var y1=event_canvas_y+argument0.y;
+var x1=argument0.x;
+var y1=argument0.y;
 var x2=x1;
 var y2=y1;
 
@@ -46,13 +46,11 @@ for (var i=0; i<ds_list_size(argument0.outbound); i++){
     if (outbound==noone){
         draw_event_node_outbound(bx1, by1, argument0, i, true);
     } else {
-        var bx2=event_canvas_x+outbound.x;
-        var by2=event_canvas_y+outbound.y+16;
+        var bx2=outbound.x;
+        var by2=outbound.y+16;
         
         draw_event_node_outbound(bx1, by1, argument0, i);
         draw_sprite(spr_event_dot, 0, bx1, by1);
-        
-        //draw_event_node(outbound);
         
         if (event_canvas_active_node!=argument0||event_canvas_active_node_index!=i){
             draw_bezier(bx1, by1, bx2, by2);

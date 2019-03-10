@@ -1,6 +1,6 @@
 /// boolean mouse_within_view(view);
 
 return point_in_rectangle(Camera.MOUSE_X, Camera.MOUSE_Y,
-    view_xview[argument0], view_yview[argument0],
-    view_xview[argument0]+view_wview[argument0],
-    view_yview[argument0]+view_hview[argument0]);
+    view_xport[argument0], view_yport[argument0],
+    view_xport[argument0]+view_wport[argument0],
+    view_yport[argument0]+view_hport[argument0]);

@@ -1,7 +1,7 @@
 /// DataEventNode event_create_node(Event, EventNodeType, [x, y]);
 
-var xx=-Camera.event_canvas_x+room_width/2;
-var yy=-Camera.event_canvas_y+room_height/2;
+var xx=XVIEW+room_width/2;
+var yy=YVIEW+room_height/2;
 
 // requires 4, checks for 3+
 if (argument_count>2){

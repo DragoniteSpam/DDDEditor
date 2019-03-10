@@ -27,7 +27,7 @@ if (!mouse_within_view(view_fullscreen)){
     Controller.release_middle=false;
 }
 
-d3d_set_projection_ortho(0, 0, view_wview[view_fullscreen], view_hview[view_fullscreen], 0);
+d3d_end();
 
 draw_set_color(c_white);
 draw_set_font(FDefault12);
@@ -38,25 +38,24 @@ draw_clear(c_black);
 var checker_width=sprite_get_width(b_tileset_checkers);
 var checker_height=sprite_get_height(b_tileset_checkers);
 
-draw_checkerbox(event_canvas_x%checker_width-checker_width, event_canvas_y%checker_height-checker_height,
-    room_width+checker_width*2, room_height+checker_height*2);
+draw_checkerbox((XVIEW div checker_width)*checker_width-checker_width,
+    (YVIEW div checker_height)*checker_height-checker_height, WVIEW+checker_width*2, HVIEW+checker_height*2);
 
 draw_active_event();
+
+draw_rectangle_colour(XVIEW, YVIEW+HVIEW-16, XVIEW+WVIEW, YVIEW+HVIEW, c_white, c_white, c_white, c_white, false);
+draw_text_colour(XVIEW+16, YVIEW+HVIEW-8, "Canvas at ("+string(XVIEW)+", "+string(YVIEW)+"); mouse at ("+string(mouse_x)+
+    ", "+string(mouse_y)+")", c_black, c_black, c_black, c_black, 1);
 
 if (Controller.mouse_right){
     window_set_cursor(cr_none);
     draw_scroll();
     
-    event_canvas_x=event_canvas_x+mouse_x-Controller.mouse_x_previous;
-    event_canvas_y=event_canvas_y+mouse_y-Controller.mouse_y_previous;
+    XVIEW=XVIEW-(mouse_x-Controller.mouse_x_previous);
+    YVIEW=YVIEW-(mouse_y-Controller.mouse_y_previous);
 } else {
     window_set_cursor(cr_default);
 }
-
-draw_rectangle_colour(0, room_height-16, room_width, room_height, c_white, c_white, c_white, c_white, false);
-draw_text_colour(16, room_height-8, "Canvas at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+
-    "); mouse at ("+string(mouse_x+event_canvas_x)+", "+string(mouse_y+event_canvas_y)+")",
-    c_black, c_black, c_black, c_black, 1);
 
 // Reset controller input
 
