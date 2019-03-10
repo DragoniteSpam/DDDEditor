@@ -35,5 +35,6 @@ node.name=node.name+"$"+string(ds_list_size(argument[0].nodes));
 instance_deactivate_object(node);
 
 ds_list_add(argument[0].nodes, node);
+ds_map_add(argument[0].name_map, node.name, node);
 
 return node;

@@ -24,6 +24,7 @@ repeat(n_events){
         var node_y=buffer_read(argument0, buffer_u32);
         var node=event_create_node(event, node_type, node_x, node_y);
         node.name=node_name;
+        node.event=event;
         
         // some preliminary data may be created
         ds_list_clear(node.data);
@@ -45,6 +46,7 @@ repeat(n_events){
         // special code for different node types
         switch (node_type){
             case EventNodeTypes.ENTRYPOINT:
+                // is_root is set in the constructor already
             case EventNodeTypes.TEXT:
                 break;
         }
