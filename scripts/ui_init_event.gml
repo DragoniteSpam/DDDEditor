@@ -7,9 +7,17 @@ with (instance_create(0, 0, UIMain)){
     
     t_list=create_tab("Node List", 0, id);
     t_data=create_tab("Node Data", 0, id);
+    t_action1=create_tab("Actions1", 1, id);
+    t_action2=create_tab("Actions2", 1, id);
+    t_action3=create_tab("Actions3", 1, id);
     
     var tr=ds_list_create();
     ds_list_add(tr, t_list, t_data);
+    
+    ds_list_add(tabs, tr);
+    
+    var tr=ds_list_create();
+    ds_list_add(tr, t_action1, t_action2, t_action3);
     
     ds_list_add(tabs, tr);
     

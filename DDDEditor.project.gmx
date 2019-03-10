@@ -164,6 +164,8 @@
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
       <script>scripts\mouse_within_view.gml</script>
+      <script>scripts\point_within_view.gml</script>
+      <script>scripts\rectangle_within_view.gml</script>
       <script>scripts\mouse_within_rectangle.gml</script>
       <script>scripts\mouse_within_rectangle_abs.gml</script>
       <script>scripts\mouse_within_rectangle_view.gml</script>

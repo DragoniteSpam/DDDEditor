@@ -15,27 +15,41 @@ switch (argument0.type){
         x2=x1+EVENT_NODE_CONTACT_WIDTH;
         y2=y1+16+string_height(argument0.name);
         
-        draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_init));
-        draw_roundrect_colour(x1, y1, x2, y2, c_ev_init, c_ev_init, false);
-        draw_roundrect(x1, y1, x2, y2, true);
-        draw_text(x1+16, mean(y1, y2), argument0.name);
-        
-        draw_event_node_delete(x2, y1, argument0);
+        if (rectangle_within_view(view_current, x1, y1, x2, y2)){
+            draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_init));
+            draw_roundrect_colour(x1, y1, x2, y2, c_ev_init, c_ev_init, false);
+            draw_roundrect(x1, y1, x2, y2, true);
+            draw_text(x1+16, mean(y1, y2), argument0.name);
+            
+            draw_event_node_delete(x2, y1, argument0);
+        }
         break;
     case EventNodeTypes.TEXT:
         x2=x1+EVENT_NODE_CONTACT_WIDTH;
         y2=y1+24+string_height(argument0.name)+string_height_ext(argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         
-        draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
-        draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
-        draw_roundrect(x1, y1, x2, y2, true);
-        // this is the inbound node, which we don't really care about other than displaying
-        // it so that the user knows which nodes can be attached to other nodes
-        draw_sprite(spr_event_outbound, 2, x1, y1+16);
-        draw_event_node_title(argument0);
-        draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
-        
-        draw_event_node_delete(x2, y1, argument0);
+        if (rectangle_within_view(view_current, x1, y1, x2, y2)){
+            draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
+            draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
+            draw_roundrect(x1, y1, x2, y2, true);
+            // this is the inbound node, which we don't really care about other than displaying
+            // it so that the user knows which nodes can be attached to other nodes
+            draw_sprite(spr_event_outbound, 2, x1, y1+16);
+            draw_event_node_title(argument0);
+            draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
+            
+            if (mouse_within_rectangle_view(x1, y1, x2, y1+EVENT_NODE_CONTACT_HEIGHT)){
+                if (get_release_right()){
+                    argument0.name=get_string("Name of this node?", argument0.name);
+                }
+            } else if (mouse_within_rectangle_view(x1, y1+EVENT_NODE_CONTACT_HEIGHT, x2, y2)){
+                if (get_release_right()){
+                    argument0.data[| 0]=get_string("Data in this node?", argument0.data[| 0]);
+                }
+            }
+            
+            draw_event_node_delete(x2, y1, argument0);
+        }
         break;
 }
 
@@ -55,7 +69,7 @@ for (var i=0; i<ds_list_size(argument0.outbound); i++){
         draw_sprite(spr_event_dot, 0, bx1, by1);
         
         if (event_canvas_active_node!=argument0||event_canvas_active_node_index!=i){
-            draw_bezier(bx1, by1, bx2-8, by2);
+            draw_bezier(bx1+8, by1, bx2-8, by2);
         }
     }
 }
@@ -70,5 +84,5 @@ if (event_canvas_active_node==argument0){
             event_connect_node(argument0, contacted_node);
         }
     }
-    draw_bezier(bx1, by1, mouse_x_view, mouse_y_view);
+    draw_bezier(bx1+8, by1, mouse_x_view, mouse_y_view);
 }

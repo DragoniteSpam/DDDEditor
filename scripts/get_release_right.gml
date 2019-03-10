@@ -1,4 +1,4 @@
-/// boolean get_release_right([clear?];
+/// boolean get_release_right([clear?]);
 
 var clear=true;
 switch (argument_count){
