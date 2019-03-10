@@ -476,9 +476,13 @@
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
+        <script>scripts\omu_manager_autotile.gml</script>
         <script>scripts\omu_manager_mesh.gml</script>
         <script>scripts\omu_manager_tileset.gml</script>
-        <script>scripts\omu_manager_autotile.gml</script>
+        <scripts name="events">
+          <script>scripts\omu_event_add_entrypoint.gml</script>
+          <script>scripts\omu_event_add_text.gml</script>
+        </scripts>
       </scripts>
       <scripts name="rendering">
         <script>scripts\ui_render.gml</script>

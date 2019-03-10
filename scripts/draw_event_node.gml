@@ -14,14 +14,18 @@ switch (argument0.type){
     case EventNodeTypes.ENTRYPOINT:
         x2=x1+EVENT_NODE_CONTACT_WIDTH;
         y2=y1+16+string_height(argument0.name);
+        
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_init));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_init, c_ev_init, false);
         draw_roundrect(x1, y1, x2, y2, true);
         draw_text(x1+16, mean(y1, y2), argument0.name);
+        
+        draw_event_node_delete(x2, y1, argument0);
         break;
     case EventNodeTypes.TEXT:
         x2=x1+EVENT_NODE_CONTACT_WIDTH;
         y2=y1+24+string_height(argument0.name)+string_height_ext(argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
+        
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
         draw_roundrect(x1, y1, x2, y2, true);
@@ -29,7 +33,7 @@ switch (argument0.type){
         draw_event_node_title(argument0);
         draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
         
-        draw_event_node_delete(x2, y1+16, argument0);
+        draw_event_node_delete(x2, y1, argument0);
         break;
 }
 
@@ -60,30 +64,11 @@ if (event_canvas_active_node==argument0){
     if (Controller.release_left){
         event_canvas_active_node=noone;
         event_canvas_active_node_index=0;
+        // if the mouse is contacting another entrypoint, connect it
         var contacted_node=event_seek_node();
         if (contacted_node!=noone){
             event_connect_node(argument0, contacted_node);
         }
-        // if the mouse is contacting another entrypoint, connect it
     }
     draw_bezier(bx1, by1, mouse_x, mouse_y);
 }
-
-/*
-___________________________________________
-############################################################################################
-FATAL ERROR in
-action number 1
-of Draw Event
-for object Camera:
-
-Unable to find any instance for object index '100148' name '<undefined>'
- at gml_Script_draw_event_node (line 45) -         var bx2=event_canvas_x+outbound.x;
-############################################################################################
---------------------------------------------------------------------------------------------
-stack frame is
-gml_Script_draw_event_node (line 45)
-called from - gml_Script_draw_active_event (line 10) -         draw_event_node(Stuff.active_event.nodes[| i]);
-called from - gml_Script_draw_editor_event (line 44) - draw_active_event();
-called from - gml_Object_Camera_DrawEvent_1 (line 27) -                 draw_editor_event();
-*/

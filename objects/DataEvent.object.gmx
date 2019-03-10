@@ -29,26 +29,9 @@
 
 nodes=ds_list_create();
 
-entrypoint=event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64);
-entrypoint.name="Entrypoint";
+entrypoints=ds_map_create();
 
-var n2=event_create_node(id, EventNodeTypes.TEXT, 480, 192);
-n2.name="Text";
-
-var n3=event_create_node(id, EventNodeTypes.TEXT, 960, 128);
-n3.name="More text";
-n3.data[| 0]="The pretty decent kingdom#"+
-    "Split the crown between the heirs,#"+
-    "Down dropped his head, and#"+
-    "They started throwing chairs!#"+
-    "Succesion crises lead to civil war,#"+
-    "And the pretty decent kingdom#"+
-    "Was doomed to be no more!";
-
-var n4=event_create_node(id, EventNodeTypes.TEXT, 960, 480);
-
-event_connect_node(entrypoint, n2);
-event_connect_node(n2, n3);
+ds_map_add(entrypoints, event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64), true);
 </string>
           </argument>
         </arguments>
@@ -72,6 +55,7 @@ event_connect_node(n2, n3);
           <argument>
             <kind>1</kind>
             <string>ds_list_destroy_instances(nodes);
+ds_map_destroy(entrypoints);
 </string>
           </argument>
         </arguments>

@@ -13,5 +13,4 @@ if (old_node!=noone){
 }
 
 argument[1].parents[? argument[0]]=true;
-
 argument[0].outbound[| index]=argument[1];

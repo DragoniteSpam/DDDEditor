@@ -22,6 +22,7 @@ with (instance_create(0, 0, UIMain)){
     var legal_x=room_width-view_hud_width_event+32;
     var legal_y=128;
     var element_width=view_hud_width_event-96;
+    // element_height is an object variable that's already been defined
     
     /*
      * Node list
@@ -32,6 +33,21 @@ with (instance_create(0, 0, UIMain)){
     element=create_list(legal_x+spacing, yy, "Event Nodes", "No nodes available!", element_width, spacing, 32, uivc_list_selection_event_node, false, t_list);
     element.entries_are_instances=true;
     element.render=ui_render_list_event_node;
+    ds_list_add(t_list.contents, element);
+    
+    yy=yy+element_height+spacing+element.height*element.slots;
+    
+    element=create_text(legal_x+spacing, yy, "Quick Add", element_width, element_height, fa_left, element_width, t_list);
+    ds_list_add(t_list.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_button(legal_x+spacing, yy, "Entrypoint", element_width, element_height, fa_left, omu_event_add_entrypoint, t_list);
+    ds_list_add(t_list.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_button(legal_x+spacing, yy, "Text Node", element_width, element_height, fa_left, omu_event_add_text, t_list);
     ds_list_add(t_list.contents, element);
     
     /*
