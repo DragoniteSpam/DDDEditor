@@ -42,6 +42,12 @@ ds_list_add(data, "The quick brown fox jumped over the lazy dog");
 outbound=ds_list_create();
 ds_list_add(outbound, noone);
 
+// PLEASE DON'T DELETE THIS. it's not needed for the event itself but it lets you
+// keep track of the nodes that refer to it when you delete it, so they can have
+// their outbound references set to zero.
+
+parents=ds_map_create();
+
 // could subclass this but i need to get this done in a hurry
 enum EventNodeTypes {
     ENTRYPOINT,
@@ -69,7 +75,26 @@ enum EventNodeTypes {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// remove from event's master list of nodes
+            <string>// remove references from other objects: things that contain this
+// as an outbound node
+var parent_nodes=ds_map_to_list(parents);
+for (var i=0; i&lt;ds_list_size(parent_nodes); i++){
+    var parent_index=ds_list_find_index(parent_nodes[| i].outbound, id);
+    if (parent_index&gt;-1){
+        var node=parent_nodes[| i];
+        node.outbound[| parent_index]=noone;
+    }
+}
+ds_list_destroy(parent_nodes);
+
+// outbound nodes which contain this as a parent
+for (var i=0; i&lt;ds_list_size(outbound); i++){
+    if (outbound[| i]!=noone){
+        ds_map_delete(outbound[| i].parents, id);
+    }
+}
+
+// remove from event's master list of nodes
 var event_index=ds_list_find_index(event.nodes, id);
 if (event_index&gt;-1){
     ds_list_delete(event.nodes, event_index);
@@ -78,6 +103,7 @@ if (event_index&gt;-1){
 // data structures
 ds_list_destroy(outbound);
 ds_list_destroy(data);
+ds_map_destroy(parents);
 </string>
           </argument>
         </arguments>

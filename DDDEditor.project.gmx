@@ -159,6 +159,7 @@
           <script>scripts\vector3.gml</script>
           <script>scripts\vector4.gml</script>
         </scripts>
+        <script>scripts\ds_map_to_list.gml</script>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
