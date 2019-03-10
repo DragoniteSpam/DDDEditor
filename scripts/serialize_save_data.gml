@@ -17,12 +17,14 @@ if (string_length(fn)>0){
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u32, VERSION_NUMBER);
-    buffer_write(buffer, buffer_u32, SERIALIZE_DATA);
-    buffer_write(buffer, buffer_u8, things);
+    buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
+    buffer_write(buffer, buffer_u32, things);
     
     /*
      * data
      */
+    
+    serialize_save_events(buffer);
     
     /*
      * that's it!

@@ -20,13 +20,17 @@ switch (argument[1]){
     case EventNodeTypes.ENTRYPOINT:
         node.is_root=true;
         node.name="Entrypoint";
+        node.data[| 0]="";
         break;
     case EventNodeTypes.TEXT:
         node.name="Text";
         break;
 }
 
-node.name=node.name+"\#"+string(ds_list_size(argument[0].nodes));
+// this used to be a # but that was screwing with game maker's newline
+// thing because this version of game maker still used the stupid
+// version of newlines
+node.name=node.name+"$"+string(ds_list_size(argument[0].nodes));
 
 instance_deactivate_object(node);
 

@@ -103,7 +103,7 @@ enum AvailableAutotileProperties {
     // sprite index, display name, true for built-in graphics and false otherwise, filename, animation frames, horizontal segments
 }
 
-// event things
+// ALL DATA!
 
 all_events=ds_list_create();
 active_event=event_create("DefaultEvent");
@@ -186,6 +186,7 @@ enum SerializeThings {
     AUDIO_BGM               =$00000014,
     MAP_STATIC              =$00000015,
     MAP_NON_STATIC          =$00000016,
+    EVENTS                  =$00000017,
     // game data - items, monsters, classes, etc
     DATA_ERROR              =$00000100,
     // misc

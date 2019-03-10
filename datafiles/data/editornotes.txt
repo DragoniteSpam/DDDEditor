@@ -1,3 +1,12 @@
+To Do
+
+Add a hard cap of 255 data/outbound things per DataEventNode. Nobody's going to need to have
+more than that to make a game but if someone decides to just keep piling them on until the program
+breaks, they're going to corrupt their entire data file.
+
+For that matter, it might be a good idea to automatically copy the old file to local storage
+as a backup mechanism when saving.
+
 Autotiles
 
 the reconfigure code doesn't work properly in all cases. pretty sure the math to calculate the
@@ -216,3 +225,32 @@ implement autotiles and the ability to draw (click and drag to fill) with all en
 
 maybe the undo/redo stack is a bit unnecessary for the moment but at least being able to copy/paste tile
 	data and possibly set large swaths at once (all types of path, for example) would be pretty helpful
+
+-----------------------------
+
+Serialized Events
+
+Node names must be unique - check to make sure they're unique when you set them (another hash map)
+
+int: number of events
+for each event
+	int: number of nodes
+	for each node
+		string: name
+		int: x
+		int: y
+		int: type
+		
+		switch (type)
+		case entrypoint
+			break
+		case text
+			break
+		end
+		
+		for each outbound
+			string: data
+			string: outbound name
+		end
+	end
+end

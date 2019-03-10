@@ -31,6 +31,8 @@ nodes=ds_list_create();
 
 entrypoints=ds_map_create();
 
+// you don't NEED to start with an entrypoint, but most people would probably
+// appreciate it if you do
 ds_map_add(entrypoints, event_create_node(id, EventNodeTypes.ENTRYPOINT, 64, 64), true);
 </string>
           </argument>
