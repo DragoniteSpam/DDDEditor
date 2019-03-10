@@ -55,7 +55,7 @@ for (var i=0; i<ds_list_size(argument0.outbound); i++){
         draw_sprite(spr_event_dot, 0, bx1, by1);
         
         if (event_canvas_active_node!=argument0||event_canvas_active_node_index!=i){
-            draw_bezier(bx1, by1, bx2, by2);
+            draw_bezier(bx1, by1, bx2-8, by2);
         }
     }
 }
