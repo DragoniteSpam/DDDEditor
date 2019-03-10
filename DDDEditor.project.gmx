@@ -166,6 +166,7 @@
       <script>scripts\mouse_within_view.gml</script>
       <script>scripts\mouse_within_rectangle.gml</script>
       <script>scripts\mouse_within_rectangle_abs.gml</script>
+      <script>scripts\mouse_within_rectangle_view.gml</script>
       <script>scripts\cstr.gml</script>
       <script>scripts\string_backspace.gml</script>
       <scripts name="input validation">
@@ -725,9 +726,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="44">
-    <constant name="WVIEW">view_wview[view_current]</constant>
-    <constant name="XVIEW">view_xview[view_current]</constant>
+  <constants number="46">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
@@ -740,15 +739,18 @@
     <constant name="DEBUG">true</constant>
     <constant name="EVENT_NODE_CONTACT_HEIGHT">32</constant>
     <constant name="EVENT_NODE_CONTACT_WIDTH">256</constant>
-    <constant name="EXPORT_EXTENSION_MAP">".dddm"</constant>
     <constant name="EXPORT_EXTENSION_DATA">".dddd"</constant>
+    <constant name="EXPORT_EXTENSION_MAP">".dddm"</constant>
     <constant name="HH">900</constant>
+    <constant name="HVIEW">view_hview[view_current]</constant>
     <constant name="HW">520</constant>
     <constant name="MAP_X_LIMIT">1024</constant>
     <constant name="MAP_Y_LIMIT">1024</constant>
     <constant name="MAP_Z_LIMIT">512</constant>
     <constant name="MAX_AUTOTILE_SHADER_POSITIONS">12*16*8*2</constant>
     <constant name="MILLION">1000000</constant>
+    <constant name="mouse_x_view">mouse_x+view_xview[view_current]</constant>
+    <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
     <constant name="SERIALIZE_DATA">1</constant>
     <constant name="SERIALIZE_MAP">0</constant>
     <constant name="T">buffer_f32</constant>
@@ -764,12 +766,13 @@
     <constant name="view_3d_preview">4</constant>
     <constant name="view_3d">1</constant>
     <constant name="view_fullscreen">0</constant>
-    <constant name="view_hud">3</constant>
     <constant name="view_hud_width_3d">520</constant>
-    <constant name="view_ribbon">2</constant>
     <constant name="view_hud_width_event">320</constant>
+    <constant name="view_hud">3</constant>
+    <constant name="view_ribbon">2</constant>
+    <constant name="WVIEW">view_wview[view_current]</constant>
+    <constant name="XVIEW">view_xview[view_current]</constant>
     <constant name="YVIEW">view_yview[view_current]</constant>
-    <constant name="HVIEW">view_hview[view_current]</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

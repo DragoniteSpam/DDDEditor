@@ -29,6 +29,8 @@ switch (argument0.type){
         draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
         draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
         draw_roundrect(x1, y1, x2, y2, true);
+        // this is the inbound node, which we don't really care about other than displaying
+        // it so that the user knows which nodes can be attached to other nodes
         draw_sprite(spr_event_outbound, 2, x1, y1+16);
         draw_event_node_title(argument0);
         draw_text_ext(x1+16, mean(y1, y2)+16, argument0.data[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
@@ -68,5 +70,5 @@ if (event_canvas_active_node==argument0){
             event_connect_node(argument0, contacted_node);
         }
     }
-    draw_bezier(bx1, by1, mouse_x, mouse_y);
+    draw_bezier(bx1, by1, mouse_x_view, mouse_y_view);
 }

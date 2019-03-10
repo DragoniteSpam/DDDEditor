@@ -1,7 +1,10 @@
 /// DataEventNode event_create_node(Event, EventNodeType, [x, y]);
 
-var xx=XVIEW+room_width/2;
-var yy=YVIEW+room_height/2;
+// XVIEW and YVIEW won't work because this script may
+// be called from a script other than view_fullscreen and
+// that will make bad things happen
+var xx=view_xview[view_fullscreen]+room_width/2;
+var yy=view_yview[view_fullscreen]+room_height/2;
 
 // requires 4, checks for 3+
 if (argument_count>2){

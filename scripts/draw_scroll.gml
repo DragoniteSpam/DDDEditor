@@ -1,3 +1,3 @@
 /// void draw_scroll();
 
-draw_sprite(spr_scroll, 0, mouse_x, mouse_y);
+draw_sprite(spr_scroll, 0, mouse_x_view, mouse_y_view);

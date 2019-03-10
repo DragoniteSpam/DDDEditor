@@ -7,7 +7,7 @@ if (argument_count==5&&argument[4]){
 }
 
 var tolerance=12;
-if (mouse_within_rectangle(argument[0]-tolerance, argument[1]-tolerance, argument[0]+tolerance, argument[1]+tolerance)&&Controller.press_left){
+if (mouse_within_rectangle_view(argument[0]-tolerance, argument[1]-tolerance, argument[0]+tolerance, argument[1]+tolerance)&&Controller.press_left){
     Camera.event_canvas_active_node=argument[2];
     Camera.event_canvas_active_node_index=argument[3];
 }

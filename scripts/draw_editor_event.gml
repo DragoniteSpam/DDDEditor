@@ -44,13 +44,16 @@ draw_checkerbox((XVIEW div checker_width)*checker_width-checker_width,
 draw_active_event();
 
 draw_rectangle_colour(XVIEW, YVIEW+HVIEW-16, XVIEW+WVIEW, YVIEW+HVIEW, c_white, c_white, c_white, c_white, false);
-draw_text_colour(XVIEW+16, YVIEW+HVIEW-8, "Canvas at ("+string(XVIEW)+", "+string(YVIEW)+"); mouse at ("+string(mouse_x)+
-    ", "+string(mouse_y)+")", c_black, c_black, c_black, c_black, 1);
+draw_text_colour(XVIEW+16, YVIEW+HVIEW-8, "Canvas at ("+string(XVIEW)+", "+string(YVIEW)+"); mouse at ("+
+    string(mouse_x_view)+", "+string(mouse_y_view)+")", c_black, c_black, c_black, c_black, 1);
 
 if (Controller.mouse_right){
     window_set_cursor(cr_none);
     draw_scroll();
     
+    // this is slightly hacky: controller's mouse previous variables track the previous
+    // value of regular mouse_xy, not mouse_xy_view, and since you really care about the
+    // difference and not the actual value, use those instead.
     XVIEW=XVIEW-(mouse_x-Controller.mouse_x_previous);
     YVIEW=YVIEW-(mouse_y-Controller.mouse_y_previous);
 } else {
