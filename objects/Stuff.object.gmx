@@ -109,6 +109,10 @@ all_events=ds_list_create();
 active_event=event_create("DefaultEvent");
 ds_list_add(all_events, active_event);
 
+// this gets populated when you save or load something, and also using a map to
+// store maps is funny for some reason
+all_maps=ds_map_create();
+
 // help contents
 
 enum HelpPages {
@@ -139,6 +143,12 @@ save_name_data="";
 
 setting_color=c_green;
 setting_bezier_precision=6; // preferably keep this between like 4 and 16ish?
+
+setting_embed_tilesets=false;
+setting_embed_npcs=false;
+setting_embed_graphics=false;
+setting_embed_meshes=false;
+setting_embed_se=true;
 </string>
           </argument>
         </arguments>

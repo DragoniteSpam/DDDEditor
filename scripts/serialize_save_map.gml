@@ -30,4 +30,6 @@ if (string_length(fn)>0){
     
     buffer_save_ext(buffer, fn, 0, buffer_tell(buffer));
     buffer_delete(buffer);
+    
+    Stuff.all_maps[? ActiveMap.internal_name]=true;
 }

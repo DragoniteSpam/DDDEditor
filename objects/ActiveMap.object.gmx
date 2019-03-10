@@ -30,6 +30,10 @@ xx=64;
 yy=64;
 zz=8;
 
+name="Map";
+internal_name="MAP";
+summary="It's a map, that does map things";
+
 // internal stuff
 batches=ds_list_create();               // vertex buffers
 batches_wire=ds_list_create();          // vertex buffers

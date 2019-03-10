@@ -1,4 +1,4 @@
-/// void serialize_load_data(filename);
+/// void serialize_load(filename);
 
 var buffer=buffer_load(argument0);
 
@@ -37,6 +37,10 @@ if (header=="DDD"){
                 serialize_load_events(buffer, version);
                 break;
         }
+    }
+    
+    if (data==SERIALIZE_MAP){
+        Stuff.all_maps[? ActiveMap.internal_name]=true;
     }
     
     instance_deactivate_object(Data);

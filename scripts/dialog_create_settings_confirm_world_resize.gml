@@ -3,7 +3,7 @@
 var dw=400;
 var dh=240;
 
-var dg=dialog_create(dw, dh, "Hey, listen!", dialog_default, dc_settings, argument0);
+var dg=dialog_create(dw, dh, "Hey, listen!", dialog_default, dc_settings_map, argument0);
 
 var ew=(dw-64)/2;
 var eh=24;

@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="6" name="datafiles">
-    <datafiles number="6" name="data">
+  <datafiles number="7" name="datafiles">
+    <datafiles number="7" name="data">
       <datafile>
         <name>Collisions.dll</name>
         <exists>-1</exists>
@@ -324,7 +324,9 @@
           </scripts>
         </scripts>
         <scripts name="creation">
-          <script>scripts\dialog_create_settings.gml</script>
+          <script>scripts\dialog_create_preferences.gml</script>
+          <script>scripts\dialog_create_settings_map.gml</script>
+          <script>scripts\dialog_create_settings_data.gml</script>
           <script>scripts\dialog_create_manager_mesh.gml</script>
           <script>scripts\dialog_create_manager_tileset.gml</script>
           <script>scripts\dialog_create_manager_autotile.gml</script>
@@ -341,7 +343,7 @@
             <script>scripts\dc_vrax.gml</script>
           </scripts>
           <scripts name="verification">
-            <script>scripts\dc_settings.gml</script>
+            <script>scripts\dc_settings_map.gml</script>
             <script>scripts\dc_manager_mesh.gml</script>
             <script>scripts\dc_autotile_selector.gml</script>
           </scripts>
@@ -384,7 +386,9 @@
           <scripts name="file">
             <script>scripts\momu_exit.gml</script>
             <script>scripts\momu_open.gml</script>
-            <script>scripts\momu_settings.gml</script>
+            <script>scripts\momu_preferences.gml</script>
+            <script>scripts\momu_settings_map.gml</script>
+            <script>scripts\momu_settings_data.gml</script>
             <script>scripts\momu_save_data.gml</script>
             <script>scripts\momu_save_map.gml</script>
             <script>scripts\momu_new.gml</script>
@@ -425,6 +429,11 @@
         </scripts>
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
+          <script>scripts\uivc_settings_embed_tilesets.gml</script>
+          <script>scripts\uivc_settings_embed_npcs.gml</script>
+          <script>scripts\uivc_settings_embed_graphics.gml</script>
+          <script>scripts\uivc_settings_embed_meshes.gml</script>
+          <script>scripts\uivc_settings_embed_se.gml</script>
         </scripts>
         <scripts name="tile and mesh editor">
           <script>scripts\uivc_input_tile_priority.gml</script>
@@ -658,15 +667,15 @@
       <script>scripts\event_get_node.gml</script>
     </scripts>
     <scripts name="serialization">
-      <script>scripts\serialize_save_data.gml</script>
-      <script>scripts\serialize_load_data.gml</script>
-      <script>scripts\serialize_save_map.gml</script>
-      <scripts name="save">
-        <script>scripts\serialize_save_events.gml</script>
-      </scripts>
       <scripts name="load">
         <script>scripts\serialize_load_events.gml</script>
       </scripts>
+      <scripts name="save">
+        <script>scripts\serialize_save_events.gml</script>
+      </scripts>
+      <script>scripts\serialize_load.gml</script>
+      <script>scripts\serialize_save_data.gml</script>
+      <script>scripts\serialize_save_map.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
