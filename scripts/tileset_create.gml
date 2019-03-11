@@ -1,8 +1,9 @@
-/// DataTileset tileset_create(picture, [autotileID0, autotileID1, .. autotileID15]);
+/// DataTileset tileset_create(picture file, [autotileID0, autotileID1, .. autotileID15]);
 
 // don't instantiate these outside of this script
 with (instance_create(0, 0, DataTileset)){
-    picture=argument[0];
+    picture_name=argument[0];
+    picture=sprite_add(PATH_TILESET+argument[0], 0, false, false, 0, 0);
     array_clear(autotiles, noone);
     
     // these should be indices in Stuff.available_autotiles, not the
@@ -16,10 +17,10 @@ with (instance_create(0, 0, DataTileset)){
     flags=tileset_create_grid(picture, 0);
     tags=tileset_create_grid(picture, TileTerrainTags.NONE);
     
-    at_passage=array_create(16);
-    at_priority=array_create(16);
-    at_flags=array_create(16);
-    at_tags=array_create(16);
+    at_passage=array_create(AUTOTILE_MAX);
+    at_priority=array_create(AUTOTILE_MAX);
+    at_flags=array_create(AUTOTILE_MAX);
+    at_tags=array_create(AUTOTILE_MAX);
     
     array_clear(at_passage, TILE_PASSABLE);
     array_clear(at_priority, 0);

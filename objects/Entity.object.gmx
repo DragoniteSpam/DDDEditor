@@ -26,6 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>name='Entity';
+etype=ETypes.ENTITY;
 
 // for fusing all static objects such as ground tiles and houses together,
 // so the computer doesn't waste time drawing every single visible Entity
@@ -40,23 +41,32 @@ render=null;
 // for what happens when you click on the entity
 selector=null;
 
+// files
+save_script=serialize_save_entity;
+load_script=serialize_load_entity;
+
 // you can have scripts that do both, if you want to have a static thing that
 // sparkles or something
 
+// serialize
 xx=0;
 yy=0;
 zz=0;
+
+// these are a formality
 target_xx=xx;
 target_yy=yy;
 target_zz=zz;
 previous_xx=xx;
 previous_yy=yy;
 previous_zz=zz;
-// don't want to use the built-in "solid" variable since that might cause
-// things to break unexpectedly
+// serialize: don't want to use the built-in "solid" variable since that might
+// cause things to break unexpectedly
 am_solid=true;
+static=true;            // anything that isn't intended to move
 
-// editor settings
+// editor properties
+
 // the game will know in advance whether something is to
 // be batched or not. remember to override this in dynamic entities.
 batchable=true;

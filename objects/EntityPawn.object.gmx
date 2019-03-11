@@ -27,25 +27,19 @@
             <kind>1</kind>
             <string>event_inherited();
 
+save_script=serialize_save_entity_pawn;
+load_script=serialize_load_entity_pawn;
+
 name='Pawn';
+etype=ETypes.ENTITY_PAWN;
 
-tile_x=0; // tile ID
-tile_y=0; // tile ID
-tile_color=c_white;
-tile_alpha=1;
-// todo rotated tiles, which will require normal calculations?
-// you're probably better off using a mesh for that though tbh
-
-// if you want to be really fancy you can use different colors for
-// all four vertices of the tile but I can't think of any practical
-// use for that
-
-// other properties
+// other properties - inherited
 am_solid=false;
-
-slot=MapCellContents.MESHMOB;
+static=false;
 
 // editor properties
+
+slot=MapCellContents.MESHMOB;
 
 batch=batch_tile;
 render=render_tile;

@@ -10,7 +10,7 @@ if (file_exists(fn)){
     for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
         var thing=ActiveMap.all_entities[| i];
         if (instanceof(thing, EntityMesh)){
-            if (!ds_map_exists(new_names, thing.name_mesh)){
+            if (!ds_map_exists(new_names, thing.mesh_id)){
                 name_missing=true;
                 break;
             }

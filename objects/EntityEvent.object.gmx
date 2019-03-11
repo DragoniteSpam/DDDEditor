@@ -28,13 +28,14 @@
             <string>event_inherited();
 
 name='Event';
+etype=ETypes.ENTITY_EVENT;
 
-// other properties
+// other properties - inherited
 am_solid=false;
 
-slot=MapCellContents.EVENT;
-
 // editor properties
+
+slot=MapCellContents.EVENT;
 
 batch=null;
 render=null;

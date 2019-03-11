@@ -1,4 +1,4 @@
-/// void ui_render_checkbox(Button, x, y);
+/// void ui_render_checkbox(UIButton, x, y);
 
 var x1=argument0.x+argument1;
 var y1=argument0.y+argument2;
@@ -8,7 +8,6 @@ var y2=y1+argument0.height;
 var tx=ui_get_text_x(argument0, x1, x2);
 var ty=ui_get_text_y(argument0, y1, y2);
 
-// this is not quite the same as ui_render_text
 draw_set_halign(argument0.alignment);
 draw_set_valign(argument0.valignment);
 draw_set_color(argument0.color);

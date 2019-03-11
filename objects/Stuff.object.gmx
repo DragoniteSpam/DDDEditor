@@ -144,11 +144,11 @@ save_name_data="";
 setting_color=c_green;
 setting_bezier_precision=6; // preferably keep this between like 4 and 16ish?
 
-setting_embed_tilesets=false;
-setting_embed_npcs=false;
-setting_embed_graphics=false;
-setting_embed_meshes=false;
-setting_embed_se=true;
+setting_embed_tilesets=false;       // small number of large images
+setting_embed_npcs=true;            // large number of small(ish) images
+setting_embed_graphics=true;        // large number of images of varying sizes
+setting_embed_meshes=false;         // already stored in vrax but okay
+setting_embed_se=true;              // possibly large number of small sound effects
 </string>
           </argument>
         </arguments>
@@ -205,6 +205,24 @@ enum SerializeThings {
     MISC_GLOBAL             =$00001002,
     MISC_UI                 =$00001003
 }
+
+enum ETypes {
+    ENTITY,
+    ENTITY_TILE,
+    ENTITY_TILE_AUTO,
+    ENTITY_MESH,
+    ENTITY_PAWN,
+    ENTITY_EFFECT,
+    ENTITY_EVENT
+}
+
+etype_objects=array_compose(Entity,
+    EntityTile,
+    EntityAutoTile,
+    EntityMesh,
+    EntityPawn,
+    EntityEffect,
+    EntityEvent);
 </string>
           </argument>
         </arguments>

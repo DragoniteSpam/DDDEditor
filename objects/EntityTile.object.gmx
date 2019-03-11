@@ -27,8 +27,13 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name='Tile';
+save_script=serialize_save_entity_tile;
+load_script=serialize_load_entity_tile;
 
+name='Tile';
+etype=ETypes.ENTITY_TILE;
+
+// serialize
 tile_x=0; // tile ID
 tile_y=0; // tile ID
 tile_color=c_white;
@@ -41,11 +46,13 @@ tile_alpha=1;
 // use for that
 
 // other properties
+
+// inherited from Entity
 am_solid=false;
 
-slot=MapCellContents.TILE;
-
 // editor properties
+
+slot=MapCellContents.TILE;
 
 batch=batch_tile;
 render=render_tile;

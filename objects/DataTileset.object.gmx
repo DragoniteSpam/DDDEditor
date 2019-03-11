@@ -49,7 +49,8 @@
 
 // this should only be instantiated in tileset_create so don't worry
 // about populating the values right now
-picture=b_tileset_default_overworld;
+picture_name="";
+picture=-1;
 autotiles=array_create(AUTOTILE_MAX);
 array_clear(autotiles, noone);
 

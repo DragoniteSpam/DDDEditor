@@ -16,8 +16,8 @@ for (var i=0; i<ds_list_size(Stuff.all_mesh_names); i++){
 for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
     var thing=ActiveMap.all_entities[| i];
     if (instanceof(thing, EntityMesh)){
-        if (ds_map_exists(Stuff.vra_data, thing.name_mesh)){
-            thing.mesh_data=Stuff.vra_data[? thing.name_mesh];
+        if (ds_map_exists(Stuff.vra_data, thing.mesh_id)){
+            thing.mesh_data=Stuff.vra_data[? thing.mesh_id];
         } else {
             safa_delete(thing);
         }
