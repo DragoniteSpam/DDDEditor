@@ -4,13 +4,16 @@ var x1=argument0.x;
 var y1=argument0.y;
 var x2=argument0.x+argument0.width;
 var y2=argument0.y+argument0.height;
-var tex_width=sprite_get_width(ActiveMap.tileset.picture);
-var tex_height=sprite_get_height(ActiveMap.tileset.picture);
+
+var ts=get_active_tileset();
+
+var tex_width=sprite_get_width(ts.picture);
+var tex_height=sprite_get_height(ts.picture);
 
 draw_set_color(c_white);
 draw_checkerbox(argument0.x, argument0.y, argument0.width, argument0.height);
 
-draw_sprite_part(ActiveMap.tileset.picture, 0, argument0.tile_view_x, argument0.tile_view_y,
+draw_sprite_part(ts.picture, 0, argument0.tile_view_x, argument0.tile_view_y,
     argument0.width, argument0.height, argument0.x, argument0.y);
 
 for (var i=argument0.tile_view_x; i<argument0.tile_view_x+argument0.width; i=(i div Stuff.tile_size)*Stuff.tile_size+Stuff.tile_size){
@@ -59,7 +62,7 @@ for (var i=dx1; i<dx2; i++){
             // for the passage data than the numbers, since the numbers are meaningless
             switch (Camera.tile_data_view){
                 case TileSelectorDisplayMode.PASSAGE:
-                    var value=ActiveMap.tileset.passage[# i, j];
+                    var value=ts.passage[# i, j];
                     if (value==0){
                         draw_text_colour(textx, texty, "X", c_black, c_black, c_black, c_black, da);
                     } else if (value==TILE_PASSABLE){
@@ -69,13 +72,13 @@ for (var i=dx1; i<dx2; i++){
                     }
                     break;
                 case TileSelectorDisplayMode.PRIORITY:
-                    draw_text_colour(textx, texty, ActiveMap.tileset.priority[# i, j], c_black, c_black, c_black, c_black, da);
+                    draw_text_colour(textx, texty, ts.priority[# i, j], c_black, c_black, c_black, c_black, da);
                     break;
                 case TileSelectorDisplayMode.FLAGS:
-                    draw_text_colour(textx, texty, ActiveMap.tileset.flags[# i, j], c_black, c_black, c_black, c_black, da);
+                    draw_text_colour(textx, texty, ts.flags[# i, j], c_black, c_black, c_black, c_black, da);
                     break;
                 case TileSelectorDisplayMode.TAGS:
-                    draw_text_colour(textx, texty, ActiveMap.tileset.tags[# i, j], c_black, c_black, c_black, c_black, da);
+                    draw_text_colour(textx, texty, ts.tags[# i, j], c_black, c_black, c_black, c_black, da);
                     break;
             }
         }

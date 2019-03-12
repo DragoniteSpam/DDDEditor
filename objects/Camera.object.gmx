@@ -99,7 +99,7 @@ last_selection=noone;
 selection_mode=SelectionModes.RECTANGLE;
 selection_addition=false;
 
-selection_fill_type=ETypes.TILE;
+selection_fill_type=FillTypes.TILE;
 
 selection_fill_mesh=0;
 selection_fill_tile_x=4;
@@ -197,7 +197,7 @@ enum SelectionModes {
     CIRCLE
 }
 
-enum ETypes {
+enum FillTypes {
     TILE,
     AUTOTILE,
     MESH,
@@ -205,7 +205,7 @@ enum ETypes {
     EFFECT,
 }
 
-etypes=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
+fill_types=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
 
 /*
  * the autotile shader
@@ -355,20 +355,22 @@ if (ds_list_size(ActiveMap.batch_in_the_future)&gt;BATCH_CACHE_SIZE){
     batch_cache();
 }
 
+var ts=get_active_tileset();
+
 if (schedule_rebuild_master_texture){
     // this is important, but gets turned back on when the 3D stuff gets dealt
     // with in the next frame
     d3d_end();
     d3d_set_hidden(false);
-    if (ActiveMap.tileset.master!=noone){
-        sprite_delete(ActiveMap.tileset.master);
+    if (ts.master!=noone){
+        sprite_delete(ts.master);
     }
-    ActiveMap.tileset.master=tileset_create_master(ActiveMap.tileset);
+    ts.master=tileset_create_master(ts);
     schedule_rebuild_master_texture=false;
 }
 
 if (schedule_view_master_texture){
-    sprite_save_fixed(ActiveMap.tileset.master, 0, "master-preview.png");
+    sprite_save_fixed(ts.master, 0, "master-preview.png");
     ds_stuff_open_local("master-preview.png");
     schedule_view_master_texture=false;
 }

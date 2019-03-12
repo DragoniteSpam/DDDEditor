@@ -9,7 +9,9 @@ buffer_write(argument0, buffer_string, argument1.picture_name);
 // with that in mind, saving these are trivially easy.
 var n_autotiles=array_length_1d(argument1.autotiles);
 buffer_write(argument0, buffer_u8, n_autotiles);
+
 for (var i=0; i<n_autotiles; i++){
+    // s16 because no tile is "noone"
     buffer_write(argument0, buffer_s16, argument1.autotiles[i]);
     
     buffer_write(argument0, buffer_u8, argument1.at_passage[i]);
@@ -24,8 +26,8 @@ for (var i=0; i<n_autotiles; i++){
 var t_grid_width=ds_grid_width(argument1.passage);
 var t_grid_height=ds_grid_height(argument1.passage);
 
-buffer_write(argument0, buffer_s16, t_grid_width);
-buffer_write(argument0, buffer_s16, t_grid_height);
+buffer_write(argument0, buffer_u16, t_grid_width);
+buffer_write(argument0, buffer_u16, t_grid_height);
 
 for (var i=0; i<t_grid_width; i++){
     for (var j=0; j<t_grid_height; h++){
@@ -36,11 +38,7 @@ for (var i=0; i<t_grid_width; i++){
     }
 }
 
-need to write the load script - pay attention to the way the data
-goes into the file here, its not the same as the way its defined in
-tileset_create or the create event
-
-also currently theres only one tileset attached to ActiveMap but that
-should be an index in an array in Stuff, like events and whatever
-
 autotiles need to be saved in the Data file as well
+
+something broke in the "fill" command, all tiles that are added
+are (4, 0) regardless of whats selected

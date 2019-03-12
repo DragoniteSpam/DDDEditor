@@ -308,6 +308,9 @@
         <script>scripts\update_autotile.gml</script>
         <script>scripts\create_autotile.gml</script>
       </scripts>
+      <scripts name="fetch">
+        <script>scripts\get_active_tileset.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -702,7 +705,7 @@
           <script>scripts\serialize_load_entity_tile.gml</script>
         </scripts>
         <script>scripts\serialize_load_events.gml</script>
-        <script>scripts\serialize_load_map_tileset.gml</script>
+        <script>scripts\serialize_load_tileset.gml</script>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">

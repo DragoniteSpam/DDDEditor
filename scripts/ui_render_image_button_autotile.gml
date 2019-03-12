@@ -1,7 +1,7 @@
 /// void ui_render_image_button_autotile(UIImageButton, x, y);
 
 argument0.image=noone;
-var index=ActiveMap.tileset.autotiles[Camera.selection_fill_autotile];
+var index=get_active_tileset().autotiles[Camera.selection_fill_autotile];
 
 if (index!=noone){
     var data=Stuff.available_autotiles[index];

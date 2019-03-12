@@ -1,4 +1,4 @@
-/// DataTileset tileset_create(picture file, [autotileID0, autotileID1, .. autotileID15]);
+/// DataTileset tileset_create(picture file, autotile array);
 
 // don't instantiate these outside of this script
 with (instance_create(0, 0, DataTileset)){
@@ -8,9 +8,7 @@ with (instance_create(0, 0, DataTileset)){
     
     // these should be indices in Stuff.available_autotiles, not the
     // sprite asset itself!
-    for (var i=1; i<min(argument_count, AUTOTILE_MAX); i=i+1){
-        autotiles[i-1]=argument[i];
-    }
+    autotiles=argument[1];
     
     passage=tileset_create_grid(picture, TILE_PASSABLE);
     priority=tileset_create_grid(picture, 0);
@@ -29,7 +27,7 @@ with (instance_create(0, 0, DataTileset)){
     
     master=tileset_create_master(id);
     
-    // don't do uivc_select_autotile_refresh here, the UI hasn't been created yet
+    // don't do uivc_select_autotile_refresh here, the UI may not have been created yet
 
     instance_deactivate_object(id);
     return id;

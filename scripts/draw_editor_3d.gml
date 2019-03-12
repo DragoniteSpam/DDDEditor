@@ -29,7 +29,7 @@ shader_set_uniform_f_array(shd_uniform_at_tex_offset, shd_value_at_tex_offset);
 
 // this will need to be dynamic at some point
 if (view_texture){
-    var tex=sprite_get_texture(ActiveMap.tileset.master, 0);
+    var tex=sprite_get_texture(get_active_tileset().master, 0);
 } else {
     var tex=sprite_get_texture(b_tileset_textureless, 0);
 }

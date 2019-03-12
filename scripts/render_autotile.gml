@@ -21,9 +21,11 @@ var tile_vertical_count=TEXTURE_SIZE/Stuff.tile_size;
 var texture_width=1/tile_horizontal_count;
 var texture_height=1/tile_vertical_count;
 
+var ts=get_active_tileset();
+
 var ati=argument0.autotile_id;
 var at_data=Stuff.available_autotiles[ati];
-var at_position=ActiveMap.tileset.autotile_positions[ati];
+var at_position=ts.autotile_positions[ati];
 // DO NOT TOUCH
 var xtex=at_position[vec2.xx]+(argument0.segment_id mod at_data[AvailableAutotileProperties.WIDTH])*Stuff.tile_size/TEXTURE_SIZE;
 var ytex=at_position[vec2.yy]+(argument0.segment_id div at_data[AvailableAutotileProperties.WIDTH])*Stuff.tile_size/TEXTURE_SIZE;
@@ -33,7 +35,7 @@ var alpha=tile.tile_alpha;
 
 if (Camera.view_entities){
     if (Camera.view_texture){
-        var tex=sprite_get_texture(ActiveMap.tileset.master, 0);
+        var tex=sprite_get_texture(ts.master, 0);
     } else {
         var tex=sprite_get_texture(b_tileset_textureless, 0)
     }

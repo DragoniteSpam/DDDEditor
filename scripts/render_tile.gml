@@ -6,6 +6,9 @@ var TEXEL=1/TEXTURE_SIZE;
 var xx=tile.xx*TILE_WIDTH;
 var yy=tile.yy*TILE_HEIGHT;
 var zz=tile.zz*TILE_DEPTH;
+
+var ts=get_active_tileset();
+
 // todo correct normal calculation, and MAYBE normal smoothing, although
 // i'm pretty sure that's going to be really expensive unless you bake it
 // into the likely future map editing tool
@@ -29,7 +32,7 @@ var alpha=tile.tile_alpha;
 
 if (Camera.view_entities){
     if (Camera.view_texture){
-        var tex=sprite_get_texture(ActiveMap.tileset.master, 0);
+        var tex=sprite_get_texture(ts.master, 0);
     } else {
         var tex=sprite_get_texture(b_tileset_textureless, 0)
     }

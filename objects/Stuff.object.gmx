@@ -46,20 +46,8 @@ tile_size=32;
 
 dimensions=Dimensions.THREED;
 
-// stuff i couldn't do in game maker so i did in c++ instead
-ds_stuff_init();
-
-// camera setup may depend on some stuff existing in here, which
-// is bad design, but this is just supposed to work and doesnt have
-// to be well-designed
-c_init();
-c_world_create();
-
-c_shape_tile=c_shape_create();
-c_shape_begin_trimesh();
-c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
-c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
-c_shape_end_trimesh(c_shape_tile);
+// ALL DATA THAT DOES NOT DEPEND ON ANYTHING ELSE!
+// (except the other data defined in this section)
 
 // this sounds like a reasonable limit, it's not based on anything though
 available_autotiles=array_create(AUTOTILE_AVAILABLE_MAX);
@@ -79,6 +67,32 @@ autotile_hashes[214]=AutotileSegments.LEFT;
 autotile_hashes[248]=AutotileSegments.UPPER;
 // this one's the default but
 //autotile_hashes[255]=AutotileSegments.CENTER;
+
+all_tilesets=ds_list_create();
+ds_list_add(all_tilesets, tileset_create("b_tileset_overworld_0.png",
+    // this is somewhat hard-coded;
+    // the zeroth available tileset is automatically b_at_default_grass
+    array_compose(0, noone, noone, noone, noone, noone, noone, noone,
+        noone, noone, noone, noone, noone, noone, noone, noone)));
+
+all_events=ds_list_create();
+active_event=event_create("DefaultEvent");
+ds_list_add(all_events, active_event);
+
+// stuff i couldn't do in game maker so i did in c++ instead
+ds_stuff_init();
+
+// camera setup may depend on some stuff existing in here, which
+// is bad design, but this is just supposed to work and doesnt have
+// to be well-designed
+c_init();
+c_world_create();
+
+c_shape_tile=c_shape_create();
+c_shape_begin_trimesh();
+c_shape_add_triangle(0, 0, 0, tile_width, 0, 0, tile_width, tile_height, 0);
+c_shape_add_triangle(tile_width, tile_height, 0, 0, tile_height, 0, 0, 0, 0);
+c_shape_end_trimesh(c_shape_tile);
 
 // at some point there shouldn't necessarily need to be an active
 // map in existence for this to work, but for now there does
@@ -102,12 +116,6 @@ enum AvailableAutotileProperties {
     PICTURE, NAME, DELETEABLE, FILENAME, FRAMES, WIDTH
     // sprite index, display name, true for built-in graphics and false otherwise, filename, animation frames, horizontal segments
 }
-
-// ALL DATA!
-
-all_events=ds_list_create();
-active_event=event_create("DefaultEvent");
-ds_list_add(all_events, active_event);
 
 // this gets populated when you save or load something, and also using a map to
 // store maps is funny for some reason

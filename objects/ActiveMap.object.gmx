@@ -46,8 +46,7 @@ all_entities=ds_list_create();          // entities
 
 map_grid=map_create_grid(xx, yy, zz);
 
-// the zeroth available tileset is automatically b_at_default_grass
-tileset=tileset_create("b_tileset_overworld_0.png", 0);
+tileset=0;
 </string>
           </argument>
         </arguments>
