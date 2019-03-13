@@ -24,8 +24,11 @@ if (view_grid){
     vertex_submit(grid, pr_linelist, -1);
 }
 
-shader_set(shd_default_autotile);
-shader_set_uniform_f_array(shd_uniform_at_tex_offset, shd_value_at_tex_offset);
+// the autotile shader doesn't work yet and it's annoying
+//shader_set(shd_default_autotile);
+//shader_set_uniform_f_array(shd_uniform_at_tex_offset, shd_value_at_tex_offset);
+
+shader_set(shd_default);
 
 // this will need to be dynamic at some point
 if (view_texture){

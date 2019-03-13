@@ -3,7 +3,7 @@
 var catch=argument0;
 var catch=argument1;
 var catch=argument2;
-var catch=argument3;
+var params=argument3;
 
 /*
 var addition=instance_create_tile(4, 0);

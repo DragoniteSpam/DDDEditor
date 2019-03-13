@@ -38,7 +38,4 @@ for (var i=0; i<t_grid_width; i++){
     }
 }
 
-autotiles need to be saved in the Data file as well
-
-something broke in the "fill" command, all tiles that are added
-are (4, 0) regardless of whats selected
+//autotiles need to be saved in the Data file as well
