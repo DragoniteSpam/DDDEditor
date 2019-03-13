@@ -1,4 +1,4 @@
-/// void serialize_load_tileset(buffer, version);
+/// void serialize_load_tilesets_meta(buffer, version);
 
 var version=argument1;
 
@@ -48,4 +48,6 @@ for (var i=0; i<n_tilesets; i++){
             ts.tags[# i, j]=buffer_read(argument0, buffer_u8);
         }
     }
+    
+    ds_list_add(Stuff.all_tilesets, ts);
 }

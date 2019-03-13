@@ -11,7 +11,7 @@ if (string_length(fn)>0){
      * Header
      */
     
-    var things=1;
+    var things=3;
     
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
@@ -24,6 +24,8 @@ if (string_length(fn)>0){
      * data
      */
     
+    next is autotiles please?
+    serialize_save_tilesets_meta(buffer);
     serialize_save_events(buffer);
     
     /*

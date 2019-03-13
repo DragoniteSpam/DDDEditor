@@ -33,6 +33,9 @@ if (header=="DDD"){
     for (var i=0; i<things; i++){
         var datatype=buffer_read(buffer, buffer_datatype);
         switch (datatype){
+            case SerializeThings.TILESET_META:
+                serialize_load_tilesets_meta(buffer, version);
+                break;
             case SerializeThings.EVENTS:
                 serialize_load_events(buffer, version);
                 break;

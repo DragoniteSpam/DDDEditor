@@ -164,6 +164,7 @@
       <scripts name="Data Structures">
         <script>scripts\array_compose.gml</script>
         <script>scripts\array_clear.gml</script>
+        <script>scripts\ds_list_clear_instances.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
         <script>scripts\ds_list_pop.gml</script>
         <script>scripts\ds_list_top.gml</script>
@@ -705,7 +706,7 @@
           <script>scripts\serialize_load_entity_tile.gml</script>
         </scripts>
         <script>scripts\serialize_load_events.gml</script>
-        <script>scripts\serialize_load_tileset.gml</script>
+        <script>scripts\serialize_load_tilesets_meta.gml</script>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">
@@ -717,7 +718,7 @@
           <script>scripts\serialize_save_entity_tile.gml</script>
         </scripts>
         <script>scripts\serialize_save_events.gml</script>
-        <script>scripts\serialize_save_tileset.gml</script>
+        <script>scripts\serialize_save_tilesets_meta.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>

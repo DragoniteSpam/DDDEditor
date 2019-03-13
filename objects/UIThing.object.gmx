@@ -66,7 +66,6 @@ help=HelpPages.OVERVIEW;
             <kind>1</kind>
             <string>/// it's pretty uncommon go destroy a ui element (usually you just hide it) but
 ds_list_destroy_instances(contents);
-ds_list_destroy(contents);
 </string>
           </argument>
         </arguments>
