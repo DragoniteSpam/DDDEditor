@@ -2,7 +2,10 @@
 
 var version=argument1;
 
+var embedded_tilesets=buffer_read(argument0, buffer_u8);
+
 ds_list_clear_instances(Stuff.all_tilesets);
+ds_list_clear(Stuff.all_tilesets);
 
 var n_tilesets=buffer_read(argument0, buffer_u16);
 for (var i=0; i<n_tilesets; i++){
@@ -15,13 +18,13 @@ for (var i=0; i<n_tilesets; i++){
     var at_flags=array_create(n_autotiles);
     var at_tags=array_create(n_autotiles);
     
-    for (var i=0; i<n_autotiles; i++){
+    for (var j=0; j<n_autotiles; j++){
         // s16 because no tile is "noone"
-        at_array[i]=buffer_read(argument0, buffer_s16);
-        at_passage[i]=buffer_read(argument0, buffer_u8);
-        at_priority[i]=buffer_read(argument0, buffer_u8);
-        at_flags[i]=buffer_read(argument0, buffer_u8);
-        at_tags[i]=buffer_read(argument0, buffer_u8);
+        at_array[j]=buffer_read(argument0, buffer_s16);
+        at_passage[j]=buffer_read(argument0, buffer_u8);
+        at_priority[j]=buffer_read(argument0, buffer_u8);
+        at_flags[j]=buffer_read(argument0, buffer_u8);
+        at_tags[j]=buffer_read(argument0, buffer_u8);
     }
     
     var ts=tileset_create(ts_name, at_array);
@@ -40,14 +43,16 @@ for (var i=0; i<n_tilesets; i++){
     // (and autotile arrays, for that matter) already exist so there's no point
     // in recreating them, so just populate their values instead
     
-    for (var i=0; i<t_grid_width; i++){
-        for (var j=0; j<t_grid_height; h++){
-            ts.passage[# i, j]=buffer_read(argument0, buffer_u8);
-            ts.priority[# i, j]=buffer_read(argument0, buffer_u8);
-            ts.flags[# i, j]=buffer_read(argument0, buffer_u8);
-            ts.tags[# i, j]=buffer_read(argument0, buffer_u8);
+    for (var j=0; j<t_grid_width; j++){
+        for (var k=0; k<t_grid_height; k++){
+            ts.passage[# j, k]=buffer_read(argument0, buffer_u8);
+            ts.priority[# j, k]=buffer_read(argument0, buffer_u8);
+            ts.flags[# j, k]=buffer_read(argument0, buffer_u8);
+            ts.tags[# j, k]=buffer_read(argument0, buffer_u8);
         }
     }
     
     ds_list_add(Stuff.all_tilesets, ts);
 }
+
+uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);

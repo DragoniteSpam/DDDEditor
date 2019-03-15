@@ -6,5 +6,5 @@ if (ts.autotiles[Camera.selection_fill_autotile]!=noone){
     var tt=ts.at_tags[Camera.selection_fill_autotile];
     tt=++tt%TileTerrainTags.FINAL;
     ts.at_tags[Camera.selection_fill_autotile]=tt;
-    uivc_select_autotile_refresh(Camera.selection_fill_autotile);
+    uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);
 }

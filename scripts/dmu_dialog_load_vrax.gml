@@ -2,8 +2,6 @@
 
 var fn=get_open_filename("virgo mesh collections (*.vrax)|*.vrax", "");
 
-var vra_path=".\vra\";
-
 if (file_exists(fn)){
     var new_names=data_load_vra_names_only(fn);
     var name_missing=false;
@@ -23,9 +21,9 @@ if (file_exists(fn)){
         var dg=dialog_create_yes_or_no(argument0, "If you change the model file now, there are some Entities whose models will no longer point to anything. If you proceed, these Entities will just be deleted. Is this all right with you?",
             dmu_dialog_commit, "Hey!", "sure", dmu_dialog_cancel, "no stop");
         dg.commit=dc_vrax;
-        ds_map_add(dg.data, "vra_path", vra_path);
+        ds_map_add(dg.data, "vra_path", PATH_VRA);
         ds_map_add(dg.data, "fn", fn);
     } else {
-        data_load_vra_on_the_fly(argument0, vra_path, fn);
+        data_load_vra_on_the_fly(argument0, PATH_VRA, fn);
     }
 }

@@ -140,6 +140,7 @@
       <sprite>sprites\b_tileset_checkers</sprite>
       <sprites name="autotiles">
         <sprite>sprites\b_at_default_grass</sprite>
+        <sprite>sprites\b_at_default_error</sprite>
       </sprites>
     </sprites>
     <sprite>sprites\spr_close</sprite>
@@ -707,6 +708,7 @@
         </scripts>
         <script>scripts\serialize_load_events.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
+        <script>scripts\serialize_load_autotiles_meta.gml</script>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">
@@ -719,10 +721,14 @@
         </scripts>
         <script>scripts\serialize_save_events.gml</script>
         <script>scripts\serialize_save_tilesets_meta.gml</script>
+        <script>scripts\serialize_save_autotiles_meta.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>
       <script>scripts\serialize_save_map.gml</script>
+    </scripts>
+    <scripts name="Resources">
+      <script>scripts\sprite_add_autotile.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -792,7 +798,9 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="47">
+  <constants number="49">
+    <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
+    <constant name="PATH_VRA">'.\vra\'</constant>
     <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>

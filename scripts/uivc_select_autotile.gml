@@ -24,6 +24,8 @@ for (var i=0; i<AUTOTILE_MAX; i++){
         // todo some way to inform the user that this has happened
         if (is_array(data)){
             list[| i]=string(i)+"."+data[AvailableAutotileProperties.NAME];
+        } else {
+            list[| i]=string(i)+". <none set>";
         }
     }
 }

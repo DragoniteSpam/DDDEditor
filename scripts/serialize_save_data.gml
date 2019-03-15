@@ -24,7 +24,7 @@ if (string_length(fn)>0){
      * data
      */
     
-    next is autotiles please?
+    serialize_save_autotiles_meta(buffer);
     serialize_save_tilesets_meta(buffer);
     serialize_save_events(buffer);
     

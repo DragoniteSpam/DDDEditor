@@ -110,7 +110,7 @@ all_mesh_names=ds_list_create();
 data_load_vra();
 
 // this depends on activemap existing
-uivc_select_autotile_refresh(Camera.selection_fill_autotile);
+uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);
 
 enum AvailableAutotileProperties {
     PICTURE, NAME, DELETEABLE, FILENAME, FRAMES, WIDTH
@@ -150,7 +150,7 @@ save_name_data="";
 // user settings
 
 setting_color=c_green;
-setting_bezier_precision=6; // preferably keep this between like 4 and 16ish?
+setting_bezier_precision=6;         // preferably keep this between like 4 and 16ish?
 
 setting_embed_tilesets=false;       // small number of large images
 setting_embed_npcs=true;            // large number of small(ish) images
