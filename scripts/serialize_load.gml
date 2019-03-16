@@ -1,6 +1,9 @@
 /// void serialize_load(filename);
 
-var buffer=buffer_load(argument0);
+var original=buffer_load(argument0);
+var buffer=buffer_inflate(original, 0, buffer_get_size(original));
+buffer_seek(buffer, buffer_seek_start, 0);
+buffer_delete(original);
 
 /*
  * Header

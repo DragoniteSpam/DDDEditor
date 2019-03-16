@@ -1,0 +1,309 @@
+<html><head>
+<title>buffer_zlib cheat sheet</title>
+<style type="text/css">
+html {
+	background-color: #f9f9f9;
+}
+body {
+	font: 15px 'Open Sans', sans-serif;
+	max-width: 640px;
+	background: #ffffff;
+	margin: 0 auto;
+	padding: 8px;
+	box-shadow: 0 0 0 2px #eee;
+}
+tt {
+	font-size: 85%;
+	font-family: Consolas, monospace;
+	background: #fff9f0;
+	padding: 0 3px;
+	box-shadow: 0 1px 2px rgba(0,0,0, 0.2);
+}
+#doc, #doc ul {
+	list-style: none;
+	padding-left: 0;
+}
+#doc div > ul {
+	list-style-type: disc;
+	padding-left: 30px ;
+}
+#doc h3 {
+	margin: 0;
+	font-weight: 700;
+	font-size: 100%;
+	color: #458;
+	border-left: 2px solid #f3f3f3;/* #f9f9f9*/
+	padding-left: 4px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	cursor: pointer;
+}
+#doc h3::before {
+	display: inline-block;
+	content: "+";
+	font: 12px monospace;
+	border: 1px solid #458;
+	line-height: 11px;
+	height: 11px;
+	width: 11px;
+	text-align: center;
+	border-radius: 50%;
+	margin-right: 4px;
+	vertical-align: middle;
+	position: relative;
+	top: -1px;
+}
+#doc li.open > h3::before {
+	content: "-";
+}
+#doc h4 {
+	border-left: none;
+	padding: 0;
+}
+#doc h3:hover, #doc h4:hover {
+	border-left-color: #f3f3f3;
+	background: #f3f3f3;
+}
+#doc div:not(.gminfo), #doc ul {
+	padding-left: 20px;
+	border-left: 2px solid #f3f3f3;
+}
+#doc .colors > span {
+	display: inline-block;
+	width: 16px;
+	text-indent: -9999px;
+	box-shadow: 0 0 1px rgba(0, 0, 0.25);
+}
+#doc pre, #doc tt {
+	font-family: Consolas, Dejavu Sans Mono, Segoe UI Mono, Ubuntu Mono, Lucida Console, monospace;
+}
+#doc pre {
+	font-size: 9pt;
+	line-height: 1.25;
+	background: white;
+	/*border: 1px solid #d0d0d0;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);*/
+	padding: 4px 2px 4px 10px;
+	margin: 0;
+	tab-size: 4;
+	overflow-x: auto;
+}
+/* delay display until load */
+#doc { display: none; }
+#doc li:not(.open) > div, #doc li:not(.open) > ul {
+	display: none;
+}
+</style>
+<style type="text/css">
+/* Code ahead */
+.gminfo .code.mono {
+	font-family: Consolas, monospace;
+	font-size: 12px;
+	line-height: 1.25;
+	margin: 0;
+}
+.gminfo .action > .code.mono {
+	margin-left: 28px;
+}
+/** */
+.gminfo .code .kw, .gminfo .code .sp {
+	color: #008;
+	font-weight: bold;
+}
+/** comments */
+.gminfo .code .co { color: #888; }
+/** numbers */
+.gminfo .code .nu { color: #00F; }
+.gminfo .code .nx { color: #00F; }
+/** strings */
+.gminfo .code .st { color: #00F; }
+/** resource indexes */
+.gminfo .code .ri { color: rgb(0, 120, 170); }
+/** standard/built-in variable */
+.gminfo .code .sv { color: #800; }
+/** standard/built-in function */
+.gminfo .code .sf { color: #800; }
+/** user-defined variable name */
+.gminfo .code .uv { color: #408; }
+/** user-defined script/function */
+.gminfo .code .uf { color: #808; }
+/** user-defined field (inst.field) */
+.gminfo .code .fd { color: #408; }
+</style>
+<noscript><style>
+#doc h3::before {
+	display: none;
+}
+#doc h3:hover {
+	border-left-color: inherit;
+	background: inherit;
+}
+#doc { display: inherit }
+#doc li > div, #doc li > ul {
+	display: inherit;
+}
+</style></noscript>
+</head><body>
+This is a "cheat sheet" for buffer_zlib extension by YellowAfterlife.<br>
+The extension can be downloaded from <a href="https://marketplace.yoyogames.com/assets/5428/_">GameMaker:Marketplace</a> or <a href="https://yellowafterlife.itch.io/gamemaker-zlib">itch.io</a>.<br>
+For questions/support, use <a href="">forums</a>.<br>
+An up-to-date version of this manual is <a href="https://yal.cc/r/17/zlib">available online</a>.<br>
+Extension's source code is <a href="https://bitbucket.org/yal_cc/buffer_zlib">available on BitBucket</a>.<br>
+The extension is currently available for Windows (is a DLL).<br>
+<br>
+Click on sections to expand/collapse them.<br>
+Quick display controls: <a href="#" onclick="opt_none()">Categories</a>
+&middot; <a href="#" onclick="opt_list()">Functions</a>
+&middot; <a href="#" onclick="opt_all()">Everything</a>
+<ul id="doc">
+
+
+<li><h3>General functions</h3><ul>
+	
+	<li><h3>buffer_zlib_is_available</h3><div>
+		This variable holds status (<tt>true</tt>\<tt>false</tt>) of whether the native extension was successfully loaded. The extension may not be loaded in a few cases:
+		<ul><li>
+			Extension is not supported on the target platform.
+		</li><li>
+			Extension' file is amiss (e.g. the user did not unzip the game before running).
+		</li></ul>
+		As per GameMaker rules, all calls to unavailable extensions return <tt>0</tt> instead, so you may want to check this and notify the user prior to performing any operations.
+	</div></li>
+	
+	<li><h3>buffer_deflate(buffer, offset, size, compression_level, ?out_buffer)</h3><div>
+		Compresses a section of given buffer (specified by <tt>buffer</tt>, <tt>offset</tt>, <tt>size</tt>).<br>
+		<tt>compression_level</tt> can be between <tt>1</tt> (fastest) and <tt>9</tt> (smallest).<br>
+		If <tt>out_buffer</tt> is specified, the result is written to the current position in it (buffer is resized if needed). Otherwise a new buffer is created to store the result.<br>
+		Returns modified/created buffer' ID;
+		buffer' position will point to the end of compressed data in it.
+		In case of error, returns <tt>-1</tt> and sets <tt>buffer_zlib_status</tt>.
+	</div></li>
+	
+	<li><h3>buffer_inflate(buffer, offset, size, ?out_buffer)</h3><div>
+		Decompresses a section of given buffer (specified by <tt>buffer</tt>, <tt>offset</tt>, <tt>size</tt>).<br>
+		If <tt>out_buffer</tt> is specified, the result is written to the current position in it (buffer is resized if needed). Otherwise a new buffer is created to store the result.<br>
+		Returns modified/created buffer' ID;
+		buffer' position will point to the end of decompressed data in it.
+		In case of error, returns <tt>-1</tt> and sets <tt>buffer_zlib_status</tt>.
+	</div></li>
+	
+	<li><h3>buffer_chunk_size</h3><div>
+		Determines the initial size of the buffers that extension creates to store results (if not given a buffer), as well as the size that a buffer is expanded by if the data does not fit.<br>
+		Smaller values are more memory-efficient while larger values reduce the amount of back-and-forth calls between the native extension and the game.<br>
+		Default value is <tt>16384</tt> (16KB).
+	</div></li>
+	
+	<li><h3>buffer_zlib_status</h3><div>
+		Holds a status ID from the last call to the extension. Possible values are:
+		<ul><li>
+			<tt>buffer_zlib_status_ok</tt>: Execution finished successfully.
+		</li><li>
+			<tt>buffer_zlib_status_stream_error</tt>: Compression/decompression error.
+		</li><li>
+			<tt>buffer_zlib_status_data_error</tt>: Incorrect format/corruption.
+		</li><li>
+			<tt>buffer_zlib_status_memory_error</tt>: Not enough memory to decompress.
+		</li><li>
+			<tt>buffer_zlib_status_buffer_error</tt>: Premature finish / partial data.
+		</li></ul>
+	</div></li>
+
+</ul></li>
+
+<!--
+	<li><h3></h3><div>
+		
+	</div></li>
+	
+	
+-->
+
+</ul> <!-- #doc -->
+<script>(function() {
+var doc = document.getElementById("doc");
+var headers = doc.getElementsByTagName("h3");
+//
+var path = "cc.yal.nsfs.doc.state";
+var state = null;
+if (window.localStorage && JSON.parse) {
+	state = window.localStorage.getItem(path);
+	state = state ? JSON.parse(state) : { };
+	if (state == null) state = { };
+}
+//
+function h3bind(h3) {
+	var node = h3.parentNode;
+	var snip = node.children[1];
+	h3.snip = snip;
+	h3.doc_set = function(z) {
+		if (node.classList.contains("open") == z) return;
+		if (z) node.classList.add("open"); else node.classList.remove("open");
+		if (state) {
+			state[h3.textContent] = z;
+			window.localStorage.setItem(path, JSON.stringify(state));
+		}
+	}
+	h3.doc_hide = function() {
+		this.doc_set(false);
+	}
+	h3.doc_show = function() {
+		this.doc_set(true);
+	}
+	h3.onclick = function(_) {
+		var seen = !node.classList.contains("open");
+		h3.doc_set(seen);
+	};
+}
+//
+(function() {
+	for (var i = 0; i < headers.length; i++) h3bind(headers[i]);
+	var anchors = doc.getElementsByTagName("a");
+	function getHashFunc(id) {
+		return function(e) {
+			var node = document.getElementById(id);
+			while (node && node != doc) {
+				if (node.tagName == "LI") {
+					var h3 = node.children[0];
+					if (h3.doc_set) h3.doc_set(true);
+				}
+				node = node.parentElement;
+			}
+		};
+	}
+	for (var i = 0; i < anchors.length; i++) {
+		var anchor = anchors[i];
+		var href = anchor.getAttribute("href");
+		if (href[0] == "#") {
+			anchor.addEventListener("click", getHashFunc(href.substr(1)));
+		}
+	}
+})();
+//
+window.opt_none = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_hide();
+};
+window.opt_list = function() {
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		if (h3.parentNode.children[1].tagName != "UL") {
+			h3.doc_hide();
+		} else h3.doc_show();
+	}
+};
+window.opt_all = function() {
+	for (var li = 0; li < headers.length; li++) headers[li].doc_show();
+};
+//
+(function() {
+	for (var li = 0; li < headers.length; li++) {
+		var h3 = headers[li];
+		var val = state ? state[h3.textContent] : null;
+		if (val == null) val = h3.parentNode.parentNode == doc;
+		if (val) h3.doc_show(); else h3.doc_hide();
+	}
+})();
+doc.style.display = "inherit";
+})();
+</script>
+<!--<script type="text/javascript" src="http://livejs.com/live.js"></script>-->
+</body></html>

@@ -132,6 +132,7 @@
   </datafiles>
   <NewExtensions>
     <extension index="0">extensions\Regular Expressions</extension>
+    <extension index="1">extensions\buffer_zlib</extension>
   </NewExtensions>
   <sounds name="sound"/>
   <sprites name="sprites">
@@ -467,6 +468,7 @@
           <script>scripts\uivc_settings_embed_graphics.gml</script>
           <script>scripts\uivc_settings_embed_meshes.gml</script>
           <script>scripts\uivc_settings_embed_se.gml</script>
+          <script>scripts\uivc_settings_compression_level.gml</script>
         </scripts>
         <scripts name="tile and mesh editor">
           <script>scripts\uivc_input_tile_priority.gml</script>

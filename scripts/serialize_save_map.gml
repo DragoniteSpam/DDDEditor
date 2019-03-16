@@ -42,8 +42,10 @@ if (string_length(fn)>0){
      * that's it!
      */
     
-    buffer_save_ext(buffer, fn, 0, buffer_tell(buffer));
+    var compressed=buffer_deflate(buffer, 0, buffer_tell(buffer), Stuff.setting_compression_level);
+    buffer_save_ext(compressed, fn, 0, buffer_tell(compressed));
     buffer_delete(buffer);
+    buffer_delete(compressed);
     
     Stuff.all_maps[? ActiveMap.internal_name]=true;
 }

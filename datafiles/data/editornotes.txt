@@ -11,6 +11,10 @@ In the Autotile Editor tab, the button that says "click for autotile" spawns a d
 select an autotile, with a button that says "Autotile Data" . . . which opens a dialog that's almost
 exactly the same. The button should instead just open a file selector.
 
+serialize_load - before inflating, check if first three bytes are DDD - this would mean that either
+the file isn't compressed or there's a 1 in 16 million chance that the compressed data starts with a
+DDD and everything is terrible
+
 Autotiles
 
 the reconfigure code doesn't work properly in all cases. pretty sure the math to calculate the
