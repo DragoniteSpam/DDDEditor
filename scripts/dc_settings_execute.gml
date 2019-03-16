@@ -4,19 +4,18 @@
 
 var map=argument0.data;
 
+var xx=ActiveMap.xx;
+var yy=ActiveMap.yy;
+var zz=ActiveMap.zz;
+
 if (ds_map_exists(map, "x")){
-    ActiveMap.xx=map[? "x"];
+    xx=map[? "x"];
 }
 if (ds_map_exists(map, "y")){
-    ActiveMap.yy=map[? "y"];
+    yy=map[? "y"];
 }
 if (ds_map_exists(map, "z")){
-    ActiveMap.zz=map[? "z"];
+    zz=map[? "z"];
 }
 
-graphics_create_grid();
-
-// don't destroy and recreate, because you don't want to lose the
-// information in it that's still useful
-ds_grid_resize(ActiveMap.map_grid, ActiveMap.xx, ActiveMap.yy);
-map_fill_grid(ActiveMap.map_grid, ActiveMap.zz);
+data_resize_map(xx, yy, zz);

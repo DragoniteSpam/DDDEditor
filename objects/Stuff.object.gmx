@@ -203,10 +203,11 @@ enum SerializeThings {
     AUDIO_SE_FULL           =$00000013,
     AUDIO_BGM               =$00000014,
     MAP_STATIC              =$00000015,
-    MAP_NON_STATIC          =$00000016,
+    MAP_DYNAMIC             =$00000016,
     EVENTS                  =$00000017,
     AUTOTILES_META          =$00000018,
     AUTOTILES               =$00000019,
+    MAP_META                =$0000001A,
     // game data - items, monsters, classes, etc
     DATA_ERROR              =$00000100,
     // misc

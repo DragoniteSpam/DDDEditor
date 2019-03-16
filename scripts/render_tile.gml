@@ -27,9 +27,6 @@ var texture_height=1/tile_vertical_count;
 var xtex=tile.tile_x*texture_width;
 var ytex=tile.tile_y*texture_height;
 
-debug(string_format(xtex+TEXEL, 2, 5)+", "+string_format(ytex+TEXEL, 2, 5)+" to "+
-    string_format(xtex+texture_width-TEXEL, 2, 5)+", "+string_format(ytex+texture_height-TEXEL, 2, 5))
-
 var color=tile.tile_color;
 var alpha=tile.tile_alpha;
 

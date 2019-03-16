@@ -26,13 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>/// properties of the active map
-xx=64;
+
+xx=64;                                  // dimensions
 yy=64;
 zz=8;
 
-name="Map";
-internal_name="MAP";
+name="Map";                             // visible to the player
+internal_name="MAP";                    // just in case you can't have spaces i guess
 summary="It's a map, that does map things";
+
+tileset=0;                              // index
 
 // internal stuff
 batches=ds_list_create();               // vertex buffers
@@ -45,8 +48,6 @@ dynamic=ds_list_create();               // entities
 all_entities=ds_list_create();          // entities
 
 map_grid=map_create_grid(xx, yy, zz);
-
-tileset=0;
 </string>
           </argument>
         </arguments>
@@ -71,11 +72,11 @@ tileset=0;
             <kind>1</kind>
             <string>for (var i=0; i&lt;ds_list_size(batches); i++){
     vertex_delete_buffer(batches[| i]);
-    vertex_delete_buffer(batches_wireframe[| i]);
+    vertex_delete_buffer(batches_wire[| i]);
 }
 
 ds_list_destroy(batches);
-ds_list_destroy(batches_wireframe);
+ds_list_destroy(batches_wire);
 
 ds_list_destroy(batch_instances);
 ds_list_destroy(batch_in_the_future);

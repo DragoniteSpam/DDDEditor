@@ -11,7 +11,8 @@ if (ds_map_exists(Stuff.vra_data, argument[0])){
                 break;
         }
         
-        cobject=c_object_create(mesh_data[@ MeshArrayData.CDATA], 1, 1);
+        entity_init_collision_mesh(id);
+        
         return id;
     }
 }

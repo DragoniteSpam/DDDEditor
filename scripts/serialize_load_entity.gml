@@ -15,3 +15,6 @@ argument1.static=unpack(entity_bools, 1);
 
 if (argument2>DataVersions.INITIAL){
 }
+
+// this should not be instantiated on its own and does not
+// get collision information

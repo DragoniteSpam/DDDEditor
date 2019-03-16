@@ -11,14 +11,14 @@ if (string_length(fn)>0){
      * Header
      */
     
-    var things=1;
+    var things=3;
     
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u32, DataVersions.INITIAL);
-    buffer_write(buffer, buffer_u32, SERIALIZE_DATA);
-    buffer_write(buffer, buffer_u8, things);
+    buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
+    buffer_write(buffer, buffer_u32, things);
     
     
     // for each entity, this gets written in first, and the result is used
@@ -28,6 +28,15 @@ if (string_length(fn)>0){
     /*
      * data
      */
+    
+    // this one should always come first becaues it defines things
+    // like size and tileset
+    serialize_save_map_contents_meta(buffer);
+    
+    // these can come in any order although there probably won't be
+    // a great deal of them
+    serialize_save_map_contents_static(buffer);
+    serialize_save_map_contents_dynamic(buffer);
     
     /*
      * that's it!

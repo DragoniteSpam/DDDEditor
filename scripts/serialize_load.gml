@@ -13,14 +13,12 @@ if (header=="DDD"){
     game_auto_title();
     
     var version=buffer_read(buffer, buffer_u32);
-    var data=buffer_read(buffer, buffer_u8);
+    var what=buffer_read(buffer, buffer_u8);
     var things=buffer_read(buffer, buffer_u32);
     
-    if (data==SERIALIZE_DATA){
+    if (what==SERIALIZE_DATA){
         // clear all data
-        for (var i=0; i<ds_list_size(Stuff.all_events); i++){
-            instance_destroy(Stuff.all_events[| i]);
-        }
+        ds_list_clear_instances(Stuff.all_events);
         ds_list_clear(Stuff.all_events);
     } else if (data==SERIALIZE_MAP){
         // todo clear editor map
@@ -42,10 +40,19 @@ if (header=="DDD"){
             case SerializeThings.EVENTS:
                 serialize_load_events(buffer, version);
                 break;
+            case SerializeThings.MAP_META:
+                serialize_load_map_contents_meta(buffer, version);
+                break;
+            case SerializeThings.MAP_STATIC:
+                serialize_load_map_contents_static(buffer, version);
+                break;
+            case SerializeThings.MAP_DYNAMIC:
+                serialize_load_map_contents_dynamic(buffer, version);
+                break;
         }
     }
     
-    if (data==SERIALIZE_MAP){
+    if (what==SERIALIZE_MAP){
         Stuff.all_maps[? ActiveMap.internal_name]=true;
     }
     

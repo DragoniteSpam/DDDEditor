@@ -11,3 +11,5 @@ argument1.tile_alpha=buffer_read(argument0, buffer_u8)/255;
 
 if (argument2>DataVersions.INITIAL){
 }
+
+entity_init_collision_tile(argument1);

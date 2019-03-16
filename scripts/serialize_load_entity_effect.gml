@@ -8,3 +8,6 @@ serialize_load_entity(argument0, argument1, argument2);
 
 if (argument2>DataVersions.INITIAL){
 }
+
+// remember to add collision information - probably in the form of
+// a block or sphere

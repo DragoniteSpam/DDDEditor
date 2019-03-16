@@ -7,6 +7,7 @@ with (instance_create(0, 0, EntityAutoTile)){
             break;
     }
     
-    cobject=c_object_create(Stuff.c_shape_tile, 1, 1);
+    entity_init_collision_tile(id);
+    
     return id;
 }

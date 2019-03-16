@@ -299,6 +299,10 @@
         <script>scripts\instance_create_tile.gml</script>
         <script>scripts\instance_create_autotile.gml</script>
         <script>scripts\instance_create_mesh.gml</script>
+        <scripts name="collision">
+          <script>scripts\entity_init_collision_tile.gml</script>
+          <script>scripts\entity_init_collision_mesh.gml</script>
+        </scripts>
       </scripts>
       <scripts name="data set">
         <script>scripts\entity_mesh_set_mesh.gml</script>
@@ -677,6 +681,8 @@
         <script>scripts\data_load_vra_on_the_fly.gml</script>
       </scripts>
       <script>scripts\data_vra_exists.gml</script>
+      <script>scripts\data_resize_map.gml</script>
+      <script>scripts\data_clear_map.gml</script>
     </scripts>
     <scripts name="misc graphics">
       <script>scripts\draw_checkerbox.gml</script>
@@ -706,9 +712,12 @@
           <script>scripts\serialize_load_entity_pawn.gml</script>
           <script>scripts\serialize_load_entity_tile.gml</script>
         </scripts>
-        <script>scripts\serialize_load_events.gml</script>
-        <script>scripts\serialize_load_tilesets_meta.gml</script>
         <script>scripts\serialize_load_autotiles_meta.gml</script>
+        <script>scripts\serialize_load_events.gml</script>
+        <script>scripts\serialize_load_map_contents_dynamic.gml</script>
+        <script>scripts\serialize_load_map_contents_meta.gml</script>
+        <script>scripts\serialize_load_map_contents_static.gml</script>
+        <script>scripts\serialize_load_tilesets_meta.gml</script>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">
@@ -719,9 +728,12 @@
           <script>scripts\serialize_save_entity_pawn.gml</script>
           <script>scripts\serialize_save_entity_tile.gml</script>
         </scripts>
-        <script>scripts\serialize_save_events.gml</script>
-        <script>scripts\serialize_save_tilesets_meta.gml</script>
         <script>scripts\serialize_save_autotiles_meta.gml</script>
+        <script>scripts\serialize_save_events.gml</script>
+        <script>scripts\serialize_save_map_contents_dynamic.gml</script>
+        <script>scripts\serialize_save_map_contents_meta.gml</script>
+        <script>scripts\serialize_save_map_contents_static.gml</script>
+        <script>scripts\serialize_save_tilesets_meta.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>
@@ -798,14 +810,12 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="49">
-    <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
-    <constant name="PATH_VRA">'.\vra\'</constant>
-    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
-    <constant name="buffer_datatype">buffer_u32</constant>
+  <constants number="50">
+    <constant name="LIMIT_TILESET">255</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
+    <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="c_ev_basic">$99ffcc</constant>
     <constant name="c_ev_init">$ffcc99</constant>
     <constant name="c_ui_select">$ffb8ac</constant>
@@ -827,6 +837,9 @@
     <constant name="MILLION">1000000</constant>
     <constant name="mouse_x_view">mouse_x+view_xview[view_current]</constant>
     <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
+    <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
+    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
+    <constant name="PATH_VRA">'.\vra\'</constant>
     <constant name="SERIALIZE_DATA">1</constant>
     <constant name="SERIALIZE_MAP">0</constant>
     <constant name="T">buffer_f32</constant>

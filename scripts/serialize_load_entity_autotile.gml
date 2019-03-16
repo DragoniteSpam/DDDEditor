@@ -9,3 +9,5 @@ argument1.segment_id=buffer_read(argument0, buffer_u8);
 
 if (argument2>DataVersions.INITIAL){
 }
+
+// collision information already set in Tile

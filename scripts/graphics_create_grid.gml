@@ -1,3 +1,6 @@
+/// void graphics_create_grid();
+// mild spaghetti
+
 with (Camera){
     if (grid!=noone){
         vertex_delete_buffer(grid);
