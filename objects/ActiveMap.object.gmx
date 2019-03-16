@@ -48,6 +48,9 @@ dynamic=ds_list_create();               // entities
 all_entities=ds_list_create();          // entities
 
 map_grid=map_create_grid(xx, yy, zz);
+
+frozen=vertex_create_buffer();          // everything that will be a single batch in
+                                        // the game
 </string>
           </argument>
         </arguments>
@@ -86,8 +89,9 @@ ds_list_destroy(dynamic);
 // entities in the map in them. this one is.
 ds_list_destroy_instances(all_entities);
 
-// 
 ds_grid_destroy(map_grid);
+
+vertex_delete_buffer(frozen);
 </string>
           </argument>
         </arguments>

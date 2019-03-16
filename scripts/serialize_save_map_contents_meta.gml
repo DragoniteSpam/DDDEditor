@@ -14,12 +14,3 @@ buffer_write(argument0, buffer_u16, ActiveMap.yy);
 buffer_write(argument0, buffer_u16, ActiveMap.zz);
 
 buffer_write(argument0, buffer_u8, ActiveMap.tileset);
-
-var n_things=ds_list_size(ActiveMap.all_entities);
-buffer_write(argument0, buffer_u32, n_things);
-
-for (var i=0; i<n_things; i++){
-    var thing=ActiveMap.all_entities[| i];
-    buffer_write(argument0, buffer_u16, thing.etype);
-    script_execute(thing.save_script, argument0, thing);
-}

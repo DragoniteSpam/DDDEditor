@@ -35,7 +35,7 @@ if (string_length(fn)>0){
     
     // these can come in any order although there probably won't be
     // a great deal of them
-    serialize_save_map_contents_static(buffer);
+    serialize_save_map_contents_batch(buffer);
     serialize_save_map_contents_dynamic(buffer);
     
     /*

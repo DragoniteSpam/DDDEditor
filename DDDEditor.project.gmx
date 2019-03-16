@@ -718,7 +718,7 @@
         <script>scripts\serialize_load_events.gml</script>
         <script>scripts\serialize_load_map_contents_dynamic.gml</script>
         <script>scripts\serialize_load_map_contents_meta.gml</script>
-        <script>scripts\serialize_load_map_contents_static.gml</script>
+        <script>scripts\serialize_load_map_contents_batch.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
       </scripts>
       <scripts name="save">
@@ -734,7 +734,7 @@
         <script>scripts\serialize_save_events.gml</script>
         <script>scripts\serialize_save_map_contents_dynamic.gml</script>
         <script>scripts\serialize_save_map_contents_meta.gml</script>
-        <script>scripts\serialize_save_map_contents_static.gml</script>
+        <script>scripts\serialize_save_map_contents_batch.gml</script>
         <script>scripts\serialize_save_tilesets_meta.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>

@@ -46,8 +46,8 @@ if (header=="DDD"){
             case SerializeThings.MAP_META:
                 serialize_load_map_contents_meta(buffer, version);
                 break;
-            case SerializeThings.MAP_STATIC:
-                serialize_load_map_contents_static(buffer, version);
+            case SerializeThings.MAP_BATCH:
+                serialize_load_map_contents_batch(buffer, version);
                 break;
             case SerializeThings.MAP_DYNAMIC:
                 serialize_load_map_contents_dynamic(buffer, version);

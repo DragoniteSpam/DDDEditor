@@ -8,6 +8,7 @@ argument1.zz=buffer_read(argument0, buffer_u32);
 var entity_bools=buffer_read(argument0, buffer_u32);
 argument1.am_solid=unpack(entity_bools, 0);
 argument1.static=unpack(entity_bools, 1);
+argument1.static=true;
 
 // when you add things on you're probably going to append them to the
 // end so the cascading switch statement won't work, so check each old
