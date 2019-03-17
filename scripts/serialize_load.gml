@@ -61,7 +61,7 @@ if (header=="DDD"){
     }
     
     //if (what==SERIALIZE_MAP){
-        Stuff.all_maps[? ActiveMap.internal_name]=true;
+    Stuff.all_maps[? ActiveMap.internal_name]=true;
     //}
     
     instance_deactivate_object(Data);

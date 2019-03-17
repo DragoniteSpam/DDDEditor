@@ -187,6 +187,7 @@ vertex_freeze(mesh_preview_grid);
 schedule_rebuild_master_texture=false;
 schedule_view_master_texture=false;
 schedule_open=false;
+//schedule_list_kill=ds_list_create();            // list of arrays of [list index, current index]
 
 /*
  * enumerated constants that i need
@@ -386,6 +387,20 @@ if (schedule_open){
     
     schedule_open=false;
 }
+
+/*for (var i=0; i&lt;ds_list_size(schedule_list_kill); i++){
+    var data=schedule_list_kill[| i];
+    var victim=data[@ 0];
+    var current=data[@ 1];
+    for (var j=current; j&lt;min(current+100, ds_list_size(victim)); j++){
+        instance_activate_object(victim[| j]);
+        instance_destroy(victim[| j]);
+    }
+    if (j==ds_list_size(victim)){
+        ds_list_destroy(victim);
+        ds_list_delete(schedule_list_kill, i--);
+    }
+}*/
 
 // controller is invisible so
 
