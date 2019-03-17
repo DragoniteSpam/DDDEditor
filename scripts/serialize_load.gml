@@ -34,6 +34,7 @@ if (header=="DDD"){
     for (var i=0; i<things; i++){
         var datatype=buffer_read(buffer, buffer_datatype);
         switch (datatype){
+            // game stuff
             case SerializeThings.AUTOTILES_META:
                 serialize_load_autotiles_meta(buffer, version);
                 break;
@@ -43,6 +44,10 @@ if (header=="DDD"){
             case SerializeThings.EVENTS:
                 serialize_load_events(buffer, version);
                 break;
+            case SerializeThings.MISC_MAP_META:
+                serialize_load_global_map_meta(buffer, version);
+                break;
+            // map stuff
             case SerializeThings.MAP_META:
                 serialize_load_map_contents_meta(buffer, version);
                 break;
@@ -55,9 +60,9 @@ if (header=="DDD"){
         }
     }
     
-    if (what==SERIALIZE_MAP){
+    //if (what==SERIALIZE_MAP){
         Stuff.all_maps[? ActiveMap.internal_name]=true;
-    }
+    //}
     
     instance_deactivate_object(Data);
 } else {
