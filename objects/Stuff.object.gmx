@@ -52,7 +52,7 @@ dimensions=Dimensions.THREED;
 // this sounds like a reasonable limit, it's not based on anything though
 available_autotiles=array_create(AUTOTILE_AVAILABLE_MAX);
 array_clear(available_autotiles, noone);
-available_autotiles[0]=array_compose(b_at_default_grass, "&lt;default&gt;", false, "", 1, 3);
+available_autotiles[0]=array_compose(sprite_add(PATH_TILESET+"b_at_default_grass.png", 0, false, false, 0, 0), "&lt;default&gt;", false, "", 1, 3);
 
 autotile_hashes=array_create(256);
 array_clear(autotile_hashes, AutotileSegments.CENTER);
@@ -69,9 +69,9 @@ autotile_hashes[248]=AutotileSegments.UPPER;
 //autotile_hashes[255]=AutotileSegments.CENTER;
 
 all_tilesets=ds_list_create();
-ds_list_add(all_tilesets, tileset_create("b_tileset_overworld_0.png",
+ds_list_add(all_tilesets, tileset_create("b_tileset_overworld.png",
     // this is somewhat hard-coded;
-    // the zeroth available tileset is automatically b_at_default_grass
+    // the zeroth available tileset is automatically default_grass
     array_compose(0, noone, noone, noone, noone, noone, noone, noone,
         noone, noone, noone, noone, noone, noone, noone, noone)));
 

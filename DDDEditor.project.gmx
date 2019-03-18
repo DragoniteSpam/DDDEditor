@@ -3,8 +3,8 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
-  <datafiles number="8" name="datafiles">
-    <datafiles number="8" name="data">
+  <datafiles number="9" name="datafiles">
+    <datafiles number="9" name="data">
       <datafile>
         <name>Collisions.dll</name>
         <exists>-1</exists>
@@ -107,10 +107,10 @@
         </ConfigOptions>
         <filename>assets.vrax</filename>
       </datafile>
-      <datafiles number="8" name="graphics">
-        <datafiles number="8" name="tilesets">
+      <datafiles number="9" name="graphics">
+        <datafiles number="9" name="tilesets">
           <datafile>
-            <name>b_tileset_overworld_0.png</name>
+            <name>b_tileset_overworld.png</name>
             <exists>-1</exists>
             <size>150520</size>
             <exportAction>2</exportAction>
@@ -124,7 +124,24 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>b_tileset_overworld_0.png</filename>
+            <filename>b_tileset_overworld.png</filename>
+          </datafile>
+          <datafile>
+            <name>b_at_default_grass.png</name>
+            <exists>-1</exists>
+            <size>3165</size>
+            <exportAction>2</exportAction>
+            <exportDir></exportDir>
+            <overwrite>0</overwrite>
+            <freeData>-1</freeData>
+            <removeEnd>0</removeEnd>
+            <store>0</store>
+            <ConfigOptions>
+              <Config name="Default">
+                <CopyToMask>9223372036854775807</CopyToMask>
+              </Config>
+            </ConfigOptions>
+            <filename>b_at_default_grass.png</filename>
           </datafile>
         </datafiles>
       </datafiles>
@@ -140,7 +157,6 @@
       <sprite>sprites\b_tileset_textureless</sprite>
       <sprite>sprites\b_tileset_checkers</sprite>
       <sprites name="autotiles">
-        <sprite>sprites\b_at_default_grass</sprite>
         <sprite>sprites\b_at_default_error</sprite>
       </sprites>
     </sprites>
