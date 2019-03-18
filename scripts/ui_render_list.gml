@@ -37,10 +37,12 @@ if (n==0){
             }
             draw_rectangle_colour(x1, ya, x2, yb, c, c, c, c, false);
         }
+        
+        var c=argument0.entry_colors[| index];
         if (argument0.entries_are_instances){
-            draw_text(tx, tya, argument0.entries[| index].name);
+            draw_text_colour(tx, tya, argument0.entries[| index].name, c, c, c, c, 1);
         } else {
-            draw_text(tx, tya, argument0.entries[| index]);
+            draw_text_colour(tx, tya, argument0.entries[| index], c, c, c, c, 1);
         }
     }
 }

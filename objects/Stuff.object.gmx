@@ -96,7 +96,7 @@ c_shape_end_trimesh(c_shape_tile);
 
 // at some point there shouldn't necessarily need to be an active
 // map in existence for this to work, but for now there does
-instance_create(0, 0, ActiveMap);
+data_clear_map();
 instance_create(0, 0, Controller);
 
 // this depends on activemap
@@ -120,6 +120,7 @@ enum AvailableAutotileProperties {
 // this gets populated when you save or load something, and also using a map to
 // store maps is funny for some reason
 all_maps=ds_map_create();
+map_starting="";
 
 error_log_messages=ds_list_create();
 

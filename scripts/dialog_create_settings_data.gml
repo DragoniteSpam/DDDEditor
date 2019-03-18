@@ -39,7 +39,12 @@ yy=64;
 var el_map_list=create_list(c2+16, yy, "Identified Maps", "<no maps>", ew, eh, 8, null, false, dg);
 var data_maps=ds_map_to_list_sorted(Stuff.all_maps);
 for (var i=0; i<ds_list_size(data_maps); i++){
-    create_list_entries(el_map_list, data_maps[| i]);
+    if (Stuff.map_starting==data_maps[| i]){
+        var c=c_blue;
+    } else {
+        var c=c_black;
+    }
+    create_list_entries(el_map_list, data_maps[| i], c);
 }
 ds_list_destroy(data_maps);
 

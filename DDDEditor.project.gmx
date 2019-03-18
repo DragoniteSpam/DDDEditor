@@ -704,6 +704,7 @@
       <script>scripts\data_vra_exists.gml</script>
       <script>scripts\data_resize_map.gml</script>
       <script>scripts\data_clear_map.gml</script>
+      <script>scripts\data_rename_map.gml</script>
     </scripts>
     <scripts name="misc graphics">
       <script>scripts\draw_checkerbox.gml</script>
