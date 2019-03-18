@@ -16,7 +16,7 @@ if (string_length(fn)>0){
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
-    buffer_write(buffer, buffer_u32, DataVersions.INITIAL);
+    buffer_write(buffer, buffer_u32, DataVersions.VRAX_REFERENCE);
     buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
     buffer_write(buffer, buffer_u32, things);
     
@@ -27,7 +27,7 @@ if (string_length(fn)>0){
     serialize_save_autotiles_meta(buffer);
     serialize_save_tilesets_meta(buffer);
     serialize_save_events(buffer);
-    serialize_save_global_map_meta(buffer);
+    serialize_save_global_meta(buffer);
     
     /*
      * that's it!
@@ -46,4 +46,5 @@ if (string_length(fn)>0){
 
 enum DataVersions {
     INITIAL                     =0,
+    VRAX_REFERENCE              =1,
 }

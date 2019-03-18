@@ -739,7 +739,7 @@
         <script>scripts\serialize_load_map_contents_meta.gml</script>
         <script>scripts\serialize_load_map_contents_batch.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
-        <script>scripts\serialize_load_global_map_meta.gml</script>
+        <script>scripts\serialize_load_global_meta.gml</script>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">
@@ -756,7 +756,7 @@
         <script>scripts\serialize_save_map_contents_meta.gml</script>
         <script>scripts\serialize_save_map_contents_batch.gml</script>
         <script>scripts\serialize_save_tilesets_meta.gml</script>
-        <script>scripts\serialize_save_global_map_meta.gml</script>
+        <script>scripts\serialize_save_global_meta.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>

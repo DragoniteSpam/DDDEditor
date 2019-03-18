@@ -58,7 +58,7 @@ if (buffer==-1){
                     serialize_load_events(buffer, version);
                     break;
                 case SerializeThings.MISC_MAP_META:
-                    serialize_load_global_map_meta(buffer, version);
+                    serialize_load_global_meta(buffer, version);
                     break;
                 // map stuff
                 case SerializeThings.MAP_META:
