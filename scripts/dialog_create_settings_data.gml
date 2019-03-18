@@ -1,7 +1,7 @@
 /// void dialog_create_settings_data(Dialog);
 
 var dw=512;
-var dh=320;
+var dh=640;
 
 var dg=dialog_create(dw, dh, "Data Settings", dialog_default, dc_close_no_questions_asked, argument0);
 
@@ -15,6 +15,8 @@ var vy2=vy1+eh;
 
 var c2=dw/2;
 
+var yy=64;
+
 // this is not drawing properly, fix
 var el_embed_title=create_text(16, 64, "Data Embed Settings", ew, eh, fa_left, dw/2, dg);
 var el_embed_tilesets=create_checkbox(16, 64+1*eh, "Embed tilesets", ew, eh, uivc_settings_embed_tilesets, "", Stuff.setting_embed_tilesets, dg);
@@ -24,15 +26,41 @@ var el_embed_meshes=create_checkbox(16, 64+4*eh, "Embed meshes", ew, eh, uivc_se
 var el_embed_se=create_checkbox(16, 64+5*eh, "Embed sound effects", ew, eh, uivc_settings_embed_se, "", Stuff.setting_embed_se, dg);
 
 var el_other_title=create_text(16, 64+7*eh, "Data Settings", ew, eh, fa_left, dw/2, dg);
-var el_other_compression=create_input(c2+16, 64+8*eh, "Compression Level: ", ew, eh, uivc_settings_embed_se, "", Stuff.setting_compression_level,
+var el_other_compression=create_input(16, 64+8*eh, "Compression: ", ew, eh, uivc_settings_embed_se, "", Stuff.setting_compression_level,
     Stuff.setting_compression_level, validate_int, ui_value_real, 1, 9, 1, vx1, vy1, vx2, vy2, dg);
+
+// second column
+
+yy=64;
+
+// todo some kind of indication of which map is supposed to be the starting map - perhaps give each
+// element a "color" which the text is drawn with too
+
+var el_map_list=create_list(c2+16, yy, "Identified Maps", "<no maps>", ew, eh, 8, null, false, dg);
+var data_maps=ds_map_to_list_sorted(Stuff.all_maps);
+for (var i=0; i<ds_list_size(data_maps); i++){
+    create_list_entries(el_map_list, data_maps[| i]);
+}
+ds_list_destroy(data_maps);
+
+yy=yy+eh+eh*8+eh/2;
+
+var el_map_delete=create_button(c2+16, yy, "Dereference", ew, eh, fa_middle, null, dg);
+
+yy=yy+eh+eh/2;
+
+var el_map_starting=create_button(c2+16, yy, "Make Starting Map", ew, eh, fa_middle, null, dg);
+
+// confirm
 
 var b_width=128;
 var b_height=32;
 var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
 ds_list_add(dg.contents, el_embed_title, el_embed_tilesets, el_embed_npcs, el_embed_graphics,
-    el_embed_meshes, el_embed_se, el_other_title, el_other_compression, el_confirm);
+    el_embed_meshes, el_embed_se, el_other_title, el_other_compression,
+    el_map_list, el_map_delete, el_map_starting,
+    el_confirm);
 
 keyboard_string="";
 
