@@ -158,7 +158,7 @@ setting_embed_graphics=true;        // large number of images of varying sizes
 setting_embed_meshes=false;         // already stored in vrax but okay
 setting_embed_se=true;              // possibly large number of small sound effects
 
-setting_compression_level=5;        // 1 (fastest) through 9 (smallest)
+setting_compression_level=5;        // 0 (none) through 9 (smallest)
 </string>
           </argument>
         </arguments>
