@@ -4,6 +4,12 @@
 with (instance_create(0, 0, DataTileset)){
     picture_name=argument[0];
     picture=sprite_add(PATH_TILESET+argument[0], 0, false, false, 0, 0);
+    
+    if (!sprite_exists(picture)){
+        picture=b_tileset_checkers;
+        error_log("Missing tileset image; using default tileset instead: "+at_filename);
+    }
+    
     array_clear(autotiles, noone);
     
     // these should be indices in Stuff.available_autotiles, not the

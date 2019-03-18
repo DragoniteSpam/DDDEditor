@@ -78,6 +78,8 @@ if (buffer==-1){
         //}
         
         instance_deactivate_object(Data);
+        
+        error_show();
     } else {
         erroneous=true;
     }

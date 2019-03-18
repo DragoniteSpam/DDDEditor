@@ -21,6 +21,7 @@ for (var i=0; i<n_autotiles; i++){
             at_picture=sprite_add_autotile(at_filename);
             if (!sprite_exists(at_picture)){
                 at_picture=b_at_default_error;
+                error_log("Missing autotile image; using default autotile instead: "+at_filename);
             }
         }
         

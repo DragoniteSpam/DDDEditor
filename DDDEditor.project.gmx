@@ -110,7 +110,7 @@
       <datafiles number="9" name="graphics">
         <datafiles number="9" name="tilesets">
           <datafile>
-            <name>b_tileset_overworld.png</name>
+            <name>b_tileset_overworld_0.png</name>
             <exists>-1</exists>
             <size>150520</size>
             <exportAction>2</exportAction>
@@ -124,10 +124,10 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>b_tileset_overworld.png</filename>
+            <filename>b_tileset_overworld_0.png</filename>
           </datafile>
           <datafile>
-            <name>b_at_default_grass.png</name>
+            <name>b_at_default_grass_0.png</name>
             <exists>-1</exists>
             <size>3165</size>
             <exportAction>2</exportAction>
@@ -141,7 +141,7 @@
                 <CopyToMask>9223372036854775807</CopyToMask>
               </Config>
             </ConfigOptions>
-            <filename>b_at_default_grass.png</filename>
+            <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
       </datafiles>
@@ -714,6 +714,9 @@
     <scripts name="misc code">
       <script>scripts\sprite_save_fixed.gml</script>
       <script>scripts\instance_destroy_later.gml</script>
+      <script>scripts\error_log.gml</script>
+      <script>scripts\error_show.gml</script>
+      <script>scripts\error_clear.gml</script>
     </scripts>
     <scripts name="event stuff">
       <script>scripts\event_create.gml</script>
