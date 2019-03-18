@@ -33,6 +33,10 @@ if (string_length(fn)>0){
      * that's it!
      */
     
+    if (Stuff.setting_compression_level==0){
+        show_error("Uncompressed data files have not been implemented yet", true);
+    }
+    
     var compressed=buffer_deflate(buffer, 0, buffer_tell(buffer), Stuff.setting_compression_level);
     buffer_save_ext(compressed, fn, 0, buffer_tell(compressed));
     buffer_delete(buffer);
