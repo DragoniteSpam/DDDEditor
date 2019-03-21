@@ -1,3 +1,5 @@
 /// void uivc_settings_map_internal(UIThing);
 
-ActiveMap.internal_name=argument0.value;
+if (script_execute(argument0.validation, argument0.value)){
+    ActiveMap.internal_name=argument0.value;
+}

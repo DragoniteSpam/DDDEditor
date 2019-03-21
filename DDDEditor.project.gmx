@@ -216,6 +216,7 @@
       <script>scripts\string_backspace.gml</script>
       <scripts name="input validation">
         <script>scripts\validate_string.gml</script>
+        <script>scripts\validate_string_internal_name.gml</script>
         <script>scripts\validate_int.gml</script>
         <script>scripts\validate_double.gml</script>
         <script>scripts\regex.gml</script>
