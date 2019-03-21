@@ -36,6 +36,8 @@ dt=0;
 time=0;
 time_int=0;
 
+all_guids=ds_map_create();
+
 // these are constants in DDD.gmx but we're allowed to change them here
 tile_width=32;
 tile_height=32;

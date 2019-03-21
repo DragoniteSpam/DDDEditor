@@ -27,6 +27,37 @@
             <kind>1</kind>
             <string>name="data";
 flags=0;
+
+deactivateable=true;
+
+do {
+    GUID=irandom(1&lt;&lt;31);
+} until(!ds_map_exists(Stuff.all_guids, GUID));
+
+ds_map_add(Stuff.all_guids, GUID, id);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>ds_map_delete(Stuff.all_guids, GUID);
 </string>
           </argument>
         </arguments>

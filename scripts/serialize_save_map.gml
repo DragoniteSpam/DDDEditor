@@ -1,7 +1,15 @@
 /// void serialize_save_map();
 
-var fn=get_save_filename("DDD map files|*"+EXPORT_EXTENSION_MAP, "map");
+var fn=get_save_filename("DDD map files|*"+EXPORT_EXTENSION_MAP, ActiveMap.internal_name+EXPORT_EXTENSION_MAP);
 if (string_length(fn)>0){
+    if (filename_name(fn)!=ActiveMap.internal_name+EXPORT_EXTENSION_MAP){
+        if (!show_question("The file you are trying to save to does not match the map's internal name ("+ActiveMap.internal_name+
+            ". The game won't be able to see it. You sure you want to save it with this name?")){
+            
+            return 0;
+        }
+    }
+    
     Stuff.save_name_map=string_replace(filename_name(fn), EXPORT_EXTENSION_MAP, "");
     game_auto_title();
     

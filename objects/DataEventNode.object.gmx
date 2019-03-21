@@ -81,7 +81,9 @@ enum EventNodeTypes {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// remove references from other objects: things that contain this
+            <string>event_inherited();
+
+// remove references from other objects: things that contain this
 // as an outbound node
 var parent_nodes=ds_map_to_list(parents);
 for (var i=0; i&lt;ds_list_size(parent_nodes); i++){

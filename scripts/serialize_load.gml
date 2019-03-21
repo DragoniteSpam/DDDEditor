@@ -36,6 +36,7 @@ if (buffer==-1){
             // clear all data
             ds_list_clear_instances(Stuff.all_events);
             ds_list_clear(Stuff.all_events);
+            ds_map_clear(Stuff.all_guids);
         } else if (data==SERIALIZE_MAP){
             // todo clear editor map
         }
@@ -77,7 +78,9 @@ if (buffer==-1){
             Stuff.all_maps[? ActiveMap.internal_name]=true;
         }
         
-        instance_deactivate_object(Data);
+        with (Data) if (deactivateable){
+            instance_deactivate_object(id);
+        }
         
         error_show();
     } else {
