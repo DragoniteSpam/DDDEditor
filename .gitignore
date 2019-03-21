@@ -1,1 +1,16 @@
+# potentially pocket monster-y data
+
 datafiles/data/graphics/*
+
+# those annoying config files
+
+Configs/Default/AmazonFire
+Configs/Default/Android
+Configs/Default/AndroidTV
+Configs/Default/HTML5
+Configs/Default/iOS
+Configs/Default/Linux
+Configs/Default/Mac
+Configs/Default/tvos
+Configs/Default/Windows8
+Configs/Default/WindowsUAP
