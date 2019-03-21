@@ -395,6 +395,7 @@
           <scripts name="execution">
             <script>scripts\dc_settings_execute.gml</script>
             <script>scripts\dc_vrax.gml</script>
+            <script>scripts\dc_map_dereference.gml</script>
           </scripts>
           <scripts name="verification">
             <script>scripts\dc_settings_map.gml</script>
@@ -522,8 +523,8 @@
             <script>scripts\uivc_bitfield_autotile_flag.gml</script>
           </scripts>
         </scripts>
-        <script>scripts\uimu_selection_delete.gml</script>
         <script>scripts\uimu_freeze_ask.gml</script>
+        <script>scripts\uimu_selection_delete.gml</script>
         <script>scripts\uimu_selection_fill.gml</script>
         <script>scripts\uimu_view_master_texture.gml</script>
         <script>scripts\uivc_check_selection_addition.gml</script>
@@ -844,7 +845,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="50">
+  <constants number="51">
+    <constant name="CURRENT_VERSION">DataVersions.STARTING_MAP</constant>
     <constant name="LIMIT_TILESET">255</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>

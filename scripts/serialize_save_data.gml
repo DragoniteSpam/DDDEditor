@@ -16,7 +16,7 @@ if (string_length(fn)>0){
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
-    buffer_write(buffer, buffer_u32, DataVersions.VRAX_REFERENCE);
+    buffer_write(buffer, buffer_u32, CURRENT_VERSION);
     buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
     buffer_write(buffer, buffer_u32, things);
     
@@ -47,4 +47,5 @@ if (string_length(fn)>0){
 enum DataVersions {
     INITIAL                     =0,
     VRAX_REFERENCE              =1,
+    STARTING_MAP                =2,
 }

@@ -17,3 +17,8 @@ if (version>=DataVersions.VRAX_REFERENCE){
         // warning that no vra is set?
     }
 }
+
+
+if (version>=DataVersions.STARTING_MAP){
+    Stuff.map_starting=buffer_read(argument0, buffer_string);
+}
