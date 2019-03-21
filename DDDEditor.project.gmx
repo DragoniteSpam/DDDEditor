@@ -90,23 +90,6 @@
         </ConfigOptions>
         <filename>editornotes.txt</filename>
       </datafile>
-      <datafile>
-        <name>assets.vrax</name>
-        <exists>-1</exists>
-        <size>7368</size>
-        <exportAction>2</exportAction>
-        <exportDir></exportDir>
-        <overwrite>0</overwrite>
-        <freeData>-1</freeData>
-        <removeEnd>0</removeEnd>
-        <store>0</store>
-        <ConfigOptions>
-          <Config name="Default">
-            <CopyToMask>9223372036854775807</CopyToMask>
-          </Config>
-        </ConfigOptions>
-        <filename>assets.vrax</filename>
-      </datafile>
       <datafiles number="9" name="graphics">
         <datafiles number="9" name="tilesets">
           <datafile>
@@ -144,6 +127,25 @@
             <filename>b_at_default_grass_0.png</filename>
           </datafile>
         </datafiles>
+      </datafiles>
+      <datafiles number="9" name="vra">
+        <datafile>
+          <name>assets.vrax</name>
+          <exists>-1</exists>
+          <size>7368</size>
+          <exportAction>2</exportAction>
+          <exportDir></exportDir>
+          <overwrite>0</overwrite>
+          <freeData>-1</freeData>
+          <removeEnd>0</removeEnd>
+          <store>0</store>
+          <ConfigOptions>
+            <Config name="Default">
+              <CopyToMask>9223372036854775807</CopyToMask>
+            </Config>
+          </ConfigOptions>
+          <filename>assets.vrax</filename>
+        </datafile>
       </datafiles>
     </datafiles>
   </datafiles>
@@ -407,6 +409,8 @@
           <scripts name="settings">
             <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
             <script>scripts\dmu_close_no_questions_asked.gml</script>
+            <script>scripts\dmu_data_dereference.gml</script>
+            <script>scripts\dmu_data_starting_map.gml</script>
           </scripts>
           <scripts name="data">
             <script>scripts\dmu_dialog_preview_mesh.gml</script>
@@ -482,6 +486,9 @@
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
           <script>scripts\uivc_settings_embed_tilesets.gml</script>
+          <script>scripts\uivc_settings_map_name.gml</script>
+          <script>scripts\uivc_settings_map_summary.gml</script>
+          <script>scripts\uivc_settings_map_internal.gml</script>
           <script>scripts\uivc_settings_embed_npcs.gml</script>
           <script>scripts\uivc_settings_embed_graphics.gml</script>
           <script>scripts\uivc_settings_embed_meshes.gml</script>
@@ -866,7 +873,7 @@
     <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
     <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
     <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
-    <constant name="PATH_VRA">'.\vra\'</constant>
+    <constant name="PATH_VRA">'.\data\vra\'</constant>
     <constant name="SERIALIZE_DATA">1</constant>
     <constant name="SERIALIZE_MAP">0</constant>
     <constant name="T">buffer_f32</constant>

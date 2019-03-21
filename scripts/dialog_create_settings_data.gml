@@ -1,3 +1,4 @@
+#define dialog_create_settings_data
 /// void dialog_create_settings_data(Dialog);
 
 var dw=512;
@@ -37,24 +38,17 @@ yy=64;
 // element a "color" which the text is drawn with too
 
 var el_map_list=create_list(c2+16, yy, "Identified Maps", "<no maps>", ew, eh, 8, null, false, dg);
-var data_maps=ds_map_to_list_sorted(Stuff.all_maps);
-for (var i=0; i<ds_list_size(data_maps); i++){
-    if (Stuff.map_starting==data_maps[| i]){
-        var c=c_blue;
-    } else {
-        var c=c_black;
-    }
-    create_list_entries(el_map_list, data_maps[| i], c);
-}
-ds_list_destroy(data_maps);
+dialog_create_settings_data_map_list(el_map_list);
+
+dg.el_map_list=el_map_list;
 
 yy=yy+eh+eh*8+eh/2;
 
-var el_map_delete=create_button(c2+16, yy, "Dereference", ew, eh, fa_middle, null, dg);
+var el_map_delete=create_button(c2+16, yy, "Dereference", ew, eh, fa_middle, dmu_data_dereference, dg);
 
 yy=yy+eh+eh/2;
 
-var el_map_starting=create_button(c2+16, yy, "Make Starting Map", ew, eh, fa_middle, null, dg);
+var el_map_starting=create_button(c2+16, yy, "Make Starting Map", ew, eh, fa_middle, dmu_data_starting_map, dg);
 
 // confirm
 
@@ -70,3 +64,21 @@ ds_list_add(dg.contents, el_embed_title, el_embed_tilesets, el_embed_npcs, el_em
 keyboard_string="";
 
 return dg;
+
+#define dialog_create_settings_data_map_list
+/// void dialog_create_settings_data_map_list(UIList);
+
+var data_maps=ds_map_to_list_sorted(Stuff.all_maps);
+
+clear_list_entries(argument0);
+
+for (var i=0; i<ds_list_size(data_maps); i++){
+    if (Stuff.map_starting==data_maps[| i]){
+        var c=c_blue;
+    } else {
+        var c=c_black;
+    }
+    create_list_entries(argument0, data_maps[| i], c);
+}
+
+ds_list_destroy(data_maps);

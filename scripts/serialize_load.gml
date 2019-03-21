@@ -73,9 +73,9 @@ if (buffer==-1){
             }
         }
         
-        //if (what==SERIALIZE_MAP){
-        Stuff.all_maps[? ActiveMap.internal_name]=true;
-        //}
+        if (what==SERIALIZE_MAP){
+            Stuff.all_maps[? ActiveMap.internal_name]=true;
+        }
         
         instance_deactivate_object(Data);
         

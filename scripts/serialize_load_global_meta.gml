@@ -11,5 +11,9 @@ repeat(n_maps){
 
 if (version>=DataVersions.VRAX_REFERENCE){
     var filename=buffer_read(argument0, buffer_string);
-    data_load_vra_on_the_fly(noone, PATH_VRA, filename);
+    if (string_length(filename)>0){
+        data_load_vra_on_the_fly(noone, PATH_VRA, filename);
+    } else {
+        // warning that no vra is set?
+    }
 }

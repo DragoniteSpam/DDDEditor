@@ -36,9 +36,9 @@ var vy2=y1+argument0.value_y2;
 var vtx=vx1+12;
 var vty=mean(vy1, vy2);
 
-draw_text_colour(vtx, vty, value, c, c, c, c, 1);
+draw_text_ext_colour(vtx, vty, value, -1, (vx2-vtx), c, c, c, c, 1);
 if (string_length(value)==0){
-    draw_text_colour(vtx, vty, argument0.value_default, c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+    draw_text_ext_colour(vtx, vty, argument0.value_default, -1, (vx2-2*vtx), c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 }
 
 if (!argument0.interactive){
@@ -48,6 +48,8 @@ draw_rectangle(vx1, vy1, vx2, vy2, true);
 
 if (argument0.interactive&&dialog_is_active(argument0.root)){
     if (ui_is_active(argument0)){
+        // this will not work correctly if there are line breaks, but fixing that is
+        // like the bottom of the priority queue right now
         if (current_second%2==0){
             var bx=tx+argument0.value_x1+string_width(value)+4;
             draw_line_width(bx, ty-7, bx, ty+7, 2);
@@ -67,7 +69,7 @@ if (argument0.interactive&&dialog_is_active(argument0.root)){
         }
     }
     
-    if (mouse_within_rectangle(x1, y1, x2, y2)){
+    if (mouse_within_rectangle(vx1, vy1, vx2, vy2)){
         if (get_release_left()){
             ui_activate(argument0);
         } else if (Controller.press_help){

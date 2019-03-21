@@ -14,4 +14,4 @@ if (string_length(Stuff.save_name_map)>0){
     displayname=displayname+Stuff.save_name_map+" [map]";
 }
 
-window_set_caption("DDD Editor"+displayname);
+window_set_caption("DDD Editor - "+displayname);
