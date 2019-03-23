@@ -82,9 +82,7 @@ on_select=safc_on_tile;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
-
-ActiveMap.population[ETypes.ENTITY_TILE]--;
+            <string>entity_tile_destroy();
 </string>
           </argument>
         </arguments>

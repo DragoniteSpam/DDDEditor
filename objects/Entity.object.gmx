@@ -119,18 +119,7 @@ on_select=safc_on_entity;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (cobject!=noone){
-    c_world_destroy_object(cobject);
-}
-
-ActiveMap.population[ETypes.ENTITY]--;
-
-if (am_solid){
-    ActiveMap.population_solid--;
-}
-if (static){
-    ActiveMap.population_static--;
-}
+            <string>entity_destroy();
 </string>
           </argument>
         </arguments>

@@ -79,7 +79,7 @@ on_select=safc_on_autotile;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>event_inherited();
+            <string>entity_tile_destroy();
 
 ActiveMap.population[ETypes.ENTITY_TILE]--;
 ActiveMap.population[ETypes.ENTITY_TILE_AUTO]--;

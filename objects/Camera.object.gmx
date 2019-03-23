@@ -345,6 +345,7 @@ while (cindex&lt;ds_list_size(changes)){
             
             instance_activate_object(thing);
             instance_destroy(thing);
+            
             // no point changing thing.modification now
             break;
     }

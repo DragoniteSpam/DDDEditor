@@ -789,6 +789,8 @@
       <script>scripts\error_log.gml</script>
       <script>scripts\error_show.gml</script>
       <script>scripts\error_clear.gml</script>
+      <script>scripts\entity_destroy.gml</script>
+      <script>scripts\entity_tile_destroy.gml</script>
     </scripts>
     <scripts name="event stuff">
       <script>scripts\event_create.gml</script>
