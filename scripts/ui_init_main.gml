@@ -129,7 +129,7 @@ with (instance_create(0, 0, UIMain)){
     ds_list_add(t_general.contents, element);
     
     /*
-     * entity tab
+     * stats tab
      */
     
     yy=legal_y+spacing;
@@ -138,7 +138,97 @@ with (instance_create(0, 0, UIMain)){
     element_all_entities.render=ui_render_list_all_entities;
     ds_list_add(t_stats.contents, element_all_entities);
     
-    yy=yy+element.height+spacing;
+    // second column
+    
+    yy=legal_y+spacing;
+    
+    element=create_text(col2_x, yy, "Entity Stats", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    var stat_x=col2_x+col_width*3/4;
+    
+    element=create_text(col2_x, yy, "Total Entities:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing+spacing;
+    
+    element=create_text(col2_x, yy, "     Static:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_static;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Solid:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_solid;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing+spacing;
+    
+    element=create_text(col2_x, yy, "     Tiles:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_tiles;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Autotiles:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_tiles_auto;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Meshes:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_meshes;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Pawns:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_pawns;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Effects:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_effects;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
+    
+    element=create_text(col2_x, yy, "     Events:", col_width, element_height, fa_left, col_width, t_stats);
+    ds_list_add(t_stats.contents, element);
+    
+    element=create_text(stat_x, yy, "0", col_width, element_height, fa_left, col_width, t_stats);
+    element.render=ui_render_text_stats_entities_events;
+    ds_list_add(t_stats.contents, element);
+    
+    yy=yy+spacing;
     
     /*
      * entity tab

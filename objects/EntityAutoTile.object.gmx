@@ -33,6 +33,9 @@ load_script=serialize_load_entity_autotile;
 name='AutoTile';
 etype=ETypes.ENTITY_TILE_AUTO;
 
+ActiveMap.population[ETypes.ENTITY_TILE]++;
+ActiveMap.population[ETypes.ENTITY_TILE_AUTO]++;
+
 autotile_id=0;  // ActiveMap.tileset.autotiles[]
 segment_id=AutotileSegments.CENTER;
 
@@ -53,6 +56,32 @@ selector=select_single;
 
 on_create=create_autotile;
 on_update=update_autotile;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+ActiveMap.population[ETypes.ENTITY_TILE]--;
+ActiveMap.population[ETypes.ENTITY_TILE_AUTO]--;
 </string>
           </argument>
         </arguments>

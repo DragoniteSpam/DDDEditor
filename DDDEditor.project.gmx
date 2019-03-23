@@ -636,6 +636,17 @@
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
+          <scripts name="stats">
+            <script>scripts\ui_render_text_stats_static.gml</script>
+            <script>scripts\ui_render_text_stats_solid.gml</script>
+            <script>scripts\ui_render_text_stats_entities.gml</script>
+            <script>scripts\ui_render_text_stats_entities_tiles.gml</script>
+            <script>scripts\ui_render_text_stats_entities_tiles_auto.gml</script>
+            <script>scripts\ui_render_text_stats_entities_meshes.gml</script>
+            <script>scripts\ui_render_text_stats_entities_pawns.gml</script>
+            <script>scripts\ui_render_text_stats_entities_effects.gml</script>
+            <script>scripts\ui_render_text_stats_entities_events.gml</script>
+          </scripts>
         </scripts>
       </scripts>
       <script>scripts\ui_activate.gml</script>

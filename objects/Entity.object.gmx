@@ -28,6 +28,8 @@
             <string>name='Entity';
 etype=ETypes.ENTITY;
 
+ActiveMap.population[ETypes.ENTITY]++;
+
 // for fusing all static objects such as ground tiles and houses together,
 // so the computer doesn't waste time drawing every single visible Entity
 // individually
@@ -62,7 +64,7 @@ previous_yy=yy;
 previous_zz=zz;
 // serialize: don't want to use the built-in "solid" variable since that might
 // cause things to break unexpectedly
-am_solid=true;
+am_solid=false;
 static=false;           // anything that isn't intended to move - if batchable
                         // is true, this can be turned on or off, otherwise it can't
 
@@ -110,7 +112,7 @@ on_destroy=null;
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>self</whoName>
+        <whoName>Entity</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
@@ -118,6 +120,15 @@ on_destroy=null;
             <kind>1</kind>
             <string>if (cobject!=noone){
     c_world_destroy_object(cobject);
+}
+
+ActiveMap.population[ETypes.ENTITY]--;
+
+if (am_solid){
+    ActiveMap.population_solid--;
+}
+if (static){
+    ActiveMap.population_static--;
 }
 </string>
           </argument>

@@ -33,6 +33,8 @@ load_script=serialize_load_entity_mesh;
 name='Mesh';
 etype=ETypes.ENTITY_MESH;
 
+ActiveMap.population[ETypes.ENTITY_MESH]++;
+
 // THIS REALLY SHOULD BE SWITCHED TO SOME KIND OF GUID THING
 // LATER. NOBODY WANTS NAME CONFLICTS EVERY TIME THEY RENAME
 // A MESH. THANK.
@@ -40,7 +42,9 @@ etype=ETypes.ENTITY_MESH;
 mesh_id='';
 
 // other properties - inherited
-am_solid=false;
+
+am_solid=true;
+ActiveMap.population_solid++;
 
 // editor properties
 
@@ -51,6 +55,31 @@ slot=MapCellContents.MESHMOB;
 batch=batch_mesh;
 render=render_mesh;
 selector=select_single;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="1" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>event_inherited();
+
+ActiveMap.population[ETypes.ENTITY_MESH]--;
 </string>
           </argument>
         </arguments>
