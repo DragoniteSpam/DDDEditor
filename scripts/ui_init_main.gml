@@ -45,6 +45,11 @@ with (instance_create(0, 0, UIMain)){
     var col_width=legal_width/2-spacing*1.5;
     var col2_x=legal_x+col_width+spacing*2;
     
+    var vx1=legal_width/4+16;
+    var vy1=0;
+    var vx2=vx1+80;
+    var vy2=vy1+24;
+    
     var button_width=128;
     
     /*
@@ -145,7 +150,7 @@ with (instance_create(0, 0, UIMain)){
     element=create_text(col2_x, yy, "Entity Stats", col_width, element_height, fa_left, col_width, t_stats);
     ds_list_add(t_stats.contents, element);
     
-    yy=yy+spacing;
+    yy=yy+element.height+spacing;
     
     var stat_x=col2_x+col_width*3/4;
     
@@ -156,7 +161,7 @@ with (instance_create(0, 0, UIMain)){
     element.render=ui_render_text_stats_entities;
     ds_list_add(t_stats.contents, element);
     
-    yy=yy+spacing+spacing;
+    yy=yy+element.height+spacing+spacing;
     
     element=create_text(col2_x, yy, "     Static:", col_width, element_height, fa_left, col_width, t_stats);
     ds_list_add(t_stats.contents, element);
@@ -174,7 +179,7 @@ with (instance_create(0, 0, UIMain)){
     element.render=ui_render_text_stats_solid;
     ds_list_add(t_stats.contents, element);
     
-    yy=yy+spacing+spacing;
+    yy=yy+element.height+spacing;
     
     element=create_text(col2_x, yy, "     Tiles:", col_width, element_height, fa_left, col_width, t_stats);
     ds_list_add(t_stats.contents, element);
@@ -236,8 +241,26 @@ with (instance_create(0, 0, UIMain)){
     
     yy=legal_y+spacing;
     
-    element=create_text(legal_x+spacing, yy, "Common entity properties will show up here, hopefully", col_width, element_height*2, fa_left, col_width, t_p_entity);
-    ds_list_add(t_p_entity.contents, element);
+    draw_set_font(FDefault12);
+    var max_characters=18;
+    vx2=vx1+string_width("m")*max_characters+32;
+    
+    element_entity_name=create_input(legal_x+spacing, yy, "Name: ", col_width, element_height, uivc_input_entity_name, "", "", "Helpful if unique", validate_string, ui_value_string, 0, 1, max_characters, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_name);
+    
+    yy=yy+element_entity_name.height+spacing;
+    
+    element_entity_solid=create_checkbox(legal_x+spacing, yy, "Solid", col_width, element_height, uivc_check_entity_solid, "", false, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_solid);
+    
+    yy=yy+element_entity_solid.height+spacing;
+    
+    element_entity_static=create_checkbox(legal_x+spacing, yy, "Static", col_width, element_height, uivc_check_entity_static, "", false, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_static);
+    
+    yy=yy+element_entity_static.height+spacing;
+    
+    vx2=vx1+80;
     
     /*
      * tile tab

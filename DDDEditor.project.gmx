@@ -249,6 +249,7 @@
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
       <script>scripts\selection_empty.gml</script>
+      <script>scripts\selection_all.gml</script>
       <script>scripts\select_single.gml</script>
       <script>scripts\selected.gml</script>
       <scripts name="actions">
@@ -258,14 +259,26 @@
         <scripts name="common">
           <script>scripts\sa_delete.gml</script>
           <script>scripts\sa_fill.gml</script>
+          <script>scripts\sa_process_selection.gml</script>
           <script>scripts\sa_invert.gml</script>
           <scripts name="foreach">
             <script>scripts\safc_fill_tile.gml</script>
             <script>scripts\safc_fill_mesh.gml</script>
             <script>scripts\safc_fill_pawn.gml</script>
             <script>scripts\safc_fill_event.gml</script>
+            <script>scripts\safc_fill_effect.gml</script>
             <script>scripts\safc_fill_autotile.gml</script>
             <script>scripts\safa_delete.gml</script>
+            <script>scripts\safa_on_select.gml</script>
+            <scripts name="on select">
+              <script>scripts\safc_on_autotile.gml</script>
+              <script>scripts\safc_on_effect.gml</script>
+              <script>scripts\safc_on_entity.gml</script>
+              <script>scripts\safc_on_event.gml</script>
+              <script>scripts\safc_on_mesh.gml</script>
+              <script>scripts\safc_on_pawn.gml</script>
+              <script>scripts\safc_on_tile.gml</script>
+            </scripts>
           </scripts>
         </scripts>
         <scripts name="selection forech">
@@ -346,6 +359,8 @@
       </scripts>
       <scripts name="data set">
         <script>scripts\entity_mesh_set_mesh.gml</script>
+        <script>scripts\entity_set_solid.gml</script>
+        <script>scripts\entity_set_static.gml</script>
       </scripts>
       <script>scripts\tileset_create.gml</script>
       <script>scripts\tileset_create_master.gml</script>
@@ -566,6 +581,11 @@
         <script>scripts\uivc_stash_list.gml</script>
         <script>scripts\uivc_tile_set_data_view.gml</script>
         <script>scripts\uivc_tile_set_on_click.gml</script>
+        <scripts name="entity properties">
+          <script>scripts\uivc_check_entity_solid.gml</script>
+          <script>scripts\uivc_check_entity_static.gml</script>
+          <script>scripts\uivc_input_entity_name.gml</script>
+        </scripts>
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>

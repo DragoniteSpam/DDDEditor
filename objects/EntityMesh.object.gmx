@@ -55,6 +55,7 @@ slot=MapCellContents.MESHMOB;
 batch=batch_mesh;
 render=render_mesh;
 selector=select_single;
+on_select=safc_on_mesh;
 </string>
           </argument>
         </arguments>

@@ -38,6 +38,9 @@ ActiveMap.population[ETypes.ENTITY_EFFECT]++;
 // editor properties
 
 slot=MapCellContents.EFFECT;
+
+// there will be other things here probably
+on_select=safc_on_effect;
 </string>
           </argument>
         </arguments>

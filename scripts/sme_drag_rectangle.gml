@@ -5,3 +5,5 @@
 
 argument0.x2=argument1;
 argument0.y2=argument2;
+
+sa_process_selection();

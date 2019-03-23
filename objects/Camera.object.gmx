@@ -204,9 +204,10 @@ enum FillTypes {
     MESH,
     PAWN,
     EFFECT,
+    EVENT,
 }
 
-fill_types=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_event);
+fill_types=array_compose(safc_fill_tile, safc_fill_autotile, safc_fill_mesh, safc_fill_pawn, safc_fill_effect, safc_fill_event);
 
 /*
  * the autotile shader

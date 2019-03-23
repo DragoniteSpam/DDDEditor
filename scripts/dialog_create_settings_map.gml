@@ -20,16 +20,16 @@ var vx2=dw-32;
 
 var el_name_text=create_text(16, yy, "Settings: Text", ew, eh, fa_left, ew, dg);
 yy=yy+32;
-var el_name=create_input(16, yy, "Name: ", ew, eh, uivc_settings_map_name, "", ActiveMap.name, 1, validate_string, ui_value_string, 0, 0, 32, vx1, vy1, vx2, vy2, dg);
+var el_name=create_input(16, yy, "Name: ", ew, eh, uivc_settings_map_name, "", ActiveMap.name, "Map name goes here", validate_string, ui_value_string, 0, 0, 32, vx1, vy1, vx2, vy2, dg);
 yy=yy+32;
-var el_name_internal=create_input(16, yy, "Internal name: ", ew, eh, uivc_settings_map_internal, "", ActiveMap.internal_name, 1, validate_string_internal_name, ui_value_string, 0, 0, 32, vx1, vy1, vx2, vy2, dg);
+var el_name_internal=create_input(16, yy, "Internal name: ", ew, eh, uivc_settings_map_internal, "", ActiveMap.internal_name, "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 0, 32, vx1, vy1, vx2, vy2, dg);
 
 yy=yy+32;
 
 var eh_long=240;
 var vy2=vy1+eh_long;
 
-var el_summary=create_input(16, yy, "Summary: ", ew, eh_long, uivc_settings_map_summary, "", ActiveMap.summary, 1, validate_string, ui_value_string, 0, 0, 400, vx1, vy1, vx2, vy2, dg);
+var el_summary=create_input(16, yy, "Summary: ", ew, eh_long, uivc_settings_map_summary, "", ActiveMap.summary, "Write a summary here", validate_string, ui_value_string, 0, 0, 400, vx1, vy1, vx2, vy2, dg);
 
 var vx2=vx1+80;
 var vy2=vy1+eh;

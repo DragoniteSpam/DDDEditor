@@ -37,6 +37,9 @@ ActiveMap.population[ETypes.ENTITY_EVENT]++;
 // editor properties
 
 slot=MapCellContents.EVENT;
+
+// there will be other things down here probably
+on_select=safc_on_event;
 </string>
           </argument>
         </arguments>

@@ -20,12 +20,16 @@ if (!argument0.interactive){
 }
 draw_rectangle(tx+16-s2, ty-s2, tx+16+s2, ty+s2, true);
 
-if (argument0.value){
-    if (argument0.interactive){
-        var a=1;
-    } else {
-        var a=0.5;
-    }
+if (argument0.interactive){
+    var a=1;
+} else {
+    var a=0.5;
+}
+
+// these are actually not binary states - in some rare cases there may be an "undecided," etc state
+if (argument0.value==2){
+    draw_sprite_ext(spr_check, 1, tx+16, ty, 1, 1, 0, c_white, a);
+} else if (argument0.value){
     draw_sprite_ext(spr_check, 0, tx+16, ty, 1, 1, 0, c_white, a);
 }
 
