@@ -52,6 +52,8 @@ draw_water=true;                        // bool
 fast_travel_to=true;                    // bool
 fast_travel_from=true;                  // bool
 
+is_3d=true;
+
 discovery=0;                            // index
 
 // internal stuff

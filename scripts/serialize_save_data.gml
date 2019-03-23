@@ -49,4 +49,5 @@ enum DataVersions {
     VRAX_REFERENCE              =1,
     STARTING_MAP                =2,
     MAP_VARS                    =3,
+    MAP_3D                      =4,
 }

@@ -26,7 +26,6 @@ if (buffer==-1){
     
     if (header=="DDD"){
         Stuff.save_name_data=string_replace(filename_name(argument0), EXPORT_EXTENSION_DATA, "");
-        game_auto_title();
         
         var version=buffer_read(buffer, buffer_u32);
         var what=buffer_read(buffer, buffer_u8);
@@ -83,6 +82,8 @@ if (buffer==-1){
         }
         
         error_show();
+        
+        game_auto_title();
     } else {
         erroneous=true;
     }

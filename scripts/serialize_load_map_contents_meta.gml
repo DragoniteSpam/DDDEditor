@@ -6,6 +6,8 @@ ActiveMap.name=buffer_read(argument0, buffer_string);
 ActiveMap.internal_name=buffer_read(argument0, buffer_string);
 ActiveMap.summary=buffer_read(argument0, buffer_string);
 
+Stuff.save_name_map=ActiveMap.internal_name+EXPORT_EXTENSION_MAP;
+
 var xx=buffer_read(argument0, buffer_u16);
 var yy=buffer_read(argument0, buffer_u16);
 var zz=buffer_read(argument0, buffer_u16);
@@ -30,4 +32,8 @@ if (argument1>=DataVersions.MAP_VARS){
     ActiveMap.draw_water=unpack(bools, 1);
     ActiveMap.fast_travel_to=unpack(bools, 2);
     ActiveMap.fast_travel_from=unpack(bools, 3);
+
+    if (argument1>=DataVersions.MAP_3D){
+        ActiveMap.is_3d=unpack(bools, 4);
+    }
 }

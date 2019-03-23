@@ -921,7 +921,7 @@
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>
-    <constant name="CURRENT_VERSION">DataVersions.MAP_VARS</constant>
+    <constant name="CURRENT_VERSION">DataVersions.MAP_3D</constant>
     <constant name="CW">1080 /*these aren't meant to be used for view coordinates but window coordinates, otherwise i'd make them relative*/</constant>
     <constant name="DEBUG">true</constant>
     <constant name="EVENT_NODE_CONTACT_HEIGHT">32</constant>
