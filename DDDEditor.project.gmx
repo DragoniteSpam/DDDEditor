@@ -396,6 +396,7 @@
         <scripts name="create elements">
           <script>scripts\create_radio_array_options.gml</script>
           <script>scripts\create_bitfield_options.gml</script>
+          <script>scripts\create_bitfield_options_vertical.gml</script>
           <script>scripts\create_list_entries.gml</script>
           <script>scripts\clear_list_entries.gml</script>
           <script>scripts\create_bitfield_option_data.gml</script>
@@ -515,8 +516,18 @@
         <script>scripts\create_notification.gml</script>
       </scripts>
       <scripts name="on value change and general interaction">
+        <scripts name="entity properties">
+          <script>scripts\uivc_check_entity_solid.gml</script>
+          <script>scripts\uivc_check_entity_static.gml</script>
+          <script>scripts\uivc_input_entity_name.gml</script>
+        </scripts>
         <scripts name="events">
           <script>scripts\uivc_list_selection_event_node.gml</script>
+        </scripts>
+        <scripts name="selection mask">
+          <script>scripts\uivc_bitfield_selection_mask.gml</script>
+          <script>scripts\uivc_bitfield_selection_mask_none.gml</script>
+          <script>scripts\uivc_bitfield_selection_mask_all.gml</script>
         </scripts>
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
@@ -531,21 +542,6 @@
           <script>scripts\uivc_settings_compression_level.gml</script>
         </scripts>
         <scripts name="tile and mesh editor">
-          <script>scripts\uivc_input_tile_priority.gml</script>
-          <script>scripts\uimu_tile_tag_up.gml</script>
-          <script>scripts\uivc_input_mesh_tag.gml</script>
-          <script>scripts\uimu_tile_tag_down.gml</script>
-          <script>scripts\uimu_mesh_tag_up.gml</script>
-          <script>scripts\uimu_mesh_tag_down.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability_solid.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability.gml</script>
-          <script>scripts\uivc_bitfield_tile_flag.gml</script>
-          <script>scripts\uivc_bitfield_mesh_flag.gml</script>
-          <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
-          <script>scripts\uivc_bitfield_mesh_passability_passable.gml</script>
-          <script>scripts\uivc_input_tile_tag.gml</script>
           <scripts name="autotile">
             <script>scripts\uimu_autotile_tag_down.gml</script>
             <script>scripts\uimu_autotile_tag_up.gml</script>
@@ -556,6 +552,21 @@
             <script>scripts\uivc_input_autotile_priority.gml</script>
             <script>scripts\uivc_bitfield_autotile_flag.gml</script>
           </scripts>
+          <script>scripts\uimu_mesh_tag_down.gml</script>
+          <script>scripts\uimu_mesh_tag_up.gml</script>
+          <script>scripts\uimu_tile_tag_down.gml</script>
+          <script>scripts\uimu_tile_tag_up.gml</script>
+          <script>scripts\uivc_bitfield_mesh_flag.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability_passable.gml</script>
+          <script>scripts\uivc_bitfield_mesh_passability_solid.gml</script>
+          <script>scripts\uivc_bitfield_tile_flag.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_passable.gml</script>
+          <script>scripts\uivc_bitfield_tile_passability_solid.gml</script>
+          <script>scripts\uivc_input_mesh_tag.gml</script>
+          <script>scripts\uivc_input_tile_priority.gml</script>
+          <script>scripts\uivc_input_tile_tag.gml</script>
         </scripts>
         <script>scripts\uimu_freeze_ask.gml</script>
         <script>scripts\uimu_selection_delete.gml</script>
@@ -581,11 +592,6 @@
         <script>scripts\uivc_stash_list.gml</script>
         <script>scripts\uivc_tile_set_data_view.gml</script>
         <script>scripts\uivc_tile_set_on_click.gml</script>
-        <scripts name="entity properties">
-          <script>scripts\uivc_check_entity_solid.gml</script>
-          <script>scripts\uivc_check_entity_static.gml</script>
-          <script>scripts\uivc_input_entity_name.gml</script>
-        </scripts>
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
@@ -666,6 +672,11 @@
             <script>scripts\ui_render_text_stats_entities_pawns.gml</script>
             <script>scripts\ui_render_text_stats_entities_effects.gml</script>
             <script>scripts\ui_render_text_stats_entities_events.gml</script>
+          </scripts>
+          <scripts name="selection mask">
+            <script>scripts\ui_render_bitfield_option_text_selection_mask.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_selection_mask_none.gml</script>
+            <script>scripts\ui_render_bitfield_option_text_selection_mask_all.gml</script>
           </scripts>
         </scripts>
       </scripts>
@@ -896,7 +907,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="51">
+  <constants number="52">
+    <constant name="SELECTION_MASK_ALL">ETypeFlags.ENTITY_TILE|ETypeFlags.ENTITY_TILE_AUTO|ETypeFlags.ENTITY_EVENT|ETypeFlags.ENTITY_PAWN|ETypeFlags.ENTITY_MESH|ETypeFlags.ENTITY_EFFECT</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>

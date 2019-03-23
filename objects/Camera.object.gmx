@@ -100,6 +100,8 @@ selection_addition=false;
 
 selection_fill_type=FillTypes.TILE;
 
+selection_mask=SELECTION_MASK_ALL;          // only entities matching the mask will be processed
+
 selection_fill_mesh=0;
 selection_fill_tile_x=4;
 selection_fill_tile_y=0;

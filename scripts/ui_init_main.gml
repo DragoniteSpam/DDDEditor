@@ -70,7 +70,7 @@ with (instance_create(0, 0, UIMain)){
     yy=yy+element.height+spacing;
     
     element=create_radio_array(legal_x+spacing, yy, "Fill Type", col_width, element_height, uivc_radio_fill_type, Camera.selection_fill_type, t_general);
-    create_radio_array_options(element, "Tile", "Autotile", "Mesh", "Mob", "Effect");
+    create_radio_array_options(element, "Tile", "Autotile", "Mesh", "Mob", "Effect, Event");
     ds_list_add(t_general.contents, element);
     
     yy=yy+ui_get_radio_array_height(element)+spacing;
@@ -82,6 +82,25 @@ with (instance_create(0, 0, UIMain)){
     
     element=create_button(legal_x+spacing, yy, "Delete Selection (Delete)", col_width, element_height, fa_center, uimu_selection_delete, t_general);
     ds_list_add(t_general.contents, element);
+    
+    yy=yy+element.height+spacing;
+    
+    var s=10;
+    
+    element=create_bitfield(legal_x+spacing, yy, "Selection Mask:", col_width, element_height, null, SELECTION_MASK_ALL, t_general);
+    create_bitfield_options_vertical(element, create_bitfield_option_data(ETypeFlags.ENTITY_TILE, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Tile", -1, 0, col_width/2, s),
+        create_bitfield_option_data(ETypeFlags.ENTITY_TILE_AUTO, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Autotile", -1, 0, col_width/2, s),
+        create_bitfield_option_data(ETypeFlags.ENTITY_MESH, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Mesh", -1, 0, col_width/2, s),
+        create_bitfield_option_data(ETypeFlags.ENTITY_PAWN, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Pawn", -1, 0, col_width/2, s),
+        create_bitfield_option_data(ETypeFlags.ENTITY_EFFECT, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Effect", -1, 0, col_width/2, s),
+        create_bitfield_option_data(ETypeFlags.ENTITY_EVENT, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Event", -1, 0, col_width/2, s),
+        create_bitfield_option_data(SELECTION_MASK_ALL, ui_render_bitfield_option_text_selection_mask_all, uivc_bitfield_selection_mask_all, "All", -1, 0, col_width/2, s),
+        create_bitfield_option_data(0, ui_render_bitfield_option_text_selection_mask_none, uivc_bitfield_selection_mask_none, "None", -1, 0, col_width/2, s));
+    ds_list_add(t_general.contents, element);
+    
+    yy=yy+element.height+spacing;
+    
+    // second column
     
     yy=legal_y+spacing;
     
@@ -132,6 +151,8 @@ with (instance_create(0, 0, UIMain)){
     
     element=create_checkbox(col2_x, yy, "Dummy Option 3", col_width, element_height, null, "", false, t_general);
     ds_list_add(t_general.contents, element);
+    
+    yy=yy+element.height+spacing;
     
     /*
      * stats tab

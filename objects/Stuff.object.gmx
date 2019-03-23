@@ -234,6 +234,16 @@ enum ETypes {
     ENTITY_EVENT
 }
 
+enum ETypeFlags {
+    ENTITY                  =0,
+    ENTITY_TILE             =1&lt;&lt;0,
+    ENTITY_TILE_AUTO        =1&lt;&lt;1,
+    ENTITY_MESH             =1&lt;&lt;2,
+    ENTITY_PAWN             =1&lt;&lt;3,
+    ENTITY_EFFECT           =1&lt;&lt;4,
+    ENTITY_EVENT            =1&lt;&lt;5,
+}
+
 etype_objects=array_compose(Entity,
     EntityTile,
     EntityAutoTile,

@@ -19,7 +19,7 @@ for (var i=1; i<argument_count; i++){
     var n=ds_list_size(argument[0].contents);
     var data=argument[i];
     if (n==0){
-        var xx=0;
+        var xx=argument[0].width;
     } else {
         var xx=ds_list_top(argument[0].contents).x+ds_list_top(argument[0].contents).width;
     }
