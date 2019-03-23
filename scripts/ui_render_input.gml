@@ -72,8 +72,13 @@ if (argument0.interactive&&dialog_is_active(argument0.root)){
     if (mouse_within_rectangle(vx1, vy1, vx2, vy2)){
         if (get_release_left()){
             ui_activate(argument0);
+            keyboard_string="";
         } else if (Controller.press_help){
             //ds_stuff_help_auto(argument0);
+        }
+    } else {
+        if (Controller.release_left){
+            ui_activate(noone);
         }
     }
 }
