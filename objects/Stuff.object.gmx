@@ -122,7 +122,6 @@ enum AvailableAutotileProperties {
 // this gets populated when you save or load something, and also using a map to
 // store maps is funny for some reason
 all_maps=ds_map_create();
-map_starting="";
 
 error_log_messages=ds_list_create();
 
@@ -146,6 +145,11 @@ enum Dimensions {
     TWOD,
     THREED
 }
+
+// global game settings
+
+game_map_starting="";
+game_player_grid=true;
 
 // save settings
 

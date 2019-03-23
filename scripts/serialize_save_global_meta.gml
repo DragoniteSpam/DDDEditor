@@ -19,6 +19,11 @@ buffer_write(argument0, buffer_string, Stuff.vra_name);
 
 // STARTING_MAP
 
-buffer_write(argument0, buffer_string, Stuff.map_starting);
+buffer_write(argument0, buffer_string, Stuff.game_map_starting);
+
+// GAMEPLAY_GRID
+
+var bools=pack(Stuff.game_player_grid);
+buffer_write(argument0, buffer_u32, bools);
 
 ds_list_destroy(map_list);

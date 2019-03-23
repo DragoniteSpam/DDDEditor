@@ -50,4 +50,5 @@ enum DataVersions {
     STARTING_MAP                =2,
     MAP_VARS                    =3,
     MAP_3D                      =4,
+    GAMEPLAY_GRID               =5,
 }

@@ -1,7 +1,7 @@
 /// Select stuff with the mouse
 
 if (!ActiveMap.is_3d){
-    show_error("hey so yeah you haven't implemented the 2D controls yet, you probably should though");
+    show_error("hey so yeah you haven't implemented the 2D controls yet, you probably should though", true);
 }
 
 mouse_vector=update_mouse_vector(x, y, z, xto, yto, zto, xup, yup, zup, fov, CW/CH);

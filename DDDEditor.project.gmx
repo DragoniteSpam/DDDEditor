@@ -532,6 +532,7 @@
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
           <script>scripts\uivc_settings_embed_tilesets.gml</script>
+          <script>scripts\uivc_settings_game_grid.gml</script>
           <script>scripts\uivc_settings_map_name.gml</script>
           <script>scripts\uivc_settings_map_summary.gml</script>
           <script>scripts\uivc_settings_map_internal.gml</script>
@@ -928,7 +929,7 @@
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>
-    <constant name="CURRENT_VERSION">DataVersions.MAP_3D</constant>
+    <constant name="CURRENT_VERSION">DataVersions.GAMEPLAY_GRID</constant>
     <constant name="CW">1080 /*these aren't meant to be used for view coordinates but window coordinates, otherwise i'd make them relative*/</constant>
     <constant name="DEBUG">true</constant>
     <constant name="EVENT_NODE_CONTACT_HEIGHT">32</constant>
