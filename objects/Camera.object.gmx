@@ -107,6 +107,7 @@ selection_fill_tile_x=4;
 selection_fill_tile_y=0;
 selection_fill_autotile=0;
 
+view_selection_mask=false;
 view_wireframe=false;
 view_grid=true;
 view_backface=false;

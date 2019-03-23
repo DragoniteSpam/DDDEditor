@@ -36,6 +36,8 @@ if (view_texture){
 } else {
     var tex=sprite_get_texture(b_tileset_textureless, 0);
 }
+// todo separate batches for Tiles (including autotiles) and Meshes so that they can
+// be masked correctly
 for (var i=0; i<ds_list_size(ActiveMap.batches); i++){
     if (view_entities){
         vertex_submit(ActiveMap.batches[| i], pr_trianglelist, tex);
@@ -46,11 +48,15 @@ for (var i=0; i<ds_list_size(ActiveMap.batches); i++){
 }
 for (var i=0; i<ds_list_size(ActiveMap.batch_in_the_future); i++){
     var ent=ActiveMap.batch_in_the_future[| i];
-    script_execute(ent.render, ent);
+    if (!view_selection_mask||(1<<ent.etype)&selection_mask){
+        script_execute(ent.render, ent);
+    }
 }
 for (var i=0; i<ds_list_size(ActiveMap.dynamic); i++){
     var ent=ActiveMap.dynamic[| i];
-    script_execute(ent.render, ent);
+    if (!view_selection_mask||(1<<ent.etype)&selection_mask){
+        script_execute(ent.render, ent);
+    }
 }
 
 shader_set(shd_default);

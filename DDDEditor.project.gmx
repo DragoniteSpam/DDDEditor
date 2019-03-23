@@ -578,6 +578,7 @@
         <script>scripts\uivc_check_view_grids.gml</script>
         <script>scripts\uivc_check_view_texture.gml</script>
         <script>scripts\uivc_check_view_wireframe.gml</script>
+        <script>scripts\uivc_check_view_selection_mask.gml</script>
         <script>scripts\uivc_list_autotile_selector.gml</script>
         <script>scripts\uivc_list_selection_autotile.gml</script>
         <script>scripts\uivc_list_selection_mesh.gml</script>

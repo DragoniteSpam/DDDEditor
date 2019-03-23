@@ -43,6 +43,7 @@ ActiveMap.population_solid++;
 // editor properties
 
 slot=MapCellContents.MESHMOB;
+batchable=false;
 
 // there will be other things here probably
 on_select=safc_on_pawn;

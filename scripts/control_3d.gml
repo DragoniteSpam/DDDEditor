@@ -63,7 +63,6 @@ var move_allowed=true;
 if (keyboard_check_pressed(vk_space)){
     sa_fill();
 }
-
 if (keyboard_check_pressed(vk_delete)){
     sa_delete();
 }

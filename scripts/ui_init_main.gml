@@ -85,7 +85,7 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element.height+spacing;
     
-    var s=10;
+    var s=16;
     
     element=create_bitfield(legal_x+spacing, yy, "Selection Mask:", col_width, element_height, null, SELECTION_MASK_ALL, t_general);
     create_bitfield_options_vertical(element, create_bitfield_option_data(ETypeFlags.ENTITY_TILE, ui_render_bitfield_option_text_selection_mask, uivc_bitfield_selection_mask, "Tile", -1, 0, col_width/2, s),
@@ -105,6 +105,11 @@ with (instance_create(0, 0, UIMain)){
     yy=legal_y+spacing;
     
     element=create_button(col2_x, yy, "View Master Texture", col_width, element_height, fa_center, uimu_view_master_texture, t_general);
+    ds_list_add(t_general.contents, element);
+    
+    yy=yy+element.height+spacing;
+    
+    element=create_checkbox(col2_x, yy, "View Selection Mask", col_width, element_height, uivc_check_view_selection_mask, "", Camera.view_wireframe, t_general);
     ds_list_add(t_general.contents, element);
     
     yy=yy+element.height+spacing;
