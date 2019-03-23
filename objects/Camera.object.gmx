@@ -75,8 +75,7 @@ vertex_format_add_position_3d();
 vertex_format_add_normal();
 vertex_format_add_textcoord();
 vertex_format_add_colour();
-//vertex_format_add_custom(vertex_type_float1, vertex_usage_textcoord);
-vertex_format_add_colour();
+vertex_format_add_colour();     // second color information is for extra data
 vertex_format=vertex_format_end();
 
 vertex_format_begin();
