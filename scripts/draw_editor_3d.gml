@@ -4,7 +4,7 @@ if (mouse_within_view(view_3d)&&!dialog_exists()){
 
 d3d_start();
 d3d_set_culling(!view_backface);
-d3d_set_hidden(true);
+d3d_set_hidden(ActiveMap.is_3d);        // this will make things rather odd with the wrong setting
 
 // todo GMS2 requires smooth shading to be handled by the shader(s) now,
 // so to make porting this to GMS2 as pain-free as possible I'd like to
@@ -12,10 +12,13 @@ d3d_set_hidden(true);
 
 draw_set_color(c_white);
 
-d3d_set_projection_ext(x, y, z,
-    xto, yto, zto,
-    xup, yup, zup,
-    fov, CW/CH, 1, 32000);
+if (ActiveMap.is_3d){
+    d3d_set_projection_ext(x, y, z, xto, yto, zto, xup, yup, zup, fov, CW/CH, 1, 32000);
+} else {
+    var cwidth=view_wview[view_3d];
+    var cheight=view_hview[view_3d];
+    d3d_set_projection_ortho(x-cwidth/2, y-cheight/2, cwidth, cheight, 0);
+}
 
 // anything in the world
 

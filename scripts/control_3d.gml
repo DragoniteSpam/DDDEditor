@@ -1,5 +1,9 @@
 /// Select stuff with the mouse
 
+if (!ActiveMap.is_3d){
+    show_error("hey so yeah you haven't implemented the 2D controls yet, you probably should though");
+}
+
 mouse_vector=update_mouse_vector(x, y, z, xto, yto, zto, xup, yup, zup, fov, CW/CH);
 
 var xx=mouse_vector[vec3.xx]*MILLION;
@@ -144,7 +148,7 @@ if (move_allowed){
         var dx=(MOUSE_X-CW/2)/16;
         var dy=(MOUSE_Y-CH/2)/16;
         direction=(360+direction-dx)%360;
-        pitch=clamp(pitch+dy, -80, 80);
+        pitch=clamp(pitch+dy, -89, 89);
         window_mouse_set(CW/2, CH/2);
         xto=x+dcos(direction);
         yto=y-dsin(direction);
