@@ -8,8 +8,8 @@ with (instance_create(0, 0, UIMain)){
     // it would be best if you don't ask to access these later but if you need to these are just
     // object variables so you can look them up
     t_general=create_tab("General", 0, id, HelpPages.TAB_GENERAL);
-    t_1=create_tab("filling", 0, id);
-    t_2=create_tab("space", 0, id);
+    t_stats=create_tab("Stats", 0, id);
+    t_2=create_tab("ehh", 0, id);
     
     t_p_tile_editor=create_tab("Tile Ed.", 1, id, HelpPages.TAB_TILE_EDITOR);
     t_p_autotile_editor=create_tab("Autotile Ed.", 1, id, HelpPages.TAB_AUTOTILE_EDITOR);
@@ -25,7 +25,7 @@ with (instance_create(0, 0, UIMain)){
     
     // the game will crash if you create a tab row with zero width.
     var tr_general=ds_list_create();
-    ds_list_add(tr_general, t_general, t_1, t_2);
+    ds_list_add(tr_general, t_general, t_stats, t_2);
     var tr_editor=ds_list_create();
     ds_list_add(tr_editor, t_p_tile_editor, t_p_autotile_editor, t_p_mesh_editor, t_p_other_editor);
     var tr_world=ds_list_create();
@@ -127,6 +127,18 @@ with (instance_create(0, 0, UIMain)){
     
     element=create_checkbox(col2_x, yy, "Dummy Option 3", col_width, element_height, null, "", false, t_general);
     ds_list_add(t_general.contents, element);
+    
+    /*
+     * entity tab
+     */
+    
+    yy=legal_y+spacing;
+    
+    element_all_entities=create_list(legal_x+spacing, yy, "All Entities", "<No entities>", col_width, element_height, 28, null, true, t_stats);
+    element_all_entities.render=ui_render_list_all_entities;
+    ds_list_add(t_stats.contents, element_all_entities);
+    
+    yy=yy+element.height+spacing;
     
     /*
      * entity tab

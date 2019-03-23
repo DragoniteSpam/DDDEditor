@@ -41,6 +41,19 @@ summary="It's a map, that does map things";
 
 tileset=0;                              // index
 
+audio_bgm="";                           // internal name
+audio_ambient=ds_list_create();         // list of internal names
+audio_ambient_frequencies=ds_list_create();  // list of bytes
+
+fog_start=256;                          // float
+fog_end=1024;                           // float
+indoors=false;                          // bool
+draw_water=true;                        // bool
+fast_travel_to=true;                    // bool
+fast_travel_from=true;                  // bool
+
+discovery=0;                            // index
+
 // internal stuff
 batches=ds_list_create();               // vertex buffers
 batches_wire=ds_list_create();          // vertex buffers
@@ -99,9 +112,26 @@ ds_list_destroy_instances/*_scheduled*/(all_entities);
 ds_grid_destroy(map_grid);
 
 vertex_delete_buffer(frozen);
+
+ds_list_destroy(audio_ambient);
+ds_list_destroy(audio_ambient_frequencies);
 </string>
           </argument>
         </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>114</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_reverse_ydir</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
   </events>
