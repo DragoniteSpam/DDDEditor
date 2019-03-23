@@ -36,15 +36,15 @@ var vy2=y1+argument0.value_y2;
 var vtx=vx1+12;
 var vty=mean(vy1, vy2);
 
+if (!argument0.interactive){
+    draw_rectangle_colour(vx1+1, vy1+1, vx2-1, vy2-1, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
+}
+draw_rectangle(vx1, vy1, vx2, vy2, true);
+
 draw_text_ext_colour(vtx, vty, value, -1, (vx2-vtx), c, c, c, c, 1);
 if (string_length(value)==0){
     draw_text_ext_colour(vtx, vty, argument0.value_default, -1, (vx2-2*vtx), c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 }
-
-if (!argument0.interactive){
-    draw_rectangle_colour(vx1, vy1, vx2, vy2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, true);
-}
-draw_rectangle(vx1, vy1, vx2, vy2, true);
 
 if (argument0.interactive&&dialog_is_active(argument0.root)){
     if (ui_is_active(argument0)){
