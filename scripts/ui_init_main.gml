@@ -108,12 +108,12 @@ with (instance_create(0, 0, UIMain)){
     ds_list_add(t_general.contents, element);
     
     yy=yy+element.height+spacing;
-    
+    /*
     element=create_checkbox(col2_x, yy, "View Selection Mask", col_width, element_height, uivc_check_view_selection_mask, "", Camera.view_wireframe, t_general);
     ds_list_add(t_general.contents, element);
     
     yy=yy+element.height+spacing;
-    
+    */
     element=create_checkbox(col2_x, yy, "View Wireframes", col_width, element_height, uivc_check_view_wireframe, "", Camera.view_wireframe, t_general);
     ds_list_add(t_general.contents, element);
     

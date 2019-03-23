@@ -55,8 +55,8 @@ fast_travel_from=true;                  // bool
 discovery=0;                            // index
 
 // internal stuff
-batches=ds_list_create();               // vertex buffers
-batches_wire=ds_list_create();          // vertex buffers
+batches=ds_list_create();          // vertex buffers
+batches_wire=ds_list_create();
 
 batch_instances=ds_list_create();       // entities
 batch_in_the_future=ds_list_create();   // entities
