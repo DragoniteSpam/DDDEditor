@@ -34,7 +34,6 @@ switch (argument0.type){
         // each entry won't have more than four lines
         y2=y1+24+32+ds_list_size(argument0.data)*entry_height;
         
-        debug(string(y2)+" - "+string(view_yview[view_current]+view_hview[view_current]))
         if (rectangle_within_view(view_current, x1, y1, x2, y2)){
             draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
             draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
