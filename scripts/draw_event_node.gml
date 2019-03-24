@@ -34,6 +34,7 @@ switch (argument0.type){
         // each entry won't have more than four lines
         y2=y1+24+32+ds_list_size(argument0.data)*entry_height;
         
+        debug(string(y2)+" - "+string(view_yview[view_current]+view_hview[view_current]))
         if (rectangle_within_view(view_current, x1, y1, x2, y2)){
             draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_basic));
             draw_roundrect_colour(x1, y1, x2, y2, c_ev_basic, c_ev_basic, false);
@@ -75,7 +76,10 @@ switch (argument0.type){
             }
             
             draw_event_node_delete(x2, y1, argument0);
-            draw_event_node_text_add(mean(x1, x2), y2, argument0);
+            
+            if (ds_list_size(argument0.outbound)<250){
+                draw_event_node_text_add(mean(x1, x2), y2, argument0);
+            }
         }
         break;
 }
