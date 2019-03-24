@@ -528,6 +528,7 @@
         </scripts>
         <scripts name="events">
           <script>scripts\uivc_list_selection_event_node.gml</script>
+          <script>scripts\uivc_list_selection_event.gml</script>
         </scripts>
         <scripts name="selection mask">
           <script>scripts\uivc_bitfield_selection_mask.gml</script>
@@ -675,6 +676,7 @@
           <script>scripts\ui_render_image_button_autotile.gml</script>
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
+          <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
             <script>scripts\ui_render_text_stats_static.gml</script>

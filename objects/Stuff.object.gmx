@@ -25,6 +25,93 @@
         <arguments>
           <argument>
             <kind>1</kind>
+            <string>/// enums that i need to put somewhere
+
+enum SerializeThings {
+    ERROR                   =$00000000,
+    // basic stuff
+    MESHES_META             =$00000001,
+    MESHES_REF              =$00000002,
+    MESHES                  =$00000003,
+    TILESET_META            =$00000004,
+    TILESET_BASE            =$00000005,
+    TILESET_AUTO            =$00000006,
+    TILESET_ALL             =$00000007,
+    PARTICLES               =$00000008,
+    NPCS                    =$00000009,
+    NPCS_FULL               =$0000000A,
+    FOLLOWERS               =$0000000B,
+    FOLLOWERS_FULL          =$0000000C,
+    MISC_GRAPHICS           =$0000000D,
+    MISC_GRAPHICS_FULL      =$0000000E,
+    UI_GRAPHICS             =$0000000F,
+    UI_GRAPHICS_FULL        =$00000010,
+    GLOBAL_GRAPHICS         =$00000011,
+    AUDIO_SE                =$00000012,
+    AUDIO_SE_FULL           =$00000013,
+    AUDIO_BGM               =$00000014,
+    MAP_BATCH               =$00000015,
+    MAP_DYNAMIC             =$00000016,
+    EVENTS                  =$00000017,
+    AUTOTILES_META          =$00000018,
+    AUTOTILES               =$00000019,
+    MAP_META                =$0000001A,
+    // game data - items, monsters, classes, etc
+    DATA_ERROR              =$00000100,
+    // misc
+    MISC_ERROR              =$00001000,
+    MISC_MAP_META           =$00001001,
+    MISC_GLOBAL             =$00001002,
+    MISC_UI                 =$00001003
+}
+
+enum ETypes {
+    ENTITY,
+    ENTITY_TILE,
+    ENTITY_TILE_AUTO,
+    ENTITY_MESH,
+    ENTITY_PAWN,
+    ENTITY_EFFECT,
+    ENTITY_EVENT
+}
+
+enum ETypeFlags {
+    ENTITY                  =1&lt;&lt;0,
+    ENTITY_TILE             =1&lt;&lt;1,
+    ENTITY_TILE_AUTO        =1&lt;&lt;2,
+    ENTITY_MESH             =1&lt;&lt;3,
+    ENTITY_PAWN             =1&lt;&lt;4,
+    ENTITY_EFFECT           =1&lt;&lt;5,
+    ENTITY_EVENT            =1&lt;&lt;6,
+}
+
+etype_objects=array_compose(Entity,
+    EntityTile,
+    EntityAutoTile,
+    EntityMesh,
+    EntityPawn,
+    EntityEffect,
+    EntityEvent);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
             <string>/// this is basically World/Settings
 
 if (DEBUG){
@@ -168,93 +255,6 @@ setting_embed_meshes=false;         // already stored in vrax but okay
 setting_embed_se=true;              // possibly large number of small sound effects
 
 setting_compression_level=5;        // 0 (none) through 9 (smallest)
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// enums that i need to put somewhere
-
-enum SerializeThings {
-    ERROR                   =$00000000,
-    // basic stuff
-    MESHES_META             =$00000001,
-    MESHES_REF              =$00000002,
-    MESHES                  =$00000003,
-    TILESET_META            =$00000004,
-    TILESET_BASE            =$00000005,
-    TILESET_AUTO            =$00000006,
-    TILESET_ALL             =$00000007,
-    PARTICLES               =$00000008,
-    NPCS                    =$00000009,
-    NPCS_FULL               =$0000000A,
-    FOLLOWERS               =$0000000B,
-    FOLLOWERS_FULL          =$0000000C,
-    MISC_GRAPHICS           =$0000000D,
-    MISC_GRAPHICS_FULL      =$0000000E,
-    UI_GRAPHICS             =$0000000F,
-    UI_GRAPHICS_FULL        =$00000010,
-    GLOBAL_GRAPHICS         =$00000011,
-    AUDIO_SE                =$00000012,
-    AUDIO_SE_FULL           =$00000013,
-    AUDIO_BGM               =$00000014,
-    MAP_BATCH               =$00000015,
-    MAP_DYNAMIC             =$00000016,
-    EVENTS                  =$00000017,
-    AUTOTILES_META          =$00000018,
-    AUTOTILES               =$00000019,
-    MAP_META                =$0000001A,
-    // game data - items, monsters, classes, etc
-    DATA_ERROR              =$00000100,
-    // misc
-    MISC_ERROR              =$00001000,
-    MISC_MAP_META           =$00001001,
-    MISC_GLOBAL             =$00001002,
-    MISC_UI                 =$00001003
-}
-
-enum ETypes {
-    ENTITY,
-    ENTITY_TILE,
-    ENTITY_TILE_AUTO,
-    ENTITY_MESH,
-    ENTITY_PAWN,
-    ENTITY_EFFECT,
-    ENTITY_EVENT
-}
-
-enum ETypeFlags {
-    ENTITY                  =1&lt;&lt;0,
-    ENTITY_TILE             =1&lt;&lt;1,
-    ENTITY_TILE_AUTO        =1&lt;&lt;2,
-    ENTITY_MESH             =1&lt;&lt;3,
-    ENTITY_PAWN             =1&lt;&lt;4,
-    ENTITY_EFFECT           =1&lt;&lt;5,
-    ENTITY_EVENT            =1&lt;&lt;6,
-}
-
-etype_objects=array_compose(Entity,
-    EntityTile,
-    EntityAutoTile,
-    EntityMesh,
-    EntityPawn,
-    EntityEffect,
-    EntityEvent);
 </string>
           </argument>
         </arguments>
