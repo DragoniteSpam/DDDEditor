@@ -246,6 +246,7 @@
       <script>scripts\string_backspace.gml</script>
       <scripts name="input validation">
         <script>scripts\validate_string.gml</script>
+        <script>scripts\validate_string_event_name.gml</script>
         <script>scripts\validate_string_internal_name.gml</script>
         <script>scripts\validate_int.gml</script>
         <script>scripts\validate_double.gml</script>
@@ -615,6 +616,9 @@
         <script>scripts\omu_manager_tileset.gml</script>
         <scripts name="events">
           <script>scripts\omu_event_add_entrypoint.gml</script>
+          <script>scripts\omu_event_add_event.gml</script>
+          <script>scripts\omu_event_remove_event.gml</script>
+          <script>scripts\omu_event_rename_event.gml</script>
           <script>scripts\omu_event_add_text.gml</script>
         </scripts>
       </scripts>

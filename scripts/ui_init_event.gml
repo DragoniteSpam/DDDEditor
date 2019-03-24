@@ -69,7 +69,7 @@ with (instance_create(0, 0, UIMain)){
     ds_list_add(t_data.contents, element);
     
     /*
-     * Node list
+     * Event list
      */
     
     var yy=legal_y+spacing;
@@ -79,7 +79,24 @@ with (instance_create(0, 0, UIMain)){
     element.render=ui_render_list_event;
     ds_list_add(t_events.contents, element);
     
+    t_events.el_event_list=element;
+    
     yy=yy+element_height+spacing+element.height*element.slots;
+    
+    element=create_button(legal_x+spacing, yy, "Add Event", element_width, element_height, fa_left, omu_event_add_event, t_events);
+    ds_list_add(t_events.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_button(legal_x+spacing, yy, "Rename", element_width, element_height, fa_left, omu_event_rename_event, t_events);
+    ds_list_add(t_events.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_button(legal_x+spacing, yy, "Delete", element_width, element_height, fa_left, omu_event_remove_event, t_events);
+    ds_list_add(t_events.contents, element);
+    
+    yy=yy+element_height+spacing;
     
     return id;
 }

@@ -6,7 +6,12 @@ var n=ds_list_size(argument0);;
 
 for (var i=0; i<n; i++){
     instance_activate_object(argument0[| i]);
+    // this was giving me issues earlier but i wasn't able to reproduce them
+    /*if (!instance_exists(argument0[| i])){
+    show_message(argument0[| i])
+    } else {*/
     instance_destroy(argument0[| i]);
+    /*}*/
 }
 
 return n;
