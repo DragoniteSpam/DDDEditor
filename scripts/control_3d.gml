@@ -30,7 +30,7 @@ if (zz<z){
     floor_cy=clamp(floor_y div TILE_HEIGHT, 0, ActiveMap.yy);
     
     if (Controller.press_left){
-        if (!keyboard_check_direct(input_selection_add)&&!selection_addition){
+        if (!keyboard_check(input_selection_add)&&!selection_addition){
             selection_clear();
         }
         switch (selection_mode){
@@ -74,7 +74,7 @@ if (keyboard_check_pressed(vk_delete)){
 /*
  * General keyboard shortcuts
  */
-if (keyboard_check_direct(vk_control)){
+if (keyboard_check(vk_control)){
     move_allowed=false;
     /*
      * file
@@ -83,7 +83,7 @@ if (keyboard_check_direct(vk_control)){
         momu_new(noone);
     }
     if (keyboard_check_pressed(ord("S"))){
-        if (keyboard_check_direct(vk_shift)){
+        if (keyboard_check(vk_shift)){
             momu_save_data(noone);
         } else {
             momu_save_map(noone);

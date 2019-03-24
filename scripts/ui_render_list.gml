@@ -38,7 +38,11 @@ if (n==0){
             draw_rectangle_colour(x1, ya, x2, yb, c, c, c, c, false);
         }
         
-        var c=argument0.entry_colors[| index];
+        if (argument0.colorize){
+            var c=argument0.entry_colors[| index];
+        } else {
+            var c=c_black;
+        }
         if (argument0.entries_are_instances){
             draw_text_colour(tx, tya, argument0.entries[| index].name, c, c, c, c, 1);
         } else {
@@ -61,10 +65,10 @@ if (argument0.interactive&&active){
             // if this ends up having a bounds problem it's probably because the list is empty and
             // it's trying to access n-1 from the next line
             var mn=min(((Camera.MOUSE_Y-y2) div argument0.height)+argument0.index, n-1);
-            if ((!keyboard_check_direct(vk_control)&&!keyboard_check_direct(vk_shift))||!argument0.allow_multi_select){
+            if ((!keyboard_check(vk_control)&&!keyboard_check(vk_shift))||!argument0.allow_multi_select){
                 ds_map_clear(argument0.selected_entries);
             }
-            if (argument0.allow_multi_select&&keyboard_check_direct(vk_shift)){
+            if (argument0.allow_multi_select&&keyboard_check(vk_shift)){
                 if (argument0.last_index>-1){
                     var d=clamp(mn-argument0.last_index, -1, 1);
                     for (var i=argument0.last_index; i!=mn; i=i+d){

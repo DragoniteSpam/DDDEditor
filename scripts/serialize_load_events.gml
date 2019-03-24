@@ -72,6 +72,8 @@ repeat(n_events){
 }
 
 // by default, set the 0th event as the active event
-if (ds_list_size(Stuff.all_events)>0){
-    Stuff.active_event=Stuff.all_events[| 0];
+if (ds_list_empty(Stuff.all_events)){
+    ds_list_add(all_events, event_create("DefaultEvent"));
 }
+
+Stuff.active_event=Stuff.all_events[| 0];
