@@ -183,6 +183,8 @@
     <sprite>sprites\spr_scroll</sprite>
     <sprite>sprites\spr_check</sprite>
     <sprite>sprites\spr_event_outbound</sprite>
+    <sprite>sprites\spr_plus_minus</sprite>
+    <sprite>sprites\spr_scroll_arrow_enclosed</sprite>
     <sprite>sprites\spr_event_delete</sprite>
     <sprite>sprites\spr_event_dot</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
@@ -191,6 +193,17 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="event stuff">
+      <script>scripts\draw_active_event.gml</script>
+      <script>scripts\draw_event_node.gml</script>
+      <script>scripts\draw_event_drag_handle.gml</script>
+      <script>scripts\draw_event_node_outbound.gml</script>
+      <script>scripts\draw_event_node_text_add.gml</script>
+      <script>scripts\draw_event_node_text_remove.gml</script>
+      <script>scripts\draw_event_node_text_move.gml</script>
+      <script>scripts\draw_event_node_delete.gml</script>
+      <script>scripts\draw_event_node_title.gml</script>
+    </scripts>
     <script>scripts\null.gml</script>
     <scripts name="Math">
       <scripts name="Transform">
@@ -329,14 +342,6 @@
         <script>scripts\draw_editor_menu.gml</script>
         <script>scripts\draw_preview_3d.gml</script>
         <script>scripts\draw_preview_3d_overlay.gml</script>
-        <scripts name="event stuff">
-          <script>scripts\draw_active_event.gml</script>
-          <script>scripts\draw_event_node.gml</script>
-          <script>scripts\draw_event_drag_handle.gml</script>
-          <script>scripts\draw_event_node_outbound.gml</script>
-          <script>scripts\draw_event_node_delete.gml</script>
-          <script>scripts\draw_event_node_title.gml</script>
-        </scripts>
       </scripts>
     </scripts>
     <scripts name="Maps">
