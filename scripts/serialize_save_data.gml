@@ -16,7 +16,7 @@ if (string_length(fn)>0){
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
-    buffer_write(buffer, buffer_u32, CURRENT_VERSION);
+    buffer_write(buffer, buffer_u32, DataVersions._CURRENT-1);
     buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
     buffer_write(buffer, buffer_u32, things);
     
@@ -51,4 +51,6 @@ enum DataVersions {
     MAP_VARS                    =3,
     MAP_3D                      =4,
     GAMEPLAY_GRID               =5,
+    EVENT_GUID                  =6,
+    _CURRENT                    /* = whatever the last one is + 1 */
 }

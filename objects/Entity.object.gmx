@@ -55,6 +55,9 @@ xx=0;
 yy=0;
 zz=0;
 
+event_id=0;
+event_entrypoint="";
+
 // these are a formality
 target_xx=xx;
 target_yy=yy;

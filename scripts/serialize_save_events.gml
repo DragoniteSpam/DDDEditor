@@ -9,6 +9,7 @@ for (var i=0; i<n_events; i++){
     var event=Stuff.all_events[| i];
     var n_nodes=ds_list_size(event.nodes);
     buffer_write(argument0, buffer_string, event.name);
+    buffer_write(argument0, buffer_u32, event.GUID);        // DataVersions.EVENT_GUID
     buffer_write(argument0, buffer_u32, n_nodes);
     
     for (var j=0; j<n_nodes; j++){

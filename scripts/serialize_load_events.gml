@@ -8,6 +8,9 @@ Stuff.active_event=noone;
 repeat(n_events){
     var event_name=buffer_read(argument0, buffer_string);
     var event=event_create(event_name);
+    if (version>=DataVersions.EVENT_GUID){
+        data_set_guid(event, buffer_read(argument0, buffer_u32));
+    }
     ds_list_add(Stuff.all_events, event);
     // events are created with an entrypoint by default - you could pass an optional
     // parameter to the constructor to have it not do this, but this is the only place
