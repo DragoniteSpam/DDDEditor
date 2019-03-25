@@ -11,7 +11,7 @@ with (Stuff){
 
 // if there's a list to be refreshed, refresh the list
 if (argument0!=noone){
-    clear_list_entries(argument0.root.el_list);
+    ui_list_clear(argument0.root.el_list);
     for (var i=0; i<ds_list_size(Stuff.all_mesh_names); i++){
         create_list_entries(argument0.root.el_list, Stuff.all_mesh_names[| i], c_black);
     }

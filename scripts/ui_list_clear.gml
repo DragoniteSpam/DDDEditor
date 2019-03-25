@@ -1,4 +1,4 @@
-/// void clear_list_entries(UIList);
+/// void ui_list_clear(UIList);
 
 ds_list_clear(argument0.entries);
 ds_list_clear(argument0.entry_colors);

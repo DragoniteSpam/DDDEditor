@@ -1,6 +1,6 @@
 To Do
 
-Give (all) entities both an Event (u16) and an entrypoint (string) for events that they call
+Give (all) entities both an Event (u32) and an entrypoint (string) for events that they call
 
 Make the game do something with said events/entrypoints
 

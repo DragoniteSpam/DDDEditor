@@ -286,7 +286,25 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_entity_static.height+spacing;
     
-    vx2=vx1+80;
+    var n=10;
+    
+    element_entity_events=create_list(legal_x+spacing, yy, "Event Pages", "<No events>", col_width, element_height, n, null, false, t_p_entity);
+    element_entity_events.colorize=false;
+    element_entity_events.render=ui_render_list_entity_events;
+    element_entity_events.entries_are_instances=true;
+    ds_list_add(t_p_entity.contents, element_entity_events);
+    
+    yy=yy+element_height*n+spacing+spacing;
+    
+    element_entity_event_add=create_button(legal_x+spacing, yy, "Add Event Page", col_width, element_height, fa_center, omu_entity_add_event, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_event_add);
+    
+    yy=yy+element_entity_event_add.height+spacing;
+    
+    element_entity_event_remove=create_button(legal_x+spacing, yy, "Delete Event Page", col_width, element_height, fa_center, omu_entity_remove_event, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_event_remove);
+    
+    yy=yy+element_entity_event_remove.height+spacing;
     
     /*
      * tile tab

@@ -14,3 +14,5 @@ if (am_solid){
 if (static){
     ActiveMap.population_static--;
 }
+
+ds_list_destroy(object_events);

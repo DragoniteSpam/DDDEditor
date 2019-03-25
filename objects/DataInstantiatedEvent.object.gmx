@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>&lt;undefined&gt;</parentName>
+  <parentName>Data</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -25,80 +25,66 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>name='Entity';
-etype=ETypes.ENTITY;
+            <string>/// This is analagous to an "event page" in RPG Maker
+event_inherited();
 
-ActiveMap.population[ETypes.ENTITY]++;
+name="instantiated event";
 
-// for fusing all static objects such as ground tiles and houses together,
-// so the computer doesn't waste time drawing every single visible Entity
-// individually
-batch=null;
+// conditions - these just mirror RPG Maker currently. I'm not sure if all, if any, will
+// be used and will probably try to figure out how to implement Lua or something instead
 
-// for things that don't fit into the above category, including but not limited
-// to NPCs, things that animate, things that move and things that need special
-// shaders
-render=null;
+disabled=false;
 
-// for what happens when you click on the entity
-selector=null;
+condition_switch_global=0;
+condition_switch_self=0;
+condition_variable_global=0;
+condition_variable_self=0;
+condition_item=0;
+condition_actor=0;
+condition_script=0;
 
-// files
-save_script=serialize_save_entity;
-load_script=serialize_load_entity;
+// autonomous movement - only useful for things not marked as "static"
 
-// you can have scripts that do both, if you want to have a static thing that
-// sparkles or something
+autonomous_movement=AutonomousMovementTypes.FIXED;
+autonomous_movement_speed=3;                            // 0: 0.125, 1: 0.25, 2: 0.5, 3: 1, 4: 2, 5: 4
+autonomous_movement_frequency=2;                        // 0 through 4
+autonomous_movement_route=ds_list_create();
+autonomous_movement_route_repeat=true;
+autonomous_movement_route_skip=false;
 
-// serialize
-xx=0;
-yy=0;
-zz=0;
-
-object_events=ds_list_create();         // i'm imposing a hard limit of 10 of these
-
-// these are a formality
-target_xx=xx;
-target_yy=yy;
-target_zz=zz;
-previous_xx=xx;
-previous_yy=yy;
-previous_zz=zz;
-// serialize: don't want to use the built-in "solid" variable since that might
-// cause things to break unexpectedly
-am_solid=false;
-static=false;           // anything that isn't intended to move - if batchable
-                        // is true, this can be turned on or off, otherwise it can't
-
-// editor properties
-
-// the game will know in advance whether something is to
-// be batched or not. remember to override this in dynamic entities.
-batchable=true;
-batch_index=-1;
-modification=Modifications.CREATE;
-
-slot=MapCellContents.TILE;
-listed=false; // sigh
-
-enum Modifications {
-    NONE,
-    CREATE,
-    UPDATE,
-    REMOVE
+enum AutonomousMovementTypes {
+    FIXED,
+    RANDOM,
+    APPROACH,
+    CUSTOM
 }
 
-// whether you're allowed to stick multiple of these (same type of)
-// objects at in the same cell
-coexist=false;
+// options
 
-// collision data
-cobject=noone;
+option_animate_movement=true;                   // "walking" in RPG Maker
+option_animate_idle=false;                      // "stepping" in RPG Maker
+option_direction_fix=false;
+// option_through=false;                        // handled by entity "solid" attributes
 
-on_create=null;
-on_update=null;
-on_destroy=null;
-on_select=safc_on_entity;
+// trigger
+
+trigger=EventTriggers.ActionButton;
+
+enum EventTriggers {
+    ActionButton,
+    PlayerTouch,
+    EventTouch,
+    Autorun,
+    Parallel,
+}
+
+// not used: Image (since events are attached to entities)
+// not used: Priority (since priority is attached to entities)
+
+// the important bit
+
+event_guid=0;
+event_entrypoint="";
 </string>
           </argument>
         </arguments>
@@ -115,13 +101,15 @@ on_select=safc_on_entity;
         <exetype>2</exetype>
         <functionname></functionname>
         <codestring></codestring>
-        <whoName>Entity</whoName>
+        <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>entity_destroy();
+            <string>event_inherited();
+
+ds_list_destroy(autonomous_movement_route);
 </string>
           </argument>
         </arguments>

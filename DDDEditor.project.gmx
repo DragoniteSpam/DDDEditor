@@ -263,6 +263,7 @@
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
       <script>scripts\selection_empty.gml</script>
+      <script>scripts\selection_count.gml</script>
       <script>scripts\selection_all.gml</script>
       <script>scripts\select_single.gml</script>
       <script>scripts\selected.gml</script>
@@ -404,7 +405,6 @@
           <script>scripts\create_bitfield_options.gml</script>
           <script>scripts\create_bitfield_options_vertical.gml</script>
           <script>scripts\create_list_entries.gml</script>
-          <script>scripts\clear_list_entries.gml</script>
           <script>scripts\create_bitfield_option_data.gml</script>
         </scripts>
       </scripts>
@@ -621,6 +621,10 @@
           <script>scripts\omu_event_rename_event.gml</script>
           <script>scripts\omu_event_add_text.gml</script>
         </scripts>
+        <scripts name="entities">
+          <script>scripts\omu_entity_add_event.gml</script>
+          <script>scripts\omu_entity_remove_event.gml</script>
+        </scripts>
       </scripts>
       <scripts name="rendering">
         <script>scripts\ui_render.gml</script>
@@ -681,6 +685,7 @@
           <script>scripts\ui_render_image_button_autotile.gml</script>
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
+          <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
@@ -708,6 +713,7 @@
       <script>scripts\ui_value_real.gml</script>
       <script>scripts\ui_value_string.gml</script>
       <scripts name="help">
+        <script>scripts\ui_list_clear.gml</script>
         <script>scripts\ui_list_selection.gml</script>
       </scripts>
       <script>scripts\ui_init_main.gml</script>
@@ -783,7 +789,7 @@
         <script>scripts\c_world_remove_object.gml</script>
       </scripts>
     </scripts>
-    <scripts name="data">
+    <scripts name="resources">
       <script>scripts\data_load_vra_actually_thanks.gml</script>
       <script>scripts\data_load_vra_names_only.gml</script>
       <script>scripts\data_load_vra.gml</script>
@@ -797,6 +803,7 @@
       <script>scripts\data_clear_map.gml</script>
       <script>scripts\data_rename_map.gml</script>
       <script>scripts\data_set_guid.gml</script>
+      <script>scripts\sprite_add_autotile.gml</script>
     </scripts>
     <scripts name="misc graphics">
       <script>scripts\draw_checkerbox.gml</script>
@@ -820,6 +827,9 @@
       <script>scripts\event_seek_node.gml</script>
       <script>scripts\event_view_node.gml</script>
       <script>scripts\event_get_node.gml</script>
+      <scripts name="instantiated">
+        <script>scripts\create_instantiated_event.gml</script>
+      </scripts>
     </scripts>
     <scripts name="serialization">
       <scripts name="load">
@@ -860,9 +870,6 @@
       <script>scripts\serialize_save_data.gml</script>
       <script>scripts\serialize_save_map.gml</script>
     </scripts>
-    <scripts name="Resources">
-      <script>scripts\sprite_add_autotile.gml</script>
-    </scripts>
   </scripts>
   <shaders name="shaders">
     <shader type="GLSLES">shaders\shd_default.shader</shader>
@@ -888,6 +895,7 @@
       </objects>
       <objects name="More Data">
         <object>objects\Data</object>
+        <object>objects\DataInstantiatedEvent</object>
         <object>objects\DataTileset</object>
         <object>objects\DataObject</object>
         <object>objects\DataEvent</object>

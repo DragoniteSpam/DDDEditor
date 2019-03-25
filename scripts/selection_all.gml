@@ -1,4 +1,5 @@
-/// void selection_all();
+/// list selection_all();
+// this is O(n). Use with caution.
 
 var list=ds_list_create();
 

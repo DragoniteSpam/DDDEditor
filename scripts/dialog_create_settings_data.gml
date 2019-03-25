@@ -83,7 +83,7 @@ return dg;
 
 var data_maps=ds_map_to_list_sorted(Stuff.all_maps);
 
-clear_list_entries(argument0);
+ui_list_clear(argument0);
 
 for (var i=0; i<ds_list_size(data_maps); i++){
     if (Stuff.game_map_starting==data_maps[| i]){
