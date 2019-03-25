@@ -435,6 +435,7 @@
           <script>scripts\dialog_create_notice.gml</script>
           <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
           <script>scripts\dialog_create_yes_or_no.gml</script>
+          <script>scripts\dialog_create_entity_get_event.gml</script>
         </scripts>
         <script>scripts\dialog_create.gml</script>
         <script>scripts\dialog_destroy.gml</script>
@@ -455,6 +456,9 @@
           </scripts>
           <scripts name="cancel destroy">
             <script>scripts\dmu_dialog_cancel_destroy_data.gml</script>
+          </scripts>
+          <scripts name="entities">
+            <script>scripts\dmu_dialog_entity_get_event.gml</script>
           </scripts>
         </scripts>
         <scripts name="render">
@@ -640,6 +644,7 @@
         </scripts>
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
+          <script>scripts\omu_entity_get_event.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
         </scripts>
       </scripts>

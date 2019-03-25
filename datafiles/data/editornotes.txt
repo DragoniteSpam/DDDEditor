@@ -15,6 +15,9 @@ In the Autotile Editor tab, the button that says "click for autotile" spawns a d
 select an autotile, with a button that says "Autotile Data" . . . which opens a dialog that's almost
 exactly the same. The button should instead just open a file selector.
 
+Cache the selected entities somewhere every time it changes so the list doesn't have to be re-summoned
+(selection_all()) every time you want to do something with them
+
 Autotiles
 
 the reconfigure code doesn't work properly in all cases. pretty sure the math to calculate the

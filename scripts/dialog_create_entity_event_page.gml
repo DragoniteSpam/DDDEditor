@@ -74,9 +74,11 @@ yy=yy+eh+eh*5+spacing;
 
 var el_event=create_text(c2+16, yy, "Event Details", ew, eh, fa_left, ew, dg);
 yy=yy+eh+spacing;
-var el_event_guid=create_button(c2+16, yy, "Event: None Set", ew, eh, fa_left, null, dg);
+var el_event_guid=create_button(c2+16, yy, "Event: None Set", ew, eh, fa_left, omu_entity_get_event, dg);
+dg.el_event_guid=el_event_guid;
 yy=yy+eh+spacing;
 var el_event_entrypoint=create_button(c2+16, yy, "Entrypoint: None Set", ew, eh, fa_left, null, dg);
+dg.el_event_entrypoint=el_event_entrypoint;
 
 yy=yy+eh+spacing;
 
