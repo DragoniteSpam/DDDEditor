@@ -527,6 +527,21 @@
           <script>scripts\uivc_check_entity_solid.gml</script>
           <script>scripts\uivc_check_entity_static.gml</script>
           <script>scripts\uivc_input_entity_name.gml</script>
+          <script>scripts\uivc_entity_event_name.gml</script>
+          <script>scripts\uivc_entity_event_enable.gml</script>
+          <script>scripts\uivc_entity_event_enable_switch_global.gml</script>
+          <script>scripts\uivc_entity_event_enable_switch_self.gml</script>
+          <script>scripts\uivc_entity_event_enable_variable_global.gml</script>
+          <script>scripts\uivc_entity_event_enable_variable_self.gml</script>
+          <script>scripts\uivc_entity_event_enable_item.gml</script>
+          <script>scripts\uivc_entity_event_enable_code.gml</script>
+          <script>scripts\uivc_entity_event_animate_movement.gml</script>
+          <script>scripts\uivc_entity_event_animate_idle.gml</script>
+          <script>scripts\uivc_entity_event_direction_fix.gml</script>
+          <script>scripts\uivc_entity_event_trigger.gml</script>
+          <script>scripts\uivc_entity_event_auto_move.gml</script>
+          <script>scripts\uivc_entity_event_auto_speed.gml</script>
+          <script>scripts\uivc_entity_event_auto_frequency.gml</script>
         </scripts>
         <scripts name="events">
           <script>scripts\uivc_list_selection_event_node.gml</script>
@@ -619,9 +634,9 @@
         <scripts name="events">
           <script>scripts\omu_event_add_entrypoint.gml</script>
           <script>scripts\omu_event_add_event.gml</script>
+          <script>scripts\omu_event_add_text.gml</script>
           <script>scripts\omu_event_remove_event.gml</script>
           <script>scripts\omu_event_rename_event.gml</script>
-          <script>scripts\omu_event_add_text.gml</script>
         </scripts>
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
