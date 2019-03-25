@@ -425,6 +425,7 @@
         <scripts name="creation">
           <script>scripts\dialog_create_preferences.gml</script>
           <script>scripts\dialog_create_settings_map.gml</script>
+          <script>scripts\dialog_create_entity_event_page.gml</script>
           <script>scripts\dialog_create_settings_data.gml</script>
           <script>scripts\dialog_create_manager_mesh.gml</script>
           <script>scripts\dialog_create_manager_tileset.gml</script>
@@ -611,6 +612,7 @@
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
+        <script>scripts\omu_entity_event_page.gml</script>
         <script>scripts\omu_manager_autotile.gml</script>
         <script>scripts\omu_manager_mesh.gml</script>
         <script>scripts\omu_manager_tileset.gml</script>

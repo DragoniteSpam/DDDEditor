@@ -8,7 +8,9 @@ var y2=y1+argument0.height*(1+ds_list_size(argument0.contents));
 var tx=ui_get_text_x(argument0, x1, x2);
 var ty=ui_get_text_y(argument0, y1, y1+argument0.height);
 
-draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);
+if (argument0.outline){
+    draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);
+}
 
 draw_set_halign(argument0.alignment);
 draw_set_valign(argument0.valignment);

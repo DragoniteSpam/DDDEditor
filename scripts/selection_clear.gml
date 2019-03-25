@@ -14,3 +14,4 @@ ds_map_clear(Camera.ui.element_entity_events.selected_entries);
 
 Camera.ui.element_entity_event_add.interactive=false;
 Camera.ui.element_entity_event_remove.interactive=false;
+Camera.ui.element_entity_event_edit.interactive=false;

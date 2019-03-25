@@ -29,7 +29,6 @@
 
 render=ui_render_radio_option_text;
 
-parent=noone;
 value=-1;
 </string>
           </argument>

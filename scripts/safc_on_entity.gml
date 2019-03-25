@@ -6,3 +6,4 @@ Camera.ui.element_entity_static.value=argument0.static;
 
 Camera.ui.element_entity_event_add.interactive=true;
 Camera.ui.element_entity_event_remove.interactive=true;
+Camera.ui.element_entity_event_edit.interactive=true;

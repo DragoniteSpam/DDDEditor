@@ -16,7 +16,7 @@ draw_text(tx+32, ty, argument0.text);
 var s2=8;
 
 if (!argument0.interactive){
-    draw_rectangle_colour(tx+16-s2, ty-s2, tx+16+s2, ty+s2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, true);
+    draw_rectangle_colour(tx+16-s2, ty-s2, tx+16+s2, ty+s2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
 }
 draw_rectangle(tx+16-s2, ty-s2, tx+16+s2, ty+s2, true);
 

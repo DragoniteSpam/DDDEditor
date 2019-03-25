@@ -21,7 +21,7 @@ for (var i=1; i<argument_count; i++){
     option.width=data[6]*2;
     option.height=data[7]*2;
     
-    option.parent=argument[0];
+    option.root=argument[0];
     option.height=argument[0].height;
     
     ds_list_add(argument[0].contents, option);

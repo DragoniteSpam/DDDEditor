@@ -274,6 +274,7 @@ with (instance_create(0, 0, UIMain)){
     element_entity_name=create_input(legal_x+spacing, yy, "Name: ", col_width, element_height, uivc_input_entity_name, "", "", "Helpful if unique", validate_string, ui_value_string, 0, 1, max_characters, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_name);
     
+    vx2=vx1+80;
     yy=yy+element_entity_name.height+spacing;
     
     element_entity_solid=create_checkbox(legal_x+spacing, yy, "Solid", col_width, element_height, uivc_check_entity_solid, "", false, t_p_entity);
@@ -296,15 +297,20 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height*n+spacing+spacing;
     
+    element_entity_event_edit=create_button(legal_x+spacing, yy, "Edit Event Page", col_width, element_height, fa_center, omu_entity_event_page, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_event_edit);
+    
+    yy=yy+element_height+spacing;
+    
     element_entity_event_add=create_button(legal_x+spacing, yy, "Add Event Page", col_width, element_height, fa_center, omu_entity_add_event, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_event_add);
     
-    yy=yy+element_entity_event_add.height+spacing;
+    yy=yy+element_height+spacing;
     
     element_entity_event_remove=create_button(legal_x+spacing, yy, "Delete Event Page", col_width, element_height, fa_center, omu_entity_remove_event, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_event_remove);
     
-    yy=yy+element_entity_event_remove.height+spacing;
+    yy=yy+element_height+spacing;
     
     /*
      * tile tab

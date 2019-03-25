@@ -29,7 +29,6 @@
 
 render=ui_render_bitfield_option;
 
-parent=noone;
 value=-1;
 
 state=false;

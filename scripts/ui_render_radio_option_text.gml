@@ -17,12 +17,12 @@ draw_text(tx+32, ty, argument0.text);
 var router=8;
 var rinner=4;
 
-if (!argument0.interactive){
-    draw_circle_colour(tx+16, ty, router, c_ltgray, c_ltgray, true);
+if (!argument0.root.interactive){
+    draw_circle_colour(tx+16, ty, router, c_ltgray, c_ltgray, false);
 }
 draw_circle(tx+16, ty, router, true);
 
-if (argument0.parent.value==argument0.value){
+if (argument0.root.value==argument0.value){
     if (!argument0.interactive){
         draw_set_alpha(0.5);
     }
@@ -30,11 +30,13 @@ if (argument0.parent.value==argument0.value){
     draw_set_alpha(1);
 }
 
-if (argument0.interactive&&dialog_is_active(argument0.root)){
+// argument0.root is the radio array object that contains the element.
+// argument0.root.root is the panel that it lives on.
+if (argument0.root.interactive&&dialog_is_active(argument0.root.root)){
     if (mouse_within_rectangle(x1, y1, x2, y2)){
         if (get_release_left()){
-            argument0.parent.value=argument0.value;
-            script_execute(argument0.parent.onvaluechange, argument0);
+            argument0.root.value=argument0.value;
+            script_execute(argument0.root.onvaluechange, argument0);
         } else if (Controller.press_help){
             //ds_stuff_help_auto(argument0);
         }
