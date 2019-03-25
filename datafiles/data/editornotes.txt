@@ -2,10 +2,6 @@ To Do
 
 Give (all) entities both an Event (u16) and an entrypoint (string) for events that they call
 
-UI in the editor to view, add, remove and switch Events - at some point a ghost event was added to
-game.dddd, I'm not sure if it was a one-time error from a long time ago or if it happens every time
-the file is loaded/saved, in which case you're going to want to fix taht also
-
 Make the game do something with said events/entrypoints
 
 Scribble?
