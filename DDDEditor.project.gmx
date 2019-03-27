@@ -319,6 +319,11 @@
         <script>scripts\selected_single.gml</script>
         <script>scripts\selected_circle.gml</script>
       </scripts>
+      <scripts name="area">
+        <script>scripts\selected_area_rectangle.gml</script>
+        <script>scripts\selected_area_circle.gml</script>
+        <script>scripts\selected_area_single.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Graphics">
       <script>scripts\graphics_create_grid.gml</script>

@@ -93,6 +93,7 @@ graphics_create_grid();
 under_cursor=noone;
 
 selection=ds_list_create();
+selected_entities=ds_list_create();
 last_selection=noone;
 
 selection_mode=SelectionModes.RECTANGLE;

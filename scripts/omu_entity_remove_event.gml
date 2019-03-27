@@ -1,6 +1,6 @@
 /// void omu_entity_remove_event(UIThing);
 
-var list=selection_all();
+var list=Camera.selected_entities
 
 if (!ds_list_empty(list)){
     var index=ui_list_selection(Camera.ui.element_entity_events);
@@ -13,5 +13,3 @@ if (!ds_list_empty(list)){
         ui_list_clear(Camera.ui.element_entity_events);
     }
 }
-
-ds_list_destroy(list);

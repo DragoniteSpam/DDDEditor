@@ -14,10 +14,9 @@ if (selection_index>=0){
     
     // safe
     var index=ui_list_selection(Camera.ui.element_entity_events);
-    var list=selection_all();
+    var list=Camera.selected_entities;
     var entity=list[| 0];
     var page=entity.object_events[| index];
-    ds_list_destroy(list);
     
     if (new_event.GUID!=page.event_guid){
         page.event_guid=new_event.GUID;

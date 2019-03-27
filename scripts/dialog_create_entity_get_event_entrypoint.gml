@@ -8,9 +8,8 @@ var dh=544;
 
 // you can assume that this is valid data because this won't be called otherwise
 var index=ui_list_selection(Camera.ui.element_entity_events);
-var list=selection_all();
+var list=Camera.selected_entities;
 var event=guid_get(list[| 0].object_events[| index].event_guid);
-ds_list_destroy(list);
 
 var dg=dialog_create(dw, dh, "Select entrypoint for: "+event.name, dialog_default, dc_close_no_questions_asked, argument0);
 

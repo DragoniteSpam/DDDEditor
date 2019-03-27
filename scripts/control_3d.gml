@@ -60,6 +60,18 @@ if (zz<z){
             script_execute(last_selection.onmousedrag, last_selection, floor_cx, floor_cy);
         }
     }
+    if (Controller.release_left){
+        // selections of zero area are just deleted outright
+        if (last_selection!=noone){
+            if (script_execute(last_selection.area, last_selection)==0){
+                instance_activate_object(last_selection);
+                instance_destroy(last_selection);
+                ds_list_pop(selection);
+                last_selection=noone;
+                sa_process_selection();
+            }
+        }
+    }
 }
 
 var move_allowed=true;

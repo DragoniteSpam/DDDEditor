@@ -2,7 +2,7 @@
 
 var catch=argument0;
 
-var list=selection_all();
+var list=Camera.selected_entities
 
 if (!ds_list_empty(list)){
     var event_list=list[| 0].object_events;
@@ -14,5 +14,3 @@ if (!ds_list_empty(list)){
         show_message("Not allowed to have more than ten of these at a time. Sorry!");
     }
 }
-
-ds_list_destroy(list);

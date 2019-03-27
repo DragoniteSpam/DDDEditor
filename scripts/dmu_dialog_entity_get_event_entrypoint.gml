@@ -7,11 +7,10 @@ var entrypoint_guid=argument0.root.el_list.entries[| selection_index];
 
 // safe
 var index=ui_list_selection(Camera.ui.element_entity_events);
-var list=selection_all();
+var list=Camera.selected_entities;
 var entity=list[| 0];
 var page=entity.object_events[| index];
 var event=guid_get(page.event_guid);
-ds_list_destroy(list);
 
 page.event_entrypoint=entrypoint_guid;
 argument0.root.root.el_event_entrypoint.text="Entrypoint: "+guid_get(entrypoint_guid).name;

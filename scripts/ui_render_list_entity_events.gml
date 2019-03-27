@@ -1,6 +1,6 @@
 /// void ui_render_list_entity_events(UIList, x, y);
 
-var list=selection_all();
+var list=Camera.selected_entities
 
 if (ds_list_size(list)==1){
     var oldentries=argument0.entries;

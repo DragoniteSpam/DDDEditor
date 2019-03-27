@@ -4,6 +4,11 @@ Camera.ui.element_entity_name.value=argument0.name;
 Camera.ui.element_entity_solid.value=argument0.am_solid;
 Camera.ui.element_entity_static.value=argument0.static;
 
+Camera.ui.element_entity_name.interactive=true;
+Camera.ui.element_entity_solid.interactive=true;
+Camera.ui.element_entity_static.interactive=true;
+
+Camera.ui.element_entity_events.interactive=true;
 Camera.ui.element_entity_event_add.interactive=true;
 Camera.ui.element_entity_event_remove.interactive=true;
 Camera.ui.element_entity_event_edit.interactive=true;

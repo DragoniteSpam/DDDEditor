@@ -5,12 +5,11 @@ var dh=640;
 
 // you can assume that this is valid data because this won't be called otherwise
 var index=ui_list_selection(Camera.ui.element_entity_events);
-var list=selection_all();
+var list=Camera.selected_entities;
 var entity=list[| 0];
 
 var page=entity.object_events[| index];
 var dg=dialog_create(dw, dh, "Select Event", dialog_default, dc_close_no_questions_asked, argument0);
-ds_list_destroy(list);
 
 var columns=1;
 var ew=(dw-columns*32)/columns;
