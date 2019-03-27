@@ -1,4 +1,4 @@
-/// boolean data_set_guid(Data, value);
+/// boolean guid_set(Data, value);
 
 if (ds_map_exists(Stuff.all_guids, argument0.GUID)){
     ds_map_delete(Stuff.all_guids, argument0.GUID);

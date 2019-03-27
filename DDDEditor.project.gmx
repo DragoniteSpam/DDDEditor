@@ -829,7 +829,7 @@
       <script>scripts\data_resize_map.gml</script>
       <script>scripts\data_clear_map.gml</script>
       <script>scripts\data_rename_map.gml</script>
-      <script>scripts\data_set_guid.gml</script>
+      <script>scripts\guid_set.gml</script>
       <script>scripts\sprite_add_autotile.gml</script>
     </scripts>
     <scripts name="misc graphics">

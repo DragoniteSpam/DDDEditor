@@ -11,7 +11,7 @@ repeat(n_events){
     var event_name=buffer_read(argument0, buffer_string);
     var event=event_create(event_name);
     if (version>=DataVersions.EVENT_GUID){
-        data_set_guid(event, buffer_read(argument0, buffer_u32));
+        guid_set(event, buffer_read(argument0, buffer_u32));
     }
     
     ds_list_add(Stuff.all_events, event);
@@ -35,7 +35,7 @@ repeat(n_events){
         
         // forgot to do this earlier, whoops
         if (version>=DataVersions.EVENT_NODE_GUID){
-            data_set_guid(node, buffer_read(argument0, buffer_u32));
+            guid_set(node, buffer_read(argument0, buffer_u32));
         }
         
         // some preliminary data may be created
