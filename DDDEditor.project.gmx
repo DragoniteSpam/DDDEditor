@@ -494,6 +494,7 @@
           <scripts name="file">
             <script>scripts\momu_exit.gml</script>
             <script>scripts\momu_open.gml</script>
+            <script>scripts\momu_backup.gml</script>
             <script>scripts\momu_preferences.gml</script>
             <script>scripts\momu_settings_map.gml</script>
             <script>scripts\momu_settings_data.gml</script>
@@ -563,6 +564,7 @@
         </scripts>
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
+          <script>scripts\uivc_backups.gml</script>
           <script>scripts\uivc_settings_embed_tilesets.gml</script>
           <script>scripts\uivc_settings_game_grid.gml</script>
           <script>scripts\uivc_settings_map_name.gml</script>
@@ -908,6 +910,7 @@
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>
       <script>scripts\serialize_save_map.gml</script>
+      <script>scripts\serialize_backup.gml</script>
     </scripts>
   </scripts>
   <shaders name="shaders">
@@ -978,7 +981,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="51">
+  <constants number="53">
     <constant name="SELECTION_MASK_ALL">ETypeFlags.ENTITY_TILE|ETypeFlags.ENTITY_TILE_AUTO|ETypeFlags.ENTITY_EVENT|ETypeFlags.ENTITY_PAWN|ETypeFlags.ENTITY_MESH|ETypeFlags.ENTITY_EFFECT</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
@@ -1008,6 +1011,8 @@
     <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
     <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
     <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
+    <constant name="PATH_BACKUP_DATA">'.\backups\data\'</constant>
+    <constant name="PATH_BACKUP_MAP">'.\backups\maps\'</constant>
     <constant name="PATH_VRA">'.\data\vra\'</constant>
     <constant name="SERIALIZE_DATA">1</constant>
     <constant name="SERIALIZE_MAP">0</constant>

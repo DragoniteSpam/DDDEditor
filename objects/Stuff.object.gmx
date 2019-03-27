@@ -125,6 +125,21 @@ time_int=0;
 
 all_guids=ds_map_create();
 
+// local storage folders
+
+if (!directory_exists(PATH_BACKUP_DATA)){
+    directory_create(PATH_BACKUP_DATA);
+}
+
+if (!directory_exists(PATH_BACKUP_MAP)){
+    directory_create(PATH_BACKUP_MAP);
+}
+
+if (!directory_exists(PATH_VRA)){
+    directory_create(PATH_VRA);
+}
+
+
 // these are constants in DDD.gmx but we're allowed to change them here
 tile_width=32;
 tile_height=32;
@@ -255,6 +270,7 @@ setting_embed_meshes=false;         // already stored in vrax but okay
 setting_embed_se=true;              // possibly large number of small sound effects
 
 setting_compression_level=5;        // 0 (none) through 9 (smallest)
+setting_backups=2;                  // 0 (none) through 9 (why would you keep that many backups)
 </string>
           </argument>
         </arguments>

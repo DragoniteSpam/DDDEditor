@@ -11,6 +11,7 @@ if (string_length(fn)>0){
     }
     
     Stuff.save_name_map=string_replace(filename_name(fn), EXPORT_EXTENSION_MAP, "");
+    serialize_backup(PATH_BACKUP_MAP, Stuff.save_name_map, EXPORT_EXTENSION_MAP, fn);
     game_auto_title();
     
     var buffer=buffer_create(2, buffer_grow, 1);

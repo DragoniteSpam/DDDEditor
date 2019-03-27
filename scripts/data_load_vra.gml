@@ -1,9 +1,5 @@
 /// void data_load_vra();
 
-if (!directory_exists(PATH_VRA)){
-    directory_create(PATH_VRA);
-}
-
 if (file_exists(".\data.ini")){
     ini_open(".\data.ini");
     vra_name=ini_read_string("important", "vrax", "");

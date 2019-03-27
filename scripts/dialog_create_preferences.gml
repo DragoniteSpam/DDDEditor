@@ -13,14 +13,20 @@ var vy1=0;
 var vx2=vx1+80;
 var vy2=vy1+eh;
 
-var el_bezier=create_input(16, 64, "Bezier precision: ", ew, eh, uivc_bezier_precision, "", Stuff.setting_bezier_precision, Stuff.setting_bezier_precision,
+var yy=64;
+var spacing=16;
+
+var el_bezier=create_input(16, yy, "Bezier precision: ", ew, eh, uivc_bezier_precision, "", Stuff.setting_bezier_precision, "0 through 9",
+    validate_int, ui_value_real, 1, 16, 2, vx1, vy1, vx2, vy2, dg);
+yy=yy+eh+spacing;
+var el_backups=create_input(16, yy, "Backups: ", ew, eh, uivc_backups, "", Stuff.setting_backups, "0 through 9",
     validate_int, ui_value_real, 1, 16, 2, vx1, vy1, vx2, vy2, dg);
 
 var b_width=128;
 var b_height=32;
 var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Commit", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
-ds_list_add(dg.contents, el_bezier, el_confirm);
+ds_list_add(dg.contents, el_bezier, el_backups, el_confirm);
 
 keyboard_string="";
 
