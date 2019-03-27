@@ -54,5 +54,6 @@ enum DataVersions {
     EVENT_GUID                  =6,
     MAP_ENTITY_EVENTS           =7,
     EVENT_NODE_GUID             =8,
+    EVENT_NODE_FIXED_DATA_AGAIN =9,
     _CURRENT                    /* = whatever the last one is + 1 */
 }

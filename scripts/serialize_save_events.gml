@@ -25,13 +25,18 @@ for (var i=0; i<n_events; i++){
         var n_outbound=ds_list_size(node.outbound);
         buffer_write(argument0, buffer_u8, n_outbound);
         for (var k=0; k<n_outbound; k++){
-            buffer_write(argument0, buffer_string, node.data[| k]);
             if (node.outbound[| k]==noone){
                 // empty string signifies a terminal node
                 buffer_write(argument0, buffer_string, "");
             } else {
                 buffer_write(argument0, buffer_string, node.outbound[| k].name);
             }
+        }
+        
+        var n_data=ds_list_size(node.data);
+        buffer_write(argument0, buffer_u8, n_data);
+        for (var k=0; k<n_data; k++){
+            buffer_write(argument0, buffer_string, node.data[| k]);
         }
         
         // if there's anything special in the node, save it here

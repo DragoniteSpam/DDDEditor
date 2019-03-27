@@ -51,8 +51,17 @@ repeat(n_events){
         
         var n_outbound=buffer_read(argument0, buffer_u8);
         repeat(n_outbound){
-            ds_list_add(node.data, buffer_read(argument0, buffer_string));
+            if (version<DataVersions.EVENT_NODE_FIXED_DATA_AGAIN){
+                ds_list_add(node.data, buffer_read(argument0, buffer_string));
+            }
             ds_list_add(node_connections, buffer_read(argument0, buffer_string));
+        }
+        
+        if (version>=DataVersions.EVENT_NODE_FIXED_DATA_AGAIN){
+            var n_data=buffer_read(argument0, buffer_u8);
+            repeat(n_data){
+                ds_list_add(node.data, buffer_read(argument0, buffer_string));
+            }
         }
         
         // special code for different node types
