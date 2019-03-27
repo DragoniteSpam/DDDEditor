@@ -292,7 +292,7 @@ with (instance_create(0, 0, UIMain)){
     element_entity_events=create_list(legal_x+spacing, yy, "Event Pages", "<No events>", col_width, element_height, n, null, false, t_p_entity);
     element_entity_events.colorize=false;
     element_entity_events.render=ui_render_list_entity_events;
-    element_entity_events.entries_are_instances=true;
+    element_entity_events.entries_are=ListEntries.INSTANCES;
     ds_list_add(t_p_entity.contents, element_entity_events);
     
     yy=yy+element_height*n+spacing+spacing;

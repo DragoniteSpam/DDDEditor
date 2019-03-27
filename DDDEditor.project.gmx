@@ -379,6 +379,7 @@
       <scripts name="fetch">
         <script>scripts\get_active_tileset.gml</script>
       </scripts>
+      <script>scripts\guid_get.gml</script>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -423,19 +424,22 @@
           <script>scripts\dc_close_no_questions_asked.gml</script>
         </scripts>
         <scripts name="creation">
-          <script>scripts\dialog_create_preferences.gml</script>
-          <script>scripts\dialog_create_settings_map.gml</script>
-          <script>scripts\dialog_create_entity_event_page.gml</script>
-          <script>scripts\dialog_create_settings_data.gml</script>
+          <script>scripts\dialog_create_about.gml</script>
+          <script>scripts\dialog_create_autotile_selector.gml</script>
+          <script>scripts\dialog_create_manager_autotile.gml</script>
           <script>scripts\dialog_create_manager_mesh.gml</script>
           <script>scripts\dialog_create_manager_tileset.gml</script>
-          <script>scripts\dialog_create_manager_autotile.gml</script>
-          <script>scripts\dialog_create_autotile_selector.gml</script>
-          <script>scripts\dialog_create_about.gml</script>
           <script>scripts\dialog_create_notice.gml</script>
+          <script>scripts\dialog_create_preferences.gml</script>
           <script>scripts\dialog_create_settings_confirm_world_resize.gml</script>
+          <script>scripts\dialog_create_settings_data.gml</script>
+          <script>scripts\dialog_create_settings_map.gml</script>
           <script>scripts\dialog_create_yes_or_no.gml</script>
-          <script>scripts\dialog_create_entity_get_event.gml</script>
+          <scripts name="entity stuff">
+            <script>scripts\dialog_create_entity_get_event.gml</script>
+            <script>scripts\dialog_create_entity_get_event_entrypoint.gml</script>
+            <script>scripts\dialog_create_entity_event_page.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
         <script>scripts\dialog_destroy.gml</script>
@@ -459,6 +463,7 @@
           </scripts>
           <scripts name="entities">
             <script>scripts\dmu_dialog_entity_get_event.gml</script>
+            <script>scripts\dmu_dialog_entity_get_event_entrypoint.gml</script>
           </scripts>
         </scripts>
         <scripts name="render">

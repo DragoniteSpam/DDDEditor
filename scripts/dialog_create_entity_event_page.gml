@@ -8,10 +8,9 @@ var index=ui_list_selection(Camera.ui.element_entity_events);
 var list=selection_all();
 var entity=list[| 0];
 var page=entity.object_events[| index];
-var dg=dialog_create(dw, dh, "Event Page: "+page.name, dialog_default, dc_settings_map, argument0);
+var dg=dialog_create(dw, dh, "Event Page: "+page.name, dialog_default, dc_close_no_questions_asked, argument0);
 ds_list_destroy(list);
 
-// three columns!
 var columns=2;
 var ew=(dw-columns*32)/columns;
 var eh=24;

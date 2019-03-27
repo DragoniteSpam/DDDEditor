@@ -45,7 +45,7 @@ with (instance_create(0, 0, UIMain)){
     yy=yy+element_height+spacing;
     
     element=create_list(legal_x+spacing, yy, "Event Nodes", "No nodes available!", element_width, spacing, 32, uivc_list_selection_event_node, false, t_list);
-    element.entries_are_instances=true;
+    element.entries_are=ListEntries.INSTANCES;
     element.render=ui_render_list_event_node;
     ds_list_add(t_list.contents, element);
     
@@ -93,7 +93,7 @@ with (instance_create(0, 0, UIMain)){
     yy=yy+element_height+spacing;
     
     element=create_list(legal_x+spacing, yy, "All Events", "No events!", element_width, spacing, 32, uivc_list_selection_event, false, t_events);
-    element.entries_are_instances=true;
+    element.entries_are=ListEntries.INSTANCES;
     element.render=ui_render_list_event;
     ds_list_add(t_events.contents, element);
     

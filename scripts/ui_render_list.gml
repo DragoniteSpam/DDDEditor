@@ -38,16 +38,25 @@ if (n==0){
             draw_rectangle_colour(x1, ya, x2, yb, c, c, c, c, false);
         }
         
-        if (argument0.colorize){
+        if (argument0.colorize&&ds_list_size(argument0.entry_colors)>i){
             var c=argument0.entry_colors[| index];
         } else {
             var c=c_black;
         }
-        if (argument0.entries_are_instances){
-            draw_text_colour(tx, tya, argument0.entries[| index].name, c, c, c, c, 1);
-        } else {
-            draw_text_colour(tx, tya, argument0.entries[| index], c, c, c, c, 1);
+        
+        var text="";
+        switch (argument0.entries_are){
+            case ListEntries.STRINGS:
+                text=argument0.entries[| index];
+                break;
+            case ListEntries.INSTANCES:
+                text=argument0.entries[| index].name;
+                break;
+            case ListEntries.GUIDS:
+                text=guid_get(argument0.entries[| index]).name;
+                break;
         }
+        draw_text_colour(tx, tya, text, c, c, c, c, 1);
     }
 }
 
