@@ -447,6 +447,7 @@
         <script>scripts\dialog_is_active.gml</script>
         <scripts name="on mouse up">
           <script>scripts\dmu_dialog_commit.gml</script>
+          <script>scripts\dmu_dialog_commit_preferences.gml</script>
           <script>scripts\dmu_dialog_cancel.gml</script>
           <scripts name="settings">
             <script>scripts\dmu_dialog_settings_confirm_world_resize.gml</script>
@@ -565,6 +566,7 @@
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
           <script>scripts\uivc_backups.gml</script>
+          <script>scripts\uivc_autosave.gml</script>
           <script>scripts\uivc_settings_embed_tilesets.gml</script>
           <script>scripts\uivc_settings_game_grid.gml</script>
           <script>scripts\uivc_settings_map_name.gml</script>

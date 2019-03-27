@@ -14,7 +14,7 @@ if (Stuff.setting_backups>0){
     }
     // this is typically done before the new file is created, so if you're
     // not overwriting something the copy will fail
-    if (file_exists(fn)){
+    if (file_exists(argument3)){
         file_copy(argument3, argument0+argument1+"-1"+argument2);
     }
 }

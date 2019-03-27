@@ -260,17 +260,36 @@ save_name_data="";
 
 // user settings
 
-setting_color=c_green;
-setting_bezier_precision=6;         // preferably keep this between like 4 and 16ish?
-
 setting_embed_tilesets=false;       // small number of large images
 setting_embed_npcs=true;            // large number of small(ish) images
 setting_embed_graphics=true;        // large number of images of varying sizes
 setting_embed_meshes=false;         // already stored in vrax but okay
 setting_embed_se=true;              // possibly large number of small sound effects
-
 setting_compression_level=5;        // 0 (none) through 9 (smallest)
-setting_backups=2;                  // 0 (none) through 9 (why would you keep that many backups)
+
+ini_open(".\data.ini");
+setting_color=ini_read_real("config", "color", c_green);                // BGR
+setting_bezier_precision=ini_read_real("config", "bezier", 6);          // preferably keep this between like 4 and 16ish?
+setting_backups=ini_read_real("config", "backups", 2);                  // 0 (none) through 9 (why would you keep that many backups)
+setting_autosave=ini_read_real("config", "autosave", true);             // bool
+ini_close();
+
+// todo: load configuration settings
+
+// the autosave/load is nice, BUT it will make the game break if there's an error
+// in either of them. so either do a LOT of validation or have a way to clear the
+// autosaves if problems happen.
+
+if (setting_autosave&amp;&amp;file_exists("auto"+EXPORT_EXTENSION_DATA)){
+    var tdata=save_name_data;
+    serialize_load("auto"+EXPORT_EXTENSION_DATA);
+    save_name_data=tdata;
+    if (file_exists("auto"+EXPORT_EXTENSION_MAP)){
+        // no need to store the map name in a variable since that's set based
+        // on the internal name
+        serialize_load("auto"+EXPORT_EXTENSION_MAP);
+    }
+}
 </string>
           </argument>
         </arguments>

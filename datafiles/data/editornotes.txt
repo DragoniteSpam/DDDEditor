@@ -6,9 +6,6 @@ Scribble?
 
 Sauce was talking about inventory/items
 
-For that matter, it might be a good idea to automatically copy the old file to local storage
-as a backup mechanism when saving.
-
 In the Autotile Editor tab, the button that says "click for autotile" spawns a dialog that lets you
 select an autotile, with a button that says "Autotile Data" . . . which opens a dialog that's almost
 exactly the same. The button should instead just open a file selector.
