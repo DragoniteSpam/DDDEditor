@@ -333,21 +333,44 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height+spacing;
     
-    element_entity_pos_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_pos_x=create_input(col2_x, yy, "   X: ", col_width, element_height, uivc_input_entity_pos_x, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_pos_x);
     element_entity_pos_x.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_pos_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_pos_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, uivc_input_entity_pos_y, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_pos_y);
     element_entity_pos_y.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_pos_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_pos_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, uivc_input_entity_pos_z, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_pos_z);
     element_entity_pos_z.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_text(col2_x, yy, "Transform: Position Offset", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_offset_x=create_input(col2_x, yy, "   X: ", col_width, element_height, uivc_input_entity_off_x, "", "", "0...1", validate_double, ui_value_real, 0, 1, 4, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_offset_x);
+    element_entity_offset_x.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_offset_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, uivc_input_entity_off_y, "", "", "0...1", validate_double, ui_value_real, 0, 1, 4, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_offset_y);
+    element_entity_offset_y.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_offset_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, uivc_input_entity_off_z, "", "", "0...1", validate_double, ui_value_real, 0, 1, 4, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_offset_z);
+    element_entity_offset_z.interactive=false;
     
     yy=yy+element_height+spacing;
     
@@ -356,19 +379,19 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height+spacing;
     
-    element_entity_rot_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_rot_x=create_input(col2_x, yy, "   X: ", col_width, element_height, uivc_input_entity_rotate_x, "", "", "Degrees", validate_int, ui_value_real, 0, 359, 3, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_rot_x);
     element_entity_rot_x.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_rot_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_rot_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, uivc_input_entity_rotate_y, "", "", "Degrees", validate_int, ui_value_real, 0, 359, 3, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_rot_y);
     element_entity_rot_y.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_rot_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_rot_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, uivc_input_entity_rotate_z, "", "", "Degrees", validate_int, ui_value_real, 0, 359, 3, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_rot_z);
     element_entity_rot_z.interactive=false;
     
@@ -379,19 +402,19 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height+spacing;
     
-    element_entity_scale_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_scale_x=create_input(col2_x, yy, "   X: ", col_width, element_height, uivc_input_entity_scale_x, "", "", "0.1...10", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_scale_x);
     element_entity_scale_x.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_scale_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_scale_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, uivc_input_entity_scale_y, "", "", "0.1...10", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_scale_y);
     element_entity_scale_y.interactive=false;
     
     yy=yy+element_height+spacing;
     
-    element_entity_scale_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    element_entity_scale_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, uivc_input_entity_scale_z, "", "", "0.1...10", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_scale_z);
     element_entity_scale_z.interactive=false;
     

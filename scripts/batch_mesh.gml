@@ -23,9 +23,13 @@ while (buffer_tell(data)<buffer_get_size(data)){
     // there's a way to turn that off, and in any case it's a
     // better idea to just fetch the values first and *then*
     // pass them all to the script
-    px[vc]=xx+buffer_read(data, T);
-    py[vc]=yy+buffer_read(data, T);
-    pz[vc]=zz+buffer_read(data, T);
+    var npx=buffer_read(data, T);
+    var npy=buffer_read(data, T);
+    var npz=buffer_read(data, T);
+    var transformed=transform_entity_point(mesh, npx, npy, npz);
+    px[vc]=transformed[vec3.xx];
+    py[vc]=transformed[vec3.yy];
+    pz[vc]=transformed[vec3.zz];
     nx=buffer_read(data, T);
     ny=buffer_read(data, T);
     nz=buffer_read(data, T);

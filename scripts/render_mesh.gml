@@ -5,7 +5,9 @@ var xx=mesh.xx;
 var yy=mesh.yy;
 var zz=mesh.zz;
 
-transform_set(xx*TILE_WIDTH, yy*TILE_HEIGHT, zz*TILE_DEPTH, 0, 0, 0, 1, 1, 1);
+transform_set(0, 0, 0, mesh.rot_xx, mesh.rot_yy, mesh.rot_zz, 1, 1, 1);
+transform_add(0, 0, 0, 0, 0, 0, mesh.scale_xx, mesh.scale_yy, mesh.scale_zz);
+transform_add((xx+mesh.off_xx)*TILE_WIDTH, (yy+mesh.off_yy)*TILE_HEIGHT, (zz+mesh.off_zz)*TILE_DEPTH, 0, 0, 0, 1, 1, 1);
 
 if (Camera.view_entities){
     if (Camera.view_texture){

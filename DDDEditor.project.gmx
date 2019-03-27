@@ -259,6 +259,7 @@
         <script>scripts\pack.gml</script>
         <script>scripts\unpack.gml</script>
       </scripts>
+      <script>scripts\transform_entity_point.gml</script>
     </scripts>
     <scripts name="Selection">
       <script>scripts\selection_clear.gml</script>
@@ -353,10 +354,13 @@
     </scripts>
     <scripts name="Maps">
       <script>scripts\map_add_thing.gml</script>
-      <script>scripts\map_transform_thing.gml</script>
       <script>scripts\map_create_grid.gml</script>
       <script>scripts\map_fill_grid.gml</script>
       <script>scripts\map_get_grid_cell.gml</script>
+      <script>scripts\map_get_free_at.gml</script>
+      <script>scripts\map_move_thing.gml</script>
+      <script>scripts\map_remove_thing.gml</script>
+      <script>scripts\map_transform_thing.gml</script>
     </scripts>
     <scripts name="Game data">
       <scripts name="creation">
@@ -558,6 +562,20 @@
           <script>scripts\uivc_entity_event_auto_move.gml</script>
           <script>scripts\uivc_entity_event_auto_speed.gml</script>
           <script>scripts\uivc_entity_event_auto_frequency.gml</script>
+          <scripts name="transform">
+            <script>scripts\uivc_input_entity_off_x.gml</script>
+            <script>scripts\uivc_input_entity_off_y.gml</script>
+            <script>scripts\uivc_input_entity_off_z.gml</script>
+            <script>scripts\uivc_input_entity_pos_x.gml</script>
+            <script>scripts\uivc_input_entity_pos_y.gml</script>
+            <script>scripts\uivc_input_entity_pos_z.gml</script>
+            <script>scripts\uivc_input_entity_rotate_x.gml</script>
+            <script>scripts\uivc_input_entity_rotate_y.gml</script>
+            <script>scripts\uivc_input_entity_rotate_z.gml</script>
+            <script>scripts\uivc_input_entity_scale_x.gml</script>
+            <script>scripts\uivc_input_entity_scale_y.gml</script>
+            <script>scripts\uivc_input_entity_scale_z.gml</script>
+          </scripts>
         </scripts>
         <scripts name="events">
           <script>scripts\uivc_list_selection_event_node.gml</script>

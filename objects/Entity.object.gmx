@@ -55,6 +55,10 @@ xx=0;
 yy=0;
 zz=0;
 
+off_xx=0;
+off_yy=0;
+off_zz=0;
+
 rot_xx=0;
 rot_yy=0;
 rot_zz=0;
@@ -85,7 +89,9 @@ static=false;           // anything that isn't intended to move - if batchable
 batchable=true;
 batch_index=-1;
 modification=Modifications.CREATE;
+
 translateable=true;
+offsettable=false;
 rotateable=false;
 scalable=false;
 

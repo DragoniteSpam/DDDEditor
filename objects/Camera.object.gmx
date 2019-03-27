@@ -305,44 +305,15 @@ while (cindex&lt;ds_list_size(changes)){
             break;
         case Modifications.UPDATE:
             if (thing.batch_index==-1){
+                debug("how did you even get here?");
             } else {
+                batch_again(thing.batch_index);
             }
             script_execute(thing.on_update, thing);
             thing.modification=Modifications.NONE;
             break;
         case Modifications.REMOVE:
-            // this is INSANELY slow for large numbers of entities, and I'm
-            // actually not sure how long it would take to carry out if you
-            // did something like select all+delete. long enough that most
-            // people would get frusturated and restart the program.
-            
-            // this is thanks to the ds_list_find_index and NEEDS to be
-            // worked on. a starting point would be to assign each instance
-            // a variable storing the location in the future list or batch
-            // instance list. however, that will also be slow due to the
-            // need to update the stored index of each other entity in the
-            // lists: it would probably be better to zero out the indices
-            // instead of deleteting them first, and then at the end make a
-            // second pass over each of the lists, removing the zeroes and
-            // updating the variables storing the indices for the entities.
-            
-            // this NEEDS to be worked on sooner rather than later because i
-            // imagine Delete All is going to be a somewhat common operation.
-            if (thing.listed){
-                if (thing.batch_index==-1){
-                    ds_list_delete(future, ds_list_find_index(future, thing));
-                } else {
-                    var bl=ActiveMap.batch_instances[| thing.batch_index];
-                    ds_list_delete(bl, ds_list_find_index(bl, thing));
-                    batch_again(thing.batch_index);
-                }
-                ds_list_delete(ActiveMap.all_entities, ds_list_find_index(ActiveMap.all_entities, thing));
-            }
-            
-            var cell=map_get_grid_cell(thing.xx, thing.yy, thing.zz);
-            if (cell[@ thing.slot]==thing){
-                cell[@ thing.slot]=noone;
-            }
+            map_remove_thing(thing);
             
             instance_activate_object(thing);
             instance_destroy(thing);

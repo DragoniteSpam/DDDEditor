@@ -23,12 +23,15 @@ if (ds_list_size(list)==0){
     Camera.ui.element_entity_pos_x.interactive=false;
     Camera.ui.element_entity_pos_y.interactive=false;
     Camera.ui.element_entity_pos_z.interactive=false;
+    Camera.ui.element_entity_offset_x.interactive=false;
+    Camera.ui.element_entity_offset_y.interactive=false;
+    Camera.ui.element_entity_offset_z.interactive=false;
     Camera.ui.element_entity_rot_x.interactive=false;
     Camera.ui.element_entity_rot_y.interactive=false;
     Camera.ui.element_entity_rot_z.interactive=false;
-    //Camera.ui.element_entity_scale_x.interactive=false;
-    //Camera.ui.element_entity_scale_y.interactive=false;
-    //Camera.ui.element_entity_scale_z.interactive=false;
+    Camera.ui.element_entity_scale_x.interactive=false;
+    Camera.ui.element_entity_scale_y.interactive=false;
+    Camera.ui.element_entity_scale_z.interactive=false;
 } else if (ds_list_size(list)==1){
     safa_on_select(list[| 0]);
 } else {
@@ -51,23 +54,33 @@ if (ds_list_size(list)==0){
     // transform - position is disabled when multiple entities are selected because
     // you do NOT want to pile everything into the same cell
     
+    // not all of these things may be valid for the type of selected entities, but
+    // we'll pretend that they are. the onvaluechange should check to see if you're
+    // allowed to do the operation also, anyway.
+    
     Camera.ui.element_entity_pos_x.interactive=false;
     Camera.ui.element_entity_pos_y.interactive=false;
     Camera.ui.element_entity_pos_z.interactive=false;
+    Camera.ui.element_entity_offset_x.interactive=true;
+    Camera.ui.element_entity_offset_y.interactive=true;
+    Camera.ui.element_entity_offset_z.interactive=true;
     Camera.ui.element_entity_rot_x.interactive=true;
     Camera.ui.element_entity_rot_y.interactive=true;
     Camera.ui.element_entity_rot_z.interactive=true;
-    //Camera.ui.element_entity_scale_x.interactive=false;
-    //Camera.ui.element_entity_scale_y.interactive=false;
-    //Camera.ui.element_entity_scale_z.interactive=false;
+    Camera.ui.element_entity_scale_x.interactive=true;
+    Camera.ui.element_entity_scale_y.interactive=true;
+    Camera.ui.element_entity_scale_z.interactive=true;
     
     Camera.ui.element_entity_pos_x.value="";
     Camera.ui.element_entity_pos_y.value="";
     Camera.ui.element_entity_pos_z.value="";
+    Camera.ui.element_entity_offset_x.value="";
+    Camera.ui.element_entity_offset_y.value="";
+    Camera.ui.element_entity_offset_z.value="";
     Camera.ui.element_entity_rot_x.value="";
     Camera.ui.element_entity_rot_y.value="";
     Camera.ui.element_entity_rot_z.value="";
-    //Camera.ui.element_entity_scale_x.value="";
-    //Camera.ui.element_entity_scale_y.value="";
-    //Camera.ui.element_entity_scale_z.value="";
+    Camera.ui.element_entity_scale_x.value="";
+    Camera.ui.element_entity_scale_y.value="";
+    Camera.ui.element_entity_scale_z.value="";
 }
