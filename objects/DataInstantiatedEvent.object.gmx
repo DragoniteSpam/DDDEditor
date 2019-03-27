@@ -35,6 +35,9 @@ name="instantiated event";
 
 enabled=true;
 
+// the variable comparison values need to be numbers (floats),
+// by the way.
+
 condition_switch_global_enabled=false;
 condition_switch_global=0;
 condition_variable_global_enabled=false;

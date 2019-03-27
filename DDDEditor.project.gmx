@@ -867,6 +867,9 @@
           <script>scripts\serialize_load_entity_mesh.gml</script>
           <script>scripts\serialize_load_entity_pawn.gml</script>
           <script>scripts\serialize_load_entity_tile.gml</script>
+          <scripts name="ext">
+            <script>scripts\serialize_load_entity_event_page.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\serialize_load_autotiles_meta.gml</script>
         <script>scripts\serialize_load_events.gml</script>
@@ -875,6 +878,9 @@
         <script>scripts\serialize_load_map_contents_batch.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
         <script>scripts\serialize_load_global_meta.gml</script>
+        <scripts name="generic data">
+          <script>scripts\serialize_load_generic.gml</script>
+        </scripts>
       </scripts>
       <scripts name="save">
         <scripts name="map contents">
@@ -884,6 +890,9 @@
           <script>scripts\serialize_save_entity_mesh.gml</script>
           <script>scripts\serialize_save_entity_pawn.gml</script>
           <script>scripts\serialize_save_entity_tile.gml</script>
+          <scripts name="ext">
+            <script>scripts\serialize_save_entity_event_page.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\serialize_save_autotiles_meta.gml</script>
         <script>scripts\serialize_save_events.gml</script>
@@ -892,6 +901,9 @@
         <script>scripts\serialize_save_map_contents_batch.gml</script>
         <script>scripts\serialize_save_tilesets_meta.gml</script>
         <script>scripts\serialize_save_global_meta.gml</script>
+        <scripts name="generic data">
+          <script>scripts\serialize_save_generic.gml</script>
+        </scripts>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>

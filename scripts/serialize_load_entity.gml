@@ -28,11 +28,11 @@ if (state_static&&!argument1.static){
     ActiveMap.population_static++;
 }
 
-// when you add things on you're probably going to append them to the
-// end so the cascading switch statement won't work, so check each old
-// version in ascending order
-
-if (argument2>DataVersions.INITIAL){
+if (argument2>=DataVersions.MAP_ENTITY_EVENTS){
+    var n_events=buffer_read(argument0, buffer_u8);
+    repeat(n_events){
+        serialize_load_entity_event_page(argument0, argument1, argument2);
+    }
 }
 
 // this should not be instantiated on its own and does not

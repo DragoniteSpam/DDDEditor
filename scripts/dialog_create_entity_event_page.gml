@@ -71,12 +71,33 @@ var el_trigger=create_radio_array(c2+16, yy, "Trigger Method", ew, eh, uivc_enti
 create_radio_array_options(el_trigger, "Action Button", "Player Touch", "Event Touch", "Autorun", "Parallel");
 yy=yy+eh+eh*5+spacing;
 
+// i don't like this ridiculous validation chain but if you try to refer to a nonexistent
+// event/entrypoint without checking it's going to explode violently
+var page_event=guid_get(page.event_guid);
+var page_entrypoint=guid_get(page.event_entrypoint);
+var text_event="None Set";
+var text_entrypoint="None Set";
+if (page_event==noone){
+    if (page.event_guid>0){
+        var text_event="<"+string(page.event_guid)+">";
+    }
+} else {
+    var text_event=page_event.name;
+    if (page_entrypoint==noone){
+        if (page.event_entrypoint>0){
+            var text_entrypoint="<"+string(page.event_entrypoint)+">";
+        }
+    } else {
+        var text_entrypoint=page_entrypoint.name;
+    }
+}
+
 var el_event=create_text(c2+16, yy, "Event Details", ew, eh, fa_left, ew, dg);
 yy=yy+eh+spacing;
-var el_event_guid=create_button(c2+16, yy, "Event: None Set", ew, eh, fa_left, omu_entity_get_event, dg);
+var el_event_guid=create_button(c2+16, yy, "Event: "+text_event, ew, eh, fa_left, omu_entity_get_event, dg);
 dg.el_event_guid=el_event_guid;
 yy=yy+eh+spacing;
-var el_event_entrypoint=create_button(c2+16, yy, "Entrypoint: None Set", ew, eh, fa_left, null, dg);
+var el_event_entrypoint=create_button(c2+16, yy, "Entrypoint: "+text_entrypoint, ew, eh, fa_left, null, dg);
 dg.el_event_entrypoint=el_event_entrypoint;
 
 yy=yy+eh+spacing;

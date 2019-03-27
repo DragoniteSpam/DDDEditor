@@ -6,11 +6,14 @@ var n_events=buffer_read(argument0, buffer_u32);
 Stuff.active_event=noone;
 
 repeat(n_events){
+    // this was written in pieces before serialize_load_generic was
+    // so don't use it here otherwise things will break
     var event_name=buffer_read(argument0, buffer_string);
     var event=event_create(event_name);
     if (version>=DataVersions.EVENT_GUID){
         data_set_guid(event, buffer_read(argument0, buffer_u32));
     }
+    
     ds_list_add(Stuff.all_events, event);
     // events are created with an entrypoint by default - you could pass an optional
     // parameter to the constructor to have it not do this, but this is the only place
@@ -29,6 +32,11 @@ repeat(n_events){
         var node=event_create_node(event, node_type, node_x, node_y);
         node.name=node_name;
         node.event=event;
+        
+        // forgot to do this earlier, whoops
+        if (version>=DataVersions.EVENT_NODE_GUID){
+            data_set_guid(node, buffer_read(argument0, buffer_u32));
+        }
         
         // some preliminary data may be created
         ds_list_clear(node.data);

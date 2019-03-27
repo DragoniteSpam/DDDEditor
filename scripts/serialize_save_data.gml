@@ -52,5 +52,7 @@ enum DataVersions {
     MAP_3D                      =4,
     GAMEPLAY_GRID               =5,
     EVENT_GUID                  =6,
+    MAP_ENTITY_EVENTS           =7,
+    EVENT_NODE_GUID             =8,
     _CURRENT                    /* = whatever the last one is + 1 */
 }

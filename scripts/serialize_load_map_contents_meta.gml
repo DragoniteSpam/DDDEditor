@@ -36,7 +36,4 @@ if (argument1>=DataVersions.MAP_VARS){
     if (argument1>=DataVersions.MAP_3D){
         ActiveMap.is_3d=unpack(bools, 4);
     }
-    
-    debug(string(ActiveMap.indoors)+", "+string(ActiveMap.draw_water)+", "+string(ActiveMap.fast_travel_to)+", "+
-        string(ActiveMap.fast_travel_from)+", "+string(ActiveMap.is_3d))
 }
