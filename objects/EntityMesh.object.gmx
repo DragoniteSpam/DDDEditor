@@ -51,6 +51,8 @@ ActiveMap.population_solid++;
 mesh_data=noone;
 
 slot=MapCellContents.MESHMOB;
+rotateable=true;
+// scalable=true;
 
 batch=batch_mesh;
 render=render_mesh;

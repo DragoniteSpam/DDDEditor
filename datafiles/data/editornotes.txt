@@ -1,8 +1,5 @@
 To Do
 
-1. Cache the selected entities somewhere every time it changes so the list doesn't have to be re-summoned
-(selection_all()) every time you want to do something with them
-
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
 3. Scribble!

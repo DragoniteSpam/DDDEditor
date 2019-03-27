@@ -55,6 +55,14 @@ xx=0;
 yy=0;
 zz=0;
 
+rot_xx=0;
+rot_yy=0;
+rot_zz=0;
+
+scale_xx=1;
+scale_yy=1;
+scale_zz=1;
+
 object_events=ds_list_create();         // i'm imposing a hard limit of 10 of these
 
 // these are a formality
@@ -77,6 +85,9 @@ static=false;           // anything that isn't intended to move - if batchable
 batchable=true;
 batch_index=-1;
 modification=Modifications.CREATE;
+translateable=true;
+rotateable=false;
+scalable=false;
 
 slot=MapCellContents.TILE;
 listed=false; // sigh

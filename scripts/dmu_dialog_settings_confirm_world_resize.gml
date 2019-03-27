@@ -12,7 +12,7 @@ if (ds_map_exists(map, "y")){
     yy=map[? "y"];
 }
 if (ds_map_exists(map, "z")){
-    yy=map[? "z"];
+    zz=map[? "z"];
 }
 
 for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){

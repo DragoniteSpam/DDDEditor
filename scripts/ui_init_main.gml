@@ -273,17 +273,25 @@ with (instance_create(0, 0, UIMain)){
     
     element_entity_name=create_input(legal_x+spacing, yy, "Name: ", col_width, element_height, uivc_input_entity_name, "", "", "Helpful if unique", validate_string, ui_value_string, 0, 1, max_characters, vx1, vy1, vx2, vy2, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_name);
+    element_entity_name.interactive=false;
     
     vx2=vx1+80;
     yy=yy+element_entity_name.height+spacing;
     
+    element=create_text(legal_x+spacing, yy, "Basic Properties", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element.height+spacing;
+    
     element_entity_solid=create_checkbox(legal_x+spacing, yy, "Solid", col_width, element_height, uivc_check_entity_solid, "", false, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_solid);
+    element_entity_solid.interactive=false;
     
     yy=yy+element_entity_solid.height+spacing;
     
     element_entity_static=create_checkbox(legal_x+spacing, yy, "Static", col_width, element_height, uivc_check_entity_static, "", false, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_static);
+    element_entity_static.interactive=false;
     
     yy=yy+element_entity_static.height+spacing;
     
@@ -294,21 +302,98 @@ with (instance_create(0, 0, UIMain)){
     element_entity_events.render=ui_render_list_entity_events;
     element_entity_events.entries_are=ListEntries.INSTANCES;
     ds_list_add(t_p_entity.contents, element_entity_events);
+    element_entity_events.interactive=false;
     
     yy=yy+element_height*n+spacing+spacing;
     
     element_entity_event_edit=create_button(legal_x+spacing, yy, "Edit Event Page", col_width, element_height, fa_center, omu_entity_event_page, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_event_edit);
+    element_entity_event_edit.interactive=false;
     
     yy=yy+element_height+spacing;
     
     element_entity_event_add=create_button(legal_x+spacing, yy, "Add Event Page", col_width, element_height, fa_center, omu_entity_add_event, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_event_add);
+    element_entity_event_add.interactive=false;
     
     yy=yy+element_height+spacing;
     
     element_entity_event_remove=create_button(legal_x+spacing, yy, "Delete Event Page", col_width, element_height, fa_center, omu_entity_remove_event, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_event_remove);
+    element_entity_event_remove.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    // second column
+    
+    yy=legal_y+spacing+element_entity_name.height+spacing;
+    
+    element=create_text(col2_x, yy, "Transform: Position", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_pos_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_pos_x);
+    element_entity_pos_x.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_pos_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_pos_y);
+    element_entity_pos_y.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_pos_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Cell", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_pos_z);
+    element_entity_pos_z.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_text(col2_x, yy, "Transform: Rotation", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_rot_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_rot_x);
+    element_entity_rot_x.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_rot_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_rot_y);
+    element_entity_rot_y.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_rot_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Degrees", validate_int, ui_value_real, 0, 64, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_rot_z);
+    element_entity_rot_z.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element=create_text(col2_x, yy, "Transform: Scale", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_scale_x=create_input(col2_x, yy, "   X: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_scale_x);
+    element_entity_scale_x.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_scale_y=create_input(col2_x, yy, "   Y: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_scale_y);
+    element_entity_scale_y.interactive=false;
+    
+    yy=yy+element_height+spacing;
+    
+    element_entity_scale_z=create_input(col2_x, yy, "   Z: ", col_width, element_height, null, "", "", "Float", validate_double, ui_value_real, 0.1, 10, 5, vx1, vy1, vx2, vy2, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_scale_z);
+    element_entity_scale_z.interactive=false;
     
     yy=yy+element_height+spacing;
     

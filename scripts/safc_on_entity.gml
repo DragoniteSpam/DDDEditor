@@ -1,5 +1,7 @@
 /// void safc_on_entity(EntityTile);
 
+// basic stuff
+
 Camera.ui.element_entity_name.value=argument0.name;
 Camera.ui.element_entity_solid.value=argument0.am_solid;
 Camera.ui.element_entity_static.value=argument0.static;
@@ -12,3 +14,25 @@ Camera.ui.element_entity_events.interactive=true;
 Camera.ui.element_entity_event_add.interactive=true;
 Camera.ui.element_entity_event_remove.interactive=true;
 Camera.ui.element_entity_event_edit.interactive=true;
+
+// transform
+
+Camera.ui.element_entity_pos_x.interactive=true;
+Camera.ui.element_entity_pos_y.interactive=true;
+Camera.ui.element_entity_pos_z.interactive=true;
+Camera.ui.element_entity_rot_x.interactive=true;
+Camera.ui.element_entity_rot_y.interactive=true;
+Camera.ui.element_entity_rot_z.interactive=true;
+//Camera.ui.element_entity_scale_x.interactive=true;
+//Camera.ui.element_entity_scale_y.interactive=true;
+//Camera.ui.element_entity_scale_z.interactive=true;
+
+Camera.ui.element_entity_pos_x.value=string(argument0.xx);
+Camera.ui.element_entity_pos_y.value=string(argument0.yy);
+Camera.ui.element_entity_pos_z.value=string(argument0.zz);
+Camera.ui.element_entity_rot_x.value=string(argument0.rot_xx);
+Camera.ui.element_entity_rot_y.value=string(argument0.rot_yy);
+Camera.ui.element_entity_rot_z.value=string(argument0.rot_zz);
+Camera.ui.element_entity_rot_x.value=string(argument0.scale_xx);
+Camera.ui.element_entity_rot_y.value=string(argument0.scale_yy);
+Camera.ui.element_entity_rot_z.value=string(argument0.scale_zz);
