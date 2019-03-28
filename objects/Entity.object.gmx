@@ -51,21 +51,21 @@ load_script=serialize_load_entity;
 // sparkles or something
 
 // serialize
-xx=0;
-yy=0;
-zz=0;
+xx=0;           // u32
+yy=0;           // u32
+zz=0;           // u32
 
-off_xx=0;
-off_yy=0;
-off_zz=0;
+off_xx=0;       // f32
+off_yy=0;       // f32
+off_zz=0;       // f32
 
-rot_xx=0;
-rot_yy=0;
-rot_zz=0;
+rot_xx=0;       // u16
+rot_yy=0;       // u16
+rot_zz=0;       // u16
 
-scale_xx=1;
-scale_yy=1;
-scale_zz=1;
+scale_xx=1;     // f32
+scale_yy=1;     // f32
+scale_zz=1;     // f32
 
 object_events=ds_list_create();         // i'm imposing a hard limit of 10 of these
 

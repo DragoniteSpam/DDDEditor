@@ -35,5 +35,19 @@ if (argument2>=DataVersions.MAP_ENTITY_EVENTS){
     }
 }
 
+if (argument2>=DataVersions.ENTITY_TRANSFORM){
+    argument1.off_xx=buffer_read(argument0, buffer_f32);
+    argument1.off_yy=buffer_read(argument0, buffer_f32);
+    argument1.off_zz=buffer_read(argument0, buffer_f32);
+    
+    argument1.rot_xx=buffer_read(argument0, buffer_u16);
+    argument1.rot_yy=buffer_read(argument0, buffer_u16);
+    argument1.rot_zz=buffer_read(argument0, buffer_u16);
+    
+    argument1.scale_xx=buffer_read(argument0, buffer_f32);
+    argument1.scale_yy=buffer_read(argument0, buffer_f32);
+    argument1.scale_zz=buffer_read(argument0, buffer_f32);
+}
+
 // this should not be instantiated on its own and does not
 // get collision information

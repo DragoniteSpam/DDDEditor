@@ -13,3 +13,17 @@ buffer_write(argument0, buffer_u8, n_events);
 for (var i=0; i<n_events; i++){
     serialize_save_entity_event_page(argument0, argument1.object_events[| i]);
 }
+
+// DataVersions.ENTITY_TRANSFORM
+
+buffer_write(argument0, buffer_f32, argument1.off_xx);
+buffer_write(argument0, buffer_f32, argument1.off_yy);
+buffer_write(argument0, buffer_f32, argument1.off_zz);
+
+buffer_write(argument0, buffer_u16, argument1.rot_xx);
+buffer_write(argument0, buffer_u16, argument1.rot_yy);
+buffer_write(argument0, buffer_u16, argument1.rot_zz);
+
+buffer_write(argument0, buffer_f32, argument1.scale_xx);
+buffer_write(argument0, buffer_f32, argument1.scale_yy);
+buffer_write(argument0, buffer_f32, argument1.scale_zz);
