@@ -223,6 +223,8 @@
         <script>scripts\ds_list_top.gml</script>
         <script>scripts\ds_map_to_list.gml</script>
         <script>scripts\ds_map_to_list_sorted.gml</script>
+        <script>scripts\ds_list_sort_sucks.gml</script>
+        <script>scripts\ds_list_sort_name_sucks.gml</script>
         <scripts name="trees">
           <script>scripts\ds_tree_add.gml</script>
           <script>scripts\ds_tree_node.gml</script>
@@ -451,6 +453,7 @@
             <script>scripts\dialog_create_entity_get_event_entrypoint.gml</script>
             <script>scripts\dialog_create_entity_event_page.gml</script>
           </scripts>
+          <script>scripts\dialog_create_data_types.gml</script>
         </scripts>
         <script>scripts\dialog_create.gml</script>
         <script>scripts\dialog_destroy.gml</script>
@@ -668,9 +671,6 @@
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
         <script>scripts\omu_entity_event_page.gml</script>
-        <script>scripts\omu_manager_autotile.gml</script>
-        <script>scripts\omu_manager_mesh.gml</script>
-        <script>scripts\omu_manager_tileset.gml</script>
         <scripts name="events">
           <script>scripts\omu_event_add_entrypoint.gml</script>
           <script>scripts\omu_event_add_event.gml</script>
@@ -682,6 +682,13 @@
           <script>scripts\omu_entity_add_event.gml</script>
           <script>scripts\omu_entity_get_event.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
+        </scripts>
+        <scripts name="data">
+          <script>scripts\omu_manager_autotile.gml</script>
+          <script>scripts\omu_manager_mesh.gml</script>
+          <script>scripts\omu_manager_tileset.gml</script>
+          <script>scripts\omu_data_add.gml</script>
+          <script>scripts\omu_data_remove.gml</script>
         </scripts>
       </scripts>
       <scripts name="rendering">
@@ -745,6 +752,7 @@
           <script>scripts\ui_render_list_event_node.gml</script>
           <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
+          <script>scripts\ui_render_list_data_data.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
             <script>scripts\ui_render_text_stats_static.gml</script>

@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="DataType"+ds_list_size(Stuff.all_data);
+name="DataType"+string(ds_list_size(Stuff.all_data));
 summary="This is a custom data type";
 
 properties=ds_list_create();
