@@ -33,8 +33,6 @@ draw_set_color(c_white);
 draw_set_font(FDefault12);
 draw_set_valign(fa_middle);
 
-draw_clear(c_black);
-
 var checker_width=sprite_get_width(b_tileset_checkers);
 var checker_height=sprite_get_height(b_tileset_checkers);
 

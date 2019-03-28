@@ -88,15 +88,16 @@ ds_list_add(menu_edit.contents, me_undo, me_redo,
 
 var md_mesh=create_menu_element("Meshes (vrax)", momu_mesh, menu_data);
 var md_ts=create_menu_element("Tileset", momu_tileset, menu_data);
+var md_data_types=create_menu_element("Define Data Types", momu_data_types, menu_data);
 var md_conflicts=create_menu_element("View Mesh Conflicts", momu_conflicts, menu_data);
 var md_3d=create_menu_element("3D Editor", momu_editor_3d, menu_data);
 var md_events=create_menu_element("Event Editor", momu_editor_event, menu_data);
-ds_list_add(menu_data.contents, md_mesh, md_ts,
+var md_data=create_menu_element("Game Data", momu_data, menu_data);
+ds_list_add(menu_data.contents, md_mesh, md_ts, md_data_types,
     m_separator,
     md_conflicts,
     m_separator,
-    md_3d,
-    md_events);
+    md_3d, md_events, md_data);
 
 /*
  * Help stuff

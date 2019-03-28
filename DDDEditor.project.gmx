@@ -345,6 +345,7 @@
       <scripts name="views">
         <script>scripts\draw_editor_3d.gml</script>
         <script>scripts\draw_editor_event.gml</script>
+        <script>scripts\draw_editor_data.gml</script>
         <script>scripts\draw_editor_event_hud.gml</script>
         <script>scripts\draw_editor_hud.gml</script>
         <script>scripts\draw_editor_menu.gml</script>
@@ -528,11 +529,13 @@
             <script>scripts\momu_about.gml</script>
           </scripts>
           <scripts name="data">
+            <script>scripts\momu_conflicts.gml</script>
+            <script>scripts\momu_data.gml</script>
+            <script>scripts\momu_data_types.gml</script>
+            <script>scripts\momu_editor_3d.gml</script>
+            <script>scripts\momu_editor_event.gml</script>
             <script>scripts\momu_mesh.gml</script>
             <script>scripts\momu_tileset.gml</script>
-            <script>scripts\momu_editor_event.gml</script>
-            <script>scripts\momu_editor_3d.gml</script>
-            <script>scripts\momu_conflicts.gml</script>
           </scripts>
         </scripts>
         <script>scripts\menu_is_ancestor.gml</script>
@@ -967,6 +970,8 @@
         <object>objects\DataTileset</object>
         <object>objects\DataObject</object>
         <object>objects\DataEvent</object>
+        <object>objects\DataData</object>
+        <object>objects\DataProperty</object>
         <object>objects\DataEventNode</object>
         <object>objects\ActiveMap</object>
       </objects>
