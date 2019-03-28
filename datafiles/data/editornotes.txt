@@ -1,12 +1,12 @@
 To Do
 
-1. finish scribble
+1. when datadata and dataproperties are deleted, check to see if they're in use anywhere!
 
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
-3. DataData
+3. Sauce was talking about inventory/items
 
-4. Sauce was talking about inventory/items
+4. custom event node types - add item, set class, game-specific things
 
 when moving around a group of selected entities with the mouse, un-batch them and add them to a temporary
 "mobile" batch instead so they don't have to get re-batched every time you move things just a little bit
