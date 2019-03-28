@@ -114,7 +114,7 @@ if (!keyboard_check(vk_control)){
         yspeed=dcos(direction)*mspd*Stuff.dt;
         keyboard_string="";
     }
-    if (Controller.mouse_middle){
+    if (Controller.mouse_right){
         var dx=(MOUSE_X-CW/2)/16;
         var dy=(MOUSE_Y-CH/2)/16;
         direction=(360+direction-dx)%360;
