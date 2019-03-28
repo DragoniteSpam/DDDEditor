@@ -32,6 +32,7 @@ if (zz<z){
     if (Controller.press_left){
         if (!keyboard_check(input_selection_add)&&!selection_addition){
             selection_clear();
+            keyboard_string="";
         }
         switch (selection_mode){
             case SelectionModes.SINGLE:
@@ -76,9 +77,11 @@ if (zz<z){
 
 if (keyboard_check_pressed(vk_space)){
     sa_fill();
+    keyboard_string="";
 }
 if (keyboard_check_pressed(vk_delete)){
     sa_delete();
+    keyboard_string="";
 }
 
 // move the camera
@@ -93,19 +96,23 @@ if (!keyboard_check(vk_control)){
         xspeed=dcos(direction)*mspd*Stuff.dt;
         yspeed=-dsin(direction)*mspd*Stuff.dt;
         zspeed=-dsin(pitch)*mspd*Stuff.dt;
+        keyboard_string="";
     }
     if (keyboard_check(vk_down)||keyboard_check(ord('S'))){
         xspeed=-dcos(direction)*mspd*Stuff.dt;
         yspeed=dsin(direction)*mspd*Stuff.dt;
         zspeed=dsin(pitch)*mspd*Stuff.dt;
+        keyboard_string="";
     }
     if (keyboard_check(vk_left)||keyboard_check(ord('A'))){
         xspeed=-dsin(direction)*mspd*Stuff.dt;
         yspeed=-dcos(direction)*mspd*Stuff.dt;
+        keyboard_string="";
     }
     if (keyboard_check(vk_right)||keyboard_check(ord('D'))){
         xspeed=dsin(direction)*mspd*Stuff.dt;
         yspeed=dcos(direction)*mspd*Stuff.dt;
+        keyboard_string="";
     }
     if (Controller.mouse_middle){
         var dx=(MOUSE_X-CW/2)/16;
@@ -128,7 +135,3 @@ if (!keyboard_check(vk_control)){
     yup=0;
     zup=1;
 }
-
-// if the mouse is controlling the 3D view, you're probably moving around and
-// don't want to be able to enter text into UIInputs and stuff
-keyboard_string="";
