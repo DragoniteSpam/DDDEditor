@@ -490,6 +490,7 @@
       </scripts>
       <scripts name="math">
         <script>scripts\ui_get_radio_array_height.gml</script>
+        <script>scripts\ui_get_list_height.gml</script>
         <script>scripts\ui_get_text_x.gml</script>
         <script>scripts\ui_get_text_y.gml</script>
         <script>scripts\ui_legal_height.gml</script>
@@ -667,6 +668,10 @@
         <script>scripts\uivc_stash_list.gml</script>
         <script>scripts\uivc_tile_set_data_view.gml</script>
         <script>scripts\uivc_tile_set_on_click.gml</script>
+        <scripts name="data">
+          <script>scripts\uivc_list_data_data.gml</script>
+          <script>scripts\uivc_list_data_property.gml</script>
+        </scripts>
       </scripts>
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
@@ -688,6 +693,8 @@
           <script>scripts\omu_manager_mesh.gml</script>
           <script>scripts\omu_manager_tileset.gml</script>
           <script>scripts\omu_data_add.gml</script>
+          <script>scripts\omu_data_property_add.gml</script>
+          <script>scripts\omu_data_property_remove.gml</script>
           <script>scripts\omu_data_remove.gml</script>
         </scripts>
       </scripts>
@@ -753,6 +760,7 @@
           <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_data_data.gml</script>
+          <script>scripts\ui_render_list_data_properties.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
             <script>scripts\ui_render_text_stats_static.gml</script>

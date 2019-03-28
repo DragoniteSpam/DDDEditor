@@ -34,7 +34,7 @@ type=DataTypes.INT;
 range_min=0;                // int, float
 range_max=10;               // int, float
 char_limit=20;              // string
-bool_list=ds_list_create(); // bool array (character)
+bool_list=ds_list_create(); // bool array (single character)
 type_guid=0;                // Data
 
 enum DataTypes {

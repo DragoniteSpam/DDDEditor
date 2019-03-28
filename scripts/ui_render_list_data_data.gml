@@ -1,4 +1,4 @@
-/// void ui_render_list_data_data(UIList, x, y);
+/// void ui_render_list_data_data(UIList);
 
 var otext=argument0.text;
 var oentries=argument0.entries;

@@ -6,6 +6,9 @@ var dh=640;
 var dg=dialog_create(dw, dh, "Data: Data", dialog_default, dc_close_no_questions_asked, argument0);
 dg.x=dg.x-32;
 
+dg.selected_data=noone;
+dg.selected_property=noone;
+
 var columns=3;
 var ew=(dw-columns*32)/columns;
 var eh=24;
@@ -23,38 +26,48 @@ var n_slots=16;
 
 var yy=64;
 
-var el_list=create_list(16, yy, "Data Types: ", "<no data types>", ew, eh, n_slots, null, false, dg);
+var el_list=create_list(16, yy, "Data Types: ", "<no data types>", ew, eh, n_slots, uivc_list_data_data, false, dg);
 el_list.render=ui_render_list_data_data;
 el_list.entries_are=ListEntries.INSTANCES;
 
 dg.el_list_main=el_list;
 
-yy=yy+el_list.height*el_list.slots+el_list.height+spacing;
+yy=yy+ui_get_list_height(el_list)+spacing;
 
 el_add=create_button(16, yy, "Add Data", ew, eh, fa_center, omu_data_add, dg);
 yy=yy+el_add.height+spacing;
 
 el_remove=create_button(16, yy, "Remove Data", ew, eh, fa_center, omu_data_remove, dg);
 
+// COLUMN 2
 yy=64;
 var col2_x=dw/3+16;
 
-var el_list_p=create_list(col2_x, yy, "Properties: ", "<no properties>", ew, eh, n_slots, null, false, dg);
+var el_data_name=create_input(col2_x, yy, "Data Name:", ew, eh, null, "", "", "Unique name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+el_data_name.interactive=false;
+dg.el_data_name=el_data_name;
+
+yy=yy+el_data_name.height+spacing;
+
+var el_list_p=create_list(col2_x, yy, "Properties: ", "<no properties>", ew, eh, n_slots-2, uivc_list_data_property, false, dg);
+el_list_p.render=ui_render_list_data_properties;
 el_list_p.interactive=false;
+el_list_p.entries_are=ListEntries.INSTANCES;
 dg.el_list_p=el_list_p;
 
-yy=yy+el_list.height*el_list.slots+el_list.height+spacing;
+yy=yy+ui_get_list_height(el_list_p)+spacing;
 
-var el_add_p=create_button(col2_x, yy, "Add Property", ew, eh, fa_center, omu_data_add, dg);
+var el_add_p=create_button(col2_x, yy, "Add Property", ew, eh, fa_center, omu_data_property_add, dg);
 el_add_p.interactive=false;
 dg.el_add_p=el_add_p;
 
 yy=yy+el_add_p.height+spacing;
 
-var el_remove_p=create_button(col2_x, yy, "Remove Property", ew, eh, fa_center, omu_data_remove, dg);
+var el_remove_p=create_button(col2_x, yy, "Remove Property", ew, eh, fa_center, omu_data_property_remove, dg);
 el_remove_p.interactive=false;
 dg.el_remove_p=el_remove_p;
 
+// COLUMN 3
 yy=64;
 var col3_x=dw*2/3+16;
 
@@ -125,7 +138,7 @@ yy=yy+el_property_bits_remove.height+spacing;
 el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg, HelpPages.AUTOTILES, fa_center);
 
 ds_list_add(dg.contents, el_list, el_add, el_remove,
-    el_list_p, el_add_p, el_remove_p,
+    el_data_name, el_list_p, el_add_p, el_remove_p,
     el_property_name, el_property_type, el_text,
     el_property_type_guid, el_property_min, el_property_char_limit,
     el_property_max, el_property_bits,
