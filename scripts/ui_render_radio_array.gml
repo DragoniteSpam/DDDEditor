@@ -19,5 +19,7 @@ draw_text(tx, ty, argument0.text);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
+    // these are all part of the same UIThing so there's no point in turning
+    // them off
     script_execute(thing.render, thing, x1, y1);
 }

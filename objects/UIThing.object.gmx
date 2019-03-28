@@ -28,6 +28,7 @@
             <string>render=ui_render;
 contents=ds_list_create();
 root=noone;
+enabled=true;
 
 interactive=true;
 

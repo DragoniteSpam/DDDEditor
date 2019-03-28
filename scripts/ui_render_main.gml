@@ -63,6 +63,8 @@ for (var i=0; i<ds_list_size(argument0.tabs); i++){
     trow=argument0.tabs[| i];
     for (var j=0; j<ds_list_size(trow); j++){
         thing=trow[| j];
+        // i think windows forms allow you to disable tabs, but i'm not
+        // because that's a pain and i don't see it happening all that much
         script_execute(thing.render, thing, 0, 0);
     }
 }

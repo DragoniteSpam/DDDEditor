@@ -30,9 +30,12 @@
 name="Property";
 
 type=DataTypes.INT;
-type_guid=0;
-range_min=0;
-range_max=10;
+
+range_min=0;                // int, float
+range_max=10;               // int, float
+char_limit=20;              // string
+bool_list=ds_list_create(); // bool array (character)
+type_guid=0;                // Data
 
 enum DataTypes {
     INT,            // input
@@ -74,6 +77,8 @@ enum DataInputTypes {
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
+ds_list_destroy(bool_list);
 </string>
           </argument>
         </arguments>

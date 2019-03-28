@@ -60,10 +60,12 @@ if (active){
     draw_rectangle_colour(xx, yy, xx+ww, yy+hh, c_white, c_white, c_white, c_white, false);
     for (var i=0; i<ds_list_size(argument0.contents); i++){
         var thing=argument0.contents[| i];
-        var mx1=xx;
-        var my1=yy+argument0.height*i+separation
-        var mx2=mx1+ww;
-        var my2=my1+argument0.height;
-        script_execute(thing.render, thing, mx1, my1, mx2, my2);
+        if (thing.enabled){
+            var mx1=xx;
+            var my1=yy+argument0.height*i+separation
+            var mx2=mx1+ww;
+            var my2=my1+argument0.height;
+            script_execute(thing.render, thing, mx1, my1, mx2, my2);
+        }
     }
 }

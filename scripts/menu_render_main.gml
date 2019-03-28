@@ -11,6 +11,7 @@ draw_set_valign(fa_middle);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
-    
-    script_execute(thing.render, thing, xx+argument0.element_width*i, yy);
+    if (thing.enabled){
+        script_execute(thing.render, thing, xx+argument0.element_width*i, yy);
+    }
 }

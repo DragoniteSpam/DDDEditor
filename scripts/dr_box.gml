@@ -73,7 +73,9 @@ draw_sprite(spr_close, cbi, cbx, cby);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
-    script_execute(thing.render, thing, argument0.x, argument0.y);
+    if (thing.enabled){
+        script_execute(thing.render, thing, argument0.x, argument0.y);
+    }
 }
 
 if (Controller.press_help){

@@ -17,6 +17,8 @@ draw_set_halign(fa_center);
 
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
+    // these are all part of the same UIThing so there's no point in turning them
+    // off
     script_execute(thing.render, thing, argument0.x+argument1, argument0.y+argument2); 
 }
 
