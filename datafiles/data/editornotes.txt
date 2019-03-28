@@ -1,12 +1,16 @@
 To Do
 
+1. finish scribble
+
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
-3. Scribble!
+3. DataData
 
-4. DataData
+4. Sauce was talking about inventory/items
 
-5. Sauce was talking about inventory/items
+when moving around a group of selected entities with the mouse, un-batch them and add them to a temporary
+"mobile" batch instead so they don't have to get re-batched every time you move things just a little bit
+ - which would slow things down quite a lot when moving a large number of entities
 
 In the Autotile Editor tab, the button that says "click for autotile" spawns a dialog that lets you
 select an autotile, with a button that says "Autotile Data" . . . which opens a dialog that's almost
