@@ -128,3 +128,7 @@ if (!keyboard_check(vk_control)){
     yup=0;
     zup=1;
 }
+
+// if the mouse is controlling the 3D view, you're probably moving around and
+// don't want to be able to enter text into UIInputs and stuff
+keyboard_string="";
