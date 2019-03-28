@@ -397,6 +397,7 @@
       <script>scripts\control_duration_left.gml</script>
       <script>scripts\control_duration_right.gml</script>
       <script>scripts\control_duration_middle.gml</script>
+      <script>scripts\control_global.gml</script>
     </scripts>
     <scripts name="ui stuff">
       <scripts name="creation">
@@ -1006,8 +1007,7 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="53">
-    <constant name="SELECTION_MASK_ALL">ETypeFlags.ENTITY_TILE|ETypeFlags.ENTITY_TILE_AUTO|ETypeFlags.ENTITY_EVENT|ETypeFlags.ENTITY_PAWN|ETypeFlags.ENTITY_MESH|ETypeFlags.ENTITY_EFFECT</constant>
+  <constants number="54">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
@@ -1035,10 +1035,11 @@
     <constant name="mouse_x_view">mouse_x+view_xview[view_current]</constant>
     <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
     <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
-    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="PATH_BACKUP_DATA">'.\backups\data\'</constant>
     <constant name="PATH_BACKUP_MAP">'.\backups\maps\'</constant>
+    <constant name="PATH_TILESET">'.\data\graphics\tilesets\'</constant>
     <constant name="PATH_VRA">'.\data\vra\'</constant>
+    <constant name="SELECTION_MASK_ALL">ETypeFlags.ENTITY_TILE|ETypeFlags.ENTITY_TILE_AUTO|ETypeFlags.ENTITY_EVENT|ETypeFlags.ENTITY_PAWN|ETypeFlags.ENTITY_MESH|ETypeFlags.ENTITY_EFFECT</constant>
     <constant name="SERIALIZE_DATA">1</constant>
     <constant name="SERIALIZE_MAP">0</constant>
     <constant name="T">buffer_f32</constant>
@@ -1056,6 +1057,7 @@
     <constant name="view_hud_width_3d">520</constant>
     <constant name="view_hud_width_event">320</constant>
     <constant name="view_hud">3</constant>
+    <constant name="view_invisible">7</constant>
     <constant name="view_ribbon">2</constant>
     <constant name="WVIEW">view_wview[view_current]</constant>
     <constant name="XVIEW">view_xview[view_current]</constant>
