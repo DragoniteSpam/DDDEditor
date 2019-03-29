@@ -11,6 +11,7 @@ if (selection>=0){
     instance_destroy(what);
     
     ds_map_clear(argument0.root.el_list_main.selected_entries);
+    ds_map_clear(argument0.root.el_list_p.selected_entries);
     
     argument0.root.selected_data=noone;
     argument0.root.selected_property=noone;

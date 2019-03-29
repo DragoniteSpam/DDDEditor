@@ -456,6 +456,7 @@
           <script>scripts\dialog_create_data_types.gml</script>
           <scripts name="help">
             <script>scripts\dialog_data_type_disable.gml</script>
+            <script>scripts\dialog_data_type_enable_by_type.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -672,8 +673,16 @@
         <script>scripts\uivc_tile_set_data_view.gml</script>
         <script>scripts\uivc_tile_set_on_click.gml</script>
         <scripts name="data">
+          <script>scripts\uivc_input_data_name.gml</script>
+          <script>scripts\uivc_input_data_property_name.gml</script>
+          <script>scripts\uivc_input_data_property_bit_name.gml</script>
+          <script>scripts\uivc_input_data_property_type.gml</script>
           <script>scripts\uivc_list_data_data.gml</script>
           <script>scripts\uivc_list_data_property.gml</script>
+          <script>scripts\uivc_list_data_property_bits.gml</script>
+          <script>scripts\uivc_input_data_value_max.gml</script>
+          <script>scripts\uivc_input_data_value_min.gml</script>
+          <script>scripts\uivc_input_data_char_limit.gml</script>
         </scripts>
       </scripts>
       <scripts name="onmouseup">
@@ -765,6 +774,7 @@
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_data_data.gml</script>
           <script>scripts\ui_render_list_data_properties.gml</script>
+          <script>scripts\ui_render_list_data_property_bit.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
             <script>scripts\ui_render_text_stats_static.gml</script>
@@ -987,15 +997,17 @@
       <objects name="More Data">
         <object>objects\ActiveMap</object>
         <object>objects\Data</object>
-        <object>objects\DataData</object>
-        <object>objects\DataEnum</object>
         <object>objects\DataEvent</object>
         <object>objects\DataEventNode</object>
-        <object>objects\DataGeneric</object>
         <object>objects\DataInstantiatedEvent</object>
         <object>objects\DataObject</object>
-        <object>objects\DataProperty</object>
         <object>objects\DataTileset</object>
+        <objects name="Generic">
+          <object>objects\DataData</object>
+          <object>objects\DataEnum</object>
+          <object>objects\DataGeneric</object>
+          <object>objects\DataProperty</object>
+        </objects>
       </objects>
     </objects>
     <objects name="Selections">

@@ -37,6 +37,9 @@ char_limit=20;              // string
 bool_list=ds_list_create(); // bool array (single character)
 type_guid=0;                // Data
 
+ds_list_add(bool_list, "Alfa", "Bravo", "Charlie", "Delta",
+    "Echo", "Foxtrot", "Golf", "Hotel");
+
 enum DataTypes {
     INT,            // input
     ENUM,           // radio
@@ -52,7 +55,8 @@ enum DataInputTypes {
     CHECKBOX,       // bool
     INPUT,          // string, int, float
     LIST,           // data
-    RADIO,          // enum
+    RADIO,          // enum - n &lt;= 8
+    LIST,           // enum - n &gt; 8
 }
 </string>
           </argument>

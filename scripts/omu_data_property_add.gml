@@ -13,7 +13,6 @@ if (ds_list_size(datadata.properties)<1000){
     dialog_data_type_disable(argument0.root);
     
     argument0.root.el_data_name.interactive=true;
-    argument0.root.el_list_p.interactive=true;
     argument0.root.el_add_p.interactive=true;
     argument0.root.el_remove_p.interactive=true;
 } else {

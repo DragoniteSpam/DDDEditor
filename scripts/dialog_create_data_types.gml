@@ -49,7 +49,7 @@ el_remove=create_button(16, yy, "Remove", ew, eh, fa_center, omu_data_remove, dg
 yy=64;
 var col2_x=dw/3+16;
 
-var el_data_name=create_input(col2_x, yy, "Data Name:", ew, eh, null, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+var el_data_name=create_input(col2_x, yy, "Data Name:", ew, eh, uivc_input_data_name, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
 el_data_name.interactive=false;
 dg.el_data_name=el_data_name;
 
@@ -57,7 +57,6 @@ yy=yy+el_data_name.height+spacing;
 
 var el_list_p=create_list(col2_x, yy, "Properties: ", "<no properties>", ew, eh, n_slots, uivc_list_data_property, false, dg);
 el_list_p.render=ui_render_list_data_properties;
-el_list_p.interactive=false;
 el_list_p.entries_are=ListEntries.INSTANCES;
 dg.el_list_p=el_list_p;
 
@@ -77,13 +76,13 @@ dg.el_remove_p=el_remove_p;
 yy=64;
 var col3_x=dw*2/3+16;
 
-var el_property_name=create_input(col3_x, yy, "Name:", ew, eh, null, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+var el_property_name=create_input(col3_x, yy, "Name:", ew, eh, uivc_input_data_property_name, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
 el_property_name.interactive=false;
 dg.el_property_name=el_property_name;
 
 yy=yy+el_property_name.height+spacing;
 
-var el_property_type=create_radio_array(col3_x, yy, "Type:", ew, eh, null, 0, dg);
+var el_property_type=create_radio_array(col3_x, yy, "Type:", ew, eh, uivc_input_data_property_type, 0, dg);
 el_property_type.interactive=false;
 create_radio_array_options(el_property_type, "Int", "Enum", "Float", "String", "Boolean", "Boolean Array", "Data");
 dg.el_property_type=el_property_type;
@@ -94,61 +93,60 @@ var el_text=create_text(col3_x, yy, "Parameters:", ew, eh, fa_left, ew, dg);
 
 yy=yy+el_text.height+spacing;
 
+var yy_top=yy;
+
 // data only
-var el_property_type_guid=create_button(col3_x, yy, "Data", ew, eh, fa_center, null, dg);
+var el_property_type_guid=create_button(col3_x, yy, "Select", ew, eh, fa_center, null, dg);
 el_property_type_guid.enabled=false;
 dg.el_property_type_guid=el_property_type_guid;
 
 // number only
-var el_property_min=create_input(col3_x, yy, "Min. Value:", ew, eh, null, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<3-1, 10, vx1, vy1, vx2, vy2, dg);
+var el_property_min=create_input(col3_x, yy, "Min. Value:", ew, eh, uivc_input_data_value_min, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
 el_property_min.enabled=true;
 dg.el_property_min=el_property_min;
 
 // string only
-var el_property_char_limit=create_input(col3_x, yy, "Char. Limit:", ew, eh, null, "", "20", "", validate_int, ui_value_real, 1, 1<<16-1, 5, vx1, vy1, vx2, vy2, dg);
+var el_property_char_limit=create_input(col3_x, yy, "Char. Limit:", ew, eh, uivc_input_data_char_limit, "", "20", "", validate_int, ui_value_real, 1, 1000, 4, vx1, vy1, vx2, vy2, dg);
 el_property_char_limit.enabled=false;
 dg.el_property_char_limit=el_property_char_limit;
+
+// bool only
+var el_property_bool_note=create_text(col3_x, yy, "(No extra data)", ew, eh, fa_left, ew, dg);
+el_property_bool_note.enabled=false;
+dg.el_property_bool_note=el_property_bool_note;
 
 yy=yy+eh+spacing;
 
 // number only
-var el_property_max=create_input(col3_x, yy, "Max. Value:", ew, eh, null, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<3-1, 10, vx1, vy1, vx2, vy2, dg);
+var el_property_max=create_input(col3_x, yy, "Max. Value:", ew, eh, uivc_input_data_value_max, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
 el_property_max.enabled=true;
 dg.el_property_max=el_property_max;
 
+yy=yy_top;
+
 // bool array only
-var el_property_bits=create_list(col2_x, yy, "Bits:", "<no bits>", ew, eh, 8, null, false, dg);
+var el_property_bits=create_list(col3_x, yy, "Bits:", "<no bits>", ew, eh, 8, uivc_list_data_property_bits, false, dg);
 el_property_bits.enabled=false;
+el_property_bits.render=ui_render_list_data_property_bit;
+ds_map_add(el_property_bits.selected_entries, 0, true);
 dg.el_property_bits=el_property_bits;
 
-yy=yy+ui_get_radio_array_height(el_property_bits)+spacing;
+yy=yy+ui_get_list_height(el_property_bits)+spacing;
 
-var el_property_bit_name=create_input(col3_x, yy, "Bit Character:", ew, eh, null, "", "", "One char", validate_string, ui_value_string, 0, 1, 1, vx1, vy1, vx2, vy2, dg);
+var el_property_bit_name=create_input(col3_x, yy, "Bit Name:", ew, eh, uivc_input_data_property_bit_name, "", "Alfa", "", validate_string_internal_name, ui_value_string, 0, 1, 12, vx1, vy1, vx2, vy2, dg);
 el_property_bit_name.enabled=false;
 dg.el_property_bit_name=el_property_bit_name;
 
 yy=yy+el_property_bit_name.height+spacing;
-
-var el_property_bits_add=create_button(col2_x, yy, "Add Property", ew, eh, fa_center, null, dg);
-el_property_bits_add.enabled=false;
-dg.el_property_bits_add=el_property_bits_add;
-
-yy=yy+el_property_bits_add.height+spacing;
-
-var el_property_bits_remove=create_button(col2_x, yy, "Remove Property", ew, eh, fa_center, null, dg);
-el_property_bits_remove.enabled=false;
-dg.el_property_bits_remove=el_property_bits_remove;
-
-yy=yy+el_property_bits_remove.height+spacing;
 
 el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg, HelpPages.AUTOTILES, fa_center);
 
 ds_list_add(dg.contents, el_list, el_add, el_add_enum, el_remove,
     el_data_name, el_list_p, el_add_p, el_remove_p,
     el_property_name, el_property_type, el_text,
-    el_property_type_guid, el_property_min, el_property_char_limit,
+    el_property_type_guid, el_property_min, el_property_char_limit, el_property_bool_note,
     el_property_max, el_property_bits,
-    el_property_bit_name, el_property_bits_add, el_property_bits_remove,
+    el_property_bit_name,
     el_confirm);
 
 keyboard_string="";
