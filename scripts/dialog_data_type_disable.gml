@@ -13,6 +13,7 @@ argument0.el_property_max.interactive=false;
 argument0.el_property_char_limit.interactive=false;
 argument0.el_property_bits.interactive=false;
 argument0.el_property_bit_name.interactive=false;
+argument0.el_property_scale.interactive=false;
 
 argument0.el_property_min.enabled=false;
 argument0.el_property_char_limit.enabled=false;
@@ -20,3 +21,4 @@ argument0.el_property_max.enabled=false;
 argument0.el_property_bool_note.enabled=false;
 argument0.el_property_bits.enabled=false;
 argument0.el_property_bit_name.enabled=false;
+argument0.el_property_scale.enabled=false;

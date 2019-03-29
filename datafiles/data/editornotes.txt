@@ -1,7 +1,5 @@
 To Do
 
-1. when datadata and dataproperties are deleted, check to see if they're in use anywhere!
-
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
 3. Sauce was talking about inventory/items

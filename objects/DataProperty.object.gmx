@@ -31,11 +31,12 @@ name="Property";
 
 type=DataTypes.INT;
 
-range_min=0;                // int, float
-range_max=10;               // int, float
-char_limit=20;              // string
-bool_list=ds_list_create(); // bool array (single character)
-type_guid=0;                // Data
+range_min=0;                        // int, float
+range_max=10;                       // int, float
+number_scale=NumberScales.LINEAR;   // int, float
+char_limit=20;                      // string
+bool_list=ds_list_create();         // bool array (single character)
+type_guid=0;                        // Data
 
 ds_list_add(bool_list, "Alfa", "Bravo", "Charlie", "Delta",
     "Echo", "Foxtrot", "Golf", "Hotel");
@@ -57,6 +58,12 @@ enum DataInputTypes {
     LIST,           // data
     RADIO,          // enum - n &lt;= 8
     LIST,           // enum - n &gt; 8
+}
+
+enum NumberScales {
+    LINEAR,
+    QUADRATIC,
+    EXPONENTIAL,
 }
 </string>
           </argument>

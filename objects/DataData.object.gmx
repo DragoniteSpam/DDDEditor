@@ -31,6 +31,9 @@ name="DataType"+string(ds_list_size(Stuff.all_data));
 summary="";
 
 properties=ds_list_create();
+
+// all of the instances of the data type; nested lists
+instances=ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -56,6 +59,12 @@ properties=ds_list_create();
             <string>event_inherited();
 
 ds_list_destroy_instances(properties);
+
+// because nested lists
+for (var i=0; i&lt;ds_list_size(instances); i++){
+    ds_list_destroy(instances[| i]);
+}
+ds_list_destroy(instances);
 </string>
           </argument>
         </arguments>

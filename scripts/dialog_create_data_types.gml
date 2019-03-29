@@ -89,10 +89,6 @@ dg.el_property_type=el_property_type;
 
 yy=yy+ui_get_radio_array_height(el_property_type)+spacing;
 
-var el_text=create_text(col3_x, yy, "Parameters:", ew, eh, fa_left, ew, dg);
-
-yy=yy+el_text.height+spacing;
-
 var yy_top=yy;
 
 // data only
@@ -122,6 +118,13 @@ var el_property_max=create_input(col3_x, yy, "Max. Value:", ew, eh, uivc_input_d
 el_property_max.enabled=true;
 dg.el_property_max=el_property_max;
 
+yy=yy+eh+spacing;
+
+var el_property_scale=create_radio_array(col3_x, yy, "Scale:", ew, eh, uivc_input_data_number_scale, 0, dg);
+create_radio_array_options(el_property_scale, "Linear", "Quadratic", "Exponential");
+el_property_scale.enabled=true;
+dg.el_property_scale=el_property_scale;
+
 yy=yy_top;
 
 // bool array only
@@ -143,9 +146,9 @@ el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_c
 
 ds_list_add(dg.contents, el_list, el_add, el_add_enum, el_remove,
     el_data_name, el_list_p, el_add_p, el_remove_p,
-    el_property_name, el_property_type, el_text,
+    el_property_name, el_property_type,
     el_property_type_guid, el_property_min, el_property_char_limit, el_property_bool_note,
-    el_property_max, el_property_bits,
+    el_property_max, el_property_scale, el_property_bits,
     el_property_bit_name,
     el_confirm);
 

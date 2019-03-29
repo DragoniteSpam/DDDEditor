@@ -36,6 +36,7 @@ if (buffer==-1){
             ds_list_clear_instances(Stuff.all_events);
             ds_list_clear(Stuff.all_events);
             ds_map_clear(Stuff.all_guids);
+            ds_list_clear_instances(Stuff.all_data);
         } else if (what==SERIALIZE_MAP){
             // todo clear editor map - IF entities get their own GUIDs eventually,
             // they should go in a separate lookup which should be cleared in here

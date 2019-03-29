@@ -22,10 +22,13 @@ if (argument0.selected_data.is_enum){
         case DataTypes.FLOAT:
             argument0.el_property_min.interactive=true;
             argument0.el_property_max.interactive=true;
+            argument0.el_property_scale.interactive=true;
             argument0.el_property_min.enabled=true;
             argument0.el_property_max.enabled=true;
+            argument0.el_property_scale.enabled=true;
             argument0.el_property_min.value=string(argument0.selected_property.range_min);
             argument0.el_property_max.value=string(argument0.selected_property.range_max);
+            argument0.el_property_scale.value=argument0.selected_property.number_scale;
             break;
         case DataTypes.STRING:
             argument0.el_property_char_limit.interactive=true;
