@@ -693,6 +693,7 @@
           <script>scripts\omu_manager_mesh.gml</script>
           <script>scripts\omu_manager_tileset.gml</script>
           <script>scripts\omu_data_add.gml</script>
+          <script>scripts\omu_data_enum_add.gml</script>
           <script>scripts\omu_data_property_add.gml</script>
           <script>scripts\omu_data_property_remove.gml</script>
           <script>scripts\omu_data_remove.gml</script>
@@ -981,15 +982,17 @@
         <object>objects\EntityEvent</object>
       </objects>
       <objects name="More Data">
-        <object>objects\Data</object>
-        <object>objects\DataInstantiatedEvent</object>
-        <object>objects\DataTileset</object>
-        <object>objects\DataObject</object>
-        <object>objects\DataEvent</object>
-        <object>objects\DataData</object>
-        <object>objects\DataProperty</object>
-        <object>objects\DataEventNode</object>
         <object>objects\ActiveMap</object>
+        <object>objects\Data</object>
+        <object>objects\DataData</object>
+        <object>objects\DataEnum</object>
+        <object>objects\DataEvent</object>
+        <object>objects\DataEventNode</object>
+        <object>objects\DataGeneric</object>
+        <object>objects\DataInstantiatedEvent</object>
+        <object>objects\DataObject</object>
+        <object>objects\DataProperty</object>
+        <object>objects\DataTileset</object>
       </objects>
     </objects>
     <objects name="Selections">

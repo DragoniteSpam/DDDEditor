@@ -5,7 +5,7 @@
   <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
-  <parentName>DataGeneric</parentName>
+  <parentName>Data</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
     <event eventtype="0" enumb="0">
@@ -27,10 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="DataType"+string(ds_list_size(Stuff.all_data));
-summary="";
+ds_list_add(Stuff.all_data, id);
 
-properties=ds_list_create();
+is_enum=false;
 </string>
           </argument>
         </arguments>
@@ -55,7 +54,7 @@ properties=ds_list_create();
             <kind>1</kind>
             <string>event_inherited();
 
-ds_list_destroy_instances(properties);
+ds_list_delete(Stuff.all_data, ds_list_find_index(Stuff.all_data, id));
 </string>
           </argument>
         </arguments>

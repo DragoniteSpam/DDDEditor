@@ -27,10 +27,12 @@
             <kind>1</kind>
             <string>event_inherited();
 
-name="DataType"+string(ds_list_size(Stuff.all_data));
+name="DataEnum"+string(ds_list_size(Stuff.all_data));
 summary="";
 
 properties=ds_list_create();
+
+is_enum=true;
 </string>
           </argument>
         </arguments>

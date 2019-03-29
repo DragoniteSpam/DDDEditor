@@ -22,7 +22,7 @@ var b_width=128;
 var b_height=32;
 
 var spacing=16;
-var n_slots=16;
+var n_slots=14;
 
 var yy=64;
 
@@ -34,10 +34,13 @@ dg.el_list_main=el_list;
 
 yy=yy+ui_get_list_height(el_list)+spacing;
 
-el_add=create_button(16, yy, "Add Data", ew, eh, fa_center, omu_data_add, dg);
+var el_add=create_button(16, yy, "Add Data", ew, eh, fa_center, omu_data_add, dg);
 yy=yy+el_add.height+spacing;
 
-el_remove=create_button(16, yy, "Remove Data", ew, eh, fa_center, omu_data_remove, dg);
+var el_add_enum=create_button(16, yy, "Add Enum", ew, eh, fa_center, omu_data_enum_add, dg);
+yy=yy+el_add.height+spacing;
+
+el_remove=create_button(16, yy, "Remove", ew, eh, fa_center, omu_data_remove, dg);
 
 // COLUMN 2
 yy=64;
@@ -49,7 +52,7 @@ dg.el_data_name=el_data_name;
 
 yy=yy+el_data_name.height+spacing;
 
-var el_list_p=create_list(col2_x, yy, "Properties: ", "<no properties>", ew, eh, n_slots-2, uivc_list_data_property, false, dg);
+var el_list_p=create_list(col2_x, yy, "Properties: ", "<no properties>", ew, eh, n_slots, uivc_list_data_property, false, dg);
 el_list_p.render=ui_render_list_data_properties;
 el_list_p.interactive=false;
 el_list_p.entries_are=ListEntries.INSTANCES;
@@ -137,7 +140,7 @@ yy=yy+el_property_bits_remove.height+spacing;
 
 el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg, HelpPages.AUTOTILES, fa_center);
 
-ds_list_add(dg.contents, el_list, el_add, el_remove,
+ds_list_add(dg.contents, el_list, el_add, el_add_enum, el_remove,
     el_data_name, el_list_p, el_add_p, el_remove_p,
     el_property_name, el_property_type, el_text,
     el_property_type_guid, el_property_min, el_property_char_limit,
