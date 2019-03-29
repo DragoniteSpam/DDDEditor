@@ -1,4 +1,7 @@
 /// void dialog_create_data_types(Dialog);
+// there's a fair amount of redundant code in here, and in the associated scripts.
+// however, in this case, i've decided that a few lines of redundant code is better than
+// the spaghetti that i had before.
 
 var dw=960;
 var dh=640;
@@ -46,7 +49,7 @@ el_remove=create_button(16, yy, "Remove", ew, eh, fa_center, omu_data_remove, dg
 yy=64;
 var col2_x=dw/3+16;
 
-var el_data_name=create_input(col2_x, yy, "Data Name:", ew, eh, null, "", "", "Unique name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+var el_data_name=create_input(col2_x, yy, "Data Name:", ew, eh, null, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
 el_data_name.interactive=false;
 dg.el_data_name=el_data_name;
 
@@ -74,7 +77,7 @@ dg.el_remove_p=el_remove_p;
 yy=64;
 var col3_x=dw*2/3+16;
 
-var el_property_name=create_input(col3_x, yy, "Name:", ew, eh, null, "", "", "Unique name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+var el_property_name=create_input(col3_x, yy, "Name:", ew, eh, null, "", "", "[A-Za-z0-9_]+", validate_string_internal_name, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
 el_property_name.interactive=false;
 dg.el_property_name=el_property_name;
 

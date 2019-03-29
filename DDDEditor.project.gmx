@@ -454,6 +454,9 @@
             <script>scripts\dialog_create_entity_event_page.gml</script>
           </scripts>
           <script>scripts\dialog_create_data_types.gml</script>
+          <scripts name="help">
+            <script>scripts\dialog_data_type_disable.gml</script>
+          </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
         <script>scripts\dialog_destroy.gml</script>
