@@ -428,6 +428,8 @@
             <script>scripts\dc_settings_execute.gml</script>
             <script>scripts\dc_vrax.gml</script>
             <script>scripts\dc_map_dereference.gml</script>
+            <script>scripts\dc_data_property_set_enum.gml</script>
+            <script>scripts\dc_data_property_set_data.gml</script>
           </scripts>
           <scripts name="verification">
             <script>scripts\dc_settings_map.gml</script>
@@ -457,6 +459,10 @@
           <scripts name="help">
             <script>scripts\dialog_data_type_disable.gml</script>
             <script>scripts\dialog_data_type_enable_by_type.gml</script>
+          </scripts>
+          <scripts name="data">
+            <script>scripts\dialog_create_data_enum_select.gml</script>
+            <script>scripts\dialog_create_data_data_select.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -708,6 +714,8 @@
           <script>scripts\omu_data_add.gml</script>
           <script>scripts\omu_data_enum_add.gml</script>
           <script>scripts\omu_data_property_add.gml</script>
+          <script>scripts\omu_data_enum_select.gml</script>
+          <script>scripts\omu_data_data_select.gml</script>
           <script>scripts\omu_data_property_remove.gml</script>
           <script>scripts\omu_data_remove.gml</script>
         </scripts>
@@ -774,6 +782,8 @@
           <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_data_data.gml</script>
+          <script>scripts\ui_render_list_data_enum.gml</script>
+          <script>scripts\ui_render_list_data_data_only.gml</script>
           <script>scripts\ui_render_list_data_properties.gml</script>
           <script>scripts\ui_render_list_data_property_bit.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>

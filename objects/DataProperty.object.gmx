@@ -36,7 +36,7 @@ range_max=10;                       // int, float
 number_scale=NumberScales.LINEAR;   // int, float
 char_limit=20;                      // string
 bool_list=ds_list_create();         // bool array (single character)
-type_guid=0;                        // Data
+type_guid=0;                        // Data, enum
 
 ds_list_add(bool_list, "Alfa", "Bravo", "Charlie", "Delta",
     "Echo", "Foxtrot", "Golf", "Hotel");
