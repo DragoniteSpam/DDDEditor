@@ -37,6 +37,9 @@ if (buffer==-1){
             ds_list_clear(Stuff.all_events);
             ds_map_clear(Stuff.all_guids);
             ds_list_clear_instances(Stuff.all_data);
+            // this may cause things to break, but it shouldn't
+            instance_activate_object(Data);
+            instance_destroy(Data);
         } else if (what==SERIALIZE_MAP){
             // todo clear editor map - IF entities get their own GUIDs eventually,
             // they should go in a separate lookup which should be cleared in here
@@ -77,6 +80,7 @@ if (buffer==-1){
         
         if (what==SERIALIZE_MAP){
             Stuff.all_maps[? ActiveMap.internal_name]=true;
+            uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);
         }
         
         with (Data) if (deactivateable){

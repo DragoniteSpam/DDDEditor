@@ -55,4 +55,4 @@ for (var i=0; i<n_tilesets; i++){
     ds_list_add(Stuff.all_tilesets, ts);
 }
 
-uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);
+//uivc_select_autotile_refresh(/*Camera.selection_fill_autotile*/);

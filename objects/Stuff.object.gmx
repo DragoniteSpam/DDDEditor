@@ -114,6 +114,8 @@ etype_objects=array_compose(Entity,
             <kind>1</kind>
             <string>/// this is basically World/Settings
 
+randomize();
+
 if (DEBUG){
     show_debug_overlay(true);
 }

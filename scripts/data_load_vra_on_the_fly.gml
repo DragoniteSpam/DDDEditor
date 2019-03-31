@@ -18,13 +18,15 @@ if (argument0!=noone){
 }
 
 // the list in the Meshes tab
-for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
-    var thing=ActiveMap.all_entities[| i];
-    if (instanceof(thing, EntityMesh)){
-        if (ds_map_exists(Stuff.vra_data, thing.mesh_id)){
-            thing.mesh_data=Stuff.vra_data[? thing.mesh_id];
-        } else {
-            safa_delete(thing);
+if (instance_exists(ActiveMap)){
+    for (var i=0; i<ds_list_size(ActiveMap.all_entities); i++){
+        var thing=ActiveMap.all_entities[| i];
+        if (instanceof(thing, EntityMesh)){
+            if (ds_map_exists(Stuff.vra_data, thing.mesh_id)){
+                thing.mesh_data=Stuff.vra_data[? thing.mesh_id];
+            } else {
+                safa_delete(thing);
+            }
         }
     }
 }
