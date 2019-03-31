@@ -18,6 +18,12 @@ for (var i=0; i<ds_list_size(Stuff.all_data); i++){
         
         GUID=data.GUID;
         
+        if (!data.is_enum){
+            // pass-by-reference; we need to know these later . . . probably
+            instances=data.instances;
+            is_cached=true;
+        }
+        
         // this is NOT pass-by-reference
         for (var j=0; j<ds_list_size(data.properties); j++){
             var property=data.properties[| j];

@@ -218,6 +218,7 @@
         <script>scripts\buffer_read_string.gml</script>
         <script>scripts\ds_list_clear_instances.gml</script>
         <script>scripts\ds_list_destroy_instances.gml</script>
+        <script>scripts\ds_list_destroy_instances_indirect.gml</script>
         <script>scripts\ds_list_destroy_instances_scheduled.gml</script>
         <script>scripts\ds_list_pop.gml</script>
         <script>scripts\ds_list_top.gml</script>
@@ -395,6 +396,7 @@
       <script>scripts\guid_get.gml</script>
       <script>scripts\guid_remove.gml</script>
       <script>scripts\data_clone.gml</script>
+      <script>scripts\data_apply_all_guids.gml</script>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -434,6 +436,7 @@
             <script>scripts\dc_data_property_set_enum.gml</script>
             <script>scripts\dc_data_property_set_data.gml</script>
             <script>scripts\dc_data_commit.gml</script>
+            <script>scripts\dc_data_commit_seriously.gml</script>
             <script>scripts\dc_data_why.gml</script>
           </scripts>
           <scripts name="verification">
@@ -478,6 +481,7 @@
         <script>scripts\dialog_is_active.gml</script>
         <scripts name="on mouse up">
           <script>scripts\dmu_dialog_commit.gml</script>
+          <script>scripts\dmu_dialog_view_missing.gml</script>
           <script>scripts\dmu_dialog_commit_preferences.gml</script>
           <script>scripts\dmu_dialog_cancel.gml</script>
           <scripts name="settings">
@@ -1026,6 +1030,7 @@
           <object>objects\DataEnum</object>
           <object>objects\DataGeneric</object>
           <object>objects\DataProperty</object>
+          <object>objects\DataInstantiated</object>
         </objects>
       </objects>
     </objects>
@@ -1065,7 +1070,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="54">
+  <constants number="55">
+    <constant name="N">chr($0d)+chr($0a)</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>

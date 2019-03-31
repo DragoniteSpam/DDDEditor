@@ -27,44 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
-// if more data is added here, and i don't think it will be, be
-// sure to carry it over in both the save/load scripts and data_clone()
-
-name="Property";
-
-type=DataTypes.INT;
-
-range_min=0;                        // int, float
-range_max=10;                       // int, float
-number_scale=NumberScales.LINEAR;   // int, float
-char_limit=20;                      // string
-bool_list=array_compose("Alfa", "Bravo", "Charlie", "Delta",
-    "Echo", "Foxtrot", "Golf", "Hotel");// bool array (single character)
-type_guid=0;                        // Data, enum
-
-enum DataTypes {
-    INT,            // input
-    ENUM,           // radio
-    FLOAT,          // input
-    STRING,         // input
-    BOOL,           // checkbox
-    BOOL_ARRAY,     // bitfield
-    DATA            // list
-}
-
-enum DataInputTypes {
-    BITFIELD,       // bool array
-    CHECKBOX,       // bool
-    INPUT,          // string, int, float
-    LIST,           // data, enum n &gt; 8
-    RADIO,          // enum - n &lt;= 8
-}
-
-enum NumberScales {
-    LINEAR,
-    QUADRATIC,
-    EXPONENTIAL,
-}
+values=ds_list_create();
 </string>
           </argument>
         </arguments>
@@ -88,6 +51,8 @@ enum NumberScales {
           <argument>
             <kind>1</kind>
             <string>event_inherited();
+
+ds_list_destroy(values);
 </string>
           </argument>
         </arguments>
