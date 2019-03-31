@@ -482,6 +482,7 @@
         <scripts name="on mouse up">
           <script>scripts\dmu_dialog_commit.gml</script>
           <script>scripts\dmu_dialog_view_missing.gml</script>
+          <script>scripts\dmu_dialog_dont_view_missing.gml</script>
           <script>scripts\dmu_dialog_commit_preferences.gml</script>
           <script>scripts\dmu_dialog_cancel.gml</script>
           <scripts name="settings">
@@ -556,6 +557,7 @@
           </scripts>
           <scripts name="data">
             <script>scripts\momu_conflicts.gml</script>
+            <script>scripts\momu_missing.gml</script>
             <script>scripts\momu_data.gml</script>
             <script>scripts\momu_data_types.gml</script>
             <script>scripts\momu_editor_3d.gml</script>
