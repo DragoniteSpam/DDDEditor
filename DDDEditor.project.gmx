@@ -235,6 +235,7 @@
           <script>scripts\vector3.gml</script>
           <script>scripts\vector4.gml</script>
         </scripts>
+        <script>scripts\array_to_list.gml</script>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>
@@ -392,6 +393,8 @@
         <script>scripts\get_active_tileset.gml</script>
       </scripts>
       <script>scripts\guid_get.gml</script>
+      <script>scripts\guid_remove.gml</script>
+      <script>scripts\data_clone.gml</script>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -430,6 +433,7 @@
             <script>scripts\dc_map_dereference.gml</script>
             <script>scripts\dc_data_property_set_enum.gml</script>
             <script>scripts\dc_data_property_set_data.gml</script>
+            <script>scripts\dc_data_commit.gml</script>
           </scripts>
           <scripts name="verification">
             <script>scripts\dc_settings_map.gml</script>
@@ -911,13 +915,13 @@
       <script>scripts\colour_mute.gml</script>
     </scripts>
     <scripts name="misc code">
-      <script>scripts\sprite_save_fixed.gml</script>
-      <script>scripts\instance_destroy_later.gml</script>
-      <script>scripts\error_log.gml</script>
-      <script>scripts\error_show.gml</script>
-      <script>scripts\error_clear.gml</script>
       <script>scripts\entity_destroy.gml</script>
       <script>scripts\entity_tile_destroy.gml</script>
+      <script>scripts\error_clear.gml</script>
+      <script>scripts\error_log.gml</script>
+      <script>scripts\error_show.gml</script>
+      <script>scripts\instance_destroy_later.gml</script>
+      <script>scripts\sprite_save_fixed.gml</script>
     </scripts>
     <scripts name="event stuff">
       <script>scripts\event_create.gml</script>

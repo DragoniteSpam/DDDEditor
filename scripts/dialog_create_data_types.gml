@@ -3,6 +3,9 @@
 // however, in this case, i've decided that a few lines of redundant code is better than
 // the spaghetti that i had before.
 
+Stuff.original_data=Stuff.all_data;
+Stuff.all_data=data_clone();
+
 var dw=960;
 var dh=640;
 

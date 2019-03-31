@@ -27,6 +27,9 @@
             <kind>1</kind>
             <string>event_inherited();
 
+// if more data is added here, and i don't think it will be, be
+// sure to carry it over in both the save/load scripts and data_clone()
+
 name="DataType"+string(ds_list_size(Stuff.all_data));
 summary="";
 
@@ -60,11 +63,16 @@ instances=ds_list_create();
 
 ds_list_destroy_instances(properties);
 
-// because nested lists
-for (var i=0; i&lt;ds_list_size(instances); i++){
-    ds_list_destroy(instances[| i]);
+// if you want to save the instances for later (usually when editing the
+// data types) you would nullify this variable to signify that you still
+// need it, because pass by reference
+if (instances!=noone){
+    // because nested lists
+    for (var i=0; i&lt;ds_list_size(instances); i++){
+        ds_list_destroy(instances[| i]);
+    }
+    ds_list_destroy(instances);
 }
-ds_list_destroy(instances);
 </string>
           </argument>
         </arguments>

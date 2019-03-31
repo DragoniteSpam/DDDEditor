@@ -228,6 +228,7 @@ enum AvailableAutotileProperties {
 all_maps=ds_map_create();
 
 all_data=ds_list_create();
+original_data=noone;            // when you're modifying the data types and want to stash the old ones
 
 error_log_messages=ds_list_create();
 
