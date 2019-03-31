@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>name="data";
 flags=0;
+summary="";
 
 deactivateable=true;
 

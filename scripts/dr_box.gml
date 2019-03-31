@@ -84,5 +84,5 @@ if (Controller.press_help){
 
 // the x button/escape key does not commit changes
 if (kill){
-    dialog_destroy();
+    script_execute(argument0.close, argument0);
 }

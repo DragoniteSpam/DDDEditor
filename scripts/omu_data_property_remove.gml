@@ -24,5 +24,7 @@ if (property!=noone){
     // that i don't feel like doing
     argument0.root.selected_property=noone;
     
+    argument0.root.changed=true;
+    
     dialog_data_type_disable(argument0.root);
 }

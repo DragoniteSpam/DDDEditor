@@ -3,17 +3,17 @@
 // however, in this case, i've decided that a few lines of redundant code is better than
 // the spaghetti that i had before.
 
-Stuff.original_data=Stuff.all_data;
-Stuff.all_data=data_clone();
+Stuff.original_data=data_clone();
 
 var dw=960;
 var dh=640;
 
-var dg=dialog_create(dw, dh, "Data: Data", dialog_default, dc_close_no_questions_asked, argument0);
+var dg=dialog_create(dw, dh, "Data: Data", dialog_note_changes, dc_close_data_discard, argument0, dc_close_data_discard);
 dg.x=dg.x-32;
 
 dg.selected_data=noone;
 dg.selected_property=noone;
+dg.changed=false;
 
 var columns=3;
 var ew=(dw-columns*32)/columns;
@@ -94,18 +94,18 @@ yy=yy+ui_get_radio_array_height(el_property_type)+spacing;
 
 var yy_top=yy;
 
-// data only
+// data and enum - onmouseup is assigned when the radio button is clicked
 var el_property_type_guid=create_button(col3_x, yy, "Select", ew, eh, fa_center, null, dg);
 el_property_type_guid.enabled=false;
 dg.el_property_type_guid=el_property_type_guid;
 
 // number only
-var el_property_min=create_input(col3_x, yy, "Min. Value:", ew, eh, uivc_input_data_value_min, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
+var el_property_min=create_input(col3_x, yy, "Min. Value:", ew, eh, uivc_input_data_value_min, "", "0", "+"+string(-1<<31), validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
 el_property_min.enabled=true;
 dg.el_property_min=el_property_min;
 
 // string only
-var el_property_char_limit=create_input(col3_x, yy, "Char. Limit:", ew, eh, uivc_input_data_char_limit, "", "20", "", validate_int, ui_value_real, 1, 1000, 4, vx1, vy1, vx2, vy2, dg);
+var el_property_char_limit=create_input(col3_x, yy, "Char. Limit:", ew, eh, uivc_input_data_char_limit, "", "20", "1000", validate_int, ui_value_real, 1, 1000, 4, vx1, vy1, vx2, vy2, dg);
 el_property_char_limit.enabled=false;
 dg.el_property_char_limit=el_property_char_limit;
 
@@ -117,7 +117,7 @@ dg.el_property_bool_note=el_property_bool_note;
 yy=yy+eh+spacing;
 
 // number only
-var el_property_max=create_input(col3_x, yy, "Max. Value:", ew, eh, uivc_input_data_value_max, "", "0", "", validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
+var el_property_max=create_input(col3_x, yy, "Max. Value:", ew, eh, uivc_input_data_value_max, "", "0", "+"+string(-1<<31-1), validate_double, ui_value_real, -1<<31, 1<<31-1, 10, vx1, vy1, vx2, vy2, dg);
 el_property_max.enabled=true;
 dg.el_property_max=el_property_max;
 
@@ -145,7 +145,7 @@ dg.el_property_bit_name=el_property_bit_name;
 
 yy=yy+el_property_bit_name.height+spacing;
 
-el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg, HelpPages.AUTOTILES, fa_center);
+el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dc_data_commit, dg, HelpPages.AUTOTILES, fa_center);
 
 ds_list_add(dg.contents, el_list, el_add, el_add_enum, el_remove,
     el_data_name, el_list_p, el_add_p, el_remove_p,

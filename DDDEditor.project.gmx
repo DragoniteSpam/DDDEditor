@@ -434,6 +434,7 @@
             <script>scripts\dc_data_property_set_enum.gml</script>
             <script>scripts\dc_data_property_set_data.gml</script>
             <script>scripts\dc_data_commit.gml</script>
+            <script>scripts\dc_data_why.gml</script>
           </scripts>
           <scripts name="verification">
             <script>scripts\dc_settings_map.gml</script>
@@ -441,6 +442,8 @@
             <script>scripts\dc_autotile_selector.gml</script>
           </scripts>
           <script>scripts\dc_close_no_questions_asked.gml</script>
+          <script>scripts\dc_close_data_discard.gml</script>
+          <script>scripts\dc_default.gml</script>
         </scripts>
         <scripts name="creation">
           <script>scripts\dialog_create_about.gml</script>
@@ -459,7 +462,6 @@
             <script>scripts\dialog_create_entity_get_event_entrypoint.gml</script>
             <script>scripts\dialog_create_entity_event_page.gml</script>
           </scripts>
-          <script>scripts\dialog_create_data_types.gml</script>
           <scripts name="help">
             <script>scripts\dialog_data_type_disable.gml</script>
             <script>scripts\dialog_data_type_enable_by_type.gml</script>
@@ -467,6 +469,7 @@
           <scripts name="data">
             <script>scripts\dialog_create_data_enum_select.gml</script>
             <script>scripts\dialog_create_data_data_select.gml</script>
+            <script>scripts\dialog_create_data_types.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -497,6 +500,7 @@
         </scripts>
         <scripts name="render">
           <script>scripts\dialog_default.gml</script>
+          <script>scripts\dialog_note_changes.gml</script>
           <scripts name="dont mess with me">
             <script>scripts\dr_box.gml</script>
           </scripts>

@@ -29,6 +29,7 @@
 
 data=ds_map_create();
 commit=null;
+close=dc_default;
 
 // for dragging the dialog around with the mouse
 cmx=-1;

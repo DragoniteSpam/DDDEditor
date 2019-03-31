@@ -7,8 +7,10 @@ var clone=ds_list_create();
 
 for (var i=0; i<ds_list_size(Stuff.all_data); i++){
     var data=Stuff.all_data[| i];
+    
     with (instance_create(0, 0, DataData)){
         guid_remove(GUID);
+        ds_list_pop(Stuff.all_data)
         
         name=data.name;
         summary=data.summary;
@@ -17,8 +19,8 @@ for (var i=0; i<ds_list_size(Stuff.all_data); i++){
         GUID=data.GUID;
         
         // this is NOT pass-by-reference
-        for (var j=0; j<ds_list_size(data.properties); i++){
-            var property=data.properties[| i];
+        for (var j=0; j<ds_list_size(data.properties); j++){
+            var property=data.properties[| j];
             
             with (instance_create(0, 0, DataProperty)){
                 guid_remove(GUID);
@@ -39,6 +41,8 @@ for (var i=0; i<ds_list_size(Stuff.all_data); i++){
                 ds_list_add(other.properties, id);
             }
         }
+        
+        ds_list_add(clone, id);
     }
 }
 
