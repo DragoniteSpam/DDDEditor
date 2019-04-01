@@ -44,7 +44,9 @@ if (menu_is_active(argument0)){
     if (yy+hh>CH){
         yy=CH-hh;
     }
+    
     draw_rectangle_colour(xx, yy, xx+ww, yy+hh, c_white, c_white, c_white, c_white, false);
+    
     for (var i=0; i<ds_list_size(argument0.contents); i++){
         var thing=argument0.contents[| i];
         if (thing.enabled){
@@ -55,4 +57,8 @@ if (menu_is_active(argument0)){
             script_execute(thing.render, thing, mx1, my1, mx2, my2);
         }
     }
+    
+    draw_line_colour(xx, yy, xx, yy+hh, c_black, c_black);
+    draw_line_colour(xx+ww, yy, xx+ww, yy+hh, c_black, c_black);
+    draw_line_colour(xx, yy+hh, xx+ww, yy+hh, c_black, c_black);
 }

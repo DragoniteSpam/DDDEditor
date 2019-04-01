@@ -15,3 +15,5 @@ for (var i=0; i<ds_list_size(argument0.contents); i++){
         script_execute(thing.render, thing, xx+argument0.element_width*i, yy);
     }
 }
+
+draw_line_colour(0, yy+argument0.element_height, xx+room_width, yy+argument0.element_height, c_black, c_black);
