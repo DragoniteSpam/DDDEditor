@@ -32,8 +32,6 @@
 
 name="DataType"+string(ds_list_size(Stuff.all_data)-1);
 summary="";
-is_cached=false;
-deleted=false;
 
 properties=ds_list_create();
 

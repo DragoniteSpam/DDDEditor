@@ -8,7 +8,7 @@ var x2=x1+argument0.width;
 var y2=y1+argument0.height;
 
 var active=dialog_is_active(argument0);
-var kill=active&&get_release_escape();
+var kill=false;
 
 draw_rectangle_colour(x1, y1, x2, y2, c_white, c_white, c_white, c_white, false);
 draw_rectangle_colour(x1, y1, x2, y2, c_black, c_black, c_black, c_black, true);
@@ -77,6 +77,9 @@ for (var i=0; i<ds_list_size(argument0.contents); i++){
         script_execute(thing.render, thing, argument0.x, argument0.y);
     }
 }
+
+// do this at the end in case some inner element needs to use the escape key
+kill=kill||(active&&get_release_escape());
 
 if (Controller.press_help){
     ds_stuff_help_auto(argument0);

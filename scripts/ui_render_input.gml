@@ -60,6 +60,9 @@ if (argument0.interactive&&dialog_is_active(argument0.root)){
         if (keyboard_check_pressed(vk_backspace)){
             value=string_backspace(value);
         }
+        if (get_release_escape()){
+            value="";
+        }
         if (string_length(value)>argument0.value_limit){
             value=string_copy(value, 1, argument0.value_limit);
         }
