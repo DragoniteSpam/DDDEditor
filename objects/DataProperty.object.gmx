@@ -44,20 +44,12 @@ type_guid=0;                        // Data, enum
 
 enum DataTypes {
     INT,            // input
-    ENUM,           // radio
+    ENUM,           // list
     FLOAT,          // input
     STRING,         // input
     BOOL,           // checkbox
     BOOL_ARRAY,     // bitfield
     DATA            // list
-}
-
-enum DataInputTypes {
-    BITFIELD,       // bool array
-    CHECKBOX,       // bool
-    INPUT,          // string, int, float
-    LIST,           // data, enum n &gt; 8
-    RADIO,          // enum - n &lt;= 8
 }
 
 enum NumberScales {
