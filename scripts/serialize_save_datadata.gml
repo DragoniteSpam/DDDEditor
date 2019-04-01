@@ -8,9 +8,10 @@ buffer_write(argument0, buffer_u16, n_datadata);
 for (var i=0; i<n_datadata; i++){
     var datadata=Stuff.all_data[| i];
     
+    // is_enum is looked at to determine if you're a data type or enum, so save it first
+    buffer_write(argument0, buffer_u8, pack(datadata.is_enum, datadata.deleted));
     serialize_save_generic(argument0, datadata);
     buffer_write(argument0, buffer_string, datadata.summary);
-    buffer_write(argument0, buffer_u8, datadata.deleted);
     
     var n_properties=ds_list_size(datadata.properties);
     buffer_write(argument0, buffer_u16, n_properties);
@@ -19,7 +20,7 @@ for (var i=0; i<n_datadata; i++){
         var property=datadata.properties[| j];
         
         serialize_save_generic(argument0, property);
-        buffer_write(argument0, buffer_u8, pack(property.is_enum, property.deleted));
+        buffer_write(argument0, buffer_u8, pack(property.deleted));
         
         if (datadata.is_enum){
             // then nothing else matters

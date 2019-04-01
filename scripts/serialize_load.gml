@@ -32,14 +32,15 @@ if (buffer==-1){
         var things=buffer_read(buffer, buffer_u32);
         
         if (what==SERIALIZE_DATA){
-            // clear all data
-            ds_list_clear_instances(Stuff.all_events);
-            ds_list_clear(Stuff.all_events);
-            ds_map_clear(Stuff.all_guids);
-            ds_list_clear_instances(Stuff.all_data);
-            // this may cause things to break, but it shouldn't
+            // this may cause things to break, but it shouldn't;
+            // includes data, events, generics and everything else
             instance_activate_object(Data);
             instance_destroy(Data);
+            // clear all data - data has already been destroyed so you just have to
+            // clear them
+            ds_list_clear(Stuff.all_events);
+            ds_map_clear(Stuff.all_guids);
+            ds_list_clear(Stuff.all_data);
         } else if (what==SERIALIZE_MAP){
             // todo clear editor map - IF entities get their own GUIDs eventually,
             // they should go in a separate lookup which should be cleared in here
@@ -64,6 +65,9 @@ if (buffer==-1){
                     break;
                 case SerializeThings.MISC_MAP_META:
                     serialize_load_global_meta(buffer, version);
+                    break;
+                case SerializeThings.DATADATA:
+                    serialize_load_datadata(buffer, version);
                     break;
                 // map stuff
                 case SerializeThings.MAP_META:

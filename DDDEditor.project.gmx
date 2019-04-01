@@ -960,6 +960,7 @@
         </scripts>
         <script>scripts\serialize_load_autotiles_meta.gml</script>
         <script>scripts\serialize_load_events.gml</script>
+        <script>scripts\serialize_load_datadata.gml</script>
         <script>scripts\serialize_load_map_contents_dynamic.gml</script>
         <script>scripts\serialize_load_map_contents_meta.gml</script>
         <script>scripts\serialize_load_map_contents_batch.gml</script>
