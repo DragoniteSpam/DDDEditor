@@ -620,6 +620,7 @@
         </scripts>
         <scripts name="settings">
           <script>scripts\uivc_bezier_precision.gml</script>
+          <script>scripts\uivc_alphabetize_lists.gml</script>
           <script>scripts\uivc_backups.gml</script>
           <script>scripts\uivc_autosave.gml</script>
           <script>scripts\uivc_settings_embed_tilesets.gml</script>

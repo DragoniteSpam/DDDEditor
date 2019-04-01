@@ -279,6 +279,7 @@ setting_color=ini_read_real("config", "color", c_green);                // BGR
 setting_bezier_precision=ini_read_real("config", "bezier", 6);          // preferably keep this between like 4 and 16ish?
 setting_backups=ini_read_real("config", "backups", 2);                  // 0 (none) through 9 (why would you keep that many backups)
 setting_autosave=ini_read_real("config", "autosave", true);             // bool
+setting_alphabetize_lists=ini_read_real("config", "alphabetize", true); // bool
 ini_close();
 
 // todo: load configuration settings
