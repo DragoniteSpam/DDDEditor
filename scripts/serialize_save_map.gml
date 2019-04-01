@@ -20,14 +20,12 @@ if (string_length(fn)>0){
      * Header
      */
     
-    var things=3;
-    
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u32, DataVersions._CURRENT-1);
     buffer_write(buffer, buffer_u8, SERIALIZE_MAP);
-    buffer_write(buffer, buffer_u32, things);
+    buffer_write(buffer, buffer_u32, 0);
     
     
     // for each entity, this gets written in first, and the result is used
@@ -46,6 +44,8 @@ if (string_length(fn)>0){
     // a great deal of them
     serialize_save_map_contents_batch(buffer);
     serialize_save_map_contents_dynamic(buffer);
+    
+    buffer_write(buffer, buffer_datatype, SerializeThings.END_OF_FILE);
     
     /*
      * that's it!

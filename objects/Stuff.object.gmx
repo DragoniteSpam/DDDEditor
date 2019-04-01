@@ -63,7 +63,9 @@ enum SerializeThings {
     MISC_ERROR              =$00001000,
     MISC_MAP_META           =$00001001,
     MISC_GLOBAL             =$00001002,
-    MISC_UI                 =$00001003
+    MISC_UI                 =$00001003,
+    // the last one i think
+    END_OF_FILE             =$00002000,
 }
 
 enum ETypes {

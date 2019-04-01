@@ -52,7 +52,13 @@ if (buffer==-1){
          * data types
          */
         
-        for (var i=0; i<things; i++){
+        if (version>=DataVersions.NOT_STUPID_DATA_SIZE){
+            // you will never have this many Things
+            things=100000000;
+        }
+        
+        var stop=false;
+        repeat(things){
             var datatype=buffer_read(buffer, buffer_datatype);
             switch (datatype){
                 // game stuff
@@ -81,6 +87,14 @@ if (buffer==-1){
                 case SerializeThings.MAP_DYNAMIC:
                     serialize_load_map_contents_dynamic(buffer, version);
                     break;
+                // end of file
+                case SerializeThings.END_OF_FILE:
+                    stop=true;
+                    break;
+            }
+            
+            if (stop){
+                break;
             }
         }
         

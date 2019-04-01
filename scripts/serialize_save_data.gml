@@ -12,14 +12,12 @@ if (string_length(fn)>0){
      * Header
      */
     
-    var things=5;
-    
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u8, $44);
     buffer_write(buffer, buffer_u32, DataVersions._CURRENT-1);
     buffer_write(buffer, buffer_u8, SERIALIZE_DATA);
-    buffer_write(buffer, buffer_u32, things);
+    buffer_write(buffer, buffer_u32, 0);
     
     /*
      * data
@@ -30,6 +28,8 @@ if (string_length(fn)>0){
     serialize_save_events(buffer);
     serialize_save_global_meta(buffer);
     serialize_save_datadata(buffer);
+    
+    buffer_write(buffer, buffer_datatype, SerializeThings.END_OF_FILE);
     
     /*
      * that's it!
@@ -61,5 +61,6 @@ enum DataVersions {
     EVENT_NODE_FIXED_DATA_AGAIN =9,
     ENTITY_TRANSFORM            =10,
     DATADATA_DEFINITIONS        =11,
+    NOT_STUPID_DATA_SIZE        =12,
     _CURRENT                    /* = whatever the last one is + 1 */
 }
