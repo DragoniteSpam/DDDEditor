@@ -3,11 +3,14 @@
 var selection=ui_list_selection(argument0);
 
 if (selection>=0){
-    var sorted=ds_list_sort_name_sucks(Stuff.all_data);
-    if (sorted[| selection]!=argument0.root.selected_data){
-        argument0.root.selected_data=sorted[| selection];
+    if (Stuff.setting_alphabetize_lists){
+        var listofthings=ds_list_sort_name_sucks(Stuff.all_data);
+    } else {
+        var listofthings=Stuff.all_data;
+    }
+    if (listofthings[| selection]!=argument0.root.selected_data){
+        argument0.root.selected_data=listofthings[| selection];
         argument0.root.selected_property=noone;
-        ds_list_destroy(sorted);
         
         ds_map_clear(argument0.root.el_list_p.selected_entries);
         
@@ -19,5 +22,10 @@ if (selection>=0){
         
         argument0.root.el_data_name.value=argument0.root.selected_data.name;
     }
-    ds_list_destroy(sorted);
+    if (Stuff.setting_alphabetize_lists){
+        ds_list_destroy(listofthings);
+    } else {
+        // if it's not alphabetized the list is just all_data[] which you DEFINITELY DO
+        // NOT WANT TO DELETE.
+    }
 }
