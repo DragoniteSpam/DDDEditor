@@ -29,6 +29,7 @@ if (string_length(fn)>0){
     serialize_save_tilesets_meta(buffer);
     serialize_save_events(buffer);
     serialize_save_global_meta(buffer);
+    serialize_save_datadata(buffer);
     
     /*
      * that's it!
@@ -59,5 +60,6 @@ enum DataVersions {
     EVENT_NODE_GUID             =8,
     EVENT_NODE_FIXED_DATA_AGAIN =9,
     ENTITY_TRANSFORM            =10,
+    DATADATA_DEFINITIONS        =11,
     _CURRENT                    /* = whatever the last one is + 1 */
 }

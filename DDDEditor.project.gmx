@@ -193,6 +193,68 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
+    <scripts name="dll stuff">
+      <scripts name="stuff">
+        <script>scripts\ds_stuff_init.gml</script>
+        <script>scripts\ds_stuff_open.gml</script>
+        <script>scripts\ds_stuff_copy.gml</script>
+        <script>scripts\ds_stuff_help.gml</script>
+        <script>scripts\ds_stuff_help_auto.gml</script>
+        <script>scripts\ds_stuff_open_local.gml</script>
+      </scripts>
+      <scripts name="Collisions">
+        <script>scripts\c_hit_fraction.gml</script>
+        <script>scripts\c_hit_nx.gml</script>
+        <script>scripts\c_hit_ny.gml</script>
+        <script>scripts\c_hit_nz.gml</script>
+        <script>scripts\c_hit_object.gml</script>
+        <script>scripts\c_hit_x.gml</script>
+        <script>scripts\c_hit_y.gml</script>
+        <script>scripts\c_hit_z.gml</script>
+        <script>scripts\c_init.gml</script>
+        <script>scripts\c_object_apply_transform.gml</script>
+        <script>scripts\c_object_create.gml</script>
+        <script>scripts\c_object_destroy.gml</script>
+        <script>scripts\c_object_exists.gml</script>
+        <script>scripts\c_object_get_userid.gml</script>
+        <script>scripts\c_object_set_mask.gml</script>
+        <script>scripts\c_object_set_shape.gml</script>
+        <script>scripts\c_object_set_userid.gml</script>
+        <script>scripts\c_overlap_object.gml</script>
+        <script>scripts\c_overlap_world.gml</script>
+        <script>scripts\c_overlap_world_position.gml</script>
+        <script>scripts\c_raycast_object.gml</script>
+        <script>scripts\c_raycast_world.gml</script>
+        <script>scripts\c_shape_add_box.gml</script>
+        <script>scripts\c_shape_add_capsule.gml</script>
+        <script>scripts\c_shape_add_cone.gml</script>
+        <script>scripts\c_shape_add_cylinder.gml</script>
+        <script>scripts\c_shape_add_plane.gml</script>
+        <script>scripts\c_shape_add_sphere.gml</script>
+        <script>scripts\c_shape_add_triangle.gml</script>
+        <script>scripts\c_shape_begin_trimesh.gml</script>
+        <script>scripts\c_shape_create.gml</script>
+        <script>scripts\c_shape_destroy.gml</script>
+        <script>scripts\c_shape_end_trimesh.gml</script>
+        <script>scripts\c_shape_exists.gml</script>
+        <script>scripts\c_shape_load_trimesh.gml</script>
+        <script>scripts\c_sweep_world.gml</script>
+        <script>scripts\c_transform_identity.gml</script>
+        <script>scripts\c_transform_matrix.gml</script>
+        <script>scripts\c_transform_position.gml</script>
+        <script>scripts\c_transform_rotation.gml</script>
+        <script>scripts\c_transform_rotation_axis.gml</script>
+        <script>scripts\c_transform_rotation_quaternion.gml</script>
+        <script>scripts\c_transform_scaling.gml</script>
+        <script>scripts\c_world_add_object.gml</script>
+        <script>scripts\c_world_create.gml</script>
+        <script>scripts\c_world_destroy.gml</script>
+        <script>scripts\c_world_destroy_object.gml</script>
+        <script>scripts\c_world_exists.gml</script>
+        <script>scripts\c_world_get_count.gml</script>
+        <script>scripts\c_world_remove_object.gml</script>
+      </scripts>
+    </scripts>
     <scripts name="event stuff">
       <script>scripts\draw_active_event.gml</script>
       <script>scripts\draw_event_node.gml</script>
@@ -723,16 +785,16 @@
           <script>scripts\omu_entity_remove_event.gml</script>
         </scripts>
         <scripts name="data">
+          <script>scripts\omu_data_add.gml</script>
+          <script>scripts\omu_data_data_select.gml</script>
+          <script>scripts\omu_data_enum_add.gml</script>
+          <script>scripts\omu_data_enum_select.gml</script>
+          <script>scripts\omu_data_property_add.gml</script>
+          <script>scripts\omu_data_property_remove.gml</script>
+          <script>scripts\omu_data_remove.gml</script>
           <script>scripts\omu_manager_autotile.gml</script>
           <script>scripts\omu_manager_mesh.gml</script>
           <script>scripts\omu_manager_tileset.gml</script>
-          <script>scripts\omu_data_add.gml</script>
-          <script>scripts\omu_data_enum_add.gml</script>
-          <script>scripts\omu_data_property_add.gml</script>
-          <script>scripts\omu_data_enum_select.gml</script>
-          <script>scripts\omu_data_data_select.gml</script>
-          <script>scripts\omu_data_property_remove.gml</script>
-          <script>scripts\omu_data_remove.gml</script>
         </scripts>
       </scripts>
       <scripts name="rendering">
@@ -841,68 +903,6 @@
       <script>scripts\get_release_middle.gml</script>
       <script>scripts\get_release_right.gml</script>
     </scripts>
-    <scripts name="dll stuff">
-      <scripts name="stuff">
-        <script>scripts\ds_stuff_init.gml</script>
-        <script>scripts\ds_stuff_open.gml</script>
-        <script>scripts\ds_stuff_copy.gml</script>
-        <script>scripts\ds_stuff_help.gml</script>
-        <script>scripts\ds_stuff_help_auto.gml</script>
-        <script>scripts\ds_stuff_open_local.gml</script>
-      </scripts>
-      <scripts name="Collisions">
-        <script>scripts\c_hit_fraction.gml</script>
-        <script>scripts\c_hit_nx.gml</script>
-        <script>scripts\c_hit_ny.gml</script>
-        <script>scripts\c_hit_nz.gml</script>
-        <script>scripts\c_hit_object.gml</script>
-        <script>scripts\c_hit_x.gml</script>
-        <script>scripts\c_hit_y.gml</script>
-        <script>scripts\c_hit_z.gml</script>
-        <script>scripts\c_init.gml</script>
-        <script>scripts\c_object_apply_transform.gml</script>
-        <script>scripts\c_object_create.gml</script>
-        <script>scripts\c_object_destroy.gml</script>
-        <script>scripts\c_object_exists.gml</script>
-        <script>scripts\c_object_get_userid.gml</script>
-        <script>scripts\c_object_set_mask.gml</script>
-        <script>scripts\c_object_set_shape.gml</script>
-        <script>scripts\c_object_set_userid.gml</script>
-        <script>scripts\c_overlap_object.gml</script>
-        <script>scripts\c_overlap_world.gml</script>
-        <script>scripts\c_overlap_world_position.gml</script>
-        <script>scripts\c_raycast_object.gml</script>
-        <script>scripts\c_raycast_world.gml</script>
-        <script>scripts\c_shape_add_box.gml</script>
-        <script>scripts\c_shape_add_capsule.gml</script>
-        <script>scripts\c_shape_add_cone.gml</script>
-        <script>scripts\c_shape_add_cylinder.gml</script>
-        <script>scripts\c_shape_add_plane.gml</script>
-        <script>scripts\c_shape_add_sphere.gml</script>
-        <script>scripts\c_shape_add_triangle.gml</script>
-        <script>scripts\c_shape_begin_trimesh.gml</script>
-        <script>scripts\c_shape_create.gml</script>
-        <script>scripts\c_shape_destroy.gml</script>
-        <script>scripts\c_shape_end_trimesh.gml</script>
-        <script>scripts\c_shape_exists.gml</script>
-        <script>scripts\c_shape_load_trimesh.gml</script>
-        <script>scripts\c_sweep_world.gml</script>
-        <script>scripts\c_transform_identity.gml</script>
-        <script>scripts\c_transform_matrix.gml</script>
-        <script>scripts\c_transform_position.gml</script>
-        <script>scripts\c_transform_rotation.gml</script>
-        <script>scripts\c_transform_rotation_axis.gml</script>
-        <script>scripts\c_transform_rotation_quaternion.gml</script>
-        <script>scripts\c_transform_scaling.gml</script>
-        <script>scripts\c_world_add_object.gml</script>
-        <script>scripts\c_world_create.gml</script>
-        <script>scripts\c_world_destroy.gml</script>
-        <script>scripts\c_world_destroy_object.gml</script>
-        <script>scripts\c_world_exists.gml</script>
-        <script>scripts\c_world_get_count.gml</script>
-        <script>scripts\c_world_remove_object.gml</script>
-      </scripts>
-    </scripts>
     <scripts name="resources">
       <script>scripts\data_load_vra_actually_thanks.gml</script>
       <script>scripts\data_load_vra_names_only.gml</script>
@@ -988,6 +988,7 @@
         <script>scripts\serialize_save_map_contents_batch.gml</script>
         <script>scripts\serialize_save_tilesets_meta.gml</script>
         <script>scripts\serialize_save_global_meta.gml</script>
+        <script>scripts\serialize_save_datadata.gml</script>
         <scripts name="generic data">
           <script>scripts\serialize_save_generic.gml</script>
         </scripts>

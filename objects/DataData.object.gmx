@@ -30,7 +30,7 @@
 // if more data is added here, and i don't think it will be, be
 // sure to carry it over in both the save/load scripts and data_clone()
 
-name="DataType"+string(ds_list_size(Stuff.all_data));
+name="DataType"+string(ds_list_size(Stuff.all_data)-1);
 summary="";
 is_cached=false;
 deleted=false;
