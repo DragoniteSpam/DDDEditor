@@ -3,7 +3,7 @@
 // from the list that you want to pass to this script, and doing this the
 // easy way will cause the program to break
 
-var n=ds_list_clear_instances(argument0);
+var n=ds_list_size(argument0);
 var pending=ds_list_create();
 ds_list_copy(pending, argument0);
 for (var i=0; i<ds_list_size(pending); i++){
