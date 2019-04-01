@@ -23,6 +23,6 @@ if (version>=DataVersions.STARTING_MAP){
 }
 
 if (version>=DataVersions.GAMEPLAY_GRID){
-    var bools=buffer_read(argument0, buffer_string);
+    var bools=buffer_read(argument0, buffer_u32);
     Stuff.game_player_grid=unpack(bools, 0);
 }

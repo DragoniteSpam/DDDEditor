@@ -35,7 +35,9 @@ if (buffer==-1){
             // this may cause things to break, but it shouldn't;
             // includes data, events, generics and everything else
             instance_activate_object(Data);
-            instance_destroy(Data);
+            with (Data) if (deleteable){
+                instance_destroy();
+            }
             // clear all data - data has already been destroyed so you just have to
             // clear them
             ds_list_clear(Stuff.all_events);

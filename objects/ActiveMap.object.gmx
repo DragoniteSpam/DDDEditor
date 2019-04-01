@@ -30,6 +30,7 @@
 event_inherited();
 
 deactivateable=false;
+deleteable=false;
 
 xx=64;                                  // dimensions
 yy=64;

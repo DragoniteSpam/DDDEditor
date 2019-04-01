@@ -23,14 +23,18 @@ for (var i=0; i<n_datadata; i++){
         buffer_write(argument0, buffer_u8, pack(property.deleted));
         
         if (datadata.is_enum){
-            // then nothing else matters
+            // then nothing else matters besides the name and other basic things
         } else {
+            buffer_write(argument0, buffer_u8, property.type);
             buffer_write(argument0, buffer_f32, property.range_min);
             buffer_write(argument0, buffer_f32, property.range_max);
             buffer_write(argument0, buffer_u8, property.number_scale);
             buffer_write(argument0, buffer_u16, property.char_limit);
-            buffer_write(argument0, buffer_u8, property.bool_list);
             buffer_write(argument0, buffer_u32, property.type_guid);
+            // actual value here is not saved although later you may be allowed to define a default
+            for (var k=0; k<8; k++){
+                buffer_write(argument0, buffer_string, property.bool_list[k]);
+            }
             
         }
     }

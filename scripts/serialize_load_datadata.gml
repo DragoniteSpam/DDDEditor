@@ -1,7 +1,6 @@
 /// void serialize_load_datadata(buffer, version);
 
 var n_datadata=buffer_read(argument0, buffer_u16);
-
 repeat (n_datadata){
     var bools=buffer_read(argument0, buffer_u8);
     
@@ -19,14 +18,17 @@ repeat (n_datadata){
     
     data.deleted=unpack(bools, 1);
     
-    guid_set(data.GUID);
+    guid_set(data);
     
     var n_properties=buffer_read(argument0, buffer_u16);
     repeat (n_properties){
         var property=instance_create(0, 0, DataProperty);
+        ds_list_add(data.properties, property);
         guid_remove(property.GUID);
         
-        serialize_load_generic(argument0, data, argument1);
+        serialize_load_generic(argument0, property, argument1);
+        
+        guid_set(property);
         
         var pbools=buffer_read(argument0, buffer_u8);
         property.deleted=unpack(pbools, 0);
@@ -34,12 +36,15 @@ repeat (n_datadata){
         if (data.is_enum){
             // nothing special was saved
         } else {
+            property.type=buffer_read(argument0, buffer_u8);
             property.range_min=buffer_read(argument0, buffer_f32);
             property.range_max=buffer_read(argument0, buffer_f32);
             property.number_scale=buffer_read(argument0, buffer_u8);
             property.char_limit=buffer_read(argument0, buffer_u16);
-            property.bool_list=buffer_read(argument0, buffer_u8);
-            property.type_guid=buffer_read(argument0, buffer_f32);
+            property.type_guid=buffer_read(argument0, buffer_u32);
+            for (var i=0; i<8; i++){
+                property.bool_list[i]=buffer_read(argument0, buffer_string);
+            }
             
         }
     }
