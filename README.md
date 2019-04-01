@@ -6,3 +6,5 @@ The plan is to create a fully-featured game editor that will be able to handle a
 # Known Issues
 
  - **Semi-transparency in 3D space** - if you try to draw surface underneath an existing semi-transparent surface, it won't work. This is a Game Maker-wide problem and I'll probably either deal with depth sorting later, or just get rid of semi-transparent textures.
+ 
+ - **Deleting custom data types and their properties** - edge cases, that is all

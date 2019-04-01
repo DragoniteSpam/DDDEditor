@@ -1,5 +1,7 @@
 To Do
 
+1. save and load datadata - both editor and game
+
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
 3. Sauce was talking about inventory/items
