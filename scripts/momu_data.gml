@@ -14,3 +14,10 @@ view_wview[view_fullscreen]=room_width;
 view_wport[view_fullscreen]=room_width;
 
 menu_activate(noone);
+
+if (Camera.ui_game_data!=noone){
+    instance_activate_object(Camera.ui_game_data);
+    instance_destroy(Camera.ui_game_data);
+}
+
+Camera.ui_game_data=ui_init_game_data();

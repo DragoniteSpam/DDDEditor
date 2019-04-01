@@ -143,6 +143,7 @@ input_selection_add=vk_control;
 changes=ds_list_create();
 ui=ui_init_main();
 ui_event=ui_init_event();
+ui_game_data=noone;
 menu=instance_create(0, 0, MenuMain);
 dialogs=ds_list_create();
 
