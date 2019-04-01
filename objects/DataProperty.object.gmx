@@ -31,8 +31,8 @@
 // sure to carry it over in both the save/load scripts and data_clone()
 
 name="Property";
-
 type=DataTypes.INT;
+deleted=false;
 
 range_min=0;                        // int, float
 range_max=10;                       // int, float

@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>event_inherited();
 
+base_guid=0;
 values=ds_list_create();
 </string>
           </argument>

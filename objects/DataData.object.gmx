@@ -32,13 +32,13 @@
 
 name="DataType"+string(ds_list_size(Stuff.all_data));
 summary="";
+is_cached=false;
+deleted=false;
 
 properties=ds_list_create();
 
 // all of the instances of the data type; nested lists
 instances=ds_list_create();
-
-is_cached=false;
 </string>
           </argument>
         </arguments>

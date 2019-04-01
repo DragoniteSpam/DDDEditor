@@ -127,6 +127,8 @@ time_int=0;
 
 all_guids=ds_map_create();
 
+tf=array_compose("False", "True");
+
 // local storage folders
 
 if (!directory_exists(PATH_BACKUP_DATA)){
