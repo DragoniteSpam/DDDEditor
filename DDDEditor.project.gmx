@@ -933,6 +933,8 @@
       <script>scripts\error_show.gml</script>
       <script>scripts\instance_destroy_later.gml</script>
       <script>scripts\sprite_save_fixed.gml</script>
+      <script>scripts\setting_save_real.gml</script>
+      <script>scripts\setting_save_string.gml</script>
     </scripts>
     <scripts name="event stuff">
       <script>scripts\event_create.gml</script>
@@ -1075,7 +1077,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="55">
+  <constants number="56">
+    <constant name="DATA_INI">"data.ini"</constant>
     <constant name="N">chr($0d)+chr($0a)</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>

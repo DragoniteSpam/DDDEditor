@@ -4,7 +4,7 @@ var nn=filename_name(argument2);
 file_copy(argument2, argument1+nn);
 with (Stuff){
     data_load_vra_actually_thanks(argument1+nn);
-    ini_open(".\data.ini");
+    ini_open(DATA_INI);
     ini_write_string("important", "vrax", nn);
     ini_close();
 }

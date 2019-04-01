@@ -1,6 +1,6 @@
 /// void data_load_vra();
 
-ini_open(".\data.ini");
+ini_open(DATA_INI);
 vra_name=ini_read_string("important", "vrax", "");
 ini_close();
 

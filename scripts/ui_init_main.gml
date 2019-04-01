@@ -147,18 +147,6 @@ with (instance_create(0, 0, UIMain)){
     element=create_button(col2_x, yy, "Freeze Selected", col_width, element_height, fa_center, uimu_freeze_ask, t_general);
     ds_list_add(t_general.contents, element);
     
-    yy=yy+element.height+spacing;
-    
-    element=create_checkbox(col2_x, yy, "Dummy Option 2", col_width, element_height, null, "", false, t_general);
-    ds_list_add(t_general.contents, element);
-    
-    yy=yy+element.height+spacing;
-    
-    element=create_checkbox(col2_x, yy, "Dummy Option 3", col_width, element_height, null, "", false, t_general);
-    ds_list_add(t_general.contents, element);
-    
-    yy=yy+element.height+spacing;
-    
     /*
      * stats tab
      */

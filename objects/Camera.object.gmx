@@ -97,24 +97,23 @@ selection=ds_list_create();
 selected_entities=ds_list_create();
 last_selection=noone;
 
-selection_mode=SelectionModes.RECTANGLE;
-selection_addition=false;
-
-selection_fill_type=FillTypes.TILE;
-
-selection_mask=SELECTION_MASK_ALL;          // only entities matching the mask will be processed
+ini_open(DATA_INI);
+selection_mode=ini_read_real("selection", "mode", SelectionModes.RECTANGLE);
+selection_addition=ini_read_real("selection", "addition", false);
+selection_fill_type=ini_read_real("selection", "fill-type", FillTypes.TILE);
+selection_mask=ini_read_real("selection", "mask", SELECTION_MASK_ALL);
 
 selection_fill_mesh=0;
 selection_fill_tile_x=4;
 selection_fill_tile_y=0;
 selection_fill_autotile=0;
 
-view_selection_mask=false;
-view_wireframe=false;
-view_grid=true;
-view_backface=false;
-view_texture=true;
-view_entities=true; /* this sounds dumb */
+view_wireframe=ini_read_real("view", "wireframe", false);
+view_grid=ini_read_real("view", "grid", true);
+view_backface=ini_read_real("view", "backface", false);
+view_texture=ini_read_real("view", "texture", true);
+view_entities=ini_read_real("view", "entities", true); /* this sounds dumb */
+ini_close();
 
 tile_data_view=TileSelectorDisplayMode.PASSAGE;
 tile_on_click=TileSelectorOnClick.SELECT;

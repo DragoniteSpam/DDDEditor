@@ -266,7 +266,7 @@ game_player_grid=true;
 save_name_map="";
 save_name_data="";
 
-// user settings
+// user settings - dddd
 
 setting_embed_tilesets=false;       // small number of large images
 setting_embed_npcs=true;            // large number of small(ish) images
@@ -275,7 +275,7 @@ setting_embed_meshes=false;         // already stored in vrax but okay
 setting_embed_se=true;              // possibly large number of small sound effects
 setting_compression_level=5;        // 0 (none) through 9 (smallest)
 
-ini_open(".\data.ini");
+ini_open(DATA_INI);
 setting_color=ini_read_real("config", "color", c_green);                // BGR
 setting_bezier_precision=ini_read_real("config", "bezier", 6);          // preferably keep this between like 4 and 16ish?
 setting_backups=ini_read_real("config", "backups", 2);                  // 0 (none) through 9 (why would you keep that many backups)
