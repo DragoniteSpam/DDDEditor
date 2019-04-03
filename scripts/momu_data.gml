@@ -36,7 +36,6 @@ if (ds_list_size(Stuff.all_data)>0){
         }
         ds_list_destroy(sorted);
     } else {
-        crashes here, open this menu to see more, off to class now
         ds_map_add(Camera.ui_game_data.el_master.selected_entries, 0, true);
         ui_init_game_data_activate(Stuff.all_data[| 0].GUID);
     }

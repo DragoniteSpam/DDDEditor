@@ -1,7 +1,7 @@
 /// ui_init_game_data_activate(GUID);
 
 var container=Camera.ui_game_data.el_dynamic;
-var data=guid_get(active_type_guid);
+var data=guid_get(Camera.ui_game_data.active_type_guid);
 
 // i'm really hoping UI elements are destroyed correctly now
 ds_list_clear_instances(container.contents);
