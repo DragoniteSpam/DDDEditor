@@ -12,7 +12,7 @@ if (Stuff.setting_alphabetize_lists){
 // i'm really hoping UI elements are destroyed correctly now
 ds_list_clear_instances(container.contents);
 
-if (data!=noone){
+if (data!=noone&&!data.is_enum){
     var columns=5;
     var spacing=16;
     
@@ -28,7 +28,7 @@ if (data!=noone){
     var b_width=128;
     var b_height=32;
     
-    var yy=24/*64+eh*/;
+    var yy=32/*64+eh*/;
     var yy_base=yy;
     
     var col_yy=yy;
@@ -90,12 +90,5 @@ if (data!=noone){
         }
         
         ds_list_add(col_data.contents, element);
-    }
-}/*
-show_message("end")
-for (var i=0; i<ds_list_size(container.contents); i++){
-    var c=container.contents[| i];
-    for (var j=0; j<ds_list_size(c.contents); j++){
-        show_message(c.contents[| j])
     }
 }
