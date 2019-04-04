@@ -25,20 +25,7 @@ if (Camera.ui_game_data!=noone){
 Camera.ui_game_data=ui_init_game_data();
 
 if (ds_list_size(Stuff.all_data)>0){
-    if (Stuff.setting_alphabetize_lists){
-        var sorted=ds_list_sort_name_sucks(Stuff.all_data);
-        var first=sorted[| 0];
-        for (var i=0; i<ds_list_size(Stuff.all_data); i++){
-            if (Stuff.all_data[| i]==first){
-                ui_init_game_data_activate(Stuff.all_data[| i].GUID);
-                break;
-            }
-        }
-        ds_list_destroy(sorted);
-    } else {
-        ds_map_add(Camera.ui_game_data.el_master.selected_entries, 0, true);
-        ui_init_game_data_activate(Stuff.all_data[| 0].GUID);
-    }
-} else {
-    ui_init_game_data_activate(0);
+    ds_map_add(Camera.ui_game_data.el_master.selected_entries, 0, true);
 }
+
+ui_init_game_data_activate();

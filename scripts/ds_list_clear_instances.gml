@@ -14,4 +14,6 @@ for (var i=0; i<n; i++){
     /*}*/
 }
 
+ds_list_clear(argument0);
+
 return n;

@@ -5,7 +5,6 @@ var version=argument1;
 var embedded_tilesets=buffer_read(argument0, buffer_u8);
 
 ds_list_clear_instances(Stuff.all_tilesets);
-ds_list_clear(Stuff.all_tilesets);
 
 var n_tilesets=buffer_read(argument0, buffer_u16);
 for (var i=0; i<n_tilesets; i++){

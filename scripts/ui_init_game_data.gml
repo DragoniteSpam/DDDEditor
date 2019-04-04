@@ -28,7 +28,7 @@ with (instance_create(0, 0, UIThing)){
     
     var this_column=0;
     
-    /*var */el_master=create_list(this_column*cw+spacing, yy_header, "All Game Data Types: ", "<Click to define some.", ew, eh, 32, uivc_list_data_editor, false, id);
+    /*var */el_master=create_list(this_column*cw+spacing, yy_header, "All Game Data Types: ", "<Click to define some.>", ew, eh, 32, uivc_list_data_editor, false, id);
     el_master.render=ui_render_list_data_data;
     el_master.entries_are=ListEntries.INSTANCES;
     ds_list_add(contents, el_master);

@@ -44,7 +44,11 @@ if (n==0){
             var c=c_black;
         }
         
-        var text="";
+        if (argument0.numbered){
+            var text=string(index);
+        } else {
+            var text="";
+        }
         switch (argument0.entries_are){
             case ListEntries.STRINGS:
                 text=argument0.entries[| index];

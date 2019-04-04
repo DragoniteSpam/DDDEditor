@@ -3,6 +3,6 @@
 for (var i=0; i<ds_list_size(argument0.contents); i++){
     var thing=argument0.contents[| i];
     if (thing.enabled){
-        script_execute(thing.render, thing, argument1, argument2);
+        script_execute(thing.render, thing, argument0.x+argument1, argument0.y+argument2);
     }
 }

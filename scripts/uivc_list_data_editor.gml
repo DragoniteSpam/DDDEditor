@@ -4,6 +4,7 @@ if (ds_list_empty(Stuff.all_data)){
     momu_data_types(noone);
 } else {
     var selection=ui_list_selection(argument0);
+    argument0.root.active_type_guid=0;      // assume null until proven otherwise
     
     if (selection>=0){
         if (Stuff.setting_alphabetize_lists){
@@ -21,4 +22,6 @@ if (ds_list_empty(Stuff.all_data)){
             // NOT WANT TO DELETE.
         }
     }
+    
+    ui_init_game_data_activate();
 }
