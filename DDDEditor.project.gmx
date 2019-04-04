@@ -772,6 +772,9 @@
           <script>scripts\uimu_data_add_data.gml</script>
           <script>scripts\uimu_data_remove_data.gml</script>
           <script>scripts\uivc_data_set_name.gml</script>
+          <script>scripts\uivc_data_set_property_input.gml</script>
+          <script>scripts\uivc_data_set_property_boolean.gml</script>
+          <script>scripts\uivc_data_set_property_list.gml</script>
         </scripts>
       </scripts>
       <scripts name="onmouseup">

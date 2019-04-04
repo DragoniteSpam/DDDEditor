@@ -63,33 +63,34 @@ if (data!=noone){
                         char_limit++;
                     }
                     
-                    var element=create_input(spacing, yy, property.name, ew, eh, null, property.name, property.range_min, string(property.range_min)+" - "+string(property.range_max), validate_int, ui_value_real,
+                    var element=create_input(spacing, yy, property.name, ew, eh, uivc_data_set_property_input, i, property.range_min, string(property.range_min)+" - "+string(property.range_max), validate_int, ui_value_real,
                         property.range_min, property.range_max, char_limit, vx1, vy1, vx2, vy2, noone);
                     var hh=element.height;
                     break;
                 case DataTypes.FLOAT:          // input
-                    var element=create_input(spacing, yy, property.name, ew, eh, null, property.name, property.range_min, string(property.range_min)+" - "+string(property.range_max), validate_int, ui_value_real,
+                    var element=create_input(spacing, yy, property.name, ew, eh, uivc_data_set_property_input, i, property.range_min, string(property.range_min)+" - "+string(property.range_max), validate_int, ui_value_real,
                         property.range_min, property.range_max, 10 /* hard-coded do not touch */, vx1, vy1, vx2, vy2, noone);
                     var hh=element.height;
                     break;
                 case DataTypes.STRING:         // input
-                    var element=create_input(spacing, yy, property.name, ew, eh, null, property.name, "", "string", validate_string, ui_value_string,
+                    var element=create_input(spacing, yy, property.name, ew, eh, uivc_data_set_property_input, i, "", "string", validate_string, ui_value_string,
                         0, 1, property.char_limit, vx1, vy1, vx2, vy2, noone);
                     var hh=element.height;
                     break;
                 case DataTypes.ENUM:           // list
                 case DataTypes.DATA:           // list
-                    var element=create_list(spacing, yy, property.name, "<no options: "+guid_get(property.type_guid).name+">", ew, eh, 8, null, false, noone);
-                    element.key=property.name;
+                    var element=create_list(spacing, yy, property.name, "<no options: "+guid_get(property.type_guid).name+">", ew, eh, 8, uivc_data_set_property_list, false, noone);
+                    element.key=i;
                     element.entries_are=ListEntries.INSTANCES;
                     var hh=ui_get_list_height(element);
                     break;
                 case DataTypes.BOOL:           // checkbox
-                    var element=create_checkbox(spacing, yy, property.name, ew, eh, null, property.name, false, noone);
+                    var element=create_checkbox(spacing, yy, property.name, ew, eh, uivc_data_set_property_boolean, i, false, noone);
                     var hh=element.height;
                     break;
                 case DataTypes.BOOL_ARRAY:     // bitfield
                     var element=create_checkbox(spacing, yy, "<obsolete>", ew, eh, null, "", false, noone);
+                    element.key=i;
                     var hh=element.height;
                     break;
             }
