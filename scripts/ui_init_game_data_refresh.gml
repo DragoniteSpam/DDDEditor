@@ -62,13 +62,13 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
                 case DataTypes.BOOL_ARRAY:
                 case DataTypes.ENUM:
                 case DataTypes.DATA:
-                    thingy.value=0;
+                    thingy.value=string(0);
                     break;
                 case DataTypes.STRING:
                     thingy.value="";
                     break;
                 case DataTypes.BOOL:
-                    thingy.value=false;
+                    thingy.value=string(false);
                     break;
             }
         }
