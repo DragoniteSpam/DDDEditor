@@ -46,8 +46,9 @@ with (instance_create(0, 0, UIThing)){
     
     yy=yy+spacing+element.height;
     
-    var el_instances=create_list(this_column*cw+spacing, yy, "Instances: ", "<No instances>", ew, eh, 27, null, false, id);
+    el_instances=create_list(this_column*cw+spacing, yy, "Instances: ", "<No instances>", ew, eh, 27, ui_init_game_data_refresh, false, id);
     el_instances.render=ui_render_list_data_instances;
+    el_instances.numbered=true;
     el_instances.entries_are=ListEntries.INSTANCES;
     ds_list_add(contents, el_instances);
     
@@ -58,7 +59,7 @@ with (instance_create(0, 0, UIThing)){
     
     yy=yy+spacing+element.height;
     
-    el_inst_remove=create_button(this_column*cw+spacing, yy, "Remove Instance", ew, eh, fa_center, null, id);
+    el_inst_remove=create_button(this_column*cw+spacing, yy, "Remove Instance", ew, eh, fa_center, uimu_data_remove_data, id);
     ds_list_add(contents, el_inst_remove);
     
     /*

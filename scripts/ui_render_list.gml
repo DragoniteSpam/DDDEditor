@@ -45,19 +45,19 @@ if (n==0){
         }
         
         if (argument0.numbered){
-            var text=string(index);
+            var text=string(index)+". ";
         } else {
             var text="";
         }
         switch (argument0.entries_are){
             case ListEntries.STRINGS:
-                text=argument0.entries[| index];
+                text=text+argument0.entries[| index];
                 break;
             case ListEntries.INSTANCES:
-                text=argument0.entries[| index].name;
+                text=text+argument0.entries[| index].name;
                 break;
             case ListEntries.GUIDS:
-                text=guid_get(argument0.entries[| index]).name;
+                text=text+guid_get(argument0.entries[| index]).name;
                 break;
         }
         draw_text_colour(tx, tya, text, c, c, c, c, 1);

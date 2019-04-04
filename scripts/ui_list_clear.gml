@@ -1,4 +1,6 @@
 /// void ui_list_clear(UIList);
+// this clears EVERYTHING in the list - including the entries. most likely,
+// you actually want ui_list_deselect.
 
 ds_list_clear(argument0.entries);
 ds_list_clear(argument0.entry_colors);

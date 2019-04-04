@@ -3,11 +3,16 @@
 var container=Camera.ui_game_data.el_dynamic;
 if (Stuff.setting_alphabetize_lists){
     var sorted=ds_list_sort_name_sucks(Stuff.all_data);
-    var data=guid_get(ui_list_selection(sorted[| 0].GUID));
+    Camera.ui_game_data.active_type_guid=sorted[| ui_list_selection(Camera.ui_game_data.el_master)].GUID;
     ds_list_destroy(sorted);
 } else {
-    var data=guid_get(Stuff.all_data[| ui_list_selection(Camera.ui_game_data.el_master)].GUID);
+    Camera.ui_game_data.active_type_guid=Stuff.all_data[| ui_list_selection(Camera.ui_game_data.el_master)].GUID;
 }
+
+var data=guid_get(Camera.ui_game_data.active_type_guid);
+
+Camera.ui_game_data.el_inst_add.interactive=!data.is_enum;
+Camera.ui_game_data.el_inst_remove.interactive=!data.is_enum;
 
 // i'm really hoping UI elements are destroyed correctly now
 ds_list_clear_instances(container.contents);
@@ -34,6 +39,12 @@ if (data!=noone&&!data.is_enum){
     var col_yy=yy;
     var col_data=instance_create(/*2*cw+*/spacing, 0, UIThing);
     ds_list_add(container.contents, col_data);
+    
+    var element=create_input(spacing, yy, "Name:", ew, eh, null, "", "", "Instance name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, noone);
+    ds_list_add(col_data.contents, element);
+    Camera.ui_game_data.el_inst_name=element;
+    
+    yy=yy+element.height+spacing;
     
     for (var i=0; i<ds_list_size(data.properties); i++){
         var property=data.properties[| i];

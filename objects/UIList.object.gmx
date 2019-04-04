@@ -33,7 +33,7 @@ value=0;
 width=128;
 height=24;
 
-index=0;
+index=0;            // where the list starts
 last_index=-1;
 slots=4;
 

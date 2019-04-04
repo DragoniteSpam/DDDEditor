@@ -7,4 +7,23 @@ if (data!=noone){
     instance.name=data.name+"_"+string(ds_list_size(data.instances));
     instance_deactivate_object(instance);
     ds_list_add(data.instances, instance);
+    
+    for (var i=0; i<ds_list_size(data.properties); i++){
+        var property=data.properties[| i];
+        switch (property.type){
+            case DataTypes.INT:
+            case DataTypes.FLOAT:
+            case DataTypes.BOOL_ARRAY:
+            case DataTypes.ENUM:
+            case DataTypes.DATA:
+                ds_list_add(instance.values, 0);
+                break;
+            case DataTypes.STRING:
+                ds_list_add(instance.values, "");
+                break;
+            case DataTypes.BOOL:
+                ds_list_add(instance.values, false);
+                break;
+        }
+    }
 }

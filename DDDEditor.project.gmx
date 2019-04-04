@@ -762,6 +762,7 @@
           <script>scripts\uivc_input_data_property_type.gml</script>
           <script>scripts\uivc_list_data_data.gml</script>
           <script>scripts\uivc_list_data_editor.gml</script>
+          <script>scripts\uivc_list_data_editor_instances.gml</script>
           <script>scripts\uivc_list_data_property.gml</script>
           <script>scripts\uivc_list_data_property_bits.gml</script>
           <script>scripts\uivc_input_data_value_max.gml</script>
@@ -769,6 +770,7 @@
           <script>scripts\uivc_input_data_value_min.gml</script>
           <script>scripts\uivc_input_data_char_limit.gml</script>
           <script>scripts\uimu_data_add_data.gml</script>
+          <script>scripts\uimu_data_remove_data.gml</script>
         </scripts>
       </scripts>
       <scripts name="onmouseup">
@@ -894,11 +896,13 @@
       <script>scripts\ui_value_string.gml</script>
       <scripts name="help">
         <script>scripts\ui_list_clear.gml</script>
+        <script>scripts\ui_list_deselect.gml</script>
         <script>scripts\ui_list_selection.gml</script>
       </scripts>
       <script>scripts\ui_init_main.gml</script>
       <script>scripts\ui_init_game_data.gml</script>
       <script>scripts\ui_init_game_data_activate.gml</script>
+      <script>scripts\ui_init_game_data_refresh.gml</script>
       <script>scripts\ui_init_event.gml</script>
     </scripts>
     <scripts name="Control">
