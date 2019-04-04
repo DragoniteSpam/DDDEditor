@@ -11,11 +11,7 @@ var selection=ui_list_selection(Camera.ui_game_data.el_instances);
 if (selection<0){
     var instance=noone;
 } else {
-    show_message(selection)
-    show_message(data.instances[| selection])
-    show_message(data.instances[| selection].GUID)
     var instance=guid_get(data.instances[| selection].GUID);
-    show_message(instance)
 }
 
 if (instance!=noone){

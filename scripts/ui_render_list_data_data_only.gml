@@ -10,6 +10,7 @@ for (var i=0; i<ds_list_size(Stuff.all_data); i++){
     }
 }
 
+// this is always alphabetized
 argument0.text=otext+string(ds_list_size(list_data));
 argument0.entries=ds_list_sort_name_sucks(list_data);
 

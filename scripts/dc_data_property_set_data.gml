@@ -15,9 +15,15 @@ if (selection>=0){
         }
     }
     
-    var list_sorted=ds_list_sort_sucks(list_data);
+    var list_sorted=ds_list_sort_name_sucks(list_data);
     
-    property.type_guid=list_sorted[| selection].GUID;
+    // this list is always alphabetized - for now
+    //if (Stuff.setting_alphabetize_lists){
+    if (true){
+        property.type_guid=list_sorted[| selection].GUID;
+    } else {
+        property.type_guid=list_data[| selection].GUID;
+    }
     
     ds_list_destroy(list_data);
     ds_list_destroy(list_sorted);
