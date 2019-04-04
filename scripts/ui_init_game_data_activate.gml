@@ -48,7 +48,7 @@ if (data!=noone){
         var col_data=instance_create(/*2*cw+*/spacing, 0, UIThing);
         ds_list_add(container.contents, col_data);
         
-        var element=create_input(spacing, yy, "Name:", ew, eh, null, "", "", "Instance name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, noone);
+        var element=create_input(spacing, yy, "Name:", ew, eh, uivc_data_set_name, "", "", "Instance name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, noone);
         ds_list_add(col_data.contents, element);
         Camera.ui_game_data.el_inst_name=element;
         
