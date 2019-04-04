@@ -43,7 +43,7 @@ draw_rectangle(vx1, vy1, vx2, vy2, true);
 
 draw_text_ext_colour(vtx, vty, value, -1, (vx2-vtx), c, c, c, c, 1);
 if (string_length(value)==0){
-    draw_text_ext_colour(vtx, vty, argument0.value_default, -1, (vx2-2*vtx), c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
+    draw_text_ext_colour(vtx, vty, string(argument0.value_default), -1, (vx2-2*vtx), c_dkgray, c_dkgray, c_dkgray, c_dkgray, 1);
 }
 
 if (argument0.interactive&&dialog_is_active(argument0.root)){

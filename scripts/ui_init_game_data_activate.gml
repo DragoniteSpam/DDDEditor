@@ -14,6 +14,8 @@ var data=guid_get(Camera.ui_game_data.active_type_guid);
 Camera.ui_game_data.el_inst_add.interactive=!data.is_enum;
 Camera.ui_game_data.el_inst_remove.interactive=!data.is_enum;
 
+ui_list_deselect(Camera.ui_game_data.el_instances);
+
 // i'm really hoping UI elements are destroyed correctly now
 ds_list_clear_instances(container.contents);
 
@@ -50,10 +52,11 @@ if (data!=noone&&!data.is_enum){
         var property=data.properties[| i];
         switch (property.type){
             case DataTypes.INT:            // input
-                var char_limit=log10(max(abs(property.range_min), abs(property.range_max)));
+                var char_limit=log10(max(abs(property.range_min), abs(property.range_max))+1);
                 if (property.range_min<0||property.range_max<0){
                     char_limit++;
                 }
+                
                 var element=create_input(spacing, yy, property.name, ew, eh, null, property.name, property.range_min, string(property.range_min)+" - "+string(property.range_max), validate_int, ui_value_real,
                     property.range_min, property.range_max, char_limit, vx1, vy1, vx2, vy2, noone);
                 var hh=element.height;
@@ -69,12 +72,10 @@ if (data!=noone&&!data.is_enum){
                 var hh=element.height;
                 break;
             case DataTypes.ENUM:           // list
-                var element=create_list(spacing, yy, property.name, "<no options: "+guid_get(property.type_guid).name+">", ew, eh, 8, null, false, noone);
-                element.key=property.name;
-                var hh=ui_get_list_height(element);
             case DataTypes.DATA:           // list
                 var element=create_list(spacing, yy, property.name, "<no options: "+guid_get(property.type_guid).name+">", ew, eh, 8, null, false, noone);
                 element.key=property.name;
+                element.entries_are=ListEntries.INSTANCES;
                 var hh=ui_get_list_height(element);
                 break;
             case DataTypes.BOOL:           // checkbox

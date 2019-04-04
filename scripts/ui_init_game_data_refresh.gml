@@ -8,10 +8,14 @@
 var data=guid_get(Camera.ui_game_data.active_type_guid);
 var selection=ui_list_selection(Camera.ui_game_data.el_instances);
 
-if (selection==noone){
+if (selection<0){
     var instance=noone;
 } else {
+    show_message(selection)
+    show_message(data.instances[| selection])
+    show_message(data.instances[| selection].GUID)
     var instance=guid_get(data.instances[| selection].GUID);
+    show_message(instance)
 }
 
 if (instance!=noone){
@@ -46,15 +50,15 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
         if (property.type==DataTypes.DATA){
             if (property.type_guid==data.GUID){
                 // element
-                ui_list_deselect(thingy);
+                ui_list_clear(thingy);
                 for (var k=0; k<ds_list_size(data.instances); k++){
-                    create_list_entries(thingy, data.instances[| i]);
+                    create_list_entries(thingy, data.instances[| k], c_black);
                 }
             }
         }
         
         if (instance!=noone){
-            thingy.value=instance.values[| n];
+            thingy.value=string(instance.values[| n]);
         } else {
             switch (property.type){
                 case DataTypes.INT:
