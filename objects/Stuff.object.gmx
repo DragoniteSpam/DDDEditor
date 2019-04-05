@@ -59,6 +59,7 @@ enum SerializeThings {
     DATADATA                =$0000001B,
     // game data - items, monsters, classes, etc
     DATA_ERROR              =$00000100,
+    DATA_INSTANCES          =$00000101,
     // misc
     MISC_ERROR              =$00001000,
     MISC_MAP_META           =$00001001,

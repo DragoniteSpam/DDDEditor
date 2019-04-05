@@ -1009,6 +1009,7 @@
         <scripts name="generic data">
           <script>scripts\serialize_save_generic.gml</script>
         </scripts>
+        <script>scripts\serialize_save_data_instances.gml</script>
       </scripts>
       <script>scripts\serialize_load.gml</script>
       <script>scripts\serialize_save_data.gml</script>
