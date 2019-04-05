@@ -38,7 +38,7 @@ with (instance_create(0, 0, UIMain)){
     
     var yy=legal_y;
     
-    element=create_text(legal_x+spacing, yy, "", element_width, element_height, fa_left, element_width, t_list);
+    element=create_text(legal_x+spacing, yy, "<active node>", element_width, element_height, fa_left, element_width, t_list);
     element.render=ui_render_text_active_node;
     ds_list_add(t_list.contents, element);
     
@@ -76,20 +76,20 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height+spacing;
     
-    element=create_list(legal_x+spacing, yy, "Custom Nodes", "<none>", element_width, spacing, slots, null, false, t_custom);
-    element.render=ui_render_list_event_custom;
-    element.entries_are=ListEntries.INSTANCES;
-    element.colorized=false;
-    ds_list_add(t_custom.contents, element);
+    el_list_custom=create_list(legal_x+spacing, yy, "Custom Nodes", "<none>", element_width, spacing, slots, null, false, t_custom);
+    el_list_custom.render=ui_render_list_event_custom;
+    el_list_custom.entries_are=ListEntries.INSTANCES;
+    el_list_custom.colorized=false;
+    ds_list_add(t_custom.contents, el_list_custom);
     
-    yy=yy+ui_get_list_height(element)+spacing;
+    yy=yy+ui_get_list_height(el_list_custom)+spacing;
     
-    element=create_button(legal_x+spacing, yy, "Add Custom Node", element_width, element_height, fa_center, null, t_custom);
+    element=create_button(legal_x+spacing, yy, "Add Custom Node", element_width, element_height, fa_center, omu_event_add_custom_event, t_custom);
     ds_list_add(t_custom.contents, element);
     
     yy=yy+element_height+spacing;
     
-    element=create_button(legal_x+spacing, yy, "Remove Custom Node", element_width, element_height, fa_center, null, t_custom);
+    element=create_button(legal_x+spacing, yy, "Remove Custom Node", element_width, element_height, fa_center, omu_event_remove_custom_event, t_custom);
     ds_list_add(t_custom.contents, element);
     
     yy=yy+element_height+spacing;

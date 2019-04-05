@@ -780,9 +780,11 @@
         <script>scripts\omu_entity_event_page.gml</script>
         <scripts name="events">
           <script>scripts\omu_event_add_entrypoint.gml</script>
+          <script>scripts\omu_event_add_custom_event.gml</script>
           <script>scripts\omu_event_add_event.gml</script>
           <script>scripts\omu_event_add_text.gml</script>
           <script>scripts\omu_event_remove_event.gml</script>
+          <script>scripts\omu_event_remove_custom_event.gml</script>
           <script>scripts\omu_event_rename_event.gml</script>
           <script>scripts\omu_event_custom_help.gml</script>
         </scripts>
@@ -1047,6 +1049,7 @@
         <object>objects\Data</object>
         <object>objects\DataEvent</object>
         <object>objects\DataEventNode</object>
+        <object>objects\DataEventNodeCustom</object>
         <object>objects\DataInstantiatedEvent</object>
         <object>objects\DataObject</object>
         <object>objects\DataTileset</object>
