@@ -784,6 +784,7 @@
           <script>scripts\omu_event_add_text.gml</script>
           <script>scripts\omu_event_remove_event.gml</script>
           <script>scripts\omu_event_rename_event.gml</script>
+          <script>scripts\omu_event_custom_help.gml</script>
         </scripts>
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
@@ -863,6 +864,7 @@
           <script>scripts\ui_render_image_button_autotile.gml</script>
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
+          <script>scripts\ui_render_list_event_custom.gml</script>
           <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_data_data.gml</script>
@@ -903,9 +905,11 @@
       </scripts>
       <script>scripts\ui_init_main.gml</script>
       <script>scripts\ui_init_game_data.gml</script>
-      <script>scripts\ui_init_game_data_activate.gml</script>
-      <script>scripts\ui_init_game_data_refresh.gml</script>
       <script>scripts\ui_init_event.gml</script>
+      <scripts name="data etc">
+        <script>scripts\ui_init_game_data_refresh.gml</script>
+        <script>scripts\ui_init_game_data_activate.gml</script>
+      </scripts>
     </scripts>
     <scripts name="Control">
       <script>scripts\get_press_left.gml</script>

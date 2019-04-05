@@ -41,6 +41,8 @@ if (buffer==-1){
             // clear all data - data has already been destroyed so you just have to
             // clear them
             ds_list_clear(Stuff.all_events);
+            ds_list_clear(Stuff.all_event_custom);
+            ds_list_clear(Stuff.all_event_templates);
             ds_map_clear(Stuff.all_guids);
             ds_list_clear(Stuff.all_data);
         } else if (what==SERIALIZE_MAP){

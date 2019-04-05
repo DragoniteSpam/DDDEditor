@@ -57,7 +57,9 @@ enum SerializeThings {
     AUTOTILES               =$00000019,
     MAP_META                =$0000001A,
     DATADATA                =$0000001B,
-    // game data - items, monsters, classes, etc
+    EVENT_CUSTOM            =$0000001C,
+    EVENT_TEMPLATE          =$0000001D,
+    // game data
     DATA_ERROR              =$00000100,
     DATA_INSTANCES          =$00000101,
     // misc
@@ -188,6 +190,8 @@ ds_list_add(all_tilesets, tileset_create("b_tileset_overworld_0.png",
         noone, noone, noone, noone, noone, noone, noone, noone)));
 
 all_events=ds_list_create();
+all_event_custom=ds_list_create();
+all_event_templates=ds_list_create();
 active_event=event_create("DefaultEvent");
 ds_list_add(all_events, active_event);
 
