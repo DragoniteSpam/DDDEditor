@@ -807,6 +807,7 @@
       </scripts>
       <scripts name="rendering">
         <script>scripts\ui_render.gml</script>
+        <script>scripts\ui_render_not_relative.gml</script>
         <script>scripts\ui_render_button.gml</script>
         <script>scripts\ui_render_image_button.gml</script>
         <script>scripts\ui_render_checkbox.gml</script>
