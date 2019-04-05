@@ -67,9 +67,9 @@ ds_list_destroy_instances(properties);
 // data types) you would signify that you still need it, because pass by
 // reference
 if (instances!=noone&amp;&amp;!is_cached){
-    // because nested lists
     for (var i=0; i&lt;ds_list_size(instances); i++){
-        ds_list_destroy(instances[| i]);
+        instance_activate_object(instances[| i]);
+        instance_destroy(instances[| i]);
     }
     ds_list_destroy(instances);
 }
