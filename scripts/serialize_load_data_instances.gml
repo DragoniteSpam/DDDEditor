@@ -1,8 +1,6 @@
-/// void serialize_save_data_instances(buffer);
-// i'd do this in serialize_save_datadata but i'd prefer to keep these things
-// separated - for now
+/// void serialize_load_data_instances(buffer, version);
 
-buffer_write(argument0, buffer_datatype, SerializeThings.DATA_INSTANCES);
+var version=argument1;
 
 var n_datadata=ds_list_size(Stuff.all_data);
 
@@ -11,13 +9,13 @@ for (var i=0; i<n_datadata; i++){
     
     if (!datadata.is_enum){
         var n_properties=ds_list_size(datadata.properties);
-        var n_instances=ds_list_size(datadata.instances);
+        var n_instances=buffer_read(argument0, buffer_u16);
         
-        buffer_write(argument0, buffer_u16, n_instances);
         for (var j=0; j<n_instances; j++){
-            var instance=datadata.instances[| j];
-            show_message(instance.name)
-            serialize_save_generic(argument0, instance);
+            var instance=instance_create(0, 0, DataInstantiated);
+            ds_list_add(datadata.instances, instance);
+            
+            serialize_load_generic(argument0, instance, version);
             
             for (var k=0; k<n_properties; k++){
                 var property=datadata.properties[| k];
@@ -44,8 +42,10 @@ for (var i=0; i<n_datadata; i++){
                         var btype=buffer_u8;
                         break;
                 }
-                buffer_write(argument0, btype, instance.values[| k]);
+                ds_list_add(instance.values, buffer_read(argument0, btype));
             }
         }
     }
 }
+
+instance_deactivate_object(DataInstantiated);

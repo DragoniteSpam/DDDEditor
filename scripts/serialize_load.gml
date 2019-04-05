@@ -77,6 +77,9 @@ if (buffer==-1){
                 case SerializeThings.DATADATA:
                     serialize_load_datadata(buffer, version);
                     break;
+                case SerializeThings.DATA_INSTANCES:
+                    serialize_load_data_instances(buffer, version);
+                    break;
                 // map stuff
                 case SerializeThings.MAP_META:
                     serialize_load_map_contents_meta(buffer, version);

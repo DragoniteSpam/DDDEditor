@@ -29,6 +29,8 @@ if (string_length(fn)>0){
     serialize_save_global_meta(buffer);
     serialize_save_datadata(buffer);
     
+    serialize_save_data_instances(buffer);
+    
     buffer_write(buffer, buffer_datatype, SerializeThings.END_OF_FILE);
     
     /*
