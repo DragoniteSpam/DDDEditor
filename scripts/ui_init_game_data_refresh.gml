@@ -44,6 +44,7 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
         
         // only check data, not enums
         if (property.type==DataTypes.DATA){
+            ui_list_deselect(thingy);
             if (property.type_guid==data.GUID){
                 // element
                 ui_list_clear(thingy);
@@ -55,6 +56,19 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
         
         if (instance!=noone){
             thingy.value=string(instance.values[| n]);
+            // if you re-select a data that already has one of these fields set, it should
+            // be re-selected when you re-select the instance - there should be some indication
+            // that the value is set
+            if (property.type==DataTypes.DATA){
+                var datatype=guid_get(property.type_guid);
+                for (var k=0; k<ds_list_size(datatype.instances); k++){
+                    if (datatype.instances[| k].GUID==instance.values[| n]){
+                        ds_map_add(thingy.selected_entries, k, true);
+                        thingy.index=max(0, k-thingy.slots+1);
+                        break;
+                    }
+                }
+            }
         } else {
             switch (property.type){
                 case DataTypes.INT:

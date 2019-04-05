@@ -79,7 +79,11 @@ if (data!=noone){
                     break;
                 case DataTypes.ENUM:           // list
                 case DataTypes.DATA:           // list
-                    var element=create_list(spacing, yy, property.name, "<no options: "+guid_get(property.type_guid).name+">", ew, eh, 8, uivc_data_set_property_list, false, noone);
+                    var datadata=guid_get(property.type_guid);
+                    var element=create_list(spacing, yy, property.name, "<no options: "+datadata.name+">", ew, eh, 8, uivc_data_set_property_list, false, noone);
+                    for (var j=0; j<ds_list_size(datadata.instances); j++){
+                        create_list_entries(element, datadata.instances[| j], c_black);
+                    }
                     element.key=i;
                     element.entries_are=ListEntries.INSTANCES;
                     var hh=ui_get_list_height(element);
