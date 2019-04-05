@@ -58,7 +58,6 @@ for (var i=0; i<ds_list_size(Stuff.original_data); i++){
                                     instance.values[| j]=clamp(instance.values[| j], property_new.range_min, property_new.range_max);
                                 }
                                 break;
-                            case DataTypes.BOOL_ARRAY:
                             case DataTypes.ENUM:
                             case DataTypes.DATA:
                                 // don't convert
@@ -88,7 +87,6 @@ for (var i=0; i<ds_list_size(Stuff.original_data); i++){
                                     }
                                 }
                                 break;
-                            case DataTypes.BOOL_ARRAY:
                             case DataTypes.ENUM:
                             case DataTypes.DATA:
                                 // don't convert
@@ -109,17 +107,6 @@ for (var i=0; i<ds_list_size(Stuff.original_data); i++){
                         for (var k=0; k<ds_list_size(data_old.instances); k++){
                             var instance=data_old.instances[| k];
                             instance.values[| j]=true;
-                        }
-                        break;
-                    case DataTypes.BOOL_ARRAY:
-                        // filling this based on the integer value of previous numbers is possible, but that
-                        // would make it appear to be populated by random values and just make things even
-                        // MORE confusing
-                        buffer_write(missing_output, buffer_string, data_new.name+"."+property_new.name+" has been changed to a boolean array. All instances of "+data_new.name+"."+property_new.name+" set to null."+N);
-                        missing_count++;
-                        for (var k=0; k<ds_list_size(data_old.instances); k++){
-                            var instance=data_old.instances[| k];
-                            instance.values[| j]=0;
                         }
                         break;
                     case DataTypes.DATA:
@@ -178,7 +165,6 @@ for (var i=0; i<n_data; i++){
                         break;
                     case DataTypes.ENUM:
                     case DataTypes.DATA:
-                    case DataTypes.BOOL_ARRAY:
                         ds_list_add(instance.values, 0);
                         break;
                     case DataTypes.STRING:

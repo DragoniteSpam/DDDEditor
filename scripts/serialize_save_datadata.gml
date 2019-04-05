@@ -32,10 +32,6 @@ for (var i=0; i<n_datadata; i++){
             buffer_write(argument0, buffer_u16, property.char_limit);
             buffer_write(argument0, buffer_u32, property.type_guid);
             // actual value here is not saved although later you may be allowed to define a default
-            for (var k=0; k<8; k++){
-                buffer_write(argument0, buffer_string, property.bool_list[k]);
-            }
-            
         }
     }
     

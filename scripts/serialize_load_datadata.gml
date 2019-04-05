@@ -42,10 +42,6 @@ repeat (n_datadata){
             property.number_scale=buffer_read(argument0, buffer_u8);
             property.char_limit=buffer_read(argument0, buffer_u16);
             property.type_guid=buffer_read(argument0, buffer_u32);
-            for (var i=0; i<8; i++){
-                property.bool_list[i]=buffer_read(argument0, buffer_string);
-            }
-            
         }
     }
 }

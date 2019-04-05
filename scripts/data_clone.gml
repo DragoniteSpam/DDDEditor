@@ -41,7 +41,6 @@ for (var i=0; i<ds_list_size(Stuff.all_data); i++){
                 range_max=property.range_max;
                 number_scale=property.number_scale;
                 char_limit=property.char_limit;
-                array_copy(bool_list, 0, property.bool_list, 0, array_length_1d(property.bool_list));
                 type_guid=property.type_guid;
                 
                 ds_list_add(other.properties, id);

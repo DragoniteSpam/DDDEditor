@@ -16,7 +16,7 @@ for (var i=0; i<n_datadata; i++){
         buffer_write(argument0, buffer_u16, n_instances);
         for (var j=0; j<n_instances; j++){
             var instance=datadata.instances[| j];
-            show_message(instance.name)
+            
             serialize_save_generic(argument0, instance);
             
             for (var k=0; k<n_properties; k++){

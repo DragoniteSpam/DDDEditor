@@ -73,7 +73,6 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
             switch (property.type){
                 case DataTypes.INT:
                 case DataTypes.FLOAT:
-                case DataTypes.BOOL_ARRAY:
                 case DataTypes.ENUM:
                 case DataTypes.DATA:
                     thingy.value=string(0);

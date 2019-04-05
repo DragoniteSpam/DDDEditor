@@ -38,8 +38,6 @@ range_min=0;                        // int, float
 range_max=10;                       // int, float
 number_scale=NumberScales.LINEAR;   // int, float
 char_limit=20;                      // string
-bool_list=array_compose("Alfa", "Bravo", "Charlie", "Delta",
-    "Echo", "Foxtrot", "Golf", "Hotel");// bool array (single character)
 type_guid=0;                        // Data, enum
 
 enum DataTypes {
@@ -48,7 +46,6 @@ enum DataTypes {
     FLOAT,          // input
     STRING,         // input
     BOOL,           // checkbox
-    BOOL_ARRAY,     // bitfield
     DATA            // list
 }
 

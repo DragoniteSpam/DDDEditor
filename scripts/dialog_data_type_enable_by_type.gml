@@ -38,13 +38,6 @@ if (argument0.selected_data.is_enum){
         case DataTypes.BOOL:
             argument0.el_property_bool_note.enabled=true;
             break;
-        case DataTypes.BOOL_ARRAY:
-            argument0.el_property_bit_name.interactive=true;
-            argument0.el_property_bits.interactive=true;
-            argument0.el_property_bit_name.enabled=true;
-            argument0.el_property_bits.enabled=true;
-            argument0.el_property_bit_name.value=string(argument0.selected_property.bool_list[ui_list_selection(argument0.el_property_bits)]);
-            break;
         case DataTypes.ENUM:
         case DataTypes.DATA:
             argument0.el_property_type_guid.interactive=true;

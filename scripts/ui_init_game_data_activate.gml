@@ -92,11 +92,6 @@ if (data!=noone){
                     var element=create_checkbox(spacing, yy, property.name, ew, eh, uivc_data_set_property_boolean, i, false, noone);
                     var hh=element.height;
                     break;
-                case DataTypes.BOOL_ARRAY:     // bitfield
-                    var element=create_checkbox(spacing, yy, "<obsolete>", ew, eh, null, "", false, noone);
-                    element.key=i;
-                    var hh=element.height;
-                    break;
             }
             
             if (yy+hh>room_height-160){

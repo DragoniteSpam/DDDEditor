@@ -87,7 +87,7 @@ yy=yy+el_property_name.height+spacing;
 
 var el_property_type=create_radio_array(col3_x, yy, "Type:", ew, eh, uivc_input_data_property_type, 0, dg);
 el_property_type.interactive=false;
-create_radio_array_options(el_property_type, "Int", "Enum", "Float", "String", "Boolean", "Boolean Array", "Data");
+create_radio_array_options(el_property_type, "Int", "Enum", "Float", "String", "Boolean", "Data");
 dg.el_property_type=el_property_type;
 
 yy=yy+ui_get_radio_array_height(el_property_type)+spacing;
@@ -130,29 +130,13 @@ dg.el_property_scale=el_property_scale;
 
 yy=yy_top;
 
-// bool array only
-var el_property_bits=create_list(col3_x, yy, "Bits:", "<no bits>", ew, eh, 8, uivc_list_data_property_bits, false, dg);
-el_property_bits.enabled=false;
-el_property_bits.render=ui_render_list_data_property_bit;
-ds_map_add(el_property_bits.selected_entries, 0, true);
-dg.el_property_bits=el_property_bits;
-
-yy=yy+ui_get_list_height(el_property_bits)+spacing;
-
-var el_property_bit_name=create_input(col3_x, yy, "Bit Name:", ew, eh, uivc_input_data_property_bit_name, "", "Alfa", "", validate_string_internal_name, ui_value_string, 0, 1, 12, vx1, vy1, vx2, vy2, dg);
-el_property_bit_name.enabled=false;
-dg.el_property_bit_name=el_property_bit_name;
-
-yy=yy+el_property_bit_name.height+spacing;
-
 el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dc_data_commit, dg, HelpPages.AUTOTILES, fa_center);
 
 ds_list_add(dg.contents, el_list, el_add, el_add_enum, el_remove,
     el_data_name, el_list_p, el_add_p, el_remove_p,
     el_property_name, el_property_type,
     el_property_type_guid, el_property_min, el_property_char_limit, el_property_bool_note,
-    el_property_max, el_property_scale, el_property_bits,
-    el_property_bit_name,
+    el_property_max, el_property_scale,
     el_confirm);
 
 keyboard_string="";

@@ -758,13 +758,11 @@
         <scripts name="data">
           <script>scripts\uivc_input_data_name.gml</script>
           <script>scripts\uivc_input_data_property_name.gml</script>
-          <script>scripts\uivc_input_data_property_bit_name.gml</script>
           <script>scripts\uivc_input_data_property_type.gml</script>
           <script>scripts\uivc_list_data_data.gml</script>
           <script>scripts\uivc_list_data_editor.gml</script>
           <script>scripts\uivc_list_data_editor_instances.gml</script>
           <script>scripts\uivc_list_data_property.gml</script>
-          <script>scripts\uivc_list_data_property_bits.gml</script>
           <script>scripts\uivc_input_data_value_max.gml</script>
           <script>scripts\uivc_input_data_number_scale.gml</script>
           <script>scripts\uivc_input_data_value_min.gml</script>
@@ -873,7 +871,6 @@
           <script>scripts\ui_render_list_data_enum.gml</script>
           <script>scripts\ui_render_list_data_data_only.gml</script>
           <script>scripts\ui_render_list_data_properties.gml</script>
-          <script>scripts\ui_render_list_data_property_bit.gml</script>
           <script>scripts\ui_render_list_all_entities.gml</script>
           <scripts name="stats">
             <script>scripts\ui_render_text_stats_static.gml</script>

@@ -13,7 +13,6 @@ if (data!=noone){
         switch (property.type){
             case DataTypes.INT:
             case DataTypes.FLOAT:
-            case DataTypes.BOOL_ARRAY:
             case DataTypes.ENUM:
             case DataTypes.DATA:
                 ds_list_add(instance.values, 0);
