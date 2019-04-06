@@ -25,10 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// this does NOT inherit from the normal DataEventNode - it only contains the template for the node data
+            <string>/// does NOT inherit from the normal DataEventNode
+// it only contains the template for the node data
 event_inherited();
 
-types=ds_list_create();                                                 // DataTypes
+types=ds_list_create();                                                 // [name, DataType, DataType guid, max = 1, all list elements required = false]
 </string>
           </argument>
         </arguments>

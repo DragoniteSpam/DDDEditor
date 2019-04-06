@@ -94,7 +94,7 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_height+spacing;
     
-    element=create_button(legal_x+spacing, yy, "Edit Custom Node", element_width, element_height, fa_center, null, t_custom);
+    element=create_button(legal_x+spacing, yy, "Edit Custom Node", element_width, element_height, fa_center, omu_event_edit_custom_event, t_custom);
     ds_list_add(t_custom.contents, element);
     
     yy=yy+element_height+spacing;

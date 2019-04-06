@@ -531,10 +531,11 @@
             <script>scripts\dialog_data_type_disable.gml</script>
             <script>scripts\dialog_data_type_enable_by_type.gml</script>
           </scripts>
-          <scripts name="data">
+          <scripts name="data and events">
             <script>scripts\dialog_create_data_enum_select.gml</script>
             <script>scripts\dialog_create_data_data_select.gml</script>
             <script>scripts\dialog_create_data_types.gml</script>
+            <script>scripts\dialog_create_event_custom.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -781,6 +782,7 @@
         <scripts name="events">
           <script>scripts\omu_event_add_entrypoint.gml</script>
           <script>scripts\omu_event_add_custom_event.gml</script>
+          <script>scripts\omu_event_edit_custom_event.gml</script>
           <script>scripts\omu_event_add_event.gml</script>
           <script>scripts\omu_event_add_text.gml</script>
           <script>scripts\omu_event_remove_event.gml</script>
