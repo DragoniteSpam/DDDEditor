@@ -29,6 +29,7 @@ el_list.entries_are=ListEntries.INSTANCES;
 dg.el_list_main=el_list;
 
 el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dc_data_property_set_data, dg);
+dg.el_confirm=el_confirm;
 
 ds_list_add(dg.contents, el_list,
     el_confirm);

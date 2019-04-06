@@ -63,6 +63,7 @@ dg.el_property_type=el_property_type;
 
 yy=yy+ui_get_radio_array_height(el_property_type)+spacing;
 
+// selector is set when the radio button is messed with
 var el_property_type_guid=create_button(col2_x, yy, "Select Data Type", ew, eh, fa_center, null, dg);
 el_property_type_guid.interactive=false;
 dg.el_property_type_guid=el_property_type_guid;

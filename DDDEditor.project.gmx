@@ -496,6 +496,8 @@
             <script>scripts\dc_vrax.gml</script>
             <script>scripts\dc_map_dereference.gml</script>
             <script>scripts\dc_data_property_set_enum.gml</script>
+            <script>scripts\dc_event_custom_property_set_enum.gml</script>
+            <script>scripts\dc_event_custom_property_set_data.gml</script>
             <script>scripts\dc_data_property_set_data.gml</script>
             <script>scripts\dc_data_commit.gml</script>
             <script>scripts\dc_data_commit_seriously.gml</script>
@@ -806,8 +808,10 @@
           <script>scripts\omu_event_custom_add_property.gml</script>
           <script>scripts\omu_event_custom_remove_property.gml</script>
           <script>scripts\omu_data_data_select.gml</script>
+          <script>scripts\omu_event_custom_data_select.gml</script>
           <script>scripts\omu_data_enum_add.gml</script>
           <script>scripts\omu_data_enum_select.gml</script>
+          <script>scripts\omu_event_custom_enum_select.gml</script>
           <script>scripts\omu_data_property_add.gml</script>
           <script>scripts\omu_data_property_remove.gml</script>
           <script>scripts\omu_data_remove.gml</script>

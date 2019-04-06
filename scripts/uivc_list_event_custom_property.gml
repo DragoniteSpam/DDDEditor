@@ -17,4 +17,11 @@ if (selection>=0){
     argument0.root.el_property_type_guid.interactive=(property[EventNodeCustomData.TYPE]==DataTypes.DATA);
     argument0.root.el_property_max.value=string(property[EventNodeCustomData.MAX]);
     argument0.root.el_property_all.value=property[EventNodeCustomData.REQUIRED];
+    
+    var datatype=guid_get(property[EventNodeCustomData.TYPE_GUID]);
+    if (datatype!=noone){
+        argument0.root.el_property_type_guid.text="Select ("+datatype.name+")";
+    } else {
+        argument0.root.el_property_type_guid.text="Select";
+    }
 }
