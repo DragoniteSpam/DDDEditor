@@ -29,7 +29,15 @@
 // it only contains the template for the node data
 event_inherited();
 
-types=ds_list_create();                                                 // [name, DataType, DataType guid, max = 1, all list elements required = false]
+types=ds_list_create();         // [name, DataType, DataType guid, max = 1, all list elements required = false]
+
+enum EventNodeCustomData {
+    NAME,
+    TYPE,
+    TYPE_GUID,
+    MAX,
+    REQUIRED
+}
 </string>
           </argument>
         </arguments>

@@ -33,38 +33,52 @@ yy=yy+el_name.height+spacing;
 
 var yy_top=yy;
 
-var el_list=create_list(16, yy, "Data Types: ", "<no data types>", ew, eh, n_slots, null, false, dg);
+var el_list=create_list(16, yy, "Properties Types: ", "<no properties>", ew, eh, n_slots, uivc_list_event_custom_property, false, dg);
+el_list.render=ui_render_list_event_custom_properties;
+el_list.colorize=false;
+el_list.numbered=true;
 dg.el_list=el_list;
 
 yy=yy+ui_get_list_height(el_list)+spacing;
 
-var el_add=create_button(16, yy, "Add Property", ew, eh, fa_center, null, dg);
+var el_add=create_button(16, yy, "Add Property", ew, eh, fa_center, omu_event_custom_add_property, dg);
 yy=yy+el_add.height+spacing;
 
-var el_remove=create_button(16, yy, "Remove Property", ew, eh, fa_center, null, dg);
+var el_remove=create_button(16, yy, "Remove Property", ew, eh, fa_center, omu_event_custom_remove_property, dg);
 
 // COLUMN 2
 yy=yy_top;
 var col2_x=dw/columns+16;
 
 var el_property_name=create_input(col2_x, yy, "Property Name:", ew, eh, null, "", "", "Value name", validate_string, ui_value_string, 0, 1, 12, vx1, vy1, vx2, vy2, dg);
+el_property_name.interactive=false;
+dg.el_property_name=el_property_name;
+
 yy=yy+el_property_name.height+spacing;
 
 var el_property_type=create_radio_array(col2_x, yy, "Type:", ew, eh, null, 0, dg);
 create_radio_array_options(el_property_type, "Int", "Enum", "Float", "String", "Boolean", "Data");
+el_property_type.interactive=false;
+dg.el_property_type=el_property_type;
 
 yy=yy+ui_get_radio_array_height(el_property_type)+spacing;
 
-// data and enum - onmouseup is assigned when the radio button is clicked
-var el_property_type_guid=create_button(col2_x, yy, "Select", ew, eh, fa_center, null, dg);
+var el_property_type_guid=create_button(col2_x, yy, "Select Data Type", ew, eh, fa_center, null, dg);
 el_property_type_guid.interactive=false;
+dg.el_property_type_guid=el_property_type_guid;
 
 yy=yy+el_property_type_guid.height+spacing;
 
-var el_property_max=create_input(col2_x, yy, "Max list size:", ew, eh, null, "", "1"/* auto */, "1 - 255", validate_int, ui_value_real, 1, 255, 3, vx1, vy1, vx2, vy2, dg);
+var el_property_max=create_input(col2_x, yy, "Max list size:", ew, eh, null, "", "", "1 - 255", validate_int, ui_value_real, 1, 255, 3, vx1, vy1, vx2, vy2, dg);
+el_property_max.interactive=false;
+dg.el_property_max=el_property_max;
+
 yy=yy+el_property_max.height+spacing;
 
-var el_property_all=create_checkbox(col2_x, yy, "All required?", ew, eh, null, "", false/* auto */, dg);
+var el_property_all=create_checkbox(col2_x, yy, "All required?", ew, eh, null, "", false, dg);
+el_property_all.interactive=false;
+dg.el_property_all=el_property_all;
+
 yy=yy+el_property_all.height+spacing;
 
 el_confirm=create_button(dw/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg, HelpPages.AUTOTILES, fa_center);

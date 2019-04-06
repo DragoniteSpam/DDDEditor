@@ -141,6 +141,18 @@ for (var i=0; i<ds_list_size(Stuff.original_data); i++){
     }
 }
 
+for (var i=0; i<ds_list_size(Stuff.all_event_custom); i++){
+    var cevent=Stuff.all_event_custom[| i];
+    for (var j=0; j<ds_list_size(cevent.types); j++){
+        var data=cevent.types[| j];
+        if (data[EventNodeCustomData.TYPE]==DataTypes.DATA||data[EventNodeCustomData.TYPE]==DataTypes.ENUM){
+            if (guid_get(data[EventNodeCustomData.TYPE_GUID])==noone){
+                // todo something
+            }
+        }
+    }
+}
+
 // when done discard the cache and reset the old data; 99% sure this is order-
 // dependant and that's a bad idea BUT IT WORKS (for now) SO DON'T TOUCH.
 ds_list_destroy_instances_indirect(Stuff.original_data);
