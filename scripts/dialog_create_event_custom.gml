@@ -4,7 +4,7 @@ var dw=720;
 var dh=540;
 
 // todo cache the custom event and only commit the changes when you're done
-var dg=dialog_create(dw, dh, "Custom Event Properties", dialog_default, dc_close_no_questions_asked, argument0);
+var dg=dialog_create(dw, dh, "Custom Event Properties", dialog_note_changes, dc_close_no_questions_asked, argument0);
 dg.x=dg.x-32;
 
 // later on this will be a clone; elements on the dialog should check this instead of the permenant one,
@@ -28,7 +28,7 @@ var n_slots=10;
 
 var yy=64;
 
-var el_name=create_input(16, yy, "Name:", ew, eh, null, "", dg.event.name, "Event name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
+var el_name=create_input(16, yy, "Name:", ew, eh, uivc_input_custom_event_name, "", dg.event.name, "Event name", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2, vy2, dg);
 yy=yy+el_name.height+spacing;
 
 var yy_top=yy;
@@ -50,13 +50,13 @@ var el_remove=create_button(16, yy, "Remove Property", ew, eh, fa_center, omu_ev
 yy=yy_top;
 var col2_x=dw/columns+16;
 
-var el_property_name=create_input(col2_x, yy, "Property Name:", ew, eh, null, "", "", "Value name", validate_string, ui_value_string, 0, 1, 12, vx1, vy1, vx2, vy2, dg);
+var el_property_name=create_input(col2_x, yy, "Property Name:", ew, eh, uivc_input_custom_data_property_name, "", "", "Value name", validate_string, ui_value_string, 0, 1, 12, vx1, vy1, vx2, vy2, dg);
 el_property_name.interactive=false;
 dg.el_property_name=el_property_name;
 
 yy=yy+el_property_name.height+spacing;
 
-var el_property_type=create_radio_array(col2_x, yy, "Type:", ew, eh, null, 0, dg);
+var el_property_type=create_radio_array(col2_x, yy, "Type:", ew, eh, uivc_custom_data_property_type, 0, dg);
 create_radio_array_options(el_property_type, "Int", "Enum", "Float", "String", "Boolean", "Data");
 el_property_type.interactive=false;
 dg.el_property_type=el_property_type;
@@ -69,13 +69,13 @@ dg.el_property_type_guid=el_property_type_guid;
 
 yy=yy+el_property_type_guid.height+spacing;
 
-var el_property_max=create_input(col2_x, yy, "Max list size:", ew, eh, null, "", "", "1 - 255", validate_int, ui_value_real, 1, 255, 3, vx1, vy1, vx2, vy2, dg);
+var el_property_max=create_input(col2_x, yy, "Max list size:", ew, eh, uivc_custom_data_property_max, "", "", "1 - 255", validate_int, ui_value_real, 1, 255, 3, vx1, vy1, vx2, vy2, dg);
 el_property_max.interactive=false;
 dg.el_property_max=el_property_max;
 
 yy=yy+el_property_max.height+spacing;
 
-var el_property_all=create_checkbox(col2_x, yy, "All required?", ew, eh, null, "", false, dg);
+var el_property_all=create_checkbox(col2_x, yy, "All required?", ew, eh, uivc_custom_data_property_required, "", false, dg);
 el_property_all.interactive=false;
 dg.el_property_all=el_property_all;
 
