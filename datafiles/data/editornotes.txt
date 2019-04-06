@@ -1,6 +1,12 @@
 To Do
 
 1. save and load datadata - editor is done, now game
+1a. attach a "summary" to custom event types so that you can know what they do
+1ai. finally made an option to expand the text input box so that you can write large amounts of text
+without screwing up the formatting - make sure the text and cursor wrap properly
+1b. save and load custom event types - editor and game
+1c. instantiate and use custom event types
+1d. save and load instantiated custom events - editor and game
 
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
