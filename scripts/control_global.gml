@@ -45,3 +45,13 @@ if (keyboard_check(vk_control)){
         momu_redo(noone);
     }
 }
+
+if (keyboard_check_pressed(vk_f6)){
+    momu_editor_3d(noone);
+}
+if (keyboard_check_pressed(vk_f7)){
+    momu_editor_event(noone);
+}
+if (keyboard_check_pressed(vk_f8)){
+    momu_editor_data(noone);
+}

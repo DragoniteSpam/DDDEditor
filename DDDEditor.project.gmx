@@ -621,7 +621,7 @@
           <scripts name="data">
             <script>scripts\momu_conflicts.gml</script>
             <script>scripts\momu_missing.gml</script>
-            <script>scripts\momu_data.gml</script>
+            <script>scripts\momu_editor_data.gml</script>
             <script>scripts\momu_data_types.gml</script>
             <script>scripts\momu_editor_3d.gml</script>
             <script>scripts\momu_editor_event.gml</script>

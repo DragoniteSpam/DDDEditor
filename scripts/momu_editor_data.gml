@@ -1,4 +1,4 @@
-/// void momu_data(MenuElement);
+/// void momu_editor_data(MenuElement);
 
 var catch=argument0;
 
