@@ -482,11 +482,11 @@
         <script>scripts\create_image_button.gml</script>
         <script>scripts\create_input.gml</script>
         <scripts name="create elements">
-          <script>scripts\create_radio_array_options.gml</script>
+          <script>scripts\create_bitfield_option_data.gml</script>
           <script>scripts\create_bitfield_options.gml</script>
           <script>scripts\create_bitfield_options_vertical.gml</script>
           <script>scripts\create_list_entries.gml</script>
-          <script>scripts\create_bitfield_option_data.gml</script>
+          <script>scripts\create_radio_array_options.gml</script>
         </scripts>
       </scripts>
       <scripts name="dialogs">

@@ -96,7 +96,7 @@ if (data!=noone){
             
             if (yy+hh>room_height-160){
                 var n=ds_list_size(container.contents);
-                col_data=instance_create((n/*+2*/)*cw+spacing, 0, UIThing);
+                col_data=instance_create((n/*+2*/)*cw+spacing*4, 0, UIThing);
                 if (n>3){
                     col_data.enabled=false;
                 }
