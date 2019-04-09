@@ -1,6 +1,9 @@
 # potentially pocket monster-y data
 
-datafiles/data/graphics/tilesets/b_*
+datafiles/data/graphics/**/*.png
+datafiles/data/graphics/**/*.bmp
+datafiles/data/graphics/**/*.gif
+# please never use jpeg for game graphics
 
 # those annoying config files
 

@@ -21,6 +21,7 @@ repeat (n_datadata){
     guid_set(data);
     
     var n_properties=buffer_read(argument0, buffer_u16);
+    
     repeat (n_properties){
         var property=instance_create(0, 0, DataProperty);
         ds_list_add(data.properties, property);
