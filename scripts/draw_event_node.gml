@@ -91,6 +91,7 @@ switch (argument0.type){
         y2=y1+24+32;
         
         for (var i=0; i<ds_list_size(custom.types); i++){
+            var custom_data_list=argument0.custom_data[| i];
             var type=custom.types[| i];
             switch (type[1]){
                 case DataTypes.INT:
@@ -101,7 +102,11 @@ switch (argument0.type){
                     y2=y2+32;
                     break;
                 case DataTypes.STRING:
-                    y2=y2+entry_height;
+                    if (ds_list_size(custom_data_list)==1){
+                        y2=y2+entry_height+24;
+                    } else {
+                        y2=y2+32;
+                    }
                     break;
             }
         }
@@ -130,7 +135,11 @@ switch (argument0.type){
                         eh=32;
                         break;
                     case DataTypes.STRING:
-                        eh=entry_height;
+                        if (ds_list_size(custom_data_list)==1){
+                            eh=entry_height+24;
+                        } else {
+                            eh=32;
+                        }
                         break;
                 }
                 
@@ -173,7 +182,7 @@ switch (argument0.type){
                             message=message+"(float): "+string(custom_data_list[| 0]);
                             break;
                         case DataTypes.STRING:
-                            message=message+"(string): "+custom_data_list[| 0];
+                            message=message+"(string):";
                             break;
                         case DataTypes.BOOL:
                             message=message+"(boolean): "+Stuff.tf[custom_data_list[| 0]];
@@ -192,7 +201,12 @@ switch (argument0.type){
                     message=message+": multiple values ("+string(ds_list_size(custom_data_list))+")";
                 }
                 
-                draw_text_ext(x1+16, mean(entry_yy, entry_yy+eh), message, -1, EVENT_NODE_CONTACT_WIDTH-16);
+                if (type[1]==DataTypes.STRING&&ds_list_size(custom_data_list)==1){
+                    draw_text(x1+16, entry_yy+12, message);
+                    draw_text_ext(x1+16, mean(entry_yy+12, entry_yy+eh), custom_data_list[| 0], -1, EVENT_NODE_CONTACT_WIDTH-16);
+                } else {
+                    draw_text_ext(x1+16, mean(entry_yy, entry_yy+eh), message, -1, EVENT_NODE_CONTACT_WIDTH-16);
+                }
                 
                 entry_yy=entry_yy+eh;
             }
