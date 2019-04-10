@@ -1001,6 +1001,7 @@
         <script>scripts\serialize_load_map_contents_batch.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
         <script>scripts\serialize_load_global_meta.gml</script>
+        <script>scripts\serialize_load_event_custom.gml</script>
         <scripts name="generic data">
           <script>scripts\serialize_load_generic.gml</script>
           <script>scripts\serialize_load_data_instances.gml</script>
@@ -1026,6 +1027,7 @@
         <script>scripts\serialize_save_tilesets_meta.gml</script>
         <script>scripts\serialize_save_global_meta.gml</script>
         <script>scripts\serialize_save_datadata.gml</script>
+        <script>scripts\serialize_save_event_custom.gml</script>
         <scripts name="generic data">
           <script>scripts\serialize_save_generic.gml</script>
           <script>scripts\serialize_save_data_instances.gml</script>

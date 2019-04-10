@@ -82,6 +82,9 @@ if (buffer==-1){
                 case SerializeThings.DATA_INSTANCES:
                     serialize_load_data_instances(buffer, version);
                     break;
+                case SerializeThings.EVENT_CUSTOM:
+                    serialize_load_event_custom(buffer, version);
+                    break;
                 // map stuff
                 case SerializeThings.MAP_META:
                     serialize_load_map_contents_meta(buffer, version);
