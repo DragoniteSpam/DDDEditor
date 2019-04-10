@@ -18,8 +18,8 @@ for (var i=0; i<n_events; i++){
         var node=event.nodes[| j];
         buffer_write(argument0, buffer_string, node.name);
         buffer_write(argument0, buffer_u16, node.type);
-        buffer_write(argument0, buffer_u32, floor(node.x));
-        buffer_write(argument0, buffer_u32, floor(node.y));
+        buffer_write(argument0, buffer_s32, floor(node.x));
+        buffer_write(argument0, buffer_s32, floor(node.y));
         buffer_write(argument0, buffer_u32, node.GUID);
         
         var n_outbound=ds_list_size(node.outbound);

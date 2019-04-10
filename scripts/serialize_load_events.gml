@@ -27,11 +27,13 @@ repeat(n_events){
     repeat(n_nodes){
         var node_name=buffer_read(argument0, buffer_string);
         var node_type=buffer_read(argument0, buffer_u16);
-        var node_x=buffer_read(argument0, buffer_u32);
-        var node_y=buffer_read(argument0, buffer_u32);
+        var node_x=buffer_read(argument0, buffer_s32);
+        var node_y=buffer_read(argument0, buffer_s32);
         var node=event_create_node(event, node_type, node_x, node_y);
         node.name=node_name;
         node.event=event;
+        
+        debug(node_name+" at "+string(node_x)+", "+string(node_y))
         
         // forgot to do this earlier, whoops
         if (version>=DataVersions.EVENT_NODE_GUID){

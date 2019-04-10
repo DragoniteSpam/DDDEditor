@@ -6,7 +6,7 @@ var x2=argument0.x+EVENT_NODE_CONTACT_WIDTH;
 var y2=argument0.y+EVENT_NODE_CONTACT_HEIGHT;
 var tolerance=4;
 
-if (!dialog_exists()){
+if (!dialog_exists()&&event_canvas_active_node==noone){
     if (mouse_within_rectangle_view(x1, y1, x2, y2)){
         draw_rectangle_colour(x1+tolerance, y1+tolerance, x2-tolerance, y2-tolerance, argument1, argument1, argument1, argument1, false);
         
