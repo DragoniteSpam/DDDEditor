@@ -1,4 +1,4 @@
 /// color colour_mute(color);
-// merges halfway to black
+// merges a bit with black
 
-return merge_colour(argument0, c_black, 0.25);
+return merge_colour(argument0, c_black, 0.2);
