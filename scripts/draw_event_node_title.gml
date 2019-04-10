@@ -6,11 +6,11 @@ var x2=argument0.x+EVENT_NODE_CONTACT_WIDTH;
 var y2=argument0.y+EVENT_NODE_CONTACT_HEIGHT;
 var tolerance=4;
 
-if (mouse_within_rectangle_view(x1, y1, x2, y2)){
-    draw_rectangle_colour(x1+tolerance, y1+tolerance, x2-tolerance, y2-tolerance, argument1, argument1, argument1, argument1, false);
-    
-    // i don't like this either but it also works
+if (!dialog_exists()){
     if (mouse_within_rectangle_view(x1, y1, x2, y2)){
+        draw_rectangle_colour(x1+tolerance, y1+tolerance, x2-tolerance, y2-tolerance, argument1, argument1, argument1, argument1, false);
+        
+        // i don't like this either but it also works
         if (get_release_left()){
             var new_name=get_string("New name for this node?", argument0.name);
             if (new_name!=argument0.name){

@@ -9,7 +9,6 @@ if (selection>=0){
     
     var intermediate_list=list.node.custom_data[| list.property_index];
     intermediate_list[| list.multi_index]=type.instances[| selection].GUID;
-    //show_message(guid_get(type.instances[| selection]).name)
 }
 
 dialog_destroy();

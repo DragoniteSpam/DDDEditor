@@ -52,8 +52,10 @@ switch (argument0.type){
                 draw_line(x1+16, entry_yy, x2-16, entry_yy);
                 if (mouse_within_rectangle_view(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+entry_height-tolerance)){
                     draw_rectangle_colour(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+entry_height-tolerance, c, c, c, c, false);
-                    if (get_release_left()){
-                        argument0.data[| i]=get_string("Data in this node?", argument0.data[| i]);
+                    if (!dialog_exists()){
+                        if (get_release_left()){
+                            argument0.data[| i]=get_string("Data in this node?", argument0.data[| i]);
+                        }
                     }
                 }
                 
@@ -73,8 +75,10 @@ switch (argument0.type){
             }
             
             if (mouse_within_rectangle_view(x1, y1, x2, y1+EVENT_NODE_CONTACT_HEIGHT)){
-                if (get_release_left()){
-                    argument0.name=get_string("Name of this node?", argument0.name);
+                if (!dialog_exists()){
+                    if (get_release_left()){
+                        argument0.name=get_string("Name of this node?", argument0.name);
+                    }
                 }
             }
             
@@ -144,29 +148,31 @@ switch (argument0.type){
                 }
                 
                 draw_line(x1+16, entry_yy, x2-16, entry_yy);
-                if (mouse_within_rectangle_view(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+eh-tolerance)){
-                    draw_rectangle_colour(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+eh-tolerance, c, c, c, c, false);
-                    if (get_release_left()){
-                        switch (type[1]){
-                            case DataTypes.INT:
-                                custom_data_list[| 0]=get_integer(type[0]+"?", custom_data_list[| 0]);
-                                break;
-                            case DataTypes.FLOAT:
-                                var parse_me=get_string(type[0]+"?", string(custom_data_list[| 0]));
-                                if (validate_double(parse_me)){
-                                    custom_data_list[| 0]=real(parse_me);
-                                }
-                                break;
-                            case DataTypes.STRING:
-                                custom_data_list[| 0]=get_string(type[0]+"?", string(custom_data_list[| 0]));
-                                break;
-                            case DataTypes.BOOL:
-                                custom_data_list[| 0]=!custom_data_list[| 0];
-                                break;
-                            case DataTypes.ENUM:
-                            case DataTypes.DATA:
-                                dialog_create_event_node_custom_data(noone, argument0, i, 0);
-                                break;
+                if (!dialog_exists()){
+                    if (mouse_within_rectangle_view(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+eh-tolerance)){
+                        draw_rectangle_colour(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+eh-tolerance, c, c, c, c, false);
+                        if (get_release_left()){
+                            switch (type[1]){
+                                case DataTypes.INT:
+                                    custom_data_list[| 0]=get_integer(type[0]+"?", custom_data_list[| 0]);
+                                    break;
+                                case DataTypes.FLOAT:
+                                    var parse_me=get_string(type[0]+"?", string(custom_data_list[| 0]));
+                                    if (validate_double(parse_me)){
+                                        custom_data_list[| 0]=real(parse_me);
+                                    }
+                                    break;
+                                case DataTypes.STRING:
+                                    custom_data_list[| 0]=get_string(type[0]+"?", string(custom_data_list[| 0]));
+                                    break;
+                                case DataTypes.BOOL:
+                                    custom_data_list[| 0]=!custom_data_list[| 0];
+                                    break;
+                                case DataTypes.ENUM:
+                                case DataTypes.DATA:
+                                    dialog_create_event_node_custom_data(noone, argument0, i, 0);
+                                    break;
+                            }
                         }
                     }
                 }
@@ -268,13 +274,15 @@ switch (argument0.type){
 }
 
 if (event_canvas_active_node==argument0){
-    if (Controller.release_left){
-        event_canvas_active_node=noone;
-        event_canvas_active_node_index=0;
-        // if the mouse is contacting another entrypoint, connect it
-        var contacted_node=event_seek_node();
-        if (contacted_node!=noone){
-            event_connect_node(argument0, contacted_node);
+    if (!dialog_exists()){
+        if (get_release_left()){
+            event_canvas_active_node=noone;
+            event_canvas_active_node_index=0;
+            // if the mouse is contacting another entrypoint, connect it
+            var contacted_node=event_seek_node();
+            if (contacted_node!=noone){
+                event_connect_node(argument0, contacted_node);
+            }
         }
     }
     draw_bezier(x2+8, by, mouse_x_view, mouse_y_view);
