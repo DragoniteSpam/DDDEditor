@@ -5,7 +5,6 @@ if (ds_list_size(Stuff.all_event_custom)>0){
     if (selection>=0){
         var custom_guid=Stuff.all_event_custom[| selection].GUID;
         var node=event_create_node(Stuff.active_event, EventNodeTypes.CUSTOM, undefined, undefined, custom_guid);
-        node.custom_guid=custom_guid;
     }
 }
 

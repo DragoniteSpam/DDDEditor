@@ -37,8 +37,41 @@ switch (argument[1]){
         node.name="Text";
         break;
     case EventNodeTypes.CUSTOM:
+        var custom=guid_get(custom_guid);
         node.custom_guid=custom_guid;
-        node.name=guid_get(custom_guid).name;
+        node.name=custom.name;
+        
+        // pre-allocate space for the properties of the event
+        for (var i=0; i<ds_list_size(custom.types); i++){
+            var new_list=ds_list_create();
+            var type=custom.types[| i];
+            ds_list_add(node.custom_data, new_list);
+            
+            // if all values are required, populate them with defaults
+            // (adding and deleting will be disabled)
+            if (type[4]){
+                switch (type[1]){
+                    case DataTypes.INT:
+                    case DataTypes.FLOAT:
+                        var value=0;
+                        break;
+                    case DataTypes.BOOL:
+                        var value=false;
+                        break;
+                    case DataTypes.STRING:
+                        var value="";
+                        break;
+                    case DataTypes.ENUM:
+                    case DataTypes.DATA:
+                        var value=0;
+                        break;
+                }
+                
+                repeat(type[3]){
+                    ds_list_add(new_list, value);
+                }
+            }
+        }
         break;
 }
 
