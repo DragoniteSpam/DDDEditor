@@ -21,7 +21,7 @@ with (instance_create(0, 0, UIMain)){
     
     ds_list_add(tabs, tr);
     
-    active_tab=t_events;
+    active_tab=t_list;
     
     // there is only enough space for one column
     
