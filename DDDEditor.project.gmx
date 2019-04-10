@@ -500,6 +500,7 @@
             <script>scripts\dc_event_custom_property_set_data.gml</script>
             <script>scripts\dc_data_property_set_data.gml</script>
             <script>scripts\dc_data_commit.gml</script>
+            <script>scripts\dc_custom_event_set_data.gml</script>
             <script>scripts\dc_data_commit_seriously.gml</script>
             <script>scripts\dc_data_why.gml</script>
           </scripts>
@@ -539,6 +540,7 @@
             <script>scripts\dialog_create_data_types.gml</script>
             <script>scripts\dialog_create_event_custom.gml</script>
             <script>scripts\dialog_create_add_custom_node.gml</script>
+            <script>scripts\dialog_create_event_node_custom_data.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -884,6 +886,7 @@
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
           <script>scripts\ui_render_list_event_custom.gml</script>
+          <script>scripts\ui_render_list_event_custom_set_data.gml</script>
           <script>scripts\ui_render_list_entity_events.gml</script>
           <script>scripts\ui_render_list_event.gml</script>
           <script>scripts\ui_render_list_data_data.gml</script>

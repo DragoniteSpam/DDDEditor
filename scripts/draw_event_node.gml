@@ -165,7 +165,7 @@ switch (argument0.type){
                                 break;
                             case DataTypes.ENUM:
                             case DataTypes.DATA:
-                                show_message("hang on");
+                                dialog_create_event_node_custom_data(noone, argument0, i, 0);
                                 break;
                         }
                     }
