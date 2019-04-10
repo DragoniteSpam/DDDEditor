@@ -25,10 +25,13 @@ if (string_length(fn)>0){
     
     serialize_save_autotiles_meta(buffer);
     serialize_save_tilesets_meta(buffer);
-    serialize_save_events(buffer);
+    serialize_save_event_custom(buffer);
     serialize_save_global_meta(buffer);
     serialize_save_datadata(buffer);
-    serialize_save_event_custom(buffer);
+    
+    // events may depend on some other data being initialized and i don't feel like
+    // going back and doing validation because that sounds terrible
+    serialize_save_events(buffer);
     
     serialize_save_data_instances(buffer);
     

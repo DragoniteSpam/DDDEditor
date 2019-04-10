@@ -44,6 +44,39 @@ for (var i=0; i<n_events; i++){
             case EventNodeTypes.ENTRYPOINT:
             case EventNodeTypes.TEXT:
                 break;
+            case EventNodeTypes.CUSTOM:
+                buffer_write(argument0, buffer_u32, node.custom_guid);
+                // the size of this list should already be known by the custom
+                // event template
+                var custom=guid_get(node.custom_guid);
+                
+                for (var k=0; k<ds_list_size(node.custom_data); k++){
+                    var type=custom.types[| k];
+                    switch (type[EventNodeCustomData.TYPE]){
+                        case DataTypes.INT:
+                            var save_type=buffer_s32;
+                            break;
+                        case DataTypes.FLOAT:
+                            var save_type=buffer_f32;
+                            break;
+                        case DataTypes.BOOL:
+                            var save_type=buffer_u8;
+                            break;
+                        case DataTypes.STRING:
+                            var save_type=buffer_string;
+                            break;
+                        case DataTypes.ENUM:
+                        case DataTypes.DATA:
+                            var save_type=buffer_u32;
+                            break;
+                    }
+                    var n_custom_data=ds_list_size(node.custom_data[| k]);
+                    buffer_write(argument0, buffer_u8, n_custom_data);
+                    for (var l=0; l<n_custom_data; l++){
+                        buffer_write(argument0, save_type, ds_list_find_value(node.custom_data[| k], l));
+                    }
+                }
+                break;
         }
     }
 }

@@ -70,6 +70,40 @@ repeat(n_events){
                 // is_root is set in the constructor already
             case EventNodeTypes.TEXT:
                 break;
+            case EventNodeTypes.CUSTOM:
+                node.custom_guid=buffer_read(argument0, buffer_u32);
+                var custom=guid_get(node.custom_guid);
+                
+                for (var i=0; i<ds_list_size(custom.types); i++){
+                    var sub_list=ds_list_create();
+                    var type=custom.types[| i];
+                    
+                    switch (type[EventNodeCustomData.TYPE]){
+                        case DataTypes.INT:
+                            var buffer_type=buffer_s32;
+                            break;
+                        case DataTypes.FLOAT:
+                            var buffer_type=buffer_f32;
+                            break;
+                        case DataTypes.BOOL:
+                            var buffer_type=buffer_u8;
+                            break;
+                        case DataTypes.STRING:
+                            var buffer_type=buffer_string;
+                            break;
+                        case DataTypes.ENUM:
+                        case DataTypes.DATA:
+                            var buffer_type=buffer_u32;
+                            break;
+                    }
+                    
+                    var n_custom_data=buffer_read(argument0, buffer_u8);
+                    repeat(n_custom_data){
+                        ds_list_add(sub_list, buffer_read(argument0, buffer_type));
+                    }
+                    ds_list_add(node.custom_data, sub_list);
+                }
+                break;
         }
         
         // don't add the node to event.nodes because it already does it for you
