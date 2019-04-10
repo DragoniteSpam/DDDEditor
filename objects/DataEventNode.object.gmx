@@ -40,6 +40,9 @@ outbound=ds_list_create();
 ds_list_add(data, "The quick brown fox jumped over the lazy dog");      // serialize: buffer_string
 ds_list_add(outbound, noone);                                           // serialize: buffer_string (name of destination)
 
+custom_guid=0;                                                          // serialize: buffer_u32
+custom_data=ds_list_create();                                           // list of lists - contents determined by custom_guid
+
 // editor only - set upon creation, or reset upon loading
 
 is_root=false;
@@ -57,7 +60,8 @@ parents=ds_map_create();
 // could subclass this but i need to get this done in a hurry
 enum EventNodeTypes {
     ENTRYPOINT,
-    TEXT
+    TEXT,
+    CUSTOM,
 }
 </string>
           </argument>
@@ -112,6 +116,12 @@ if (event_index&gt;-1){
 ds_list_destroy(outbound);
 ds_list_destroy(data);
 ds_map_destroy(parents);
+
+// custom data - list of lists
+for (var i=0; i&lt;ds_list_size(custom_data); i++){
+    ds_list_destroy(custom_data[| i]);
+}
+ds_list_destroy(custom_data);
 </string>
           </argument>
         </arguments>

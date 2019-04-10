@@ -1,15 +1,26 @@
-/// DataEventNode event_create_node(Event, EventNodeType, [x, y]);
+/// DataEventNode event_create_node(Event, EventNodeType, [x, y], [custom guid]);
 
 // XVIEW and YVIEW won't work because this script may
 // be called from a script other than view_fullscreen and
 // that will make bad things happen
 var xx=view_xview[view_fullscreen]+room_width/2;
 var yy=view_yview[view_fullscreen]+room_height/2;
+var custom_guid=0;
 
-// requires 4, checks for 3+
-if (argument_count>2){
-    xx=argument[2];
-    yy=argument[3];
+switch (argument_count){
+    case 5:
+        custom_guid=argument[4];
+        if (!is_undefined(argument[2])){
+            xx=argument[2];
+        }
+        if (!is_undefined(argument[3])){
+            yy=argument[3];
+        }
+        break;
+    case 4:
+        xx=argument[2];
+        yy=argument[3];
+        break;
 }
 
 var node=instance_create(xx, yy, DataEventNode);
@@ -24,6 +35,10 @@ switch (argument[1]){
         break;
     case EventNodeTypes.TEXT:
         node.name="Text";
+        break;
+    case EventNodeTypes.CUSTOM:
+        node.custom_guid=custom_guid;
+        node.name=guid_get(custom_guid).name;
         break;
 }
 

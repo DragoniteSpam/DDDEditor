@@ -3,6 +3,8 @@
 var oldentries=argument0.entries;
 argument0.entries=Stuff.all_event_custom;
 
+// todo alphabetize lists?
+
 ui_render_list(argument0, argument1, argument2);
 
 // no memory leak, although the list isn't used

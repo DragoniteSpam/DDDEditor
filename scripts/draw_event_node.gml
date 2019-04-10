@@ -81,6 +81,21 @@ switch (argument0.type){
             }
         }
         break;
+    case EventNodeTypes.CUSTOM:
+        // you were here
+        x2=x1+EVENT_NODE_CONTACT_WIDTH;
+        //y2=y1+24+32+ds_list_size(argument0.data)*entry_height;
+        y2=y1+256;
+        
+        if (rectangle_within_view(view_current, x1, y1, x2, y2)){
+            draw_event_drag_handle(argument0, x1+16, y1-16, x2-16, y1+16, colour_mute(c_ev_custom));
+            draw_roundrect_colour(x1, y1, x2, y2, c_ev_custom, c_ev_custom, false);
+            draw_roundrect(x1, y1, x2, y2, true);
+            draw_sprite(spr_event_outbound, 2, x1, y1+16);
+            draw_event_node_title(argument0);
+            draw_event_node_delete(x2, y1, argument0);
+        }
+        break;
 }
 
 // different node types put the outbound nodes in different places - not all use more than

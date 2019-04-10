@@ -410,8 +410,8 @@
       </scripts>
       <scripts name="views">
         <script>scripts\draw_editor_3d.gml</script>
-        <script>scripts\draw_editor_event.gml</script>
         <script>scripts\draw_editor_data.gml</script>
+        <script>scripts\draw_editor_event.gml</script>
         <script>scripts\draw_editor_event_hud.gml</script>
         <script>scripts\draw_editor_hud.gml</script>
         <script>scripts\draw_editor_menu.gml</script>
@@ -538,6 +538,7 @@
             <script>scripts\dialog_create_data_data_select.gml</script>
             <script>scripts\dialog_create_data_types.gml</script>
             <script>scripts\dialog_create_event_custom.gml</script>
+            <script>scripts\dialog_create_add_custom_node.gml</script>
           </scripts>
         </scripts>
         <script>scripts\dialog_create.gml</script>
@@ -788,15 +789,17 @@
         <script>scripts\omu_autotile_selector.gml</script>
         <script>scripts\omu_entity_event_page.gml</script>
         <scripts name="events">
-          <script>scripts\omu_event_add_entrypoint.gml</script>
           <script>scripts\omu_event_add_custom_event.gml</script>
-          <script>scripts\omu_event_edit_custom_event.gml</script>
+          <script>scripts\omu_event_add_custom.gml</script>
+          <script>scripts\omu_event_add_entrypoint.gml</script>
           <script>scripts\omu_event_add_event.gml</script>
           <script>scripts\omu_event_add_text.gml</script>
-          <script>scripts\omu_event_remove_event.gml</script>
-          <script>scripts\omu_event_remove_custom_event.gml</script>
-          <script>scripts\omu_event_rename_event.gml</script>
+          <script>scripts\omu_event_custom_dialog.gml</script>
           <script>scripts\omu_event_custom_help.gml</script>
+          <script>scripts\omu_event_edit_custom_event.gml</script>
+          <script>scripts\omu_event_remove_custom_event.gml</script>
+          <script>scripts\omu_event_remove_event.gml</script>
+          <script>scripts\omu_event_rename_event.gml</script>
         </scripts>
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
@@ -1115,19 +1118,19 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="56">
-    <constant name="DATA_INI">"data.ini"</constant>
-    <constant name="N">chr($0d)+chr($0a)</constant>
+  <constants number="57">
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
     <constant name="buffer_datatype">buffer_u32</constant>
     <constant name="c_ev_basic">$99ffcc</constant>
+    <constant name="c_ev_custom">$99ccff</constant>
     <constant name="c_ev_init">$ffcc99</constant>
     <constant name="c_ui_select">$ffb8ac</constant>
     <constant name="c_ui">$ebebeb</constant>
     <constant name="CH">900</constant>
     <constant name="CW">1080 /*these aren't meant to be used for view coordinates but window coordinates, otherwise i'd make them relative*/</constant>
+    <constant name="DATA_INI">"data.ini"</constant>
     <constant name="DEBUG">true</constant>
     <constant name="EVENT_NODE_CONTACT_HEIGHT">32</constant>
     <constant name="EVENT_NODE_CONTACT_WIDTH">256</constant>
@@ -1144,6 +1147,7 @@
     <constant name="MILLION">1000000</constant>
     <constant name="mouse_x_view">mouse_x+view_xview[view_current]</constant>
     <constant name="mouse_y_view">mouse_y+view_yview[view_current]</constant>
+    <constant name="N">chr($0d)+chr($0a)</constant>
     <constant name="PATH_AUTOTILE">'.\autotile\'</constant>
     <constant name="PATH_BACKUP_DATA">'.\backups\data\'</constant>
     <constant name="PATH_BACKUP_MAP">'.\backups\maps\'</constant>
