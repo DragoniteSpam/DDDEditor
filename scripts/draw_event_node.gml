@@ -100,36 +100,58 @@ switch (argument0.type){
             
             for (var i=0; i<ds_list_size(custom.types); i++){
                 var custom_data_list=argument0.custom_data[| i];
+                var type=custom.types[| i];
                 
                 draw_line(x1+16, entry_yy, x2-16, entry_yy);
                 if (mouse_within_rectangle_view(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+entry_height-tolerance)){
-                    var c=merge_colour(c_ev_custom, c_ev_custom, 0.1);
+                    var c=merge_colour(c_ev_custom, c_black, 0.1);
                     draw_rectangle_colour(x1+tolerance, entry_yy+tolerance, x2-tolerance, entry_yy+entry_height-tolerance, c, c, c, c, false);
                     if (get_release_right()){
-                        //argument0.data[| i]=get_string("Data in this node?", argument0.data[| i]);
+                        switch (type[1]){
+                            case DataTypes.INT:
+                                custom_data_list[| 0]=get_integer(type[0]+"?", custom_data_list[| 0]);
+                                break;
+                            case DataTypes.FLOAT:
+                                var parse_me=get_string(type[0]+"?", string(custom_data_list[| 0]));
+                                if (validate_double(parse_me)){
+                                    custom_data_list[| 0]=real(parse_me);
+                                }
+                                break;
+                            case DataTypes.STRING:
+                                custom_data_list[| 0]=get_string(type[0]+"?", string(custom_data_list[| 0]));
+                                break;
+                            case DataTypes.BOOL:
+                                custom_data_list[| 0]=!custom_data_list[| 0];
+                                break;
+                            case DataTypes.ENUM:
+                            case DataTypes.DATA:
+                                show_message("hang on");
+                                break;
+                        }
                     }
                 }
                 
-                var type=custom.types[| i];
                 var message="";
                 
-                if (ds_list_size(custom_data_list)==0){
-                    message=type[0]+": not set";
-                } else if (ds_list_size(custom_data_list)==1){
+                if (ds_list_size(custom_data_list)==1){
                     switch (type[1]){
                         case DataTypes.INT:
+                            message="(int) "+string(custom_data_list[| 0]);
+                            break;
                         case DataTypes.FLOAT:
+                            message="(float) "+string(custom_data_list[| 0]);
+                            break;
                         case DataTypes.STRING:
-                            message=string(custom_data_list[| 0]);
+                            message="(string) "+custom_data_list[| 0];
                             break;
                         case DataTypes.BOOL:
-                            message=Stuff.tf[custom_data_list[| 0]];
+                            message="(boolean) "+Stuff.tf[custom_data_list[| 0]];
                             break;
                         case DataTypes.ENUM:
                         case DataTypes.DATA:
                             var datadata=guid_get(custom_data_list[| 0]);
                             if (datadata==noone){
-                                message="null ("+guid_get(type[2]).name+")";
+                                message="("+guid_get(type[2]).name+") <null>";
                             } else {
                                 message=datadata.name;
                             }
