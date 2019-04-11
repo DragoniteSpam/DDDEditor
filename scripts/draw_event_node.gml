@@ -239,7 +239,11 @@ switch (argument0.type){
             draw_sprite(spr_event_dot, 0, x2, by);
             
             if (event_canvas_active_node!=argument0||event_canvas_active_node_index!=i){
-                draw_bezier(x2+8, by, bx2-8, by2);
+                if (bx2>x2){
+                    draw_bezier(x2+8, by, bx2-8, by2);
+                } else {
+                    draw_event_ghost(x2+8, by, x2+64, by, outbound);
+                }
             }
         }
         break;
@@ -261,7 +265,11 @@ switch (argument0.type){
             draw_sprite(spr_event_dot, 0, x2, by);
             
             if (event_canvas_active_node!=argument0||event_canvas_active_node_index!=i){
-                draw_bezier(x2+8, by, bx2-8, by2);
+                if (bx2>x2){
+                    draw_bezier(x2+8, by, bx2-8, by2);
+                } else {
+                    draw_event_ghost(x2+8, by, x2+64, by, outbound);
+                }
             }
         }
         break;

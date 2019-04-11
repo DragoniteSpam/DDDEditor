@@ -257,6 +257,7 @@
     </scripts>
     <scripts name="event stuff">
       <script>scripts\draw_active_event.gml</script>
+      <script>scripts\draw_event_ghost.gml</script>
       <script>scripts\draw_event_node.gml</script>
       <script>scripts\draw_event_drag_handle.gml</script>
       <script>scripts\draw_event_node_outbound.gml</script>
@@ -1121,7 +1122,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="57">
+  <constants number="58">
+    <constant name="c_ev_ghost">$0099cc</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
     <constant name="AUTOTILE_MAX">16</constant>
     <constant name="BATCH_CACHE_SIZE">160</constant>
