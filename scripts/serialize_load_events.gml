@@ -33,8 +33,6 @@ repeat(n_events){
         node.name=node_name;
         node.event=event;
         
-        debug(node_name+" at "+string(node_x)+", "+string(node_y))
-        
         // forgot to do this earlier, whoops
         if (version>=DataVersions.EVENT_NODE_GUID){
             guid_set(node, buffer_read(argument0, buffer_u32));
