@@ -14,7 +14,9 @@ if (!dialog_exists()&&event_canvas_active_node==noone){
         if (get_release_left()){
             var new_name=get_string("New name for this node?", argument0.name);
             if (new_name!=argument0.name){
-                if (ds_map_exists(argument0.event.name_map, new_name)){
+                if (string_length(new_name)==0){
+                    // don't
+                } else if (ds_map_exists(argument0.event.name_map, new_name)){
                     show_message(new_name+" is already in use!");
                 } else {
                     ds_map_delete(argument0.event.name_map, argument0.name);

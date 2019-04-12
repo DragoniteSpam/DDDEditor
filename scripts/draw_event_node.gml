@@ -74,14 +74,6 @@ switch (argument0.type){
                 entry_yy=entry_yy+entry_height;
             }
             
-            if (mouse_within_rectangle_view(x1, y1, x2, y1+EVENT_NODE_CONTACT_HEIGHT)){
-                if (!dialog_exists()){
-                    if (get_release_left()){
-                        argument0.name=get_string("Name of this node?", argument0.name);
-                    }
-                }
-            }
-            
             draw_event_node_delete(x2, y1, argument0);
             
             if (ds_list_size(argument0.outbound)<250){
