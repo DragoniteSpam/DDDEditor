@@ -30,7 +30,7 @@ node.type=argument[1];
 switch (argument[1]){
     case EventNodeTypes.ENTRYPOINT:
         node.is_root=true;
-        node.name="Entrypoint";
+        node.name="+Entrypoint";
         node.data[| 0]="";
         break;
     case EventNodeTypes.TEXT:

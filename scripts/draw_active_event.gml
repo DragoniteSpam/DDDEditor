@@ -50,7 +50,7 @@ if (Stuff.active_event!=noone){
                     case DataTypes.DATA:
                         var datadata=guid_get(type[EventNodeCustomData.TYPE_GUID]);
                         if (datadata==noone){
-                            var type_name="<none>";
+                            var type_name="<no type set>";
                         } else {
                             var type_name=datadata.name;
                         }
