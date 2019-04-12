@@ -103,9 +103,9 @@ if (data!=noone){
                 ds_list_add(container.contents, col_data);
                 element.y=yy_base;
                 yy=yy_base;
-            } else {
-                yy=yy+hh+spacing;
             }
+            
+            yy=yy+hh+spacing;
             
             ds_list_add(col_data.contents, element);
         }

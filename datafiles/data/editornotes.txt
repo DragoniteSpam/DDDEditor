@@ -1,3 +1,10 @@
+KNOWN WAYS TO MAKE THE EDITOR CRASH
+
+Most of them have to do with the Data Types dialog
+ - clicking Okay or x-ing out of the dialog while in the Data editor
+ - clicking Okay in the dialog while in the Event editor (although the X seems to be fine)
+ - they all seem to have to do with GUIDs mysteriously disappearing
+
 To Do
 
 1a. attach a "summary" to custom event types so that you can know what they do
