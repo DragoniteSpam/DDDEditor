@@ -15,4 +15,7 @@ view_wview[view_hud]=view_hud_width_3d;
 view_xport[view_hud]=room_width-view_hud_width_3d;
 view_wport[view_hud]=view_hud_width_3d;
 
+view_xview[view_fullscreen]=0;
+view_yview[view_fullscreen]=0;
+
 menu_activate(noone);

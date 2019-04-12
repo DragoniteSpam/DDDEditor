@@ -12,6 +12,8 @@ view_visible[view_3d_preview]=false;
 
 view_wview[view_fullscreen]=room_width;
 view_wport[view_fullscreen]=room_width;
+view_xview[view_fullscreen]=0;
+view_yview[view_fullscreen]=0;
 
 menu_activate(noone);
 
