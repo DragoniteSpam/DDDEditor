@@ -193,6 +193,7 @@ all_events=ds_list_create();
 all_event_custom=ds_list_create();
 all_event_templates=ds_list_create();
 active_event=event_create("DefaultEvent");
+event_node_info=noone;
 ds_list_add(all_events, active_event);
 
 // stuff i couldn't do in game maker so i did in c++ instead

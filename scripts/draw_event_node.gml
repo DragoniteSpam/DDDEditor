@@ -114,6 +114,7 @@ switch (argument0.type){
             draw_roundrect(x1, y1, x2, y2, true);
             draw_sprite(spr_event_outbound, 2, x1, y1+16);
             draw_event_node_title(argument0, c);
+            draw_event_node_custom_info(x2-24, y1, argument0);
             draw_event_node_delete(x2, y1, argument0);
             
             var entry_yy=y1+EVENT_NODE_CONTACT_HEIGHT;
@@ -162,7 +163,9 @@ switch (argument0.type){
                                     break;
                                 case DataTypes.ENUM:
                                 case DataTypes.DATA:
-                                    dialog_create_event_node_custom_data(noone, argument0, i, 0);
+                                    if (guid_get(type[EventNodeCustomData.TYPE_GUID])!=noone){
+                                        dialog_create_event_node_custom_data(noone, argument0, i, 0);
+                                    }
                                     break;
                             }
                         }
@@ -187,11 +190,14 @@ switch (argument0.type){
                             break;
                         case DataTypes.ENUM:
                         case DataTypes.DATA:
-                            var datadata=guid_get(custom_data_list[| 0]);
+                            var datadata=guid_get(type[EventNodeCustomData.TYPE_GUID]);
+                            var setdata=guid_get(custom_data_list[| 0]);
                             if (datadata==noone){
-                                message=message+"("+guid_get(type[2]).name+"): <null>";
+                                message=message+"(<no type set>)";
+                            } else if (setdata==noone){
+                                message=message+"("+datadata.name+"): <null>";
                             } else {
-                                message=message+": "+datadata.name;
+                                message=message+"("+datadata.name+"): "+setdata.name;
                             }
                             break;
                     }

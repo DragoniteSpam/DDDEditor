@@ -186,6 +186,7 @@
     <sprite>sprites\spr_plus_minus</sprite>
     <sprite>sprites\spr_scroll_arrow_enclosed</sprite>
     <sprite>sprites\spr_event_delete</sprite>
+    <sprite>sprites\spr_event_info</sprite>
     <sprite>sprites\spr_event_dot</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
     <sprite>sprites\spr_direction</sprite>
@@ -265,6 +266,7 @@
       <script>scripts\draw_event_node_text_remove.gml</script>
       <script>scripts\draw_event_node_text_move.gml</script>
       <script>scripts\draw_event_node_delete.gml</script>
+      <script>scripts\draw_event_node_custom_info.gml</script>
       <script>scripts\draw_event_node_title.gml</script>
     </scripts>
     <script>scripts\null.gml</script>
