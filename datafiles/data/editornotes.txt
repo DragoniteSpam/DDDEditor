@@ -12,6 +12,7 @@ To Do
 without screwing up the formatting - make sure the text and cursor wrap properly
 
 1. Actually add the items in the AddItem event
+1a. Implement RemoveItem while you're at it
 
 2. validation of contents of a map when it's loaded, and when a new data file is loaded
 
