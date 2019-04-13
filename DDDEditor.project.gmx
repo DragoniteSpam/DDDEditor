@@ -538,11 +538,11 @@
             <script>scripts\dialog_data_type_enable_by_type.gml</script>
           </scripts>
           <scripts name="data and events">
-            <script>scripts\dialog_create_data_enum_select.gml</script>
+            <script>scripts\dialog_create_add_custom_node.gml</script>
             <script>scripts\dialog_create_data_data_select.gml</script>
+            <script>scripts\dialog_create_data_enum_select.gml</script>
             <script>scripts\dialog_create_data_types.gml</script>
             <script>scripts\dialog_create_event_custom.gml</script>
-            <script>scripts\dialog_create_add_custom_node.gml</script>
             <script>scripts\dialog_create_event_node_custom_data.gml</script>
           </scripts>
         </scripts>
@@ -813,16 +813,16 @@
         </scripts>
         <scripts name="data etc">
           <script>scripts\omu_data_add.gml</script>
-          <script>scripts\omu_event_custom_add_property.gml</script>
-          <script>scripts\omu_event_custom_remove_property.gml</script>
           <script>scripts\omu_data_data_select.gml</script>
-          <script>scripts\omu_event_custom_data_select.gml</script>
           <script>scripts\omu_data_enum_add.gml</script>
           <script>scripts\omu_data_enum_select.gml</script>
-          <script>scripts\omu_event_custom_enum_select.gml</script>
           <script>scripts\omu_data_property_add.gml</script>
           <script>scripts\omu_data_property_remove.gml</script>
           <script>scripts\omu_data_remove.gml</script>
+          <script>scripts\omu_event_custom_add_property.gml</script>
+          <script>scripts\omu_event_custom_data_select.gml</script>
+          <script>scripts\omu_event_custom_enum_select.gml</script>
+          <script>scripts\omu_event_custom_remove_property.gml</script>
           <script>scripts\omu_manager_autotile.gml</script>
           <script>scripts\omu_manager_mesh.gml</script>
           <script>scripts\omu_manager_tileset.gml</script>

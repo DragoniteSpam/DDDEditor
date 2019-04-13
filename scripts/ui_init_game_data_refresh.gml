@@ -55,7 +55,11 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
         }
         
         if (instance!=noone){
-            thingy.value=string(instance.values[| n]);
+            if (property.type==DataTypes.BOOL){
+                thingy.value=instance.values[| n];
+            } else {
+                thingy.value=string(instance.values[| n]);
+            }
             // if you re-select a data that already has one of these fields set, it should
             // be re-selected when you re-select the instance - there should be some indication
             // that the value is set
