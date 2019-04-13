@@ -18,7 +18,7 @@ var c2=dw/2;
 
 var yy=64;
 
-var el_gameplay_title=create_text(16, yy, "Data Embed Settings", ew, eh, fa_left, dw/2, dg);
+var el_gameplay_title=create_text(16, yy, "General Game Settings", ew, eh, fa_left, dw/2, dg);
 yy=yy+eh;
 var el_gameplay_grid=create_checkbox(16, yy, "Snap Player to Grid", ew, eh, uivc_settings_game_grid, "", Stuff.game_player_grid, dg);
 

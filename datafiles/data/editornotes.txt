@@ -5,22 +5,28 @@ Most of them have to do with the Data Types dialog
  - clicking Okay in the dialog while in the Event editor (although the X seems to be fine)
  - they all seem to have to do with GUIDs mysteriously disappearing
 
-To Do
+To Do - Now
 
-1a. attach a "summary" to custom event types so that you can know what they do
-1ai. finally made an option to expand the text input box so that you can write large amounts of text
+NPC entities ("mobs")
+Moves routes - and everything about them - selected entities with a Custom move route should have their
+	path illustrated in the 3D view so you can visualize where they go
+Static entities should have their Autonomous Movement option grayed out, since they're not allowed to
+	move
+Maybe make the event conditions work?
+Ask about following:
+	 - Following party members, and if so, can you interact with them on the overworld or are
+	they just there for decoration?
+	 - ALL OF THE MATH
+
+To Do - Soon™
+
+Attach a "summary" to custom event types so that you can know what they do
+Finally made an option to expand the text input box so that you can write large amounts of text
 without screwing up the formatting - make sure the text and cursor wrap properly
 
-1. Actually add the items in the AddItem event
-1a. Implement RemoveItem while you're at it
+Validation of contents of a map when it's loaded, and when a new data file is loaded
 
-2. validation of contents of a map when it's loaded, and when a new data file is loaded
-
-3. Sauce was talking about inventory/items
-
-4. custom event node types - add item, set class, game-specific things
-
-when moving around a group of selected entities with the mouse, un-batch them and add them to a temporary
+When moving around a group of selected entities with the mouse, un-batch them and add them to a temporary
 "mobile" batch instead so they don't have to get re-batched every time you move things just a little bit
  - which would slow things down quite a lot when moving a large number of entities
 
