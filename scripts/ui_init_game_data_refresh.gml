@@ -64,9 +64,20 @@ for (var i=0; i<ds_list_size(dynamic.contents); i++){
             // be re-selected when you re-select the instance - there should be some indication
             // that the value is set
             if (property.type==DataTypes.DATA){
+                ui_list_deselect(thingy);
                 var datatype=guid_get(property.type_guid);
                 for (var k=0; k<ds_list_size(datatype.instances); k++){
                     if (datatype.instances[| k].GUID==instance.values[| n]){
+                        ds_map_add(thingy.selected_entries, k, true);
+                        thingy.index=max(0, k-thingy.slots+1);
+                        break;
+                    }
+                }
+            } else if (property.type==DataTypes.ENUM){
+                ui_list_deselect(thingy);
+                var datatype=guid_get(property.type_guid);
+                for (var k=0; k<ds_list_size(datatype.properties); k++){
+                    if (datatype.properties[| k].GUID==instance.values[| n]/*==k*/){
                         ds_map_add(thingy.selected_entries, k, true);
                         thingy.index=max(0, k-thingy.slots+1);
                         break;
