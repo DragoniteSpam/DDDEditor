@@ -81,8 +81,14 @@ if (data!=noone){
                 case DataTypes.DATA:           // list
                     var datadata=guid_get(property.type_guid);
                     var element=create_list(spacing, yy, property.name, "<no options: "+datadata.name+">", ew, eh, 8, uivc_data_set_property_list, false, noone);
-                    for (var j=0; j<ds_list_size(datadata.instances); j++){
-                        create_list_entries(element, datadata.instances[| j], c_black);
+                    if (datadata.is_enum){
+                        for (var j=0; j<ds_list_size(datadata.properties); j++){
+                            create_list_entries(element, datadata.properties[| j], c_black);
+                        }
+                    } else {
+                        for (var j=0; j<ds_list_size(datadata.instances); j++){
+                            create_list_entries(element, datadata.instances[| j], c_black);
+                        }
                     }
                     element.key=i;
                     element.entries_are=ListEntries.INSTANCES;

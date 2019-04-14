@@ -7,6 +7,8 @@ Most of them have to do with the Data Types dialog
 
 To Do - Now
 
+Add elements and classes
+
 NPC entities ("mobs")
 Moves routes - and everything about them - selected entities with a Custom move route should have their
 	path illustrated in the 3D view so you can visualize where they go
@@ -19,6 +21,11 @@ Ask about following:
 	 - ALL OF THE MATH
 
 To Do - Soon™
+
+"Color" data property for generic data
+
+If you close out of the DataData menu without saving, if you open the dialog a second time and commit
+the changes instead, the game crashes (dc_data_commit_seriously - line 169, data structure does not exist)
 
 Attach a "summary" to custom event types so that you can know what they do
 Finally made an option to expand the text input box so that you can write large amounts of text
