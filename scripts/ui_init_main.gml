@@ -409,6 +409,23 @@ with (instance_create(0, 0, UIMain)){
     yy=yy+element_height+spacing;
     
     /*
+     * entity-mob tab
+     */
+    
+    yy=legal_y+spacing;
+    
+    element_entity_mob_frame=create_input(legal_x+spacing, yy, "Editor frame:", col_width, element_height, uivc_entity_mob_editor_frame, "", 0, "0...3", validate_int, ui_value_real, 0, 3, 1, vx1, vy1, vx2, vy2, t_p_mob);
+    ds_list_add(t_p_mob.contents, element_entity_mob_frame);
+    
+    yy=yy+element_entity_mob_frame.height+spacing;
+    
+    element_entity_mob_direction=create_radio_array(legal_x+spacing, yy, "Direction", col_width, element_height, uivc_entity_mob_direction, 0, t_p_mob);
+    create_radio_array_options(element_entity_mob_direction, "Down", "Left", "Right", "Up");
+    ds_list_add(t_p_mob.contents, element_entity_mob_direction);
+    
+    yy=yy+ui_get_radio_array_height(element_entity_mob_direction)+spacing;
+    
+    /*
      * tile tab
      */
     

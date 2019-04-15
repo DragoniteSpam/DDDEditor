@@ -6,6 +6,8 @@ var list=selection_all();
 ds_list_destroy(Camera.selected_entities);
 Camera.selected_entities=list;
 
+debug("Things: "+string(ds_list_size(list)));
+
 if (ds_list_size(list)==0){
     // deactivate everything
     Camera.ui.element_entity_name.interactive=false;
@@ -32,6 +34,13 @@ if (ds_list_size(list)==0){
     Camera.ui.element_entity_scale_x.interactive=false;
     Camera.ui.element_entity_scale_y.interactive=false;
     Camera.ui.element_entity_scale_z.interactive=false;
+    
+    // entity-mob
+    
+    Camera.ui.element_entity_mob_frame.value="0";
+    Camera.ui.element_entity_mob_frame.interactive=false;
+    Camera.ui.element_entity_mob_direction.value=0;
+    Camera.ui.element_entity_mob_direction.interactive=false;
 } else if (ds_list_size(list)==1){
     safa_on_select(list[| 0]);
 } else {
@@ -83,4 +92,16 @@ if (ds_list_size(list)==0){
     Camera.ui.element_entity_scale_x.value="";
     Camera.ui.element_entity_scale_y.value="";
     Camera.ui.element_entity_scale_z.value="";
+    
+    if (selection_all_pawn()){
+        Camera.ui.element_entity_mob_frame.value="0";
+        Camera.ui.element_entity_mob_frame.interactive=true;
+        Camera.ui.element_entity_mob_direction.value=0;
+        Camera.ui.element_entity_mob_direction.interactive=true;
+    } else {
+        Camera.ui.element_entity_mob_frame.value="0";
+        Camera.ui.element_entity_mob_frame.interactive=false;
+        Camera.ui.element_entity_mob_direction.value=0;
+        Camera.ui.element_entity_mob_direction.interactive=false;
+    }
 }

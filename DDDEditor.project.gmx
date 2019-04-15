@@ -368,6 +368,9 @@
               <script>scripts\safc_on_tile.gml</script>
             </scripts>
           </scripts>
+          <scripts name="are all of type">
+            <script>scripts\selection_all_pawn.gml</script>
+          </scripts>
         </scripts>
         <scripts name="selection forech">
           <script>scripts\selection_foreach_cell_rectangle.gml</script>
@@ -685,6 +688,10 @@
             <script>scripts\uivc_input_entity_scale_y.gml</script>
             <script>scripts\uivc_input_entity_scale_z.gml</script>
           </scripts>
+          <scripts name="pawn">
+            <script>scripts\uivc_entity_mob_editor_frame.gml</script>
+            <script>scripts\uivc_entity_mob_direction.gml</script>
+          </scripts>
         </scripts>
         <scripts name="events">
           <script>scripts\uivc_list_selection_event_node.gml</script>
@@ -771,29 +778,29 @@
         <script>scripts\uivc_tile_set_data_view.gml</script>
         <script>scripts\uivc_tile_set_on_click.gml</script>
         <scripts name="data etc">
-          <script>scripts\uivc_input_data_name.gml</script>
-          <script>scripts\uivc_input_custom_event_name.gml</script>
-          <script>scripts\uivc_input_data_property_name.gml</script>
-          <script>scripts\uivc_input_custom_data_property_name.gml</script>
-          <script>scripts\uivc_custom_data_property_type.gml</script>
+          <script>scripts\uimu_data_add_data.gml</script>
+          <script>scripts\uimu_data_remove_data.gml</script>
           <script>scripts\uivc_custom_data_property_max.gml</script>
+          <script>scripts\uivc_custom_data_property_required.gml</script>
+          <script>scripts\uivc_custom_data_property_type.gml</script>
+          <script>scripts\uivc_data_set_name.gml</script>
+          <script>scripts\uivc_data_set_property_boolean.gml</script>
+          <script>scripts\uivc_data_set_property_input.gml</script>
+          <script>scripts\uivc_data_set_property_list.gml</script>
+          <script>scripts\uivc_input_custom_data_property_name.gml</script>
+          <script>scripts\uivc_input_custom_event_name.gml</script>
+          <script>scripts\uivc_input_data_char_limit.gml</script>
+          <script>scripts\uivc_input_data_name.gml</script>
+          <script>scripts\uivc_input_data_number_scale.gml</script>
+          <script>scripts\uivc_input_data_property_name.gml</script>
           <script>scripts\uivc_input_data_property_type.gml</script>
+          <script>scripts\uivc_input_data_value_max.gml</script>
+          <script>scripts\uivc_input_data_value_min.gml</script>
           <script>scripts\uivc_list_data_data.gml</script>
           <script>scripts\uivc_list_data_editor.gml</script>
           <script>scripts\uivc_list_data_editor_instances.gml</script>
           <script>scripts\uivc_list_data_property.gml</script>
           <script>scripts\uivc_list_event_custom_property.gml</script>
-          <script>scripts\uivc_input_data_value_max.gml</script>
-          <script>scripts\uivc_input_data_number_scale.gml</script>
-          <script>scripts\uivc_input_data_value_min.gml</script>
-          <script>scripts\uivc_input_data_char_limit.gml</script>
-          <script>scripts\uimu_data_add_data.gml</script>
-          <script>scripts\uimu_data_remove_data.gml</script>
-          <script>scripts\uivc_data_set_name.gml</script>
-          <script>scripts\uivc_data_set_property_input.gml</script>
-          <script>scripts\uivc_data_set_property_boolean.gml</script>
-          <script>scripts\uivc_data_set_property_list.gml</script>
-          <script>scripts\uivc_custom_data_property_required.gml</script>
         </scripts>
       </scripts>
       <scripts name="onmouseup">
