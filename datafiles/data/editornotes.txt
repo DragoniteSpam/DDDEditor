@@ -7,16 +7,16 @@ Most of them have to do with the Data Types dialog
 
 To Do - Now
 
-Add elements and classes - load into game
-
-NPC entities ("mobs")
 Special NPCs representing party member(s)
 List of character graphics, similar to the autotiles one
 
+Animate Idle should be a property of Mesh and Mob (grayed out for static)
+Animate Movement should be a property of Mob (grayed out for static)
+Direction Fix should be a property of Mob (grayed out for static)
+Autonomous Movement settings should be a property of Mob (grayed out for static)
+
 Moves routes - and everything about them - selected entities with a Custom move route should have their
 	path illustrated in the 3D view so you can visualize where they go
-Static entities should have their Autonomous Movement option grayed out, since they're not allowed to
-	move
 Maybe make the event conditions work?
 Ask about following:
 	 - Following party members, and if so, can you interact with them on the overworld or are
