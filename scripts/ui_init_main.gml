@@ -425,6 +425,11 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+ui_get_radio_array_height(element_entity_mob_direction)+spacing;
     
+    element_entity_mob_animating=create_checkbox(legal_x+spacing, yy, "Animating", col_width, element_height, uivc_entity_mob_animating, "", false, t_p_mob);
+    ds_list_add(t_p_mob.contents, element_entity_mob_animating);
+    
+    yy=yy+element_entity_mob_animating.height+spacing;
+    
     /*
      * tile tab
      */

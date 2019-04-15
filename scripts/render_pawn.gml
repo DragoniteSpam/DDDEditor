@@ -7,6 +7,11 @@ var zz=pawn.zz;
 
 var spritesheet_height=4;
 var spritesheet_frames=4;
+
+if (argument0.is_animating){
+    pawn.frame=(pawn.frame+Stuff.setting_alphabetize_npc_animate_rate*(delta_time/MILLION))%4;
+}
+
 var frame=floor(pawn.frame)%spritesheet_frames;
 
 // if you're on the grid you don't need to do the modulo thing because it'll reset at the end of each walk cycle, but on the grid you do

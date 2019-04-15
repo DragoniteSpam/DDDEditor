@@ -31,11 +31,12 @@ save_script=serialize_save_entity_pawn;
 load_script=serialize_load_entity_pawn;
 
 overworld_sprite=b_chr_dummy;
+map_direction=0;
 
 // not serialized but
 
 frame=0;
-map_direction=0;
+is_animating=false;
 
 ActiveMap.population[ETypes.ENTITY_PAWN]++;
 
