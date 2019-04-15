@@ -5,6 +5,8 @@ datafiles/data/graphics/**/*.bmp
 datafiles/data/graphics/**/*.gif
 # please never use jpeg for game graphics
 
+sprites/images/b_chr_dummy_0.png
+
 # those annoying config files
 
 Configs/Default/AmazonFire

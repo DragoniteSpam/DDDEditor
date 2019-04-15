@@ -7,9 +7,12 @@ Most of them have to do with the Data Types dialog
 
 To Do - Now
 
-Add elements and classes
+Add elements and classes - load into game
 
 NPC entities ("mobs")
+Special NPCs representing party member(s)
+List of character graphics, similar to the autotiles one
+
 Moves routes - and everything about them - selected entities with a Custom move route should have their
 	path illustrated in the 3D view so you can visualize where they go
 Static entities should have their Autonomous Movement option grayed out, since they're not allowed to
@@ -24,8 +27,10 @@ To Do - Soon™
 
 "Color" data property for generic data
 
-If you close out of the DataData menu without saving, if you open the dialog a second time and commit
+ - If you close out of the DataData menu without saving, if you open the dialog a second time and commit
 the changes instead, the game crashes (dc_data_commit_seriously - line 169, data structure does not exist)
+ - If you make a bunch of changes to the DataData menu and save them, if you open the game data editor
+the game crashes (ui_init_game_data_activate - line 84, 
 
 Attach a "summary" to custom event types so that you can know what they do
 Finally made an option to expand the text input box so that you can write large amounts of text

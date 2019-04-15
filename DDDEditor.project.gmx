@@ -178,6 +178,9 @@
       <sprites name="autotiles">
         <sprite>sprites\b_at_default_error</sprite>
       </sprites>
+      <sprites name="npc">
+        <sprite>sprites\b_chr_dummy</sprite>
+      </sprites>
     </sprites>
     <sprite>sprites\spr_close</sprite>
     <sprite>sprites\spr_scroll</sprite>
@@ -408,6 +411,7 @@
       </scripts>
       <scripts name="rendering">
         <script>scripts\render_tile.gml</script>
+        <script>scripts\render_pawn.gml</script>
         <script>scripts\render_autotile.gml</script>
         <script>scripts\render_mesh.gml</script>
       </scripts>
@@ -435,10 +439,12 @@
     <scripts name="Game data">
       <scripts name="creation">
         <script>scripts\instance_create_tile.gml</script>
+        <script>scripts\instance_create_pawn.gml</script>
         <script>scripts\instance_create_autotile.gml</script>
         <script>scripts\instance_create_mesh.gml</script>
         <scripts name="collision">
           <script>scripts\entity_init_collision_tile.gml</script>
+          <script>scripts\entity_init_collision_pawn.gml</script>
           <script>scripts\entity_init_collision_mesh.gml</script>
         </scripts>
         <script>scripts\simple_map_data.gml</script>
