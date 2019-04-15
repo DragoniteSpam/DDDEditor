@@ -2,12 +2,6 @@
 
 serialize_load_entity(argument0, argument1, argument2);
 
-// currently no data, but there will be later
+argument1.map_direction=buffer_read(argument0, buffer_u8);
 
-// no bools
-
-if (argument2>DataVersions.INITIAL){
-}
-
-// remember to add collision information - probably in the form of
-// a block
+entity_init_collision_pawn(argument1);

@@ -7,9 +7,4 @@ argument1.tile_y=buffer_read(argument0, buffer_u8);
 argument1.tile_color=buffer_read(argument0, buffer_u32);
 argument1.tile_alpha=buffer_read(argument0, buffer_u8)/255;
 
-// no bools
-
-if (argument2>DataVersions.INITIAL){
-}
-
 entity_init_collision_tile(argument1);
