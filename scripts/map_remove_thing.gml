@@ -18,14 +18,19 @@
 // this NEEDS to be worked on sooner rather than later because i
 // imagine Delete All is going to be a somewhat common operation.
 if (argument0.listed){
-    if (argument0.batch_index==-1){
-        var future=ActiveMap.batch_in_the_future;
-        ds_list_delete(future, ds_list_find_index(future, argument0));
+    if (argument0.batchable){
+        if (argument0.batch_index==-1){
+            var future=ActiveMap.batch_in_the_future;
+            ds_list_delete(future, ds_list_find_index(future, argument0));
+        } else {
+            var bl=ActiveMap.batch_instances[| argument0.batch_index];
+            ds_list_delete(bl, ds_list_find_index(bl, argument0));
+            batch_again(argument0.batch_index);
+        }
     } else {
-        var bl=ActiveMap.batch_instances[| argument0.batch_index];
-        ds_list_delete(bl, ds_list_find_index(bl, argument0));
-        batch_again(argument0.batch_index);
+        ds_list_delete(ActiveMap.dynamic, ds_list_find_index(ActiveMap.dynamic, argument0));
     }
+    
     ds_list_delete(ActiveMap.all_entities, ds_list_find_index(ActiveMap.all_entities, argument0));
 }
 

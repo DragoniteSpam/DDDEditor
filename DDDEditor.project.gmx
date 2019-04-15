@@ -975,6 +975,7 @@
     </scripts>
     <scripts name="misc code">
       <script>scripts\entity_destroy.gml</script>
+      <script>scripts\entity_pawn_destroy.gml</script>
       <script>scripts\entity_tile_destroy.gml</script>
       <script>scripts\error_clear.gml</script>
       <script>scripts\error_log.gml</script>
