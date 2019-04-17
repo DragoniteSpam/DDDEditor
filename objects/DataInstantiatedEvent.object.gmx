@@ -65,28 +65,12 @@ enum Comparisons {
     NOT_EQUAL
 }
 
-// autonomous movement - only useful for things not marked as "static"
-
-autonomous_movement=AutonomousMovementTypes.FIXED;
-autonomous_movement_speed=3;                            // 0: 0.125, 1: 0.25, 2: 0.5, 3: 1, 4: 2, 5: 4
-autonomous_movement_frequency=2;                        // 0 through 4
-autonomous_movement_route=ds_list_create();
-autonomous_movement_route_repeat=true;
-autonomous_movement_route_skip=false;
-
-enum AutonomousMovementTypes {
-    FIXED,
-    RANDOM,
-    APPROACH,
-    CUSTOM
-}
-
 // options
 
-option_animate_movement=true;                   // "walking" in RPG Maker
-option_animate_idle=false;                      // "stepping" in RPG Maker
-option_direction_fix=false;
-// option_through=false;                        // handled by entity "solid" attributes
+//option_animate_movement=true;                   // now a property of Entity
+//option_animate_idle=false;                      // now a property of Entity
+//option_direction_fix=false;                     // now a property of Entity
+//option_through=false;                        // handled by entity "solid" attributes
 
 // trigger
 

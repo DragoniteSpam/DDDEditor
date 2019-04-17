@@ -14,6 +14,15 @@ Camera.ui.element_entity_events.interactive=true;
 Camera.ui.element_entity_event_add.interactive=true;
 Camera.ui.element_entity_event_remove.interactive=true;
 Camera.ui.element_entity_event_edit.interactive=true;
+    
+Camera.ui.element_entity_option_animate_idle.value=argument0.animate_idle;
+Camera.ui.element_entity_option_animate_movement.value=argument0.animate_movement;
+Camera.ui.element_entity_option_direction_fix.value=argument0.direction_fix;
+    
+Camera.ui.element_entity_option_animate_idle.interactive=true;
+Camera.ui.element_entity_option_animate_movement.interactive=true;
+Camera.ui.element_entity_option_direction_fix.interactive=true;
+Camera.ui.element_entity_autonomous_movement.interactive=true;
 
 // transform
 

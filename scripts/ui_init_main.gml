@@ -283,7 +283,7 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_entity_static.height+spacing;
     
-    var n=10;
+    var n=6;
     
     element_entity_events=create_list(legal_x+spacing, yy, "Event Pages", "<No events>", col_width, element_height, n, null, false, t_p_entity);
     element_entity_events.colorize=false;
@@ -311,6 +311,35 @@ with (instance_create(0, 0, UIMain)){
     element_entity_event_remove.interactive=false;
     
     yy=yy+element_height+spacing;
+    
+    element=create_text(legal_x+spacing, yy, "Options", col_width, element_height, fa_left, col_width, t_p_entity);
+    ds_list_add(t_p_entity.contents, element);
+    
+    yy=yy+element.height+spacing;
+    
+    element_entity_option_animate_idle=create_checkbox(legal_x+spacing, yy, "Animate Idle", col_width, element_height, uivc_check_entity_option_animate_idle, "", false, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_option_animate_idle);
+    element_entity_option_animate_idle.interactive=false;
+    
+    yy=yy+element_entity_option_animate_idle.height+spacing;
+    
+    element_entity_option_animate_movement=create_checkbox(legal_x+spacing, yy, "Animate Movement", col_width, element_height, uivc_check_entity_option_animate_movement, "", false, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_option_animate_movement);
+    element_entity_option_animate_movement.interactive=false;
+    
+    yy=yy+element_entity_option_animate_movement.height+spacing;
+    
+    element_entity_option_direction_fix=create_checkbox(legal_x+spacing, yy, "Direction Fix", col_width, element_height, uivc_check_entity_option_direction_fix, "", false, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_option_direction_fix);
+    element_entity_option_direction_fix.interactive=false;
+    
+    yy=yy+element_entity_option_direction_fix.height+spacing;
+    
+    element_entity_autonomous_movement=create_button(legal_x+spacing, yy, "Autonomous Movement", col_width, element_height, fa_center, null, t_p_entity);
+    ds_list_add(t_p_entity.contents, element_entity_autonomous_movement);
+    element_entity_autonomous_movement.interactive=false;
+    
+    yy=yy+element_entity_autonomous_movement.height+spacing;
     
     // second column
     

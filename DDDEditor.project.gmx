@@ -193,6 +193,7 @@
     <sprite>sprites\spr_event_dot</sprite>
     <sprite>sprites\spr_scroll_arrow</sprite>
     <sprite>sprites\spr_direction</sprite>
+    <sprite>sprites\spr_editor_icon</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -455,6 +456,9 @@
       <scripts name="data set">
         <script>scripts\entity_mesh_set_mesh.gml</script>
         <script>scripts\entity_set_solid.gml</script>
+        <script>scripts\entity_set_option_animate_idle.gml</script>
+        <script>scripts\entity_set_option_animate_movement.gml</script>
+        <script>scripts\entity_set_option_direction_fix.gml</script>
         <script>scripts\entity_set_static.gml</script>
       </scripts>
       <script>scripts\tileset_create.gml</script>
@@ -657,6 +661,9 @@
       <scripts name="on value change and general interaction">
         <scripts name="entity properties">
           <script>scripts\uivc_check_entity_solid.gml</script>
+          <script>scripts\uivc_check_entity_option_animate_idle.gml</script>
+          <script>scripts\uivc_check_entity_option_animate_movement.gml</script>
+          <script>scripts\uivc_check_entity_option_direction_fix.gml</script>
           <script>scripts\uivc_check_entity_static.gml</script>
           <script>scripts\uivc_input_entity_name.gml</script>
           <script>scripts\uivc_entity_event_name.gml</script>

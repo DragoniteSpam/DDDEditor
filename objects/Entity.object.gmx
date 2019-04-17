@@ -69,6 +69,28 @@ scale_zz=1;     // f32
 
 object_events=ds_list_create();         // i'm imposing a hard limit of 10 of these
 
+// options
+
+animate_idle=false;
+animate_movement=false;
+direction_fix=true;
+
+// autonomous movement - only useful for things not marked as "static"
+
+autonomous_movement=AutonomousMovementTypes.FIXED;
+autonomous_movement_speed=3;                            // 0: 0.125, 1: 0.25, 2: 0.5, 3: 1, 4: 2, 5: 4
+autonomous_movement_frequency=2;                        // 0 through 4
+autonomous_movement_route=ds_list_create();             // list of lists
+autonomous_movement_route_repeat=true;
+autonomous_movement_route_skip=false;
+
+enum AutonomousMovementTypes {
+    FIXED,
+    RANDOM,
+    APPROACH,
+    CUSTOM
+}
+
 // these are a formality
 target_xx=xx;
 target_yy=yy;

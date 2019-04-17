@@ -36,9 +36,12 @@ buffer_write(argument0, buffer_u8, argument1.autonomous_movement_speed);
 buffer_write(argument0, buffer_u8, argument1.autonomous_movement_frequency);
 // skip the move route stuff for now
 
-var bools=pack(argument1.option_animate_movement,
-    argument1.option_animate_idle,
-    argument1.option_direction_fix);
+// these have been removed but i don't feel like screwing with versioning
+/*var bools=pack(argument1.option_animate_movement0,
+    argument1.option_animate_idle0,
+    argument1.option_direction_fix0);*/
+
+var bools=0;
 
 // more future-proofing
 buffer_write(argument0, buffer_u16, bools);

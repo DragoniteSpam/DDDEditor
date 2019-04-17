@@ -30,9 +30,11 @@ page.autonomous_movement_speed=buffer_read(argument0, buffer_u8);
 page.autonomous_movement_frequency=buffer_read(argument0, buffer_u8);
 
 var bools=buffer_read(argument0, buffer_u16);
-page.option_animate_movement=unpack(bools, 0);
-page.option_animate_idle=unpack(bools, 1);
-page.option_direction_fix=unpack(bools, 2);
+
+// these have been removed
+//page.option_animate_movement=unpack(bools, 0);
+//page.option_animate_idle=unpack(bools, 1);
+//page.option_direction_fix=unpack(bools, 2);
 
 page.trigger=buffer_read(argument0, buffer_u8);
 

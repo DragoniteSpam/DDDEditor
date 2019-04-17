@@ -57,12 +57,16 @@ yy=yy+eh+spacing;
 
 var el_option=create_text(16, yy, "Options", ew, eh, fa_left, ew, dg);
 yy=yy+eh+spacing;
-var el_option_movement=create_checkbox(16, yy, "Animate Movement", ew, eh, uivc_entity_event_animate_movement, "", page.option_animate_movement, dg);
+
+var el_option_temp=create_text(16, yy, "(No options, currently)", ew, eh, fa_left, ew, dg);
+yy=yy+eh+spacing;
+
+/*var el_option_movement=create_checkbox(16, yy, "Animate Movement", ew, eh, uivc_entity_event_animate_movement, "", page.option_animate_movement, dg);
 el_option_movement.interactive=!entity.static;
 yy=yy+eh+spacing;
 var el_option_idle=create_checkbox(16, yy, "Animate Idle", ew, eh, uivc_entity_event_animate_idle, "", page.option_animate_idle, dg);
 yy=yy+eh+spacing;
-var el_option_direction_fix=create_checkbox(16, yy, "Direction Fix", ew, eh, uivc_entity_event_direction_fix, "", page.option_direction_fix, dg);
+var el_option_direction_fix=create_checkbox(16, yy, "Direction Fix", ew, eh, uivc_entity_event_direction_fix, "", page.option_direction_fix, dg);*/
 
 var yy=64;
 
@@ -101,7 +105,7 @@ dg.el_event_entrypoint=el_event_entrypoint;
 
 yy=yy+eh+spacing;
 
-var el_movement=create_radio_array(c2+16, yy, "Autonomous Movement", ew, eh, uivc_entity_event_auto_move, page.autonomous_movement, dg);
+/*var el_movement=create_radio_array(c2+16, yy, "Autonomous Movement", ew, eh, uivc_entity_event_auto_move, page.autonomous_movement, dg);
 create_radio_array_options(el_movement, "Fixed", "Random", "Approach", "Custom");
 el_movement.interactive=!entity.static;
 yy=yy+eh+eh*4+spacing;
@@ -112,7 +116,7 @@ var el_movement_frequency=create_input(c2+16, yy, "Move Frequency:", ew, eh, uiv
 el_movement_frequency.interactive=!entity.static;
 yy=yy+eh+spacing;
 var el_movement_route=create_button(c2+16, yy, "Move Route", ew, eh, fa_center, null, dg);
-el_movement_route.interactive=!entity.static;
+el_movement_route.interactive=!entity.static;*/
 
 var b_width=128;
 var b_height=32;
@@ -122,8 +126,8 @@ ds_list_add(dg.contents, el_name, el_enabled, el_condition,
     el_condition_switch_global_enabled, el_condition_switch_global, el_condition_variable_global_enabled, el_condition_variable_global,
     el_condition_switch_self_enabled, el_condition_switch_self, el_condition_variable_self_enabled, el_condition_variable_self,
     el_condition_item_enabled, el_condition_item, el_condition_code_enabled, el_condition_code,
-    el_option, el_option_movement, el_option_idle, el_option_direction_fix,
-    el_trigger, el_movement, el_movement_speed, el_movement_frequency, el_movement_route,
+    el_option, /*el_option_movement, el_option_idle, el_option_direction_fix,*/ el_option_temp,
+    el_trigger, /*el_movement, el_movement_speed, el_movement_frequency, el_movement_route,*/
     el_event, el_event_guid, el_event_entrypoint,
     el_confirm);
 
