@@ -545,6 +545,7 @@
             <script>scripts\dialog_create_entity_get_event.gml</script>
             <script>scripts\dialog_create_entity_get_event_entrypoint.gml</script>
             <script>scripts\dialog_create_entity_event_page.gml</script>
+            <script>scripts\dialog_create_entity_autonomous_movement.gml</script>
           </scripts>
           <scripts name="help">
             <script>scripts\dialog_data_type_disable.gml</script>
@@ -678,9 +679,9 @@
           <script>scripts\uivc_entity_event_animate_idle.gml</script>
           <script>scripts\uivc_entity_event_direction_fix.gml</script>
           <script>scripts\uivc_entity_event_trigger.gml</script>
-          <script>scripts\uivc_entity_event_auto_move.gml</script>
-          <script>scripts\uivc_entity_event_auto_speed.gml</script>
-          <script>scripts\uivc_entity_event_auto_frequency.gml</script>
+          <script>scripts\uivc_entity_auto_move.gml</script>
+          <script>scripts\uivc_entity_auto_speed.gml</script>
+          <script>scripts\uivc_entity_auto_frequency.gml</script>
           <scripts name="transform">
             <script>scripts\uivc_input_entity_off_x.gml</script>
             <script>scripts\uivc_input_entity_off_y.gml</script>
@@ -815,6 +816,7 @@
       <scripts name="onmouseup">
         <script>scripts\omu_autotile_selector.gml</script>
         <script>scripts\omu_entity_event_page.gml</script>
+        <script>scripts\omu_entity_autonomous_movement.gml</script>
         <scripts name="events">
           <script>scripts\omu_event_add_custom_event.gml</script>
           <script>scripts\omu_event_add_custom.gml</script>

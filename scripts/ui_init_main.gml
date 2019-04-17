@@ -335,7 +335,7 @@ with (instance_create(0, 0, UIMain)){
     
     yy=yy+element_entity_option_direction_fix.height+spacing;
     
-    element_entity_autonomous_movement=create_button(legal_x+spacing, yy, "Autonomous Movement", col_width, element_height, fa_center, null, t_p_entity);
+    element_entity_autonomous_movement=create_button(legal_x+spacing, yy, "Autonomous Movement", col_width, element_height, fa_center, omu_entity_autonomous_movement, t_p_entity);
     ds_list_add(t_p_entity.contents, element_entity_autonomous_movement);
     element_entity_autonomous_movement.interactive=false;
     
