@@ -114,8 +114,6 @@ event_entrypoint="";
           <argument>
             <kind>1</kind>
             <string>event_inherited();
-
-ds_list_destroy(autonomous_movement_route);
 </string>
           </argument>
         </arguments>

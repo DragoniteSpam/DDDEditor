@@ -80,9 +80,9 @@ direction_fix=true;
 autonomous_movement=AutonomousMovementTypes.FIXED;
 autonomous_movement_speed=3;                            // 0: 0.125, 1: 0.25, 2: 0.5, 3: 1, 4: 2, 5: 4
 autonomous_movement_frequency=2;                        // 0 through 4
-autonomous_movement_route=ds_list_create();             // list of lists
-autonomous_movement_route_repeat=true;
-autonomous_movement_route_skip=false;
+autonomous_movement_route=0;                            // GUID
+
+movement_routes=ds_list_create();             // list of DataMovementRoutes
 
 enum AutonomousMovementTypes {
     FIXED,
@@ -161,6 +161,8 @@ on_select=safc_on_entity;
           <argument>
             <kind>1</kind>
             <string>entity_destroy();
+
+ds_list_destroy_instances(movement_routes);
 </string>
           </argument>
         </arguments>

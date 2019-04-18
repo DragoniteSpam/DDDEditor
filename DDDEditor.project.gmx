@@ -283,6 +283,7 @@
       <scripts name="Data Structures">
         <script>scripts\array_clear.gml</script>
         <script>scripts\array_compose.gml</script>
+        <script>scripts\array_to_list.gml</script>
         <script>scripts\buffer_point_complete.gml</script>
         <script>scripts\buffer_read_string.gml</script>
         <script>scripts\ds_list_clear_instances.gml</script>
@@ -290,11 +291,11 @@
         <script>scripts\ds_list_destroy_instances_indirect.gml</script>
         <script>scripts\ds_list_destroy_instances_scheduled.gml</script>
         <script>scripts\ds_list_pop.gml</script>
+        <script>scripts\ds_list_sort_name_sucks.gml</script>
+        <script>scripts\ds_list_sort_sucks.gml</script>
         <script>scripts\ds_list_top.gml</script>
         <script>scripts\ds_map_to_list.gml</script>
         <script>scripts\ds_map_to_list_sorted.gml</script>
-        <script>scripts\ds_list_sort_sucks.gml</script>
-        <script>scripts\ds_list_sort_name_sucks.gml</script>
         <scripts name="trees">
           <script>scripts\ds_tree_add.gml</script>
           <script>scripts\ds_tree_node.gml</script>
@@ -305,7 +306,6 @@
           <script>scripts\vector3.gml</script>
           <script>scripts\vector4.gml</script>
         </scripts>
-        <script>scripts\array_to_list.gml</script>
       </scripts>
       <script>scripts\update_mouse_vector.gml</script>
       <script>scripts\is_clamped.gml</script>

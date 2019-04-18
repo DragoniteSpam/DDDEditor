@@ -10,6 +10,23 @@ To Do - Now
 Special NPCs representing party member(s)
 List of character graphics, similar to the autotiles one
 
+Add autonomous_movement_route to save/load
+Create a DataMoveRoute object: {
+	name,
+	repeat,
+	skip if can't move,
+	wait for completion,
+	steps: {
+		[action0 id, params...],
+		[action1 id, params...],
+		[action2 id, params...],
+	}
+}
+
+Button to set autonomous_movement_route to the GUID of the selected move route
+That movement route should be blue in the list
+Somehow define the different move route actions somewhere (and print them out)
+
 Moves routes - and everything about them - selected entities with a Custom move route should have their
 	path illustrated in the 3D view so you can visualize where they go
 Maybe make the event conditions work?
