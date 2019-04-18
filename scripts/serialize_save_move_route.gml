@@ -17,10 +17,45 @@ for (var i=0; i<n_steps; i++){
     
     buffer_write(argument0, buffer_u16, step[@ 0]);
     switch(step[@ 0]){
-        case MoveRouteActions.MOVE_DOWN:
-        case MoveRouteActions.MOVE_LEFT:
-        case MoveRouteActions.MOVE_RIGHT:
-        case MoveRouteActions.MOVE_UP:
+        case MoveRouteActions.MOVE_JUMP:
+            buffer_write(argument0, buffer_string, step[@ 1]);
+            buffer_write(argument0, buffer_u16, step[@ 2]);
+            buffer_write(argument0, buffer_u16, step[@ 3]);
+            buffer_write(argument0, buffer_u16, step[@ 4]);
+            break;
+        case MoveRouteActions.MOVE_ACTUALLY_JUMP:
+            buffer_write(argument0, buffer_f32, step[@ 1]);
+            break;
+        case MoveRouteActions.WAIT:
+            buffer_write(argument0, buffer_f32, step[@ 1]);
+            break;
+        case MoveRouteActions.SWITCH_ON:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        case MoveRouteActions.SWITCH_OFF:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        case MoveRouteActions.CHANGE_SPEED:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        case MoveRouteActions.CHANGE_FREQUENCY:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        case MoveRouteActions.CHANGE_GRAPHIC:
+            buffer_write(argument0, buffer_u32, step[@ 1]);
+            break;
+        case MoveRouteActions.CHANGE_OPACITY:
+            buffer_write(argument0, buffer_f32, step[@ 1]);
+            break;
+        case MoveRouteActions.CHANGE_TINT:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        case MoveRouteActions.PLAY_SE:
+            buffer_write(argument0, buffer_u32, step[@ 1]);
+            break;
+        case MoveRouteActions.EVENT:
+            buffer_write(argument0, buffer_u32, step[@ 1]);
+            buffer_write(argument0, buffer_u32, step[@ 2]);
             break;
     }
 }

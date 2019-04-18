@@ -23,8 +23,6 @@ Create a DataMoveRoute object: {
 	}
 }
 
-Button to set autonomous_movement_route to the GUID of the selected move route
-That movement route should be blue in the list
 Somehow define the different move route actions somewhere (and print them out)
 
 Moves routes - and everything about them - selected entities with a Custom move route should have their
