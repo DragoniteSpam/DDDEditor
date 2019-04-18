@@ -48,6 +48,19 @@ if (argument2>=DataVersions.ENTITY_TRANSFORM){
     argument1.scale_yy=buffer_read(argument0, buffer_f32);
     argument1.scale_zz=buffer_read(argument0, buffer_f32);
 }
+//debug(string(argument2)+", "+string(DataVersions.OPTIONS_ON_ENTITIES_WORKS))
+if (argument2>=DataVersions.OPTIONS_ON_ENTITIES_WORKS){
+    argument1.autonomous_movement=buffer_read(argument0, buffer_u8);
+    argument1.autonomous_movement_speed=buffer_read(argument0, buffer_u8);
+    argument1.autonomous_movement_frequency=buffer_read(argument0, buffer_u8);
+    argument1.autonomous_movement_route=buffer_read(argument0, buffer_u8);
+    
+    var n_move_routes=buffer_read(argument0, buffer_u8);
+    
+    repeat(n_move_routes){
+    
+    }
+}
 
 // this should not be instantiated on its own and does not
 // get collision information

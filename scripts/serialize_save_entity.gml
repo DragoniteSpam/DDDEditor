@@ -27,3 +27,17 @@ buffer_write(argument0, buffer_u16, argument1.rot_zz);
 buffer_write(argument0, buffer_f32, argument1.scale_xx);
 buffer_write(argument0, buffer_f32, argument1.scale_yy);
 buffer_write(argument0, buffer_f32, argument1.scale_zz);
+
+// DataVersions.OPTIONS_ON_ENTITIES_WORKS
+
+buffer_write(argument0, buffer_u8, argument1.autonomous_movement);
+buffer_write(argument0, buffer_u8, argument1.autonomous_movement_speed);
+buffer_write(argument0, buffer_u8, argument1.autonomous_movement_frequency);
+buffer_write(argument0, buffer_u8, argument1.autonomous_movement_route);
+
+var n_move_routes=ds_list_size(argument1.movement_routes);
+buffer_write(argument0, buffer_u8, n_move_routes);
+
+for (var i=0; i<n_move_routes; i++){
+    var route=argument1.movement_routes[| i];
+}

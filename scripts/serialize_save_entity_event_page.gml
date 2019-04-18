@@ -31,12 +31,13 @@ buffer_write(argument0, buffer_f32, argument1.condition_variable_global_value);
 buffer_write(argument0, buffer_u8, argument1.condition_variable_self_comparison);
 buffer_write(argument0, buffer_f32, argument1.condition_variable_self_value);
 
-buffer_write(argument0, buffer_u8, argument1.autonomous_movement);
+// these have been removed but i don't feel like screwing with versioning
+
+/*buffer_write(argument0, buffer_u8, argument1.autonomous_movement);
 buffer_write(argument0, buffer_u8, argument1.autonomous_movement_speed);
-buffer_write(argument0, buffer_u8, argument1.autonomous_movement_frequency);
+buffer_write(argument0, buffer_u8, argument1.autonomous_movement_frequency);*/
 // skip the move route stuff for now
 
-// these have been removed but i don't feel like screwing with versioning
 /*var bools=pack(argument1.option_animate_movement0,
     argument1.option_animate_idle0,
     argument1.option_direction_fix0);*/

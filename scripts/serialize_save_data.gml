@@ -69,5 +69,6 @@ enum DataVersions {
     DATADATA_DEFINITIONS        =11,
     NOT_STUPID_DATA_SIZE        =12,
     OPTIONS_ON_ENTITIES         =13,
+    OPTIONS_ON_ENTITIES_WORKS   =14,
     _CURRENT                    /* = whatever the last one is + 1 */
 }
