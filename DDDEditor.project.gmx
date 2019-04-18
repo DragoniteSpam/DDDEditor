@@ -546,6 +546,7 @@
             <script>scripts\dialog_create_entity_get_event_entrypoint.gml</script>
             <script>scripts\dialog_create_entity_event_page.gml</script>
             <script>scripts\dialog_create_entity_autonomous_movement.gml</script>
+            <script>scripts\dialog_create_entity_move_route.gml</script>
           </scripts>
           <scripts name="help">
             <script>scripts\dialog_data_type_disable.gml</script>
@@ -833,11 +834,12 @@
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
           <script>scripts\omu_entity_add_move_route.gml</script>
-          <script>scripts\omu_entity_set_auto_move_route.gml</script>
-          <script>scripts\omu_entity_remove_auto_move_route.gml</script>
           <script>scripts\omu_entity_get_event.gml</script>
+          <script>scripts\omu_entity_remove_auto_move_route.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
           <script>scripts\omu_entity_remove_move_route.gml</script>
+          <script>scripts\omu_entity_set_auto_move_route.gml</script>
+          <script>scripts\omu_entity_edit_move_route.gml</script>
         </scripts>
         <scripts name="data etc">
           <script>scripts\omu_data_add.gml</script>

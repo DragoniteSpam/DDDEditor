@@ -42,11 +42,10 @@ var n=8;
 var el_move_routes=create_list(c2+16, yy, "Move Routes", "<No move routes>", ew, eh, n, null, false, dg);
 el_move_routes.render=ui_render_list_move_routes;
 el_move_routes.entries_are=ListEntries.INSTANCES;
-el_move_routes.colorize=false;
 yy=yy+ui_get_list_height(el_move_routes)+spacing;
 dg.el_move_routes=el_move_routes;
 
-var el_move_route_edit=create_button(c2+16, yy, "Edit Move Route", ew, eh, fa_center, null, dg);
+var el_move_route_edit=create_button(c2+16, yy, "Edit Move Route", ew, eh, fa_center, omu_entity_edit_move_route, dg);
 yy=yy+el_move_route_edit.height+spacing;
 
 var el_move_route_add=create_button(c2+16, yy, "Add Move Route", ew, eh, fa_center, omu_entity_add_move_route, dg);

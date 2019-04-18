@@ -80,7 +80,7 @@ enum MoveRouteActions {
     TRANSPARENT_ON,
     TRANSPARENT_OFF,
     
-    CHANGE_GRAPHIC,             // [id, guid graphic id]
+    CHANGE_GRAPHIC,             // [id, guid graphic id]        - this will be implemented differently for different entity types - texture uv vs model vs npc etc
     CHANGE_OPACITY,             // [id, f32 opacity]
     CHANGE_TINT,                // [id, u32 color]
     PLAY_SE,                    // [id, guid sound effect id]
