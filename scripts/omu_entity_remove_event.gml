@@ -1,6 +1,6 @@
 /// void omu_entity_remove_event(UIThing);
 
-var list=Camera.selected_entities
+var list=Camera.selected_entities;
 
 if (!ds_list_empty(list)){
     var index=ui_list_selection(Camera.ui.element_entity_events);

@@ -7,6 +7,7 @@ var dh=640;
 var list=Camera.selected_entities;
 var entity=list[| 0];
 var dg=dialog_create(dw, dh, "Autonomous Movement", dialog_default, dc_close_no_questions_asked, argument0);
+dg.entity=entity;
 
 var columns=2;
 var ew=(dw-columns*32)/columns;
@@ -38,25 +39,32 @@ yy=yy+ui_get_radio_array_height(el_movement_frequency)+spacing;
 yy=64;
 var n=8;
 
-el_move_routes=create_list(c2+16, yy, "Move Routes", "<No move routes>", ew, eh, n, null, false, dg);
+var el_move_routes=create_list(c2+16, yy, "Move Routes", "<No move routes>", ew, eh, n, null, false, dg);
+el_move_routes.render=ui_render_list_move_routes;
+el_move_routes.entries_are=ListEntries.INSTANCES;
 el_move_routes.colorize=false;
 yy=yy+ui_get_list_height(el_move_routes)+spacing;
+dg.el_move_routes=el_move_routes;
 
-el_move_route_edit=create_button(c2+16, yy, "Edit Move Route", ew, eh, fa_center, null, dg);
+var el_move_route_edit=create_button(c2+16, yy, "Edit Move Route", ew, eh, fa_center, null, dg);
 yy=yy+el_move_route_edit.height+spacing;
 
-el_move_route_add=create_button(c2+16, yy, "Add Move Route", ew, eh, fa_center, null, dg);
+var el_move_route_add=create_button(c2+16, yy, "Add Move Route", ew, eh, fa_center, omu_entity_add_move_route, dg);
 yy=yy+el_move_route_edit.height+spacing;
 
-el_move_route_delete=create_button(c2+16, yy, "Delete Move Route", ew, eh, fa_center, null, dg);
+var el_move_route_delete=create_button(c2+16, yy, "Delete Move Route", ew, eh, fa_center, omu_entity_remove_move_route, dg);
 yy=yy+el_move_route_delete.height+spacing;
+
+var el_move_route_auto=create_button(c2+16, yy, "Set Auto", ew/2-16, eh, fa_center, omu_entity_set_auto_move_route, dg);
+var el_move_route_auto_remove=create_button(c2+16+ew/2+16, yy, "Remove Auto", ew/2-16, eh, fa_center, omu_entity_remove_auto_move_route, dg);
+yy=yy+el_move_route_auto_remove.height+spacing;
 
 var b_width=128;
 var b_height=32;
 var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
 ds_list_add(dg.contents, el_movement, el_movement_speed, el_movement_frequency,
-    el_move_routes, el_move_route_edit, el_move_route_add, el_move_route_delete,
+    el_move_routes, el_move_route_edit, el_move_route_add, el_move_route_delete, el_move_route_auto, el_move_route_auto_remove,
     el_confirm);
 
 keyboard_string="";

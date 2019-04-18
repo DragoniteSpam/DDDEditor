@@ -70,5 +70,6 @@ enum DataVersions {
     NOT_STUPID_DATA_SIZE        =12,
     OPTIONS_ON_ENTITIES         =13,
     OPTIONS_ON_ENTITIES_WORKS   =14,
+    MOVE_ROUTES                 =15,
     _CURRENT                    /* = whatever the last one is + 1 */
 }

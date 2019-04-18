@@ -33,11 +33,13 @@ buffer_write(argument0, buffer_f32, argument1.scale_zz);
 buffer_write(argument0, buffer_u8, argument1.autonomous_movement);
 buffer_write(argument0, buffer_u8, argument1.autonomous_movement_speed);
 buffer_write(argument0, buffer_u8, argument1.autonomous_movement_frequency);
-buffer_write(argument0, buffer_u8, argument1.autonomous_movement_route);
+// corrected in DataVersions.MOVE_ROUTES, was previously a u8
+buffer_write(argument0, buffer_u32, argument1.autonomous_movement_route);
 
 var n_move_routes=ds_list_size(argument1.movement_routes);
 buffer_write(argument0, buffer_u8, n_move_routes);
 
 for (var i=0; i<n_move_routes; i++){
-    var route=argument1.movement_routes[| i];
+    // DataVersions.MOVE_ROUTES
+    serialize_save_move_route(argument0, argument1.movement_routes[| i]);
 }

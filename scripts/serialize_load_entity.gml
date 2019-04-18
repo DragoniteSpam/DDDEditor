@@ -53,12 +53,19 @@ if (argument2>=DataVersions.OPTIONS_ON_ENTITIES_WORKS){
     argument1.autonomous_movement=buffer_read(argument0, buffer_u8);
     argument1.autonomous_movement_speed=buffer_read(argument0, buffer_u8);
     argument1.autonomous_movement_frequency=buffer_read(argument0, buffer_u8);
-    argument1.autonomous_movement_route=buffer_read(argument0, buffer_u8);
+    if (argument2>=DataVersions.MOVE_ROUTES){
+        argument1.autonomous_movement_route=buffer_read(argument0, buffer_u32);
+    } else {
+        // whoops
+        buffer_read(argument0, buffer_u8)
+    }
     
     var n_move_routes=buffer_read(argument0, buffer_u8);
     
-    repeat(n_move_routes){
-    
+    if (argument2>=DataVersions.MOVE_ROUTES){
+        repeat(n_move_routes){
+            serialize_load_move_route(argument0, argument1, argument2);
+        }
     }
 }
 

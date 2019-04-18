@@ -832,8 +832,12 @@
         </scripts>
         <scripts name="entities">
           <script>scripts\omu_entity_add_event.gml</script>
+          <script>scripts\omu_entity_add_move_route.gml</script>
+          <script>scripts\omu_entity_set_auto_move_route.gml</script>
+          <script>scripts\omu_entity_remove_auto_move_route.gml</script>
           <script>scripts\omu_entity_get_event.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
+          <script>scripts\omu_entity_remove_move_route.gml</script>
         </scripts>
         <scripts name="data etc">
           <script>scripts\omu_data_add.gml</script>
@@ -912,6 +916,7 @@
           <script>scripts\ui_render_image_button_autotile.gml</script>
           <script>scripts\ui_render_image_button_autotile_preview.gml</script>
           <script>scripts\ui_render_list_event_node.gml</script>
+          <script>scripts\ui_render_list_move_routes.gml</script>
           <script>scripts\ui_render_list_event_custom.gml</script>
           <script>scripts\ui_render_list_event_custom_set_data.gml</script>
           <script>scripts\ui_render_list_entity_events.gml</script>
@@ -1025,6 +1030,7 @@
           <script>scripts\serialize_load_entity_tile.gml</script>
           <scripts name="ext">
             <script>scripts\serialize_load_entity_event_page.gml</script>
+            <script>scripts\serialize_load_move_route.gml</script>
           </scripts>
         </scripts>
         <script>scripts\serialize_load_autotiles_meta.gml</script>
@@ -1051,6 +1057,7 @@
           <script>scripts\serialize_save_entity_tile.gml</script>
           <scripts name="ext">
             <script>scripts\serialize_save_entity_event_page.gml</script>
+            <script>scripts\serialize_save_move_route.gml</script>
           </scripts>
         </scripts>
         <script>scripts\serialize_save_autotiles_meta.gml</script>
@@ -1111,6 +1118,7 @@
           <object>objects\DataProperty</object>
           <object>objects\DataInstantiated</object>
         </objects>
+        <object>objects\DataMoveRoute</object>
       </objects>
     </objects>
     <objects name="Selections">

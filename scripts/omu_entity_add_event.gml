@@ -2,7 +2,7 @@
 
 var catch=argument0;
 
-var list=Camera.selected_entities
+var list=Camera.selected_entities;
 
 if (!ds_list_empty(list)){
     var event_list=list[| 0].object_events;
