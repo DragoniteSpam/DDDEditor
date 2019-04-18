@@ -29,20 +29,24 @@
  * Projection variables
  */
 
-x=0;
-y=0;
-z=100;
+ini_open(DATA_INI);
+x=ini_read_real("Camera", "x", 0);
+y=ini_read_real("Camera", "y", 0);
+z=ini_read_real("Camera", "z", 100);
 
-xto=512;
-yto=512;
-zto=0;
+xto=ini_read_real("Camera", "xto", 512);
+yto=ini_read_real("Camera", "yto", 512);
+zto=ini_read_real("Camera", "zto", 0);
 
-xup=0;
-yup=0;
-zup=1;
+xup=ini_read_real("Camera", "xup", 0);
+yup=ini_read_real("Camera", "yup", 0);
+zup=ini_read_real("Camera", "zup", 1);
 
-fov=50;
-pitch=0;
+fov=ini_read_real("Camera", "fov", 50);
+pitch=ini_read_real("Camera", "pitch", 0);
+ini_close();
+
+alarm[ALARM_CAMERA_SAVE]=room_speed*CAMERA_SAVE_FREQUENCY;
 
 /*
  * Editor modes
@@ -228,6 +232,48 @@ shd_value_at_tex_offset=array_create(MAX_AUTOTILE_SHADER_POSITIONS);
 
 event_canvas_active_node=noone;
 event_canvas_active_node_index=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// we're okay with this being an alarm because it can happen on its own regardless of what else is happening
+
+alarm[ALARM_CAMERA_SAVE]=room_speed*CAMERA_SAVE_FREQUENCY;
+
+ini_open(DATA_INI);
+ini_write_real("Camera", "x", x);
+ini_write_real("Camera", "y", y);
+ini_write_real("Camera", "z", z);
+
+ini_write_real("Camera", "xto", xto);
+ini_write_real("Camera", "yto", yto);
+ini_write_real("Camera", "zto", zto);
+
+ini_write_real("Camera", "xup", xup);
+ini_write_real("Camera", "yup", yup);
+ini_write_real("Camera", "zup", zup);
+
+ini_write_real("Camera", "fov", fov);
+ini_write_real("Camera", "pitch", pitch);
+ini_close();
 </string>
           </argument>
         </arguments>
