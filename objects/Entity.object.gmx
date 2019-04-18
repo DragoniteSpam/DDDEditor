@@ -28,6 +28,13 @@
             <string>name='Entity';
 etype=ETypes.ENTITY;
 
+do {
+    // range: [1, 2147483647] - 0 is "null"
+    GUID=irandom((1&lt;&lt;31)-2)+1;
+} until(!ds_map_exists(Stuff.all_guids, GUID));
+
+ds_map_add(Stuff.all_guids, GUID, id);
+
 ActiveMap.population[ETypes.ENTITY]++;
 
 // for fusing all static objects such as ground tiles and houses together,
@@ -161,8 +168,6 @@ on_select=safc_on_entity;
           <argument>
             <kind>1</kind>
             <string>entity_destroy();
-
-ds_list_destroy_instances(movement_routes);
 </string>
           </argument>
         </arguments>

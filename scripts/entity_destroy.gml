@@ -16,3 +16,7 @@ if (static){
 }
 
 ds_list_destroy(object_events);
+
+ds_map_delete(Stuff.all_guids, GUID);
+
+ds_list_destroy_instances(movement_routes);
