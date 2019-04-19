@@ -671,6 +671,9 @@
           <script>scripts\uivc_entity_event_name.gml</script>
           <script>scripts\uivc_entity_event_enable.gml</script>
           <script>scripts\uivc_entity_event_enable_switch_global.gml</script>
+          <script>scripts\uivc_entity_move_route_loop.gml</script>
+          <script>scripts\uivc_entity_move_route_skip.gml</script>
+          <script>scripts\uivc_entity_move_route_wait.gml</script>
           <script>scripts\uivc_entity_event_enable_switch_self.gml</script>
           <script>scripts\uivc_entity_event_enable_variable_global.gml</script>
           <script>scripts\uivc_entity_event_enable_variable_self.gml</script>

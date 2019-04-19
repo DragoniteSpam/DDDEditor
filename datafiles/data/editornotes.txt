@@ -11,17 +11,6 @@ Special NPCs representing party member(s)
 List of character graphics, similar to the autotiles one
 
 Add autonomous_movement_route to save/load
-Create a DataMoveRoute object: {
-	name,
-	repeat,
-	skip if can't move,
-	wait for completion,
-	steps: {
-		[action0 id, params...],
-		[action1 id, params...],
-		[action2 id, params...],
-	}
-}
 
 Somehow define the different move route actions somewhere (and print them out)
 

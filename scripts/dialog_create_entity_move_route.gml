@@ -1,7 +1,7 @@
 /// void dialog_create_entity_move_route(Dialog, DataMoveRoute);
 
 var dw=960;
-var dh=640;
+var dh=560;
 
 // you can assume that this is valid data because this won't be called otherwise
 var list=Camera.selected_entities;
@@ -28,7 +28,7 @@ var yy=64;
 var spacing=16;
 var spacing2=0;
 
-var n=16;
+var n=10;
 
 var el_name=create_input(16, yy, "Name:", ew*2, eh, null, "", argument1.name, "16 chars", validate_string, ui_value_string, 0, 1, 16, vx1, vy1, vx2+c2, vy2, dg);
 
@@ -41,16 +41,19 @@ el_steps.numbered=true;
 yy=yy+ui_get_list_height(el_steps)+spacing;
 dg.el_steps=el_steps;
 
-var el_step_edit=create_button(16, yy, "Edit Move Route", ew, eh, fa_center, null, dg);
+var el_step_edit=create_button(16, yy, "Edit Step", ew, eh, fa_center, null, dg);
 yy=yy+el_step_edit.height+spacing;
 
-var el_repeat=create_checkbox(16, yy, "Loop Route", ew, eh, null, "", argument1.repeat_action, argument0);
+var el_step_remove=create_button(16, yy, "Remove Step", ew, eh, fa_center, null, dg);
+yy=yy+el_step_remove.height+spacing;
+
+var el_repeat=create_checkbox(16, yy, "Loop Route", ew, eh, uivc_entity_move_route_loop, "", argument1.repeat_action, dg);
 yy=yy+el_repeat.height+spacing;
 
-var el_skip=create_checkbox(16, yy, "Skip If Blocked", ew, eh, null, "", argument1.skip, argument0);
+var el_skip=create_checkbox(16, yy, "Skip If Blocked", ew, eh, uivc_entity_move_route_skip, "", argument1.skip, dg);
 yy=yy+el_skip.height+spacing;
 
-var el_wait=create_checkbox(16, yy, "Wait For Completion", ew, eh, null, "", argument1.wait, argument0);
+var el_wait=create_checkbox(16, yy, "Wait For Completion", ew, eh, uivc_entity_move_route_wait, "", argument1.wait, dg);
 yy=yy+el_wait.height+spacing;
 
 yy=yy_grid;
@@ -153,7 +156,7 @@ var b_width=128;
 var b_height=32;
 var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
-ds_list_add(dg.contents, el_name, el_steps, el_step_edit, el_repeat, el_skip, el_wait,
+ds_list_add(dg.contents, el_name, el_steps, el_step_edit, el_step_remove, el_repeat, el_skip, el_wait,
     // first column of commands
     el_cmd_move_down, el_cmd_move_left, el_cmd_move_right, el_cmd_move_up, el_cmd_move_ll, el_cmd_move_lr,
     el_cmd_move_ul, el_cmd_move_ur, el_cmd_move_random, el_cmd_move_towards, el_cmd_move_away, el_cmd_move_forward,

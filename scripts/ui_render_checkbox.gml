@@ -17,6 +17,12 @@ var s2=8;
 
 if (!argument0.interactive){
     draw_rectangle_colour(tx+16-s2, ty-s2, tx+16+s2, ty+s2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
+} else {
+    if (dialog_is_active(argument0.root)){
+        if (mouse_within_rectangle(x1, y1, x2, y2)){
+            draw_rectangle_colour(tx+16-s2, ty-s2, tx+16+s2, ty+s2, c_ltgray, c_ltgray, c_ltgray, c_ltgray, false);
+        }
+    }
 }
 draw_rectangle(tx+16-s2, ty-s2, tx+16+s2, ty+s2, true);
 
