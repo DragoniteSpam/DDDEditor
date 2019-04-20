@@ -10,6 +10,8 @@ var yy=0;
 var zz=0;         // this will not work well with sloped terrain
 var n_actions=0;
 
+argument0.extra=false;
+
 // essentailly the rng seed
 var c=Stuff.color_lookup[argument0.GUID%array_length_1d(Stuff.color_lookup)];
 var cube_size=2;
@@ -33,6 +35,10 @@ for (var i=0; i<ds_list_size(argument0.steps); i++){
         case MoveRouteActions.MOVE_BACKWARD:
         case MoveRouteActions.MOVE_TO:
         case MoveRouteActions.MOVE_JUMP:
+            argument0.extra=true;
+            argument0.extra_xx=xx;
+            argument0.extra_yy=yy;
+            argument0.extra_zz=zz;
             stop=true;
             break;
         // actual things

@@ -14,8 +14,6 @@ Add autonomous_movement_route to save/load
 
 Somehow define the different move route actions somewhere (and print them out)
 
-Moves routes - and everything about them - selected entities with a Custom move route should have their
-	path illustrated in the 3D view so you can visualize where they go
 Maybe make the event conditions work?
 Ask about following:
 	 - Following party members, and if so, can you interact with them on the overworld or are

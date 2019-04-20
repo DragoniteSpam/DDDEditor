@@ -272,6 +272,17 @@
       <script>scripts\draw_event_node_delete.gml</script>
       <script>scripts\draw_event_node_custom_info.gml</script>
       <script>scripts\draw_event_node_title.gml</script>
+      <scripts name="create etc">
+        <script>scripts\event_create.gml</script>
+        <script>scripts\event_create_node.gml</script>
+        <script>scripts\event_connect_node.gml</script>
+        <script>scripts\event_seek_node.gml</script>
+        <script>scripts\event_view_node.gml</script>
+        <script>scripts\event_get_node.gml</script>
+        <scripts name="instantiated">
+          <script>scripts\create_instantiated_event.gml</script>
+        </scripts>
+      </scripts>
     </scripts>
     <script>scripts\null.gml</script>
     <scripts name="Math">
@@ -1070,17 +1081,6 @@
       <script>scripts\sprite_save_fixed.gml</script>
       <script>scripts\setting_save_real.gml</script>
       <script>scripts\setting_save_string.gml</script>
-    </scripts>
-    <scripts name="event stuff">
-      <script>scripts\event_create.gml</script>
-      <script>scripts\event_create_node.gml</script>
-      <script>scripts\event_connect_node.gml</script>
-      <script>scripts\event_seek_node.gml</script>
-      <script>scripts\event_view_node.gml</script>
-      <script>scripts\event_get_node.gml</script>
-      <scripts name="instantiated">
-        <script>scripts\create_instantiated_event.gml</script>
-      </scripts>
     </scripts>
     <scripts name="serialization">
       <scripts name="load">
