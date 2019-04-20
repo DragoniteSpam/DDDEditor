@@ -674,6 +674,7 @@
           <script>scripts\uivc_entity_move_route_loop.gml</script>
           <script>scripts\uivc_entity_move_route_skip.gml</script>
           <script>scripts\uivc_entity_move_route_wait.gml</script>
+          <script>scripts\uivc_entity_move_route_name.gml</script>
           <script>scripts\uivc_entity_event_enable_switch_self.gml</script>
           <script>scripts\uivc_entity_event_enable_variable_global.gml</script>
           <script>scripts\uivc_entity_event_enable_variable_self.gml</script>
@@ -843,6 +844,54 @@
           <script>scripts\omu_entity_remove_move_route.gml</script>
           <script>scripts\omu_entity_set_auto_move_route.gml</script>
           <script>scripts\omu_entity_edit_move_route.gml</script>
+          <scripts name="move routes">
+            <script>scripts\omu_mr_move_up.gml</script>
+            <script>scripts\omu_mr_move_down.gml</script>
+            <script>scripts\omu_mr_move_left.gml</script>
+            <script>scripts\omu_mr_move_right.gml</script>
+            <script>scripts\omu_mr_move_lower_left.gml</script>
+            <script>scripts\omu_mr_move_lower_right.gml</script>
+            <script>scripts\omu_mr_move_upper_left.gml</script>
+            <script>scripts\omu_mr_move_upper_right.gml</script>
+            <script>scripts\omu_mr_move_random.gml</script>
+            <script>scripts\omu_mr_move_towards_player.gml</script>
+            <script>scripts\omu_mr_move_away_player.gml</script>
+            <script>scripts\omu_mr_move_forward.gml</script>
+            <script>scripts\omu_mr_move_backward.gml</script>
+            <script>scripts\omu_mr_move_jump.gml</script>
+            <script>scripts\omu_mr_move_actually_jump.gml</script>
+            <script>scripts\omu_mr_wait.gml</script>
+            <script>scripts\omu_mr_turn_down.gml</script>
+            <script>scripts\omu_mr_turn_left.gml</script>
+            <script>scripts\omu_mr_turn_right.gml</script>
+            <script>scripts\omu_mr_turn_up.gml</script>
+            <script>scripts\omu_mr_turn_90_right.gml</script>
+            <script>scripts\omu_mr_turn_90_left.gml</script>
+            <script>scripts\omu_mr_turn_180.gml</script>
+            <script>scripts\omu_mr_turn_90_random.gml</script>
+            <script>scripts\omu_mr_turn_random.gml</script>
+            <script>scripts\omu_mr_turn_toward_player.gml</script>
+            <script>scripts\omu_mr_turn_away_player.gml</script>
+            <script>scripts\omu_mr_switch_on.gml</script>
+            <script>scripts\omu_mr_switch_off.gml</script>
+            <script>scripts\omu_mr_change_frequency.gml</script>
+            <script>scripts\omu_mr_change_speed.gml</script>
+            <script>scripts\omu_mr_walking_on.gml</script>
+            <script>scripts\omu_mr_stepping_on.gml</script>
+            <script>scripts\omu_mr_direction_fix_on.gml</script>
+            <script>scripts\omu_mr_direction_fix_off.gml</script>
+            <script>scripts\omu_mr_stepping_off.gml</script>
+            <script>scripts\omu_mr_walking_off.gml</script>
+            <script>scripts\omu_mr_solid_off.gml</script>
+            <script>scripts\omu_mr_solid_on.gml</script>
+            <script>scripts\omu_mr_transparent_on.gml</script>
+            <script>scripts\omu_mr_transparent_off.gml</script>
+            <script>scripts\omu_mr_change_graphic.gml</script>
+            <script>scripts\omu_mr_change_alpha.gml</script>
+            <script>scripts\omu_mr_change_color.gml</script>
+            <script>scripts\omu_mr_play_se.gml</script>
+            <script>scripts\omu_mr_event.gml</script>
+          </scripts>
         </scripts>
         <scripts name="data etc">
           <script>scripts\omu_data_add.gml</script>
@@ -930,6 +979,7 @@
           <script>scripts\ui_render_list_data_instances.gml</script>
           <script>scripts\ui_render_text_data_name.gml</script>
           <script>scripts\ui_render_list_data_enum.gml</script>
+          <script>scripts\ui_render_list_move_route_steps.gml</script>
           <script>scripts\ui_render_list_data_data_only.gml</script>
           <script>scripts\ui_render_list_data_properties.gml</script>
           <script>scripts\ui_render_list_event_custom_properties.gml</script>

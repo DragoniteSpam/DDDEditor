@@ -22,7 +22,8 @@ repeat(n_steps){
             var xx=buffer_read(argument0, buffer_u16);
             var yy=buffer_read(argument0, buffer_u16);
             var zz=buffer_read(argument0, buffer_u16);
-            var data=array_compose(type, map, xx, yy, zz);
+            var dir=buffer_read(argument0, buffer_u8);
+            var data=array_compose(type, map, xx, yy, zz, dir);
             break;
         case MoveRouteActions.MOVE_ACTUALLY_JUMP:
             var height=buffer_read(argument0, buffer_f32);

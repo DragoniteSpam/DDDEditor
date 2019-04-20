@@ -48,7 +48,7 @@ enum MoveRouteActions {
     MOVE_AWAY_PLAYER,
     MOVE_FORWARD,
     MOVE_BACKWARD,
-    MOVE_JUMP,                  // [id, string map id, u16 x, u16 y, u16 z]
+    MOVE_JUMP,                  // [id, string map id, u16 x, u16 y, u16 z, u8 direction]
     MOVE_ACTUALLY_JUMP,         // [id, f32 height]
     
     WAIT,                       // [id, f32 time]
@@ -69,6 +69,7 @@ enum MoveRouteActions {
     SWITCH_OFF,                 // [id, u8 self switch index]
     CHANGE_SPEED,               // [id, u8 speed 0...5]
     CHANGE_FREQUENCY,           // [id, u8 frequency 0...4]
+    
     WALKING_ANIM_ON,
     WALKING_ANIM_OFF,
     STEPPING_ANIM_ON,
