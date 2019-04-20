@@ -31,6 +31,8 @@ repeat_action=false;
 skip=true;
 wait=true;
 
+buffer=noone;
+
 // [[action0 id, params...], [action1 id, params...], [action2 id, params]...]
 steps=ds_list_create();
 
@@ -111,6 +113,10 @@ enum MoveRouteActions {
           <argument>
             <kind>1</kind>
             <string>ds_list_destroy(steps);
+
+if (buffer!=noone){
+    vertex_delete_buffer(buffer);
+}
 </string>
           </argument>
         </arguments>

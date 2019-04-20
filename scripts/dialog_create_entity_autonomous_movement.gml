@@ -58,12 +58,16 @@ var el_move_route_auto=create_button(c2+16, yy, "Set Auto", ew/2-16, eh, fa_cent
 var el_move_route_auto_remove=create_button(c2+16+ew/2+16, yy, "Remove Auto", ew/2-16, eh, fa_center, omu_entity_remove_auto_move_route, dg);
 yy=yy+el_move_route_auto_remove.height+spacing;
 
+var el_move_route_make_visible=create_button(c2+16, yy, "Make Visible In Editor", ew, eh, fa_center, omu_entity_move_route_make_visible, dg);
+yy=yy+el_move_route_delete.height+spacing;
+
 var b_width=128;
 var b_height=32;
 var el_confirm=create_button(dw/2-b_width/2, dh-32-b_height/2, "Done", b_width, b_height, fa_center, dmu_dialog_commit, dg);
 
 ds_list_add(dg.contents, el_movement, el_movement_speed, el_movement_frequency,
     el_move_routes, el_move_route_edit, el_move_route_add, el_move_route_delete, el_move_route_auto, el_move_route_auto_remove,
+    el_move_route_make_visible,
     el_confirm);
 
 keyboard_string="";

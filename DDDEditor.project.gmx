@@ -475,6 +475,10 @@
       <script>scripts\guid_remove.gml</script>
       <script>scripts\data_clone.gml</script>
       <script>scripts\data_apply_all_guids.gml</script>
+      <scripts name="move routes">
+        <script>scripts\move_route_make_visible.gml</script>
+        <script>scripts\move_route_update_buffer.gml</script>
+      </scripts>
     </scripts>
     <script>scripts\debug.gml</script>
     <scripts name="controls">
@@ -840,6 +844,7 @@
           <script>scripts\omu_entity_add_move_route.gml</script>
           <script>scripts\omu_entity_get_event.gml</script>
           <script>scripts\omu_entity_remove_auto_move_route.gml</script>
+          <script>scripts\omu_entity_move_route_make_visible.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
           <script>scripts\omu_entity_remove_move_route.gml</script>
           <script>scripts\omu_entity_remove_move_route_step.gml</script>
@@ -1213,7 +1218,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="60">
+  <constants number="61">
+    <constant name="MAX_VISIBLE_MOVE_ROUTES">4</constant>
     <constant name="CAMERA_SAVE_FREQUENCY">5</constant>
     <constant name="ALARM_CAMERA_SAVE">0</constant>
     <constant name="c_ev_ghost">$0099cc</constant>
