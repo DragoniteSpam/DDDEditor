@@ -34,53 +34,53 @@ for (var i=0; i<ds_list_size(argument0.steps); i++){
         // actual things
         case MoveRouteActions.MOVE_DOWN:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            yy=yy+TILE_HEIGHT;
+            yy=yy+TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_LEFT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx-TILE_WIDTH;
+            xx=xx-TILE_WIDTH*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_RIGHT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx+TILE_WIDTH;
+            xx=xx+TILE_WIDTH*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_UP:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            yy=yy-TILE_HEIGHT;
+            yy=yy-TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_LOWER_LEFT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx-TILE_WIDTH;
-            yy=yy+TILE_HEIGHT;
+            xx=xx-TILE_WIDTH*data[@ 1];
+            yy=yy+TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_LOWER_RIGHT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx+TILE_WIDTH;
-            yy=yy+TILE_HEIGHT;
+            xx=xx+TILE_WIDTH*data[@ 1];
+            yy=yy+TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_UPPER_LEFT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx-TILE_WIDTH;
-            yy=yy-TILE_HEIGHT;
+            xx=xx-TILE_WIDTH*data[@ 1];
+            yy=yy-TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
         case MoveRouteActions.MOVE_UPPER_RIGHT:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            xx=xx+TILE_WIDTH;
-            yy=yy-TILE_HEIGHT;
+            xx=xx+TILE_WIDTH*data[@ 1];
+            yy=yy-TILE_HEIGHT*data[@ 1];
             vertex_point_line(buffer, xx, yy, 0, c, 1);
             n_actions++;
             break;
@@ -90,8 +90,8 @@ for (var i=0; i<ds_list_size(argument0.steps); i++){
             break;
         case MoveRouteActions.MOVE_ACTUALLY_JUMP:
             vertex_point_line(buffer, xx, yy, 0, c, 1);
-            vertex_point_line(buffer, xx, yy, TILE_DEPTH/2, c, 1);
-            vertex_cube_line(buffer, xx, yy, TILE_DEPTH/2, c, 1, cube_size);
+            vertex_point_line(buffer, xx, yy, TILE_DEPTH*data[@ 1], c, 1);
+            vertex_cube_line(buffer, xx, yy, TILE_DEPTH*data[@ 1], c, 1, cube_size);
             n_actions++;
             break;
     }

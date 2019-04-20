@@ -17,6 +17,22 @@ repeat(n_steps){
     var type=buffer_read(argument0, buffer_u16);
     
     switch (type){
+        // DataVersions.MOVE_ROUTE_MOVE_PARAMS
+        case MoveRouteActions.MOVE_DOWN:
+        case MoveRouteActions.MOVE_LEFT:
+        case MoveRouteActions.MOVE_RIGHT:
+        case MoveRouteActions.MOVE_UP:
+        case MoveRouteActions.MOVE_LOWER_LEFT:
+        case MoveRouteActions.MOVE_LOWER_RIGHT:
+        case MoveRouteActions.MOVE_UPPER_LEFT:
+        case MoveRouteActions.MOVE_UPPER_RIGHT:
+            if (argument2>=DataVersions.MOVE_ROUTE_MOVE_PARAMS){
+                var ext=buffer_read(argument0, buffer_u8);
+                var data=array_compose(type, ext);
+            } else {
+                var data=array_compose(type, 1);
+            }
+            break;
         case MoveRouteActions.MOVE_JUMP:
             var map=buffer_read(argument0, buffer_string);
             var xx=buffer_read(argument0, buffer_u16);

@@ -72,5 +72,6 @@ enum DataVersions {
     OPTIONS_ON_ENTITIES_WORKS   =14,
     MOVE_ROUTES                 =15,
     ENTITY_GUID                 =16,
+    MOVE_ROUTE_MOVE_PARAMS      =17,
     _CURRENT                    /* = whatever the last one is + 1 */
 }

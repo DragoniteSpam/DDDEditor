@@ -11,28 +11,28 @@ for (var i=0; i<ds_list_size(steps); i++){
     var data=steps[| i];
     switch (data[@ 0]){
         case MoveRouteActions.MOVE_DOWN:
-            ds_list_add(argument0.entries, "Move Down");
+            ds_list_add(argument0.entries, "Move Down: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_UP:
-            ds_list_add(argument0.entries, "Move Up");
+            ds_list_add(argument0.entries, "Move Up: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_LEFT:
-            ds_list_add(argument0.entries, "Move Left");
+            ds_list_add(argument0.entries, "Move Left: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_RIGHT:
-            ds_list_add(argument0.entries, "Move Right");
+            ds_list_add(argument0.entries, "Move Right: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_LOWER_LEFT:
-            ds_list_add(argument0.entries, "Move Lower Left");
+            ds_list_add(argument0.entries, "Move Lower Left: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_LOWER_RIGHT:
-            ds_list_add(argument0.entries, "Move Lower Right");
+            ds_list_add(argument0.entries, "Move Lower Right: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_UPPER_LEFT:
-            ds_list_add(argument0.entries, "Move Upper Left");
+            ds_list_add(argument0.entries, "Move Upper Left: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_UPPER_RIGHT:
-            ds_list_add(argument0.entries, "Move Upper Right");
+            ds_list_add(argument0.entries, "Move Upper Right: "+string(data[@ 1])+" steps");
             break;
         case MoveRouteActions.MOVE_RANDOM:
             ds_list_add(argument0.entries, "Move Randomly");

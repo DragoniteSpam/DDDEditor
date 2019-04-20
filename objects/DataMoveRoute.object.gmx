@@ -37,14 +37,14 @@ buffer=noone;
 steps=ds_list_create();
 
 enum MoveRouteActions {
-    MOVE_DOWN,
-    MOVE_LEFT,
-    MOVE_RIGHT,
-    MOVE_UP,
-    MOVE_LOWER_LEFT,
-    MOVE_LOWER_RIGHT,
-    MOVE_UPPER_LEFT,
-    MOVE_UPPER_RIGHT,
+    MOVE_DOWN,                  // [id, u8 distance]
+    MOVE_LEFT,                  // [id, u8 distance]
+    MOVE_RIGHT,                 // [id, u8 distance]
+    MOVE_UP,                    // [id, u8 distance]
+    MOVE_LOWER_LEFT,            // [id, u8 distance]
+    MOVE_LOWER_RIGHT,           // [id, u8 distance]
+    MOVE_UPPER_LEFT,            // [id, u8 distance]
+    MOVE_UPPER_RIGHT,           // [id, u8 distance]
     MOVE_RANDOM,
     MOVE_TOWARDS_PLAYER,
     MOVE_AWAY_PLAYER,

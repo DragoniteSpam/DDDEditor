@@ -17,6 +17,18 @@ for (var i=0; i<n_steps; i++){
     
     buffer_write(argument0, buffer_u16, step[@ 0]);
     switch(step[@ 0]){
+        // DataVersions.MOVE_ROUTE_MOVE_PARAMS
+        case MoveRouteActions.MOVE_DOWN:
+        case MoveRouteActions.MOVE_LEFT:
+        case MoveRouteActions.MOVE_RIGHT:
+        case MoveRouteActions.MOVE_UP:
+        case MoveRouteActions.MOVE_LOWER_LEFT:
+        case MoveRouteActions.MOVE_LOWER_RIGHT:
+        case MoveRouteActions.MOVE_UPPER_LEFT:
+        case MoveRouteActions.MOVE_UPPER_RIGHT:
+            buffer_write(argument0, buffer_u8, step[@ 1]);
+            break;
+        // were always there
         case MoveRouteActions.MOVE_JUMP:
             buffer_write(argument0, buffer_string, step[@ 1]);
             buffer_write(argument0, buffer_u16, step[@ 2]);
