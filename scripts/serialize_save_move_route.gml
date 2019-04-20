@@ -22,6 +22,7 @@ for (var i=0; i<n_steps; i++){
             buffer_write(argument0, buffer_u16, step[@ 2]);
             buffer_write(argument0, buffer_u16, step[@ 3]);
             buffer_write(argument0, buffer_u16, step[@ 4]);
+            buffer_write(argument0, buffer_u8, step[@ 5]);
             break;
         case MoveRouteActions.MOVE_ACTUALLY_JUMP:
             buffer_write(argument0, buffer_f32, step[@ 1]);
