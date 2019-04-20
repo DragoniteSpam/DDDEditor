@@ -52,10 +52,20 @@ for (var i=0; i<ds_list_size(ActiveMap.batches); i++){
 for (var i=0; i<ds_list_size(ActiveMap.batch_in_the_future); i++){
     var ent=ActiveMap.batch_in_the_future[| i];
     script_execute(ent.render, ent);
+    // batchable entities don't make use of move routes, so don't bother
 }
+
+var list_routes=ds_list_create();       // [buffer, x, y, z], positions are absolute
+
 for (var i=0; i<ds_list_size(ActiveMap.dynamic); i++){
     var ent=ActiveMap.dynamic[| i];
     script_execute(ent.render, ent);
+    for (var j=0; j<MAX_VISIBLE_MOVE_ROUTES; j++){
+        var route=guid_get(ent.visible_routes[j]);
+        if (route!=noone&&route.buffer!=noone){
+            ds_list_add(list_routes, array_compose(route.buffer, (ent.xx+0.5)*TILE_WIDTH, (ent.yy+0.5)*TILE_HEIGHT, (ent.zz+0.5)*TILE_DEPTH));
+        }
+    }
 }
 
 shader_set(shd_default);
@@ -71,3 +81,14 @@ for (var i=0; i<ds_list_size(selection); i++){
 d3d_set_depth(0);
 
 shader_reset();
+
+// because apparently you can't do color with a passthrough shader even though it has a color attribute
+for (var i=0; i<ds_list_size(list_routes); i++){
+    var data=list_routes[| i];
+    transform_set(data[@ 1], data[@ 2], data[@ 3], 0, 0, 0, 1, 1, 1);
+    vertex_submit(data[@ 0], pr_linestrip, -1);
+}
+// "set" overwrites the previous transform anyway
+transform_reset();
+
+ds_list_destroy(list_routes);

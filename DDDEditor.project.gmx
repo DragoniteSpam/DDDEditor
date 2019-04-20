@@ -406,6 +406,7 @@
       <script>scripts\graphics_create_grid.gml</script>
       <script>scripts\vertex_point_complete.gml</script>
       <script>scripts\vertex_point_line.gml</script>
+      <script>scripts\vertex_cube_line.gml</script>
       <scripts name="batching">
         <script>scripts\batch_tile.gml</script>
         <script>scripts\batch_autotile.gml</script>

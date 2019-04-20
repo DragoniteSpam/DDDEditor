@@ -17,13 +17,17 @@ for (var i=0; i<ds_list_size(argument0.entries); i++){
     }
     
     if (argument0.entries[| i].GUID==argument0.root.entity.autonomous_movement_route){
+        // drawn and autonomous
         if (is_drawn){
-            ds_list_add(argument0.entry_colors, c_red);
+            ds_list_add(argument0.entry_colors, c_purple);
+        // not drawn and autonomous
         } else {
             ds_list_add(argument0.entry_colors, c_blue);
         }
+    // drawn and not autonomous
     } else if (is_drawn){
-        ds_list_add(argument0.entry_colors, c_purple);
+        ds_list_add(argument0.entry_colors, c_red);
+    // not drawn and not autonomous
     } else {
         ds_list_add(argument0.entry_colors, c_black);
     }

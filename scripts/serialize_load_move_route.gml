@@ -76,3 +76,5 @@ repeat(n_steps){
     }
     ds_list_add(route.steps, data);
 }
+
+move_route_update_buffer(route);

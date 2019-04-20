@@ -285,6 +285,8 @@ enum Dimensions {
     THREED
 }
 
+color_lookup=array_compose(c_red, c_green, c_blue, c_orange, c_aqua, c_fuchsia, c_purple, c_teal);
+
 // global game settings
 
 game_map_starting="";
