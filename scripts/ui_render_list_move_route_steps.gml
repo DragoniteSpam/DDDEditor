@@ -50,10 +50,13 @@ for (var i=0; i<ds_list_size(steps); i++){
             ds_list_add(argument0.entries, "Move Backward");
             break;
         case MoveRouteActions.MOVE_JUMP:
-            ds_list_add(argument0.entries, data[@ 1]+"@"+string(data[@ 2])+", "+string(data[@ 3])+", "+string(data[@ 4]));
+            ds_list_add(argument0.entries, data[@ 1]+" @ "+string(data[@ 2])+", "+string(data[@ 3])+", "+string(data[@ 4]));
             break;
         case MoveRouteActions.MOVE_ACTUALLY_JUMP:
             ds_list_add(argument0.entries, "Jump: "+string(data[@ 1])+" cells/sec");
+            break;
+        case MoveRouteActions.MOVE_TO:
+            ds_list_add(argument0.entries, "To: "+string(data[@ 1])+", "+string(data[@ 2]));
             break;
         case MoveRouteActions.WAIT:
             ds_list_add(argument0.entries, "Wait for: "+string(data[@ 1])+" seconds");

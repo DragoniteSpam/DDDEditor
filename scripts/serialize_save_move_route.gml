@@ -70,5 +70,9 @@ for (var i=0; i<n_steps; i++){
             buffer_write(argument0, buffer_u32, step[@ 1]);
             buffer_write(argument0, buffer_u32, step[@ 2]);
             break;
+        case MoveRouteActions.MOVE_TO:
+            buffer_write(argument0, buffer_u16, step[@ 1]);
+            buffer_write(argument0, buffer_u16, step[@ 2]);
+            break;
     }
 }

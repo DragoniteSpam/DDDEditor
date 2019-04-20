@@ -85,10 +85,13 @@ var el_cmd_move_forward=create_button(c2+16, yy, "Move Forward", ew, eh, fa_cent
 yy=yy+el_cmd_move_forward.height+spacing2;
 var el_cmd_move_backward=create_button(c2+16, yy, "Move Back", ew, eh, fa_center, omu_mr_move_backward, dg);                // break visible route
 yy=yy+el_cmd_move_backward.height+spacing2;
+// open the form to edit these properties - store as relative coordinates
+var el_cmd_move_exactly=create_button(c2+16, yy, "Move To Exactly", ew, eh, fa_center, omu_mr_move_to_exactly, dg);
+yy=yy+el_cmd_move_exactly.height+spacing2;
 // open the form to edit these properties
 var el_cmd_move_jump=create_button(c2+16, yy, "Jump (Position)", ew, eh, fa_center, omu_mr_move_jump, dg);
-// open the form to edit these properties
 yy=yy+el_cmd_move_jump.height+spacing2;
+// open the form to edit these properties
 var el_cmd_move_hop=create_button(c2+16, yy, "Jump (in the air)", ew, eh, fa_center, omu_mr_move_actually_jump, dg);
 
 yy=yy_grid;
@@ -172,7 +175,7 @@ ds_list_add(dg.contents, el_name, el_steps, el_step_edit, el_step_remove, el_rep
     // first column of commands
     el_cmd_move_down, el_cmd_move_left, el_cmd_move_right, el_cmd_move_up, el_cmd_move_ll, el_cmd_move_lr,
     el_cmd_move_ul, el_cmd_move_ur, el_cmd_move_random, el_cmd_move_towards, el_cmd_move_away, el_cmd_move_forward,
-    el_cmd_move_backward, el_cmd_move_jump, el_cmd_move_hop,
+    el_cmd_move_backward, el_cmd_move_exactly, el_cmd_move_jump, el_cmd_move_hop,
     // second column of commands
     el_cmd_turn_down, el_cmd_turn_left, el_cmd_turn_right, el_cmd_turn_up, el_cmd_turn_90_right, el_cmd_turn_90_left,
     el_cmd_turn_180, el_cmd_turn_90_random, el_cmd_turn_random, el_cmd_turn_towards, el_cmd_turn_away, el_cmd_switch_on,

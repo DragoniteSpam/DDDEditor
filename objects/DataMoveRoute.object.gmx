@@ -88,7 +88,9 @@ enum MoveRouteActions {
     CHANGE_TINT,                // [id, u32 color]
     PLAY_SE,                    // [id, guid sound effect id]
     
-    EVENT                       // [id, guid event id, guid entrypoint id]
+    EVENT,                      // [id, guid event id, guid entrypoint id]
+    
+    MOVE_TO                     // [id, u16 x, u16 y]
 }
 </string>
           </argument>

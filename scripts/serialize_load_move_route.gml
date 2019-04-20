@@ -86,6 +86,11 @@ repeat(n_steps){
             var entrypoint=buffer_read(argument0, buffer_u32);
             var data=array_compose(type, event, entrypoint);
             break;
+        case MoveRouteActions.MOVE_TO:
+            var xx=buffer_read(argument0, buffer_u16);
+            var yy=buffer_read(argument0, buffer_u16);
+            var data=array_compose(type, xx, yy);
+            break;
         default:
             var data=array_compose(type);
             break;
