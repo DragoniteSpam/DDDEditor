@@ -36,7 +36,7 @@ yy=yy+el_name.height+spacing;
 
 var yy_grid=yy;
 
-var el_steps=create_list(16, yy, "Steps", "<No move route steps>", ew, eh2, n, null, false, dg);
+var el_steps=create_list(16, yy, "Steps: ", "<No move route steps>", ew, eh2, n, null, false, dg);
 el_steps.numbered=true;
 el_steps.render=ui_render_list_move_route_steps;
 yy=yy+ui_get_list_height(el_steps)+spacing;
@@ -45,7 +45,7 @@ dg.el_steps=el_steps;
 var el_step_edit=create_button(16, yy, "Edit Step", ew, eh, fa_center, null, dg);
 yy=yy+el_step_edit.height+spacing;
 
-var el_step_remove=create_button(16, yy, "Remove Step", ew, eh, fa_center, null, dg);
+var el_step_remove=create_button(16, yy, "Remove Step", ew, eh, fa_center, omu_entity_remove_move_route_step, dg);
 yy=yy+el_step_remove.height+spacing;
 
 var el_repeat=create_checkbox(16, yy, "Loop Route", ew, eh, uivc_entity_move_route_loop, "", argument1.repeat_action, dg);

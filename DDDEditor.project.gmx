@@ -842,6 +842,7 @@
           <script>scripts\omu_entity_remove_auto_move_route.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
           <script>scripts\omu_entity_remove_move_route.gml</script>
+          <script>scripts\omu_entity_remove_move_route_step.gml</script>
           <script>scripts\omu_entity_set_auto_move_route.gml</script>
           <script>scripts\omu_entity_edit_move_route.gml</script>
           <scripts name="move routes">
