@@ -22,6 +22,7 @@ vertex_cube_line(buffer, 0, 0, 0, c, 1, cube_size);
 for (var i=0; i<ds_list_size(argument0.steps); i++){
     var data=argument0.steps[| i];
     var stop=false;
+    
     switch (data[@ 0]){
         case MoveRouteActions.MOVE_RANDOM:
         case MoveRouteActions.MOVE_TOWARDS_PLAYER:
@@ -84,13 +85,13 @@ for (var i=0; i<ds_list_size(argument0.steps); i++){
             n_actions++;
             break;
         case MoveRouteActions.MOVE_JUMP:
-            vertex_point_line(buffer, xx, yy, 0, c, 1);
-            vertex_point_line(buffer, xx, yy, TILE_DEPTH/2, c, 1);
-            vertex_cube_line(buffer, xx, yy, TILE_DEPTH/2, c, 1, cube_size);
+            // dotted line
             n_actions++;
             break;
         case MoveRouteActions.MOVE_ACTUALLY_JUMP:
-            // dotted line
+            vertex_point_line(buffer, xx, yy, 0, c, 1);
+            vertex_point_line(buffer, xx, yy, TILE_DEPTH/2, c, 1);
+            vertex_cube_line(buffer, xx, yy, TILE_DEPTH/2, c, 1, cube_size);
             n_actions++;
             break;
     }
