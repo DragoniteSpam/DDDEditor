@@ -489,6 +489,7 @@
       <script>scripts\data_apply_all_guids.gml</script>
       <scripts name="move routes">
         <script>scripts\move_route_make_visible.gml</script>
+        <script>scripts\move_route_make_invisible.gml</script>
         <script>scripts\move_route_update_buffer.gml</script>
       </scripts>
     </scripts>
@@ -857,6 +858,7 @@
           <script>scripts\omu_entity_get_event.gml</script>
           <script>scripts\omu_entity_remove_auto_move_route.gml</script>
           <script>scripts\omu_entity_move_route_make_visible.gml</script>
+          <script>scripts\omu_entity_move_route_make_invisible.gml</script>
           <script>scripts\omu_entity_remove_event.gml</script>
           <script>scripts\omu_entity_remove_move_route.gml</script>
           <script>scripts\omu_entity_remove_move_route_step.gml</script>
