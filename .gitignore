@@ -1,11 +1,10 @@
 # potentially pocket monster-y data
 
-datafiles/data/graphics/**/*.png
-datafiles/data/graphics/**/*.bmp
-datafiles/data/graphics/**/*.gif
+datafiles/data/graphics/permanent/**/*.png
+datafiles/data/graphics/permanent/**/*.bmp
+datafiles/data/graphics/permanent/**/*.gif
+# the dummy files are allowed
 # please never use jpeg for game graphics
-
-sprites/images/b_chr_dummy_0.png
 
 # those annoying config files
 

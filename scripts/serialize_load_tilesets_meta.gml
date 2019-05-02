@@ -26,7 +26,11 @@ for (var i=0; i<n_tilesets; i++){
         at_tags[j]=buffer_read(argument0, buffer_u8);
     }
     
-    var ts=tileset_create(ts_name, at_array);
+    if (file_exists(PATH_PERMANENT+ts_name)){
+        var ts=tileset_create(PATH_PERMANENT+ts_name, at_array);
+    } else {
+        var ts=tileset_create(PATH_DUMMY+"b_tileset_dummy_overworld.png", at_array);
+    }
     
     // i really hope the garbage collector is doing its job with the old arrays
     

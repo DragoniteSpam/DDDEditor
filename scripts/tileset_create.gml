@@ -3,11 +3,11 @@
 // don't instantiate these outside of this script
 with (instance_create(0, 0, DataTileset)){
     picture_name=argument[0];
-    picture=sprite_add(PATH_TILESET+argument[0], 0, false, false, 0, 0);
+    picture=sprite_add(argument[0], 0, false, false, 0, 0);
     
     if (!sprite_exists(picture)){
         picture=b_tileset_checkers;
-        error_log("Missing tileset image; using default tileset instead: "+at_filename);
+        error_log("Missing tileset image; using default tileset instead: "+argument[0]);
     }
     
     array_clear(autotiles, noone);
