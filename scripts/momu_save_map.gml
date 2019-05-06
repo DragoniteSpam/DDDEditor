@@ -4,4 +4,4 @@ var catch=argument0;
 
 menu_activate(noone);
 
-serialize_save_map();
+Camera.schedule_save_map=true;

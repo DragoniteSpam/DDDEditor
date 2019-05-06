@@ -4,4 +4,4 @@ var catch=argument0;
 
 menu_activate(noone);
 
-serialize_save_data();
+Camera.schedule_save_data=true;

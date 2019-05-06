@@ -70,6 +70,9 @@ if (buffer==-1){
                 case SerializeThings.TILESET_META:
                     serialize_load_tilesets_meta(buffer, version);
                     break;
+                case SerializeThings.TILESET_ALL:
+                    serialize_load_tilesets_all(buffer, version);
+                    break;
                 case SerializeThings.EVENTS:
                     serialize_load_events(buffer, version);
                     break;

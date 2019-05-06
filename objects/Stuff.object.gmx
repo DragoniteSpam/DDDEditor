@@ -151,6 +151,9 @@ if (!directory_exists(PATH_VRA)){
     directory_create(PATH_VRA);
 }
 
+if (!directory_exists(PATH_RESOURCES)){
+    directory_create(PATH_RESOURCES);
+}
 
 // these are constants in DDD.gmx but we're allowed to change them here
 tile_width=32;

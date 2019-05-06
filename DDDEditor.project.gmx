@@ -1148,6 +1148,7 @@
       <script>scripts\error_show.gml</script>
       <script>scripts\instance_destroy_later.gml</script>
       <script>scripts\sprite_save_fixed.gml</script>
+      <script>scripts\sprite_to_surface.gml</script>
       <script>scripts\setting_save_real.gml</script>
       <script>scripts\setting_save_string.gml</script>
     </scripts>
@@ -1172,6 +1173,7 @@
         <script>scripts\serialize_load_map_contents_meta.gml</script>
         <script>scripts\serialize_load_map_contents_batch.gml</script>
         <script>scripts\serialize_load_tilesets_meta.gml</script>
+        <script>scripts\serialize_load_tilesets_all.gml</script>
         <script>scripts\serialize_load_global_meta.gml</script>
         <script>scripts\serialize_load_event_custom.gml</script>
         <scripts name="generic data">
@@ -1201,6 +1203,7 @@
         <script>scripts\serialize_save_global_meta.gml</script>
         <script>scripts\serialize_save_datadata.gml</script>
         <script>scripts\serialize_save_event_custom.gml</script>
+        <script>scripts\serialize_save_tilesets_all.gml</script>
         <scripts name="generic data">
           <script>scripts\serialize_save_generic.gml</script>
           <script>scripts\serialize_save_data_instances.gml</script>
@@ -1289,7 +1292,8 @@
   <rooms name="rooms">
     <room>rooms\editor</room>
   </rooms>
-  <constants number="63">
+  <constants number="64">
+    <constant name="PATH_RESOURCES">'.\data\resources\'</constant>
     <constant name="PATH_GRAPHICS">'.\data\graphics\'</constant>
     <constant name="ALARM_CAMERA_SAVE">0</constant>
     <constant name="AUTOTILE_AVAILABLE_MAX">100</constant>
